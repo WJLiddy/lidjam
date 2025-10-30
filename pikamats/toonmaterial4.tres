@@ -1,0 +1,21 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://30fe4my50hut"]
+
+[ext_resource type="Shader" uid="uid://blrd6qwn47q00" path="res://toon.gdshader" id="1_vdlnq"]
+[ext_resource type="Texture2D" uid="uid://0gurfxvea8ig" path="res://pika/Pikachu/images/pm0025_00_Eye1.png" id="2_vdlnq"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_vdlnq")
+shader_parameter/ToonRampOffset = 0.5
+shader_parameter/ToonRampSmoothness = 0.05
+shader_parameter/ToonRampTinting = Color(0, 0, 0, 1)
+shader_parameter/RimPower = 1.0
+shader_parameter/RimCutOff = 0.5
+shader_parameter/RimSmoothness = 0.05
+shader_parameter/RimLightBrightness = 20.0
+shader_parameter/SubSurfDistortion = 1.0
+shader_parameter/SubSurfTint = Color(0, 0, 0, 1)
+shader_parameter/SubSurfBrightness = 3.0
+shader_parameter/SubSurfCutoff = 0.5
+shader_parameter/SubSurfSmoothness = 0.05
+shader_parameter/Texture = ExtResource("2_vdlnq")
