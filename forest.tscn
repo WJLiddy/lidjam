@@ -3,13 +3,10 @@
 [ext_resource type="PackedScene" uid="uid://jyncanbkjjnq" path="res://player/player.tscn" id="1_lifw2"]
 [ext_resource type="Texture2D" uid="uid://bncvkmvao7hnr" path="res://programmerart/film.png" id="2_mvm06"]
 [ext_resource type="PackedScene" uid="uid://b3rjydnrybjy5" path="res://programmerart/cactus_col.tscn" id="2_stcry"]
+[ext_resource type="PackedScene" uid="uid://d2ea2p1ovaog0" path="res://environment/block_slope.tscn" id="3_dvh0n"]
 [ext_resource type="PackedScene" uid="uid://d2hj04av6wa6k" path="res://programmerart/animals/bear_coll.tscn" id="3_uq144"]
+[ext_resource type="PackedScene" uid="uid://grprv0ghyjgm" path="res://environment/block.tscn" id="4_d8dn4"]
 [ext_resource type="Script" uid="uid://d2prupksdovq7" path="res://ui.gd" id="4_vmuxp"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_a0tk4"]
-
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_r3fl7"]
-data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_a0tk4"]
 width = 95
@@ -27,47 +24,279 @@ size = Vector2i(900, 600)
 render_target_update_mode = 4
 
 [node name="Player" parent="SubViewportContainer/World" instance=ExtResource("1_lifw2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.0958216)
-
-[node name="Floor" type="MeshInstance3D" parent="SubViewportContainer/World"]
-transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 50, 0, -1.2643508, 0)
-mesh = SubResource("BoxMesh_a0tk4")
-skeleton = NodePath("../../..")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="SubViewportContainer/World/Floor"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="SubViewportContainer/World/Floor/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_r3fl7")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2, -1.9041784)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/World"]
 transform = Transform3D(1, 0, 0, 0, 0.73263806, 0.6806185, 0, -0.6806185, 0.73263806, 3.8745143, 11.156533, 2.1968136)
 
-[node name="cactus_tall" parent="SubViewportContainer/World" instance=ExtResource("2_stcry")]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 3.7255216, -0.71435076, -3.5212069)
+[node name="Critters" type="Node3D" parent="SubViewportContainer/World"]
 
-[node name="cactus_tall2" parent="SubViewportContainer/World" instance=ExtResource("2_stcry")]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -1.4070468, -0.71435076, -3.5212069)
+[node name="Bear_Rig" parent="SubViewportContainer/World/Critters" instance=ExtResource("3_uq144")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.2835321, 2.2564552, -11.554995)
 
-[node name="cactus_tall3" parent="SubViewportContainer/World" instance=ExtResource("2_stcry")]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -1.4070468, -0.71435076, -10.163826)
+[node name="Terrain" type="Node3D" parent="SubViewportContainer/World"]
 
-[node name="cactus_tall4" parent="SubViewportContainer/World" instance=ExtResource("2_stcry")]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 8.732435, -0.71435076, -10.163826)
+[node name="blockSlope" parent="SubViewportContainer/World/Terrain" instance=ExtResource("3_dvh0n")]
 
-[node name="Bear_Rig" parent="SubViewportContainer/World" instance=ExtResource("3_uq144")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.716468, -0.74354476, -9.554995)
+[node name="blockSlope4" parent="SubViewportContainer/World/Terrain" instance=ExtResource("3_dvh0n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 2, -18)
 
-[node name="OmniLight3D" type="OmniLight3D" parent="SubViewportContainer/World"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5089555, 2.2386918, -0.9491713)
-light_color = Color(0, 1, 1, 1)
+[node name="blockSlope5" parent="SubViewportContainer/World/Terrain" instance=ExtResource("3_dvh0n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 2, -18)
 
-[node name="OmniLight3D2" type="OmniLight3D" parent="SubViewportContainer/World"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6269312, -0.09861851, -0.9491713)
-light_color = Color(1, 0, 1, 1)
+[node name="blockSlope6" parent="SubViewportContainer/World/Terrain" instance=ExtResource("3_dvh0n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 2, -18)
 
-[node name="OmniLight3D3" type="OmniLight3D" parent="SubViewportContainer/World"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.229879, -0.09861851, 0.7009027)
-light_color = Color(0, 1, 0, 1)
+[node name="blockSlope7" parent="SubViewportContainer/World/Terrain" instance=ExtResource("3_dvh0n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 2, -18)
+
+[node name="block" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.9566475)
+
+[node name="block2" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.9566474)
+
+[node name="block3" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -3.9566474)
+
+[node name="block4" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -1.9566474)
+
+[node name="block5" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.9566474)
+
+[node name="block6" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7.9566474)
+
+[node name="block7" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -7.9566474)
+
+[node name="block8" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -5.9566474)
+
+[node name="block9" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -5.9566474)
+
+[node name="block10" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -7.9566474)
+
+[node name="block11" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -7.9566474)
+
+[node name="block12" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -5.9566474)
+
+[node name="block13" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -1.9566474)
+
+[node name="block14" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -3.9566474)
+
+[node name="block15" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -3.9566474)
+
+[node name="block16" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -1.9566474)
+
+[node name="block17" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -9.956648)
+
+[node name="block18" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -11.956648)
+
+[node name="block19" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -11.956648)
+
+[node name="block20" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -9.956648)
+
+[node name="block21" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -13.956648)
+
+[node name="block22" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -15.956648)
+
+[node name="block23" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -15.956648)
+
+[node name="block24" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -13.956648)
+
+[node name="block25" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -13.956648)
+
+[node name="block26" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -15.956648)
+
+[node name="block27" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -15.956648)
+
+[node name="block28" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -13.956648)
+
+[node name="block29" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -9.956648)
+
+[node name="block30" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -11.956648)
+
+[node name="block31" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -11.956648)
+
+[node name="block32" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -9.956648)
+
+[node name="block33" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -9.956648)
+
+[node name="block34" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -11.956648)
+
+[node name="block35" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -11.956648)
+
+[node name="block36" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -9.956648)
+
+[node name="block37" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -13.956648)
+
+[node name="block38" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -15.956648)
+
+[node name="block39" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -15.956648)
+
+[node name="block40" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -13.956648)
+
+[node name="block41" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -13.956648)
+
+[node name="block42" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -15.956648)
+
+[node name="block43" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -15.956648)
+
+[node name="block44" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -13.956648)
+
+[node name="block45" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -9.956648)
+
+[node name="block46" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -11.956648)
+
+[node name="block47" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -11.956648)
+
+[node name="block48" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -9.956648)
+
+[node name="block49" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -1.9566479)
+
+[node name="block50" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -3.9566479)
+
+[node name="block51" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -3.9566479)
+
+[node name="block52" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -1.9566479)
+
+[node name="block53" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -5.956648)
+
+[node name="block54" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -7.956648)
+
+[node name="block55" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -7.956648)
+
+[node name="block56" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -5.956648)
+
+[node name="block57" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -5.956648)
+
+[node name="block58" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -7.956648)
+
+[node name="block59" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -7.956648)
+
+[node name="block60" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -5.956648)
+
+[node name="block61" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -1.9566479)
+
+[node name="block62" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -3.9566479)
+
+[node name="block63" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -3.9566479)
+
+[node name="block64" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -1.9566479)
+
+[node name="block65" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 2, -19.956648)
+
+[node name="block66" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 2, -21.956648)
+
+[node name="block67" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 2, -21.956648)
+
+[node name="block68" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 2, -19.956648)
+
+[node name="block69" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 2, -23.956648)
+
+[node name="block70" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 2, -25.956648)
+
+[node name="block71" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 2, -25.956648)
+
+[node name="block72" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 2, -23.956648)
+
+[node name="block73" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 2, -23.956648)
+
+[node name="block74" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 2, -25.956648)
+
+[node name="block75" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 2, -25.956648)
+
+[node name="block76" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 2, -23.956648)
+
+[node name="block77" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 2, -19.956648)
+
+[node name="block78" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 2, -21.956648)
+
+[node name="block79" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 2, -21.956648)
+
+[node name="block80" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 2, -19.956648)
+
+[node name="Foliage" type="Node3D" parent="SubViewportContainer/World"]
+
+[node name="cactus_tall2" parent="SubViewportContainer/World/Foliage" instance=ExtResource("2_stcry")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -7.407047, 4.2856493, -21.521206)
+
+[node name="cactus_tall3" parent="SubViewportContainer/World/Foliage" instance=ExtResource("2_stcry")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -4.407047, 4.2856493, -20.521206)
 
 [node name="UIRender" type="Control" parent="." node_paths=PackedStringArray("picSpots")]
 layout_mode = 3

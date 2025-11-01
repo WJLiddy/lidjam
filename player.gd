@@ -79,14 +79,17 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("action"):
 		await RenderingServer.frame_post_draw
+		take_picture()
 
-		# Get the image data from the viewport's texture
-		var image = get_node("../").get_texture().get_image()
-		get_node("../../../UIRender").push_image(image)
-		Global.add_pic(image)
-		get_node("../../../UIRender").update_total(Global.pic_count())
-		
-
+func take_picture():
+	# Get the image data from the viewport's texture
+	var image = get_node("../").get_texture().get_image()
+	# now, grade the image. Raycast to every animal
+	for c in get_node("../Critters").get_children():
+		pass
+	get_node("../../../UIRender").push_image(image)
+	Global.add_pic(image)
+	get_node("../../../UIRender").update_total(Global.pic_count())
 
 func landing_animation():
 	if landing_velocity >= 2:
