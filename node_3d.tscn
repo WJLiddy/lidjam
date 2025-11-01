@@ -9,7 +9,7 @@
 [node name="Node3D" type="Node3D"]
 
 [node name="PikachuM" parent="." instance=ExtResource("1_a202f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.82901096, -1.3006166)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.21264505, -1.3006166)
 script = ExtResource("2_noarx")
 
 [node name="Camera3D" type="Camera3D" parent="."]
