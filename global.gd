@@ -11,4 +11,5 @@ func _ready() -> void:
 func add_pic(pic: Image):
 	pics.push_front(pic)
 	
-	
+func pic_count():
+	return pics.size()

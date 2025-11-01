@@ -77,14 +77,14 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 	
-	if Input.is_action_pressed("action"):
+	if Input.is_action_just_pressed("action"):
 		await RenderingServer.frame_post_draw
 
 		# Get the image data from the viewport's texture
 		var image = get_node("../").get_texture().get_image()
-		image.resize(200,150)
-		get_node("../../../UIRender/PicSpot/Pic").texture = ImageTexture.create_from_image(image)
+		get_node("../../../UIRender").push_image(image)
 		Global.add_pic(image)
+		get_node("../../../UIRender").update_total(Global.pic_count())
 		
 
 
