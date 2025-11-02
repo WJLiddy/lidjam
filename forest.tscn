@@ -6,9 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://bncvkmvao7hnr" path="res://programmerart/film.png" id="2_mvm06"]
 [ext_resource type="PackedScene" uid="uid://b3rjydnrybjy5" path="res://programmerart/cactus_col.tscn" id="2_stcry"]
 [ext_resource type="PackedScene" uid="uid://d2ea2p1ovaog0" path="res://environment/block_slope.tscn" id="3_dvh0n"]
-[ext_resource type="PackedScene" uid="uid://d2hj04av6wa6k" path="res://programmerart/animals/bear_coll.tscn" id="3_uq144"]
 [ext_resource type="PackedScene" uid="uid://grprv0ghyjgm" path="res://environment/block.tscn" id="4_d8dn4"]
 [ext_resource type="Script" uid="uid://d2prupksdovq7" path="res://ui.gd" id="4_vmuxp"]
+[ext_resource type="PackedScene" uid="uid://di8lg0v3mwd2g" path="res://programmerart/rig_test.tscn" id="5_bw3fi"]
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_a0tk4"]
 width = 95
@@ -42,14 +42,8 @@ transform = Transform3D(1, 0, 0, 0, 0.73263806, 0.6806185, 0, -0.6806185, 0.7326
 
 [node name="Critters" type="Node3D" parent="SubViewportContainer/World"]
 
-[node name="Bear_Rig" parent="SubViewportContainer/World/Critters" instance=ExtResource("3_uq144")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.2835321, 2.2564552, -11.554995)
-
-[node name="Bear_Rig2" parent="SubViewportContainer/World/Critters" instance=ExtResource("3_uq144")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.716468, 2.2564552, -11.554995)
-
-[node name="Bear_Rig3" parent="SubViewportContainer/World/Critters" instance=ExtResource("3_uq144")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.716468, 4.2564554, -22.554995)
+[node name="rig test" parent="SubViewportContainer/World/Critters" instance=ExtResource("5_bw3fi")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 2, 0)
 
 [node name="Terrain" type="Node3D" parent="SubViewportContainer/World"]
 
