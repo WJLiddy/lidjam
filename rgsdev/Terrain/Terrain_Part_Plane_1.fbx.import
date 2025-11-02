@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dbhvr434etwns"
-path="res://.godot/imported/block.fbx-11683771c9685fe6392355fa673bbd5f.scn"
+uid="uid://djg2dt46ur842"
+path="res://.godot/imported/Terrain_Part_Plane_1.fbx-54d9d14e2c0f40a161007c8037ae7170.scn"
 
 [deps]
 
-source_file="res://environment/block.fbx"
-dest_files=["res://.godot/imported/block.fbx-11683771c9685fe6392355fa673bbd5f.scn"]
+source_file="res://rgsdev/Terrain/Terrain_Part_Plane_1.fbx"
+dest_files=["res://.godot/imported/Terrain_Part_Plane_1.fbx-54d9d14e2c0f40a161007c8037ae7170.scn"]
 
 [params]
 

@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dhh5vg8yoauwf"
-path="res://.godot/imported/cactus_tall.fbx-97856f8f613945d89ff766b23d0616b2.scn"
+uid="uid://btfhoatr7av37"
+path="res://.godot/imported/Broken_Tree_Dead.fbx-b6956ec087960f659afc2a0644debb6b.scn"
 
 [deps]
 
-source_file="res://programmerart/cactus_tall.fbx"
-dest_files=["res://.godot/imported/cactus_tall.fbx-97856f8f613945d89ff766b23d0616b2.scn"]
+source_file="res://rgsdev/Trees/Broken_Tree_Dead.fbx"
+dest_files=["res://.godot/imported/Broken_Tree_Dead.fbx-b6956ec087960f659afc2a0644debb6b.scn"]
 
 [params]
 

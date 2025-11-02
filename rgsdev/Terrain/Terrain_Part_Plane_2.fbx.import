@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dv6lbq5jttfqn"
-path="res://.godot/imported/blockSlope.fbx-d0268dcbc8a2ef45e537d59346729673.scn"
+uid="uid://b4ut44o0iu7hr"
+path="res://.godot/imported/Terrain_Part_Plane_2.fbx-53f748b5fab27fe549dacaf3f42011d4.scn"
 
 [deps]
 
-source_file="res://environment/blockSlope.fbx"
-dest_files=["res://.godot/imported/blockSlope.fbx-d0268dcbc8a2ef45e537d59346729673.scn"]
+source_file="res://rgsdev/Terrain/Terrain_Part_Plane_2.fbx"
+dest_files=["res://.godot/imported/Terrain_Part_Plane_2.fbx-53f748b5fab27fe549dacaf3f42011d4.scn"]
 
 [params]
 

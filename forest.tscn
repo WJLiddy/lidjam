@@ -1,14 +1,30 @@
-[gd_scene load_steps=11 format=3 uid="uid://bdkh5n42abtlg"]
+[gd_scene load_steps=24 format=3 uid="uid://bdkh5n42abtlg"]
 
 [ext_resource type="PackedScene" uid="uid://bf504syknspt3" path="res://programmerart/puter.tscn" id="1_5rndp"]
 [ext_resource type="PackedScene" uid="uid://jyncanbkjjnq" path="res://player/player.tscn" id="1_lifw2"]
 [ext_resource type="AudioStream" uid="uid://c5cr7irse0r5b" path="res://sound/shutter.mp3" id="2_5rndp"]
 [ext_resource type="Texture2D" uid="uid://bncvkmvao7hnr" path="res://programmerart/film.png" id="2_mvm06"]
-[ext_resource type="PackedScene" uid="uid://b3rjydnrybjy5" path="res://programmerart/cactus_col.tscn" id="2_stcry"]
-[ext_resource type="PackedScene" uid="uid://d2ea2p1ovaog0" path="res://environment/block_slope.tscn" id="3_dvh0n"]
-[ext_resource type="PackedScene" uid="uid://grprv0ghyjgm" path="res://environment/block.tscn" id="4_d8dn4"]
 [ext_resource type="Script" uid="uid://d2prupksdovq7" path="res://ui.gd" id="4_vmuxp"]
+[ext_resource type="PackedScene" uid="uid://bwdpj7t4c6bk2" path="res://environment/terrain_part_plane_17.tscn" id="5_0aefg"]
 [ext_resource type="PackedScene" uid="uid://di8lg0v3mwd2g" path="res://programmerart/rig_test.tscn" id="5_bw3fi"]
+[ext_resource type="PackedScene" uid="uid://3yihf34r5buc" path="res://environment/terrain_part_plane_18.tscn" id="6_v78i8"]
+[ext_resource type="PackedScene" uid="uid://cu3c36c34hm2d" path="res://environment/terrain_part_ramp_1.tscn" id="7_6iyis"]
+[ext_resource type="PackedScene" uid="uid://ded0c3eevtu0u" path="res://environment/terrain_part_plane_1.tscn" id="9_7fhox"]
+[ext_resource type="PackedScene" uid="uid://8kmyj1g0xdpb" path="res://environment/terrain_part_plane_2.tscn" id="10_77xr6"]
+[ext_resource type="PackedScene" uid="uid://c5rvvlx5vw02n" path="res://environment/terrain_part_plane_3.tscn" id="11_w7ivt"]
+[ext_resource type="PackedScene" uid="uid://c3jqc0jg6ps3y" path="res://environment/terrain_part_plane_4.tscn" id="14_x23mu"]
+[ext_resource type="PackedScene" uid="uid://dfapjim1y33ej" path="res://environment/terrain_part_plane_5.tscn" id="15_7b08a"]
+[ext_resource type="PackedScene" uid="uid://du6qoof0lujfd" path="res://environment/mountain_1_lod_high.tscn" id="16_vmfs8"]
+[ext_resource type="Material" uid="uid://dns7bivatfxtb" path="res://watershader.tres" id="17_0aefg"]
+[ext_resource type="PackedScene" uid="uid://bpam2je0mdufy" path="res://environment/mountain_2_lod_high.tscn" id="17_3yfs4"]
+[ext_resource type="PackedScene" uid="uid://dxevtlh1c8erd" path="res://rgsdev/Trees/pine_tree_1_autumn.tscn" id="18_77xr6"]
+[ext_resource type="PackedScene" uid="uid://dd0ejk8x4t51r" path="res://rgsdev/Trees/oak_tree_autumn.tscn" id="19_w7ivt"]
+[ext_resource type="PackedScene" uid="uid://2g7tgm6aop7d" path="res://rgsdev/Trees/broken_tree_autumn.tscn" id="20_x23mu"]
+[ext_resource type="PackedScene" uid="uid://bsb3v5pqlcb8x" path="res://rgsdev/Trees/Willow_Tree_Autumn.fbx" id="21_7b08a"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_0aefg"]
+subdivide_width = 10
+subdivide_depth = 10
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_a0tk4"]
 width = 95
@@ -27,7 +43,7 @@ size = Vector2i(900, 600)
 render_target_update_mode = 4
 
 [node name="Player" parent="SubViewportContainer/World" instance=ExtResource("1_lifw2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 2, -1.9041784)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -75, 0.021829784, -96.904175)
 
 [node name="Shutter" type="AudioStreamPlayer3D" parent="SubViewportContainer/World/Player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -35,285 +51,1478 @@ stream = ExtResource("2_5rndp")
 max_distance = 4096.0
 
 [node name="Puter" parent="SubViewportContainer/World" instance=ExtResource("1_5rndp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 3, -5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -72, 0.36386132, -100.92095)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="SubViewportContainer/World"]
-transform = Transform3D(1, 0, 0, 0, 0.73263806, 0.6806185, 0, -0.6806185, 0.73263806, 3.8745143, 11.156533, 2.1968136)
+transform = Transform3D(1, 0, 0, 0, 0.1569862, 0.9876008, 0, -0.9876008, 0.1569862, 3.8745143, 11.156533, 2.1968136)
+light_energy = 4.395
+light_indirect_energy = 8.051
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="SubViewportContainer/World"]
+transform = Transform3D(1, 0, 0, 0, 0.9326517, 0.36077818, 0, -0.36077818, 0.9326517, 3.8745143, 11.156533, 2.1968136)
+light_energy = 2.0
+light_indirect_energy = 1.571
 
 [node name="Critters" type="Node3D" parent="SubViewportContainer/World"]
 
 [node name="rig test" parent="SubViewportContainer/World/Critters" instance=ExtResource("5_bw3fi")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 2, -10)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -165.16205, 0.031028608, -105.65613)
 
 [node name="rig test2" parent="SubViewportContainer/World/Critters" instance=ExtResource("5_bw3fi")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -4, 2, -14)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -62.824074, -2.3570757, -100.78181)
 
 [node name="rig test3" parent="SubViewportContainer/World/Critters" instance=ExtResource("5_bw3fi")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -6, 4, -25)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -64.82407, -2.1725729, -111.78181)
 
 [node name="Terrain" type="Node3D" parent="SubViewportContainer/World"]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
 
-[node name="blockSlope" parent="SubViewportContainer/World/Terrain" instance=ExtResource("3_dvh0n")]
+[node name="Terrain_Part_Plane_5" parent="SubViewportContainer/World/Terrain" instance=ExtResource("14_x23mu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 0, -20)
 
-[node name="blockSlope4" parent="SubViewportContainer/World/Terrain" instance=ExtResource("3_dvh0n")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 2, -18)
+[node name="Terrain_Part_Plane_6" parent="SubViewportContainer/World/Terrain" instance=ExtResource("14_x23mu")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -60, 0, -20)
 
-[node name="blockSlope5" parent="SubViewportContainer/World/Terrain" instance=ExtResource("3_dvh0n")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 2, -18)
+[node name="Terrain_Part_Plane_7" parent="SubViewportContainer/World/Terrain" instance=ExtResource("14_x23mu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -80, 0, -20)
 
-[node name="blockSlope6" parent="SubViewportContainer/World/Terrain" instance=ExtResource("3_dvh0n")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 2, -18)
+[node name="Terrain_Part_Plane_8" parent="SubViewportContainer/World/Terrain" instance=ExtResource("15_7b08a")]
+transform = Transform3D(2, 0, 0, 0, 4, 0, 0, 0, 2, -50, 0, -45)
 
-[node name="blockSlope7" parent="SubViewportContainer/World/Terrain" instance=ExtResource("3_dvh0n")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 2, -18)
+[node name="Terrain_Part_Plane_9" parent="SubViewportContainer/World/Terrain" instance=ExtResource("15_7b08a")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 3, 0, 1, 0, -4.371139e-08, -80, 0, -60)
 
-[node name="block" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.9566475)
+[node name="Terrain_Part_Plane_10" parent="SubViewportContainer/World/Terrain" instance=ExtResource("15_7b08a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -80, 0, -40)
 
-[node name="block2" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.9566474)
+[node name="Mountain_1_LOD_High" parent="SubViewportContainer/World/Terrain" instance=ExtResource("16_vmfs8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -45, -40, -80)
 
-[node name="block3" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -3.9566474)
+[node name="Mountain_2_LOD_High" parent="SubViewportContainer/World/Terrain" instance=ExtResource("17_3yfs4")]
+transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 1, -90, -75, -85)
 
-[node name="block4" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -1.9566474)
+[node name="Mountain_2_LOD_High2" parent="SubViewportContainer/World/Terrain" instance=ExtResource("17_3yfs4")]
+transform = Transform3D(1, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -60, -5, -100)
 
-[node name="block5" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.9566474)
+[node name="Terrain_Part_Plane_17" parent="SubViewportContainer/World/Terrain" instance=ExtResource("5_0aefg")]
+transform = Transform3D(0.007596079, 0.08682409, 0.9961947, 0.08682408, 0.9924039, -0.08715574, -0.9961947, 0.08715573, -4.3545054e-08, -20, 0, -20)
 
-[node name="block6" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7.9566474)
+[node name="Terrain_Part_Plane_18" parent="SubViewportContainer/World/Terrain" instance=ExtResource("5_0aefg")]
+transform = Transform3D(-0.9961947, 0.087155744, 8.709011e-08, 0.08682408, 0.9924039, -0.08715574, -0.0075962096, -0.086824074, -0.9961947, -20, 0, -100)
 
-[node name="block7" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -7.9566474)
+[node name="Terrain_Part_Plane_19" parent="SubViewportContainer/World/Terrain" instance=ExtResource("5_0aefg")]
+transform = Transform3D(-0.0075961663, -0.086824074, -0.9961947, 0.08682408, 0.9924039, -0.08715574, 0.9961947, -0.087155744, -4.3545054e-08, -100, 0, -100)
 
-[node name="block8" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -5.9566474)
+[node name="Terrain_Part_Plane_20" parent="SubViewportContainer/World/Terrain" instance=ExtResource("5_0aefg")]
+transform = Transform3D(1, 0, 0, 0, 0.9961947, -0.08715574, 0, 0.08715574, 0.9961947, -100, 0, -20)
 
-[node name="block9" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -5.9566474)
+[node name="Terrain_Part_Plane_21" parent="SubViewportContainer/World/Terrain" instance=ExtResource("6_v78i8")]
+transform = Transform3D(1, 0, 0, 0, 0.99619466, -0.08715573, 0, 0.08715573, 0.99619466, -20, 0, -20)
 
-[node name="block10" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -7.9566474)
+[node name="Terrain_Part_Plane_22" parent="SubViewportContainer/World/Terrain" instance=ExtResource("6_v78i8")]
+transform = Transform3D(1, 0, 0, 0, 0.9961947, -0.08715574, 0, 0.08715574, 0.9961947, -40, 0, -20)
 
-[node name="block11" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -7.9566474)
+[node name="Terrain_Part_Plane_37" parent="SubViewportContainer/World/Terrain" instance=ExtResource("6_v78i8")]
+transform = Transform3D(1, 0, 0, 0, 0.9961947, -0.08715574, 0, 0.08715574, 0.9961947, -40, 0, -20)
 
-[node name="block12" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -5.9566474)
+[node name="Terrain_Part_Plane_23" parent="SubViewportContainer/World/Terrain" instance=ExtResource("6_v78i8")]
+transform = Transform3D(1, 0, 0, 0, 0.9961947, -0.08715574, 0, 0.08715574, 0.9961947, -80, 0, -20)
 
-[node name="block13" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -1.9566474)
+[node name="Terrain_Part_Plane_24" parent="SubViewportContainer/World/Terrain" instance=ExtResource("6_v78i8")]
+transform = Transform3D(1, 0, 0, 0, 0.9961947, -0.08715574, 0, 0.08715574, 0.9961947, -60, 0, -20)
 
-[node name="block14" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -3.9566474)
+[node name="Terrain_Part_Plane_25" parent="SubViewportContainer/World/Terrain" instance=ExtResource("6_v78i8")]
+transform = Transform3D(-1, 1.316015e-08, 1.5042122e-07, 0, 0.9961947, -0.08715574, -1.509958e-07, -0.08715574, -0.9961947, -40, 0, -100)
 
-[node name="block15" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -3.9566474)
+[node name="Terrain_Part_Plane_29" parent="SubViewportContainer/World/Terrain" instance=ExtResource("6_v78i8")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -100, 0, -80)
 
-[node name="block16" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -1.9566474)
+[node name="Terrain_Part_Plane_30" parent="SubViewportContainer/World/Terrain" instance=ExtResource("6_v78i8")]
+transform = Transform3D(-4.371139e-08, -0.08715574, -0.9961947, 0, 0.9961947, -0.08715574, 1, -3.8096983e-09, -4.3545054e-08, -100, 0, -60)
 
-[node name="block17" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -9.956648)
+[node name="Terrain_Part_Plane_31" parent="SubViewportContainer/World/Terrain" instance=ExtResource("6_v78i8")]
+transform = Transform3D(-4.371139e-08, -0.08715574, -0.9961947, 0, 0.9961947, -0.08715574, 1, -3.8096983e-09, -4.3545054e-08, -100, 0, -40)
 
-[node name="block18" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -11.956648)
+[node name="Terrain_Part_Plane_32" parent="SubViewportContainer/World/Terrain" instance=ExtResource("6_v78i8")]
+transform = Transform3D(-4.371139e-08, -0.08715574, -0.9961947, 0, 0.9961947, -0.08715574, 1, -3.8096983e-09, -4.3545054e-08, -100, 0, -20)
 
-[node name="block19" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -11.956648)
+[node name="Terrain_Part_Plane_33" parent="SubViewportContainer/World/Terrain" instance=ExtResource("6_v78i8")]
+transform = Transform3D(-4.371139e-08, 0.08715574, 0.9961947, 0, 0.9961947, -0.08715574, -1, -3.8096983e-09, -4.3545054e-08, -20, 0, -100)
 
-[node name="block20" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -9.956648)
+[node name="Terrain_Part_Plane_34" parent="SubViewportContainer/World/Terrain" instance=ExtResource("6_v78i8")]
+transform = Transform3D(-4.371139e-08, 0.08715574, 0.9961947, 0, 0.9961947, -0.08715574, -1, -3.8096983e-09, -4.3545054e-08, -20, 0, -80)
 
-[node name="block21" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -13.956648)
+[node name="Terrain_Part_Plane_35" parent="SubViewportContainer/World/Terrain" instance=ExtResource("6_v78i8")]
+transform = Transform3D(-4.371139e-08, 0.08715574, 0.9961947, 0, 0.9961947, -0.08715574, -1, -3.8096983e-09, -4.3545054e-08, -20, 0, -60)
 
-[node name="block22" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -15.956648)
+[node name="Terrain_Part_Plane_36" parent="SubViewportContainer/World/Terrain" instance=ExtResource("6_v78i8")]
+transform = Transform3D(-0.005692823, 0.08716214, 0.9961779, 0.0013628493, 0.99619377, -0.08715574, -0.9999829, 0.00086147815, -0.0057899435, -20, 0, -40)
 
-[node name="block23" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -15.956648)
+[node name="Terrain_Part_Plane_26" parent="SubViewportContainer/World/Terrain" instance=ExtResource("6_v78i8")]
+transform = Transform3D(-1, 1.316015e-08, 1.5042122e-07, 0, 0.9961947, -0.08715574, -1.509958e-07, -0.08715574, -0.9961947, -60, 0, -100)
 
-[node name="block24" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -13.956648)
+[node name="Terrain_Part_Plane_27" parent="SubViewportContainer/World/Terrain" instance=ExtResource("6_v78i8")]
+transform = Transform3D(-1, 1.316015e-08, 1.5042122e-07, 0, 0.9961947, -0.08715574, -1.509958e-07, -0.08715574, -0.9961947, -100, 0, -100)
 
-[node name="block25" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -13.956648)
+[node name="Terrain_Part_Plane_28" parent="SubViewportContainer/World/Terrain" instance=ExtResource("6_v78i8")]
+transform = Transform3D(-1, 1.316015e-08, 1.5042122e-07, 0, 0.9961947, -0.08715574, -1.509958e-07, -0.08715574, -0.9961947, -80, 0, -100)
 
-[node name="block26" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -15.956648)
+[node name="Terrain_Part_Ramp_1" parent="SubViewportContainer/World/Terrain" instance=ExtResource("7_6iyis")]
+transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, -20, 0, -100)
 
-[node name="block27" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -15.956648)
+[node name="Terrain_Part_Ramp_4" parent="SubViewportContainer/World/Terrain" instance=ExtResource("7_6iyis")]
+transform = Transform3D(-1.6292068e-07, 0, 1, 0, 3, 0, -1, 0, -1.6292068e-07, -80, 0, -60)
 
-[node name="block28" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -13.956648)
+[node name="Terrain_Part_Ramp_2" parent="SubViewportContainer/World/Terrain" instance=ExtResource("7_6iyis")]
+transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, -40, 3, -100)
 
-[node name="block29" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -9.956648)
-
-[node name="block30" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -11.956648)
-
-[node name="block31" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -11.956648)
-
-[node name="block32" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -9.956648)
-
-[node name="block33" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -9.956648)
-
-[node name="block34" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -11.956648)
-
-[node name="block35" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -11.956648)
-
-[node name="block36" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -9.956648)
-
-[node name="block37" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -13.956648)
-
-[node name="block38" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -15.956648)
-
-[node name="block39" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -15.956648)
-
-[node name="block40" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -13.956648)
-
-[node name="block41" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -13.956648)
-
-[node name="block42" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -15.956648)
-
-[node name="block43" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -15.956648)
-
-[node name="block44" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -13.956648)
-
-[node name="block45" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -9.956648)
-
-[node name="block46" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -11.956648)
-
-[node name="block47" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -11.956648)
-
-[node name="block48" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -9.956648)
-
-[node name="block49" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -1.9566479)
-
-[node name="block50" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -3.9566479)
-
-[node name="block51" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -3.9566479)
-
-[node name="block52" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -1.9566479)
-
-[node name="block53" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -5.956648)
-
-[node name="block54" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -7.956648)
-
-[node name="block55" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -7.956648)
-
-[node name="block56" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -5.956648)
-
-[node name="block57" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -5.956648)
-
-[node name="block58" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -7.956648)
-
-[node name="block59" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -7.956648)
-
-[node name="block60" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -5.956648)
-
-[node name="block61" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -1.9566479)
-
-[node name="block62" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -3.9566479)
-
-[node name="block63" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -3.9566479)
-
-[node name="block64" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -1.9566479)
-
-[node name="block65" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 2, -19.956648)
-
-[node name="block66" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 2, -21.956648)
-
-[node name="block67" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 2, -21.956648)
-
-[node name="block68" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 2, -19.956648)
-
-[node name="block69" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 2, -23.956648)
-
-[node name="block70" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 2, -25.956648)
-
-[node name="block71" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 2, -25.956648)
-
-[node name="block72" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 2, -23.956648)
-
-[node name="block73" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 2, -23.956648)
-
-[node name="block74" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 2, -25.956648)
-
-[node name="block75" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 2, -25.956648)
-
-[node name="block76" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 2, -23.956648)
-
-[node name="block77" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 2, -19.956648)
-
-[node name="block78" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 2, -21.956648)
-
-[node name="block79" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 2, -21.956648)
-
-[node name="block80" parent="SubViewportContainer/World/Terrain" instance=ExtResource("4_d8dn4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 2, -19.956648)
+[node name="Terrain_Part_Ramp_3" parent="SubViewportContainer/World/Terrain" instance=ExtResource("7_6iyis")]
+transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, -60, 6, -100)
+
+[node name="Terrain_Part_Plane_1" parent="SubViewportContainer/World/Terrain" instance=ExtResource("9_7fhox")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, -20)
+
+[node name="Terrain_Part_Plane_2" parent="SubViewportContainer/World/Terrain" instance=ExtResource("10_77xr6")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -20, 0, -40)
+
+[node name="Terrain_Part_Plane_4" parent="SubViewportContainer/World/Terrain" instance=ExtResource("10_77xr6")]
+transform = Transform3D(3, 0, 0, 0, 2, 0, 0, 0, 1, -20, 0, -60)
+
+[node name="Terrain_Part_Plane_3" parent="SubViewportContainer/World/Terrain" instance=ExtResource("11_w7ivt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 0, -40)
+
+[node name="Waters" type="Node3D" parent="SubViewportContainer/World/Terrain"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewportContainer/World/Terrain/Waters"]
+transform = Transform3D(12.5, 0, 0, 0, 0.25, 0, 0, 0, 12.5, -32.5, -1.25, -1.25)
+mesh = SubResource("PlaneMesh_0aefg")
+skeleton = NodePath("../../../../..")
+surface_material_override/0 = ExtResource("17_0aefg")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="SubViewportContainer/World/Terrain/Waters"]
+transform = Transform3D(12.5, 0, 0, 0, 0.25, 0, 0, 0, 12.5, -57.5, -1.25, -1.25)
+mesh = SubResource("PlaneMesh_0aefg")
+skeleton = NodePath("../../../../..")
+surface_material_override/0 = ExtResource("17_0aefg")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="SubViewportContainer/World/Terrain/Waters"]
+transform = Transform3D(12.5, 0, 0, 0, 0.25, 0, 0, 0, 12.5, -82.5, -1.25, -1.25)
+mesh = SubResource("PlaneMesh_0aefg")
+skeleton = NodePath("../../../../..")
+surface_material_override/0 = ExtResource("17_0aefg")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="SubViewportContainer/World/Terrain/Waters"]
+transform = Transform3D(12.5, 0, 0, 0, 0.25, 0, 0, 0, 12.5, -107.5, -1.25, -1.25)
+mesh = SubResource("PlaneMesh_0aefg")
+skeleton = NodePath("../../../../..")
+surface_material_override/0 = ExtResource("17_0aefg")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="SubViewportContainer/World/Terrain/Waters"]
+transform = Transform3D(12.5, 0, 0, 0, 0.25, 0, 0, 0, 12.5, -32.5, -1.25, -1.25)
+mesh = SubResource("PlaneMesh_0aefg")
+skeleton = NodePath("../../../../..")
+surface_material_override/0 = ExtResource("17_0aefg")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="SubViewportContainer/World/Terrain/Waters"]
+transform = Transform3D(12.5, 0, 0, 0, 0.25, 0, 0, 0, 12.5, -82.5, -1.25, -1.25)
+mesh = SubResource("PlaneMesh_0aefg")
+skeleton = NodePath("../../../../..")
+surface_material_override/0 = ExtResource("17_0aefg")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="SubViewportContainer/World/Terrain/Waters"]
+transform = Transform3D(12.5, 0, 0, 0, 0.25, 0, 0, 0, 12.5, -57.5, -1.25, 23.75)
+mesh = SubResource("PlaneMesh_0aefg")
+skeleton = NodePath("../../../../..")
+surface_material_override/0 = ExtResource("17_0aefg")
+
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="SubViewportContainer/World/Terrain/Waters"]
+transform = Transform3D(12.5, 0, 0, 0, 0.25, 0, 0, 0, 12.5, -107.5, -1.25, 23.75)
+mesh = SubResource("PlaneMesh_0aefg")
+skeleton = NodePath("../../../../..")
+surface_material_override/0 = ExtResource("17_0aefg")
+
+[node name="MeshInstance3D10" type="MeshInstance3D" parent="SubViewportContainer/World/Terrain/Waters"]
+transform = Transform3D(12.5, 0, 0, 0, 0.25, 0, 0, 0, 12.5, -32.5, -1.25, 23.75)
+mesh = SubResource("PlaneMesh_0aefg")
+skeleton = NodePath("../../../../..")
+surface_material_override/0 = ExtResource("17_0aefg")
+
+[node name="MeshInstance3D11" type="MeshInstance3D" parent="SubViewportContainer/World/Terrain/Waters"]
+transform = Transform3D(12.5, 0, 0, 0, 0.25, 0, 0, 0, 12.5, -82.5, -1.25, 23.75)
+mesh = SubResource("PlaneMesh_0aefg")
+skeleton = NodePath("../../../../..")
+surface_material_override/0 = ExtResource("17_0aefg")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="SubViewportContainer/World/Terrain/Waters"]
+transform = Transform3D(12.5, 0, 0, 0, 0.25, 0, 0, 0, 12.5, -107.5, -1.25, -1.25)
+mesh = SubResource("PlaneMesh_0aefg")
+skeleton = NodePath("../../../../..")
+surface_material_override/0 = ExtResource("17_0aefg")
+
+[node name="MeshInstance3D12" type="MeshInstance3D" parent="SubViewportContainer/World/Terrain/Waters"]
+transform = Transform3D(12.5, 0, 0, 0, 0.25, 0, 0, 0, 12.5, -32.5, -1.25, -147.5)
+mesh = SubResource("PlaneMesh_0aefg")
+skeleton = NodePath("../../../../..")
+surface_material_override/0 = ExtResource("17_0aefg")
+
+[node name="MeshInstance3D13" type="MeshInstance3D" parent="SubViewportContainer/World/Terrain/Waters"]
+transform = Transform3D(12.5, 0, 0, 0, 0.25, 0, 0, 0, 12.5, -57.5, -1.25, -147.5)
+mesh = SubResource("PlaneMesh_0aefg")
+skeleton = NodePath("../../../../..")
+surface_material_override/0 = ExtResource("17_0aefg")
+
+[node name="MeshInstance3D14" type="MeshInstance3D" parent="SubViewportContainer/World/Terrain/Waters"]
+transform = Transform3D(12.5, 0, 0, 0, 0.25, 0, 0, 0, 12.5, -82.5, -1.25, -147.5)
+mesh = SubResource("PlaneMesh_0aefg")
+skeleton = NodePath("../../../../..")
+surface_material_override/0 = ExtResource("17_0aefg")
+
+[node name="MeshInstance3D15" type="MeshInstance3D" parent="SubViewportContainer/World/Terrain/Waters"]
+transform = Transform3D(12.5, 0, 0, 0, 0.25, 0, 0, 0, 12.5, -107.5, -1.25, -147.5)
+mesh = SubResource("PlaneMesh_0aefg")
+skeleton = NodePath("../../../../..")
+surface_material_override/0 = ExtResource("17_0aefg")
+
+[node name="MeshInstance3D16" type="MeshInstance3D" parent="SubViewportContainer/World/Terrain/Waters"]
+transform = Transform3D(12.5, 0, 0, 0, 0.25, 0, 0, 0, 12.5, -32.5, -1.25, -147.5)
+mesh = SubResource("PlaneMesh_0aefg")
+skeleton = NodePath("../../../../..")
+surface_material_override/0 = ExtResource("17_0aefg")
+
+[node name="MeshInstance3D17" type="MeshInstance3D" parent="SubViewportContainer/World/Terrain/Waters"]
+transform = Transform3D(12.5, 0, 0, 0, 0.25, 0, 0, 0, 12.5, -82.5, -1.25, -147.5)
+mesh = SubResource("PlaneMesh_0aefg")
+skeleton = NodePath("../../../../..")
+surface_material_override/0 = ExtResource("17_0aefg")
+
+[node name="MeshInstance3D18" type="MeshInstance3D" parent="SubViewportContainer/World/Terrain/Waters"]
+transform = Transform3D(12.5, 0, 0, 0, 0.25, 0, 0, 0, 12.5, -57.5, -1.25, -122.5)
+mesh = SubResource("PlaneMesh_0aefg")
+skeleton = NodePath("../../../../..")
+surface_material_override/0 = ExtResource("17_0aefg")
+
+[node name="MeshInstance3D19" type="MeshInstance3D" parent="SubViewportContainer/World/Terrain/Waters"]
+transform = Transform3D(12.5, 0, 0, 0, 0.25, 0, 0, 0, 12.5, -107.5, -1.25, -122.5)
+mesh = SubResource("PlaneMesh_0aefg")
+skeleton = NodePath("../../../../..")
+surface_material_override/0 = ExtResource("17_0aefg")
+
+[node name="MeshInstance3D23" type="MeshInstance3D" parent="SubViewportContainer/World/Terrain/Waters"]
+transform = Transform3D(12.5, 0, 0, 0, 0.25, 0, 0, 0, 12.5, 17.5, -1.25, -122.5)
+mesh = SubResource("PlaneMesh_0aefg")
+skeleton = NodePath("../../../../..")
+surface_material_override/0 = ExtResource("17_0aefg")
+
+[node name="MeshInstance3D24" type="MeshInstance3D" parent="SubViewportContainer/World/Terrain/Waters"]
+transform = Transform3D(12.5, 0, 0, 0, 0.25, 0, 0, 0, 12.5, -7.5, -1.25, -122.5)
+mesh = SubResource("PlaneMesh_0aefg")
+skeleton = NodePath("../../../../..")
+surface_material_override/0 = ExtResource("17_0aefg")
+
+[node name="MeshInstance3D25" type="MeshInstance3D" parent="SubViewportContainer/World/Terrain/Waters"]
+transform = Transform3D(12.5, 0, 0, 0, 0.25, 0, 0, 0, 12.5, 17.5, -1.25, -146.25)
+mesh = SubResource("PlaneMesh_0aefg")
+skeleton = NodePath("../../../../..")
+surface_material_override/0 = ExtResource("17_0aefg")
+
+[node name="MeshInstance3D26" type="MeshInstance3D" parent="SubViewportContainer/World/Terrain/Waters"]
+transform = Transform3D(12.5, 0, 0, 0, 0.25, 0, 0, 0, 12.5, -7.5, -1.25, -146.25)
+mesh = SubResource("PlaneMesh_0aefg")
+skeleton = NodePath("../../../../..")
+surface_material_override/0 = ExtResource("17_0aefg")
+
+[node name="MeshInstance3D27" type="MeshInstance3D" parent="SubViewportContainer/World/Terrain/Waters"]
+transform = Transform3D(12.5, 0, 0, 0, 0.25, 0, 0, 0, 12.5, 17.5, -1.25, -98.75)
+mesh = SubResource("PlaneMesh_0aefg")
+skeleton = NodePath("../../../../..")
+surface_material_override/0 = ExtResource("17_0aefg")
+
+[node name="MeshInstance3D28" type="MeshInstance3D" parent="SubViewportContainer/World/Terrain/Waters"]
+transform = Transform3D(12.5, 0, 0, 0, 0.25, 0, 0, 0, 12.5, -7.5, -1.25, -98.75)
+mesh = SubResource("PlaneMesh_0aefg")
+skeleton = NodePath("../../../../..")
+surface_material_override/0 = ExtResource("17_0aefg")
+
+[node name="MeshInstance3D29" type="MeshInstance3D" parent="SubViewportContainer/World/Terrain/Waters"]
+transform = Transform3D(12.5, 0, 0, 0, 0.25, 0, 0, 0, 12.5, 17.5, -1.25, -73.75)
+mesh = SubResource("PlaneMesh_0aefg")
+skeleton = NodePath("../../../../..")
+surface_material_override/0 = ExtResource("17_0aefg")
+
+[node name="MeshInstance3D30" type="MeshInstance3D" parent="SubViewportContainer/World/Terrain/Waters"]
+transform = Transform3D(12.5, 0, 0, 0, 0.25, 0, 0, 0, 12.5, -7.5, -1.25, -73.75)
+mesh = SubResource("PlaneMesh_0aefg")
+skeleton = NodePath("../../../../..")
+surface_material_override/0 = ExtResource("17_0aefg")
+
+[node name="MeshInstance3D31" type="MeshInstance3D" parent="SubViewportContainer/World/Terrain/Waters"]
+transform = Transform3D(12.5, 0, 0, 0, 0.25, 0, 0, 0, 12.5, 17.5, -1.25, -48.75)
+mesh = SubResource("PlaneMesh_0aefg")
+skeleton = NodePath("../../../../..")
+surface_material_override/0 = ExtResource("17_0aefg")
+
+[node name="MeshInstance3D32" type="MeshInstance3D" parent="SubViewportContainer/World/Terrain/Waters"]
+transform = Transform3D(12.5, 0, 0, 0, 0.25, 0, 0, 0, 12.5, -7.5, -1.25, -48.75)
+mesh = SubResource("PlaneMesh_0aefg")
+skeleton = NodePath("../../../../..")
+surface_material_override/0 = ExtResource("17_0aefg")
+
+[node name="MeshInstance3D33" type="MeshInstance3D" parent="SubViewportContainer/World/Terrain/Waters"]
+transform = Transform3D(12.5, 0, 0, 0, 0.25, 0, 0, 0, 12.5, 17.5, -1.25, -26.25)
+mesh = SubResource("PlaneMesh_0aefg")
+skeleton = NodePath("../../../../..")
+surface_material_override/0 = ExtResource("17_0aefg")
+
+[node name="MeshInstance3D34" type="MeshInstance3D" parent="SubViewportContainer/World/Terrain/Waters"]
+transform = Transform3D(12.5, 0, 0, 0, 0.25, 0, 0, 0, 12.5, -7.5, -1.25, -26.25)
+mesh = SubResource("PlaneMesh_0aefg")
+skeleton = NodePath("../../../../..")
+surface_material_override/0 = ExtResource("17_0aefg")
+
+[node name="MeshInstance3D35" type="MeshInstance3D" parent="SubViewportContainer/World/Terrain/Waters"]
+transform = Transform3D(12.5, 0, 0, 0, 0.25, 0, 0, 0, 12.5, 17.5, -1.25, -2.5)
+mesh = SubResource("PlaneMesh_0aefg")
+skeleton = NodePath("../../../../..")
+surface_material_override/0 = ExtResource("17_0aefg")
+
+[node name="MeshInstance3D36" type="MeshInstance3D" parent="SubViewportContainer/World/Terrain/Waters"]
+transform = Transform3D(12.5, 0, 0, 0, 0.25, 0, 0, 0, 12.5, -7.5, -1.25, -2.5)
+mesh = SubResource("PlaneMesh_0aefg")
+skeleton = NodePath("../../../../..")
+surface_material_override/0 = ExtResource("17_0aefg")
+
+[node name="MeshInstance3D37" type="MeshInstance3D" parent="SubViewportContainer/World/Terrain/Waters"]
+transform = Transform3D(12.5, 0, 0, 0, 0.25, 0, 0, 0, 12.5, 17.5, -1.25, 22.5)
+mesh = SubResource("PlaneMesh_0aefg")
+skeleton = NodePath("../../../../..")
+surface_material_override/0 = ExtResource("17_0aefg")
+
+[node name="MeshInstance3D38" type="MeshInstance3D" parent="SubViewportContainer/World/Terrain/Waters"]
+transform = Transform3D(12.5, 0, 0, 0, 0.25, 0, 0, 0, 12.5, -7.5, -1.25, 22.5)
+mesh = SubResource("PlaneMesh_0aefg")
+skeleton = NodePath("../../../../..")
+surface_material_override/0 = ExtResource("17_0aefg")
+
+[node name="MeshInstance3D39" type="MeshInstance3D" parent="SubViewportContainer/World/Terrain/Waters"]
+transform = Transform3D(12.5, 0, 0, 0, 0.25, 0, 0, 0, 12.5, -131.25, -1.25, 23.75)
+mesh = SubResource("PlaneMesh_0aefg")
+skeleton = NodePath("../../../../..")
+surface_material_override/0 = ExtResource("17_0aefg")
+
+[node name="MeshInstance3D40" type="MeshInstance3D" parent="SubViewportContainer/World/Terrain/Waters"]
+transform = Transform3D(12.5, 0, 0, 0, 0.25, 0, 0, 0, 12.5, -156.25, -1.25, 23.75)
+mesh = SubResource("PlaneMesh_0aefg")
+skeleton = NodePath("../../../../..")
+surface_material_override/0 = ExtResource("17_0aefg")
+
+[node name="MeshInstance3D41" type="MeshInstance3D" parent="SubViewportContainer/World/Terrain/Waters"]
+transform = Transform3D(12.5, 0, 0, 0, 0.25, 0, 0, 0, 12.5, -131.25, -1.25, -1.25)
+mesh = SubResource("PlaneMesh_0aefg")
+skeleton = NodePath("../../../../..")
+surface_material_override/0 = ExtResource("17_0aefg")
+
+[node name="MeshInstance3D42" type="MeshInstance3D" parent="SubViewportContainer/World/Terrain/Waters"]
+transform = Transform3D(12.5, 0, 0, 0, 0.25, 0, 0, 0, 12.5, -156.25, -1.25, -1.25)
+mesh = SubResource("PlaneMesh_0aefg")
+skeleton = NodePath("../../../../..")
+surface_material_override/0 = ExtResource("17_0aefg")
+
+[node name="MeshInstance3D43" type="MeshInstance3D" parent="SubViewportContainer/World/Terrain/Waters"]
+transform = Transform3D(12.5, 0, 0, 0, 0.25, 0, 0, 0, 12.5, -131.25, -1.25, -26.25)
+mesh = SubResource("PlaneMesh_0aefg")
+skeleton = NodePath("../../../../..")
+surface_material_override/0 = ExtResource("17_0aefg")
+
+[node name="MeshInstance3D44" type="MeshInstance3D" parent="SubViewportContainer/World/Terrain/Waters"]
+transform = Transform3D(12.5, 0, 0, 0, 0.25, 0, 0, 0, 12.5, -156.25, -1.25, -26.25)
+mesh = SubResource("PlaneMesh_0aefg")
+skeleton = NodePath("../../../../..")
+surface_material_override/0 = ExtResource("17_0aefg")
+
+[node name="MeshInstance3D45" type="MeshInstance3D" parent="SubViewportContainer/World/Terrain/Waters"]
+transform = Transform3D(12.5, 0, 0, 0, 0.25, 0, 0, 0, 12.5, -131.25, -1.25, -51.25)
+mesh = SubResource("PlaneMesh_0aefg")
+skeleton = NodePath("../../../../..")
+surface_material_override/0 = ExtResource("17_0aefg")
+
+[node name="MeshInstance3D46" type="MeshInstance3D" parent="SubViewportContainer/World/Terrain/Waters"]
+transform = Transform3D(12.5, 0, 0, 0, 0.25, 0, 0, 0, 12.5, -156.25, -1.25, -51.25)
+mesh = SubResource("PlaneMesh_0aefg")
+skeleton = NodePath("../../../../..")
+surface_material_override/0 = ExtResource("17_0aefg")
+
+[node name="MeshInstance3D47" type="MeshInstance3D" parent="SubViewportContainer/World/Terrain/Waters"]
+transform = Transform3D(12.5, 0, 0, 0, 0.25, 0, 0, 0, 12.5, -131.25, -1.25, -76.25)
+mesh = SubResource("PlaneMesh_0aefg")
+skeleton = NodePath("../../../../..")
+surface_material_override/0 = ExtResource("17_0aefg")
+
+[node name="MeshInstance3D48" type="MeshInstance3D" parent="SubViewportContainer/World/Terrain/Waters"]
+transform = Transform3D(12.5, 0, 0, 0, 0.25, 0, 0, 0, 12.5, -156.25, -1.25, -76.25)
+mesh = SubResource("PlaneMesh_0aefg")
+skeleton = NodePath("../../../../..")
+surface_material_override/0 = ExtResource("17_0aefg")
+
+[node name="MeshInstance3D49" type="MeshInstance3D" parent="SubViewportContainer/World/Terrain/Waters"]
+transform = Transform3D(12.5, 0, 0, 0, 0.25, 0, 0, 0, 12.5, -131.25, -1.25, -101.25)
+mesh = SubResource("PlaneMesh_0aefg")
+skeleton = NodePath("../../../../..")
+surface_material_override/0 = ExtResource("17_0aefg")
+
+[node name="MeshInstance3D50" type="MeshInstance3D" parent="SubViewportContainer/World/Terrain/Waters"]
+transform = Transform3D(12.5, 0, 0, 0, 0.25, 0, 0, 0, 12.5, -156.25, -1.25, -101.25)
+mesh = SubResource("PlaneMesh_0aefg")
+skeleton = NodePath("../../../../..")
+surface_material_override/0 = ExtResource("17_0aefg")
+
+[node name="MeshInstance3D51" type="MeshInstance3D" parent="SubViewportContainer/World/Terrain/Waters"]
+transform = Transform3D(12.5, 0, 0, 0, 0.25, 0, 0, 0, 12.5, -131.25, -1.25, -126.25)
+mesh = SubResource("PlaneMesh_0aefg")
+skeleton = NodePath("../../../../..")
+surface_material_override/0 = ExtResource("17_0aefg")
+
+[node name="MeshInstance3D52" type="MeshInstance3D" parent="SubViewportContainer/World/Terrain/Waters"]
+transform = Transform3D(12.5, 0, 0, 0, 0.25, 0, 0, 0, 12.5, -156.25, -1.25, -126.25)
+mesh = SubResource("PlaneMesh_0aefg")
+skeleton = NodePath("../../../../..")
+surface_material_override/0 = ExtResource("17_0aefg")
+
+[node name="MeshInstance3D53" type="MeshInstance3D" parent="SubViewportContainer/World/Terrain/Waters"]
+transform = Transform3D(12.5, 0, 0, 0, 0.25, 0, 0, 0, 12.5, -131.25, -1.25, -150)
+mesh = SubResource("PlaneMesh_0aefg")
+skeleton = NodePath("../../../../..")
+surface_material_override/0 = ExtResource("17_0aefg")
+
+[node name="MeshInstance3D54" type="MeshInstance3D" parent="SubViewportContainer/World/Terrain/Waters"]
+transform = Transform3D(12.5, 0, 0, 0, 0.25, 0, 0, 0, 12.5, -156.25, -1.25, -150)
+mesh = SubResource("PlaneMesh_0aefg")
+skeleton = NodePath("../../../../..")
+surface_material_override/0 = ExtResource("17_0aefg")
+
+[node name="MeshInstance3D55" type="MeshInstance3D" parent="SubViewportContainer/World/Terrain/Waters"]
+transform = Transform3D(12.5, 0, 0, 0, 0.25, 0, 0, 0, 12.5, -131.25, -1.25, -150)
+mesh = SubResource("PlaneMesh_0aefg")
+skeleton = NodePath("../../../../..")
+surface_material_override/0 = ExtResource("17_0aefg")
+
+[node name="MeshInstance3D56" type="MeshInstance3D" parent="SubViewportContainer/World/Terrain/Waters"]
+transform = Transform3D(12.5, 0, 0, 0, 0.25, 0, 0, 0, 12.5, -156.25, -1.25, -150)
+mesh = SubResource("PlaneMesh_0aefg")
+skeleton = NodePath("../../../../..")
+surface_material_override/0 = ExtResource("17_0aefg")
+
+[node name="MeshInstance3D20" type="MeshInstance3D" parent="SubViewportContainer/World/Terrain/Waters"]
+transform = Transform3D(12.5, 0, 0, 0, 0.25, 0, 0, 0, 12.5, -32.5, -1.25, -122.5)
+mesh = SubResource("PlaneMesh_0aefg")
+skeleton = NodePath("../../../../..")
+surface_material_override/0 = ExtResource("17_0aefg")
+
+[node name="MeshInstance3D21" type="MeshInstance3D" parent="SubViewportContainer/World/Terrain/Waters"]
+transform = Transform3D(12.5, 0, 0, 0, 0.25, 0, 0, 0, 12.5, -82.5, -1.25, -122.5)
+mesh = SubResource("PlaneMesh_0aefg")
+skeleton = NodePath("../../../../..")
+surface_material_override/0 = ExtResource("17_0aefg")
+
+[node name="MeshInstance3D22" type="MeshInstance3D" parent="SubViewportContainer/World/Terrain/Waters"]
+transform = Transform3D(12.5, 0, 0, 0, 0.25, 0, 0, 0, 12.5, -107.5, -1.25, -147.5)
+mesh = SubResource("PlaneMesh_0aefg")
+skeleton = NodePath("../../../../..")
+surface_material_override/0 = ExtResource("17_0aefg")
 
 [node name="Foliage" type="Node3D" parent="SubViewportContainer/World"]
 
-[node name="cactus_tall2" parent="SubViewportContainer/World/Foliage" instance=ExtResource("2_stcry")]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -7.407047, 4.2856493, -21.521206)
+[node name="Pine_Tree_1_Autumn" parent="SubViewportContainer/World/Foliage" instance=ExtResource("18_77xr6")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -132.80954, 0.07999375, -133.77182)
 
-[node name="cactus_tall3" parent="SubViewportContainer/World/Foliage" instance=ExtResource("2_stcry")]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -4.407047, 4.2856493, -20.521206)
+[node name="Oak_Tree_Autumn" parent="SubViewportContainer/World/Foliage" instance=ExtResource("19_w7ivt")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -128.00461, 0.16999403, -138.75253)
+
+[node name="Broken_Tree_Autumn" parent="SubViewportContainer/World/Foliage" instance=ExtResource("20_x23mu")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -129.73476, 0.14999394, -132.06683)
+
+[node name="Willow_Tree_Autumn" parent="SubViewportContainer/World/Foliage" instance=ExtResource("21_7b08a")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -138.13458, 0.13644248, -136.09515)
+
+[node name="Pine_Tree_1_Autumn2" parent="SubViewportContainer/World/Foliage" instance=ExtResource("18_77xr6")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -131.7642, 0.07999472, -126.32954)
+
+[node name="Oak_Tree_Autumn2" parent="SubViewportContainer/World/Foliage" instance=ExtResource("19_w7ivt")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -135.71101, 0.16999619, -120.64467)
+
+[node name="Broken_Tree_Autumn2" parent="SubViewportContainer/World/Foliage" instance=ExtResource("20_x23mu")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -135.07204, 0.14999448, -127.52099)
+
+[node name="Willow_Tree_Autumn2" parent="SubViewportContainer/World/Foliage" instance=ExtResource("21_7b08a")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -126.13621, 0.13644382, -124.88746)
+
+[node name="Pine_Tree_1_Autumn3" parent="SubViewportContainer/World/Foliage" instance=ExtResource("18_77xr6")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -121.85853, 0.07999474, -125.45367)
+
+[node name="Oak_Tree_Autumn3" parent="SubViewportContainer/World/Foliage" instance=ExtResource("19_w7ivt")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -117.0536, 0.16999511, -130.43439)
+
+[node name="Broken_Tree_Autumn3" parent="SubViewportContainer/World/Foliage" instance=ExtResource("20_x23mu")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -118.783745, 0.14999494, -123.74868)
+
+[node name="Willow_Tree_Autumn3" parent="SubViewportContainer/World/Foliage" instance=ExtResource("21_7b08a")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -127.18357, 0.13644348, -127.777)
+
+[node name="Pine_Tree_1_Autumn4" parent="SubViewportContainer/World/Foliage" instance=ExtResource("18_77xr6")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -120.813194, 0.07999553, -118.01139)
+
+[node name="Oak_Tree_Autumn4" parent="SubViewportContainer/World/Foliage" instance=ExtResource("19_w7ivt")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -124.76, 0.16999727, -112.326515)
+
+[node name="Broken_Tree_Autumn4" parent="SubViewportContainer/World/Foliage" instance=ExtResource("20_x23mu")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -124.121025, 0.14999548, -119.20283)
+
+[node name="Willow_Tree_Autumn4" parent="SubViewportContainer/World/Foliage" instance=ExtResource("21_7b08a")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -115.185196, 0.1364448, -116.56931)
+
+[node name="Pine_Tree_1_Autumn5" parent="SubViewportContainer/World/Foliage" instance=ExtResource("18_77xr6")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -119.410324, 0.079990715, -159.22223)
+
+[node name="Oak_Tree_Autumn5" parent="SubViewportContainer/World/Foliage" instance=ExtResource("19_w7ivt")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -114.60539, 0.1674445, -164.20294)
+
+[node name="Broken_Tree_Autumn5" parent="SubViewportContainer/World/Foliage" instance=ExtResource("20_x23mu")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -116.33554, 0.1499909, -157.51724)
+
+[node name="Willow_Tree_Autumn5" parent="SubViewportContainer/World/Foliage" instance=ExtResource("21_7b08a")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -124.73537, 0.13644892, -161.54556)
+
+[node name="Pine_Tree_1_Autumn6" parent="SubViewportContainer/World/Foliage" instance=ExtResource("18_77xr6")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -118.36499, 0.0799916, -151.77995)
+
+[node name="Oak_Tree_Autumn6" parent="SubViewportContainer/World/Foliage" instance=ExtResource("19_w7ivt")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -122.3118, 0.16999325, -146.0951)
+
+[node name="Broken_Tree_Autumn6" parent="SubViewportContainer/World/Foliage" instance=ExtResource("20_x23mu")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -121.67282, 0.14999154, -152.9714)
+
+[node name="Willow_Tree_Autumn6" parent="SubViewportContainer/World/Foliage" instance=ExtResource("21_7b08a")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -112.73699, 0.13644078, -150.33788)
+
+[node name="Pine_Tree_1_Autumn7" parent="SubViewportContainer/World/Foliage" instance=ExtResource("18_77xr6")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -108.45931, 0.07999161, -150.90408)
+
+[node name="Oak_Tree_Autumn7" parent="SubViewportContainer/World/Foliage" instance=ExtResource("19_w7ivt")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -103.65438, 0.16999198, -155.8848)
+
+[node name="Broken_Tree_Autumn7" parent="SubViewportContainer/World/Foliage" instance=ExtResource("20_x23mu")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -105.38453, 0.1499919, -149.1991)
+
+[node name="Willow_Tree_Autumn7" parent="SubViewportContainer/World/Foliage" instance=ExtResource("21_7b08a")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -113.784355, 0.13644044, -153.22742)
+
+[node name="Pine_Tree_1_Autumn8" parent="SubViewportContainer/World/Foliage" instance=ExtResource("18_77xr6")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -107.41398, 0.079992495, -143.4618)
+
+[node name="Oak_Tree_Autumn8" parent="SubViewportContainer/World/Foliage" instance=ExtResource("19_w7ivt")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -111.36079, 0.16999415, -137.77693)
+
+[node name="Broken_Tree_Autumn8" parent="SubViewportContainer/World/Foliage" instance=ExtResource("20_x23mu")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -110.72181, 0.14999244, -144.65324)
+
+[node name="Willow_Tree_Autumn8" parent="SubViewportContainer/World/Foliage" instance=ExtResource("21_7b08a")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -101.78598, 0.13644178, -142.01973)
+
+[node name="Pine_Tree_1_Autumn9" parent="SubViewportContainer/World/Foliage" instance=ExtResource("18_77xr6")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -105.315186, 0.07999567, -117.62479)
+
+[node name="Oak_Tree_Autumn9" parent="SubViewportContainer/World/Foliage" instance=ExtResource("19_w7ivt")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -100.510254, 0.16999605, -122.6055)
+
+[node name="Broken_Tree_Autumn9" parent="SubViewportContainer/World/Foliage" instance=ExtResource("20_x23mu")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -102.2404, 0.14999586, -115.9198)
+
+[node name="Willow_Tree_Autumn9" parent="SubViewportContainer/World/Foliage" instance=ExtResource("21_7b08a")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -110.64023, 0.1364444, -119.94812)
+
+[node name="Pine_Tree_1_Autumn10" parent="SubViewportContainer/World/Foliage" instance=ExtResource("18_77xr6")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -104.26985, 0.07999647, -110.18251)
+
+[node name="Oak_Tree_Autumn10" parent="SubViewportContainer/World/Foliage" instance=ExtResource("19_w7ivt")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -108.21666, 0.16999811, -104.49765)
+
+[node name="Broken_Tree_Autumn10" parent="SubViewportContainer/World/Foliage" instance=ExtResource("20_x23mu")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -107.57768, 0.14999641, -111.37396)
+
+[node name="Willow_Tree_Autumn10" parent="SubViewportContainer/World/Foliage" instance=ExtResource("21_7b08a")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -98.64185, 0.13644575, -108.74043)
+
+[node name="Pine_Tree_1_Autumn11" parent="SubViewportContainer/World/Foliage" instance=ExtResource("18_77xr6")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -94.364174, 0.07999666, -109.30664)
+
+[node name="Oak_Tree_Autumn11" parent="SubViewportContainer/World/Foliage" instance=ExtResource("19_w7ivt")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -89.55924, 0.16999704, -114.28735)
+
+[node name="Broken_Tree_Autumn11" parent="SubViewportContainer/World/Foliage" instance=ExtResource("20_x23mu")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -91.28939, 0.14999686, -107.601654)
+
+[node name="Willow_Tree_Autumn11" parent="SubViewportContainer/World/Foliage" instance=ExtResource("21_7b08a")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -99.68922, 0.1364454, -111.629974)
+
+[node name="Pine_Tree_1_Autumn12" parent="SubViewportContainer/World/Foliage" instance=ExtResource("18_77xr6")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -93.31884, 0.07999755, -101.864365)
+
+[node name="Oak_Tree_Autumn12" parent="SubViewportContainer/World/Foliage" instance=ExtResource("19_w7ivt")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -97.26565, 0.1699992, -96.17949)
+
+[node name="Broken_Tree_Autumn12" parent="SubViewportContainer/World/Foliage" instance=ExtResource("20_x23mu")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -96.62667, 0.1499974, -103.0558)
+
+[node name="Willow_Tree_Autumn12" parent="SubViewportContainer/World/Foliage" instance=ExtResource("21_7b08a")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -87.69084, 0.13644673, -100.42229)
+
+[node name="Pine_Tree_1_Autumn13" parent="SubViewportContainer/World/Foliage" instance=ExtResource("18_77xr6")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -146.9355, 0.07999567, -117.62479)
+
+[node name="Oak_Tree_Autumn13" parent="SubViewportContainer/World/Foliage" instance=ExtResource("19_w7ivt")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -142.13057, 0.16999605, -122.6055)
+
+[node name="Broken_Tree_Autumn13" parent="SubViewportContainer/World/Foliage" instance=ExtResource("20_x23mu")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -143.86072, 0.14999586, -115.9198)
+
+[node name="Willow_Tree_Autumn13" parent="SubViewportContainer/World/Foliage" instance=ExtResource("21_7b08a")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -152.26054, 0.1364444, -119.94812)
+
+[node name="Pine_Tree_1_Autumn14" parent="SubViewportContainer/World/Foliage" instance=ExtResource("18_77xr6")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -145.89017, 0.07999647, -110.18251)
+
+[node name="Oak_Tree_Autumn14" parent="SubViewportContainer/World/Foliage" instance=ExtResource("19_w7ivt")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -149.83698, 0.16999811, -104.49765)
+
+[node name="Broken_Tree_Autumn14" parent="SubViewportContainer/World/Foliage" instance=ExtResource("20_x23mu")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -149.198, 0.14999641, -111.37396)
+
+[node name="Willow_Tree_Autumn14" parent="SubViewportContainer/World/Foliage" instance=ExtResource("21_7b08a")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -140.26218, 0.13644575, -108.74043)
+
+[node name="Pine_Tree_1_Autumn15" parent="SubViewportContainer/World/Foliage" instance=ExtResource("18_77xr6")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -135.9845, 0.07999666, -109.30664)
+
+[node name="Oak_Tree_Autumn15" parent="SubViewportContainer/World/Foliage" instance=ExtResource("19_w7ivt")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -131.17957, 0.16999704, -114.28735)
+
+[node name="Broken_Tree_Autumn15" parent="SubViewportContainer/World/Foliage" instance=ExtResource("20_x23mu")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -132.9097, 0.14999686, -107.601654)
+
+[node name="Willow_Tree_Autumn15" parent="SubViewportContainer/World/Foliage" instance=ExtResource("21_7b08a")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -141.30954, 0.1364454, -111.629974)
+
+[node name="Pine_Tree_1_Autumn16" parent="SubViewportContainer/World/Foliage" instance=ExtResource("18_77xr6")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -134.93915, 0.07999755, -101.864365)
+
+[node name="Oak_Tree_Autumn16" parent="SubViewportContainer/World/Foliage" instance=ExtResource("19_w7ivt")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -138.88596, 0.1699992, -96.17949)
+
+[node name="Broken_Tree_Autumn16" parent="SubViewportContainer/World/Foliage" instance=ExtResource("20_x23mu")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -138.24698, 0.1499974, -103.0558)
+
+[node name="Willow_Tree_Autumn16" parent="SubViewportContainer/World/Foliage" instance=ExtResource("21_7b08a")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -129.31116, 0.13644673, -100.42229)
+
+[node name="Pine_Tree_1_Autumn17" parent="SubViewportContainer/World/Foliage" instance=ExtResource("18_77xr6")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -178.46306, 0.11999253, -144.14056)
+
+[node name="Oak_Tree_Autumn17" parent="SubViewportContainer/World/Foliage" instance=ExtResource("19_w7ivt")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -173.65813, 0.19940545, -149.12128)
+
+[node name="Broken_Tree_Autumn17" parent="SubViewportContainer/World/Foliage" instance=ExtResource("20_x23mu")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -175.38828, 0.20232734, -142.43558)
+
+[node name="Willow_Tree_Autumn17" parent="SubViewportContainer/World/Foliage" instance=ExtResource("21_7b08a")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -183.7881, 0.2303341, -146.4639)
+
+[node name="Pine_Tree_1_Autumn18" parent="SubViewportContainer/World/Foliage" instance=ExtResource("18_77xr6")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -177.41772, 0.15877926, -136.69829)
+
+[node name="Oak_Tree_Autumn18" parent="SubViewportContainer/World/Foliage" instance=ExtResource("19_w7ivt")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -181.36453, 0.28207546, -131.01343)
+
+[node name="Broken_Tree_Autumn18" parent="SubViewportContainer/World/Foliage" instance=ExtResource("20_x23mu")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -180.72556, 0.2776823, -137.88974)
+
+[node name="Willow_Tree_Autumn18" parent="SubViewportContainer/World/Foliage" instance=ExtResource("21_7b08a")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -171.78973, 0.22271061, -135.25621)
+
+[node name="Pine_Tree_1_Autumn19" parent="SubViewportContainer/World/Foliage" instance=ExtResource("18_77xr6")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -167.51205, 0.11128706, -135.82242)
+
+[node name="Oak_Tree_Autumn19" parent="SubViewportContainer/World/Foliage" instance=ExtResource("19_w7ivt")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -162.70712, 0.16999397, -140.80313)
+
+[node name="Pine_Tree_1_Autumn20" parent="SubViewportContainer/World/Foliage" instance=ExtResource("18_77xr6")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -271.3246, 0.28972578, -133.77182)
+
+[node name="Oak_Tree_Autumn20" parent="SubViewportContainer/World/Foliage" instance=ExtResource("19_w7ivt")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -266.51965, 0.35990807, -138.75253)
+
+[node name="Broken_Tree_Autumn19" parent="SubViewportContainer/World/Foliage" instance=ExtResource("20_x23mu")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -268.2498, 0.33707225, -132.06683)
+
+[node name="Willow_Tree_Autumn19" parent="SubViewportContainer/World/Foliage" instance=ExtResource("21_7b08a")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -276.6496, 0.36132067, -136.09515)
+
+[node name="Pine_Tree_1_Autumn21" parent="SubViewportContainer/World/Foliage" instance=ExtResource("18_77xr6")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -270.27924, 0.1817553, -126.32954)
+
+[node name="Oak_Tree_Autumn21" parent="SubViewportContainer/World/Foliage" instance=ExtResource("19_w7ivt")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -274.22604, 0.39626414, -120.64467)
+
+[node name="Broken_Tree_Autumn20" parent="SubViewportContainer/World/Foliage" instance=ExtResource("20_x23mu")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -273.58707, 0.45277154, -127.52099)
+
+[node name="Willow_Tree_Autumn20" parent="SubViewportContainer/World/Foliage" instance=ExtResource("21_7b08a")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -264.65125, 0.23292986, -124.88746)
+
+[node name="Pine_Tree_1_Autumn22" parent="SubViewportContainer/World/Foliage" instance=ExtResource("18_77xr6")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -260.37357, 0.14405137, -125.45367)
+
+[node name="Oak_Tree_Autumn22" parent="SubViewportContainer/World/Foliage" instance=ExtResource("19_w7ivt")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -255.56863, 0.24211878, -130.43439)
+
+[node name="Broken_Tree_Autumn21" parent="SubViewportContainer/World/Foliage" instance=ExtResource("20_x23mu")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -257.29877, 0.2134682, -123.74868)
+
+[node name="Willow_Tree_Autumn21" parent="SubViewportContainer/World/Foliage" instance=ExtResource("21_7b08a")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -265.6986, 0.28108597, -127.777)
+
+[node name="Pine_Tree_1_Autumn23" parent="SubViewportContainer/World/Foliage" instance=ExtResource("18_77xr6")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -259.32822, 0.1261665, -118.01139)
+
+[node name="Oak_Tree_Autumn23" parent="SubViewportContainer/World/Foliage" instance=ExtResource("19_w7ivt")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -263.27502, 0.19618186, -112.326515)
+
+[node name="Broken_Tree_Autumn22" parent="SubViewportContainer/World/Foliage" instance=ExtResource("20_x23mu")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -262.63605, 0.1910233, -119.20283)
+
+[node name="Willow_Tree_Autumn22" parent="SubViewportContainer/World/Foliage" instance=ExtResource("21_7b08a")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -253.70023, 0.19268747, -116.56931)
+
+[node name="Pine_Tree_1_Autumn24" parent="SubViewportContainer/World/Foliage" instance=ExtResource("18_77xr6")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -257.92535, 0.1633384, -159.22223)
+
+[node name="Oak_Tree_Autumn24" parent="SubViewportContainer/World/Foliage" instance=ExtResource("19_w7ivt")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -253.12042, 0.21300487, -164.20294)
+
+[node name="Broken_Tree_Autumn23" parent="SubViewportContainer/World/Foliage" instance=ExtResource("20_x23mu")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -254.85057, 0.22724625, -157.51724)
+
+[node name="Willow_Tree_Autumn23" parent="SubViewportContainer/World/Foliage" instance=ExtResource("21_7b08a")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -263.2504, 0.28829494, -161.54556)
+
+[node name="Pine_Tree_1_Autumn25" parent="SubViewportContainer/World/Foliage" instance=ExtResource("18_77xr6")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -256.88, 0.22222997, -151.77995)
+
+[node name="Oak_Tree_Autumn25" parent="SubViewportContainer/World/Foliage" instance=ExtResource("19_w7ivt")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -260.82684, 0.30399004, -146.0951)
+
+[node name="Broken_Tree_Autumn24" parent="SubViewportContainer/World/Foliage" instance=ExtResource("20_x23mu")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -260.18787, 0.28855008, -152.9714)
+
+[node name="Willow_Tree_Autumn24" parent="SubViewportContainer/World/Foliage" instance=ExtResource("21_7b08a")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -251.25201, 0.21641913, -150.33788)
+
+[node name="Pine_Tree_1_Autumn26" parent="SubViewportContainer/World/Foliage" instance=ExtResource("18_77xr6")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -246.97433, 0.079991706, -150.90408)
+
+[node name="Oak_Tree_Autumn26" parent="SubViewportContainer/World/Foliage" instance=ExtResource("19_w7ivt")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -242.1694, 0.16999218, -155.8848)
+
+[node name="Broken_Tree_Autumn25" parent="SubViewportContainer/World/Foliage" instance=ExtResource("20_x23mu")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -243.89957, 0.14999199, -149.1991)
+
+[node name="Willow_Tree_Autumn25" parent="SubViewportContainer/World/Foliage" instance=ExtResource("21_7b08a")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -252.29938, 0.22067147, -153.22742)
+
+[node name="Pine_Tree_1_Autumn27" parent="SubViewportContainer/World/Foliage" instance=ExtResource("18_77xr6")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -245.92902, 0.07999268, -143.4618)
+
+[node name="Oak_Tree_Autumn27" parent="SubViewportContainer/World/Foliage" instance=ExtResource("19_w7ivt")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -249.87582, 0.23703903, -137.77693)
+
+[node name="Broken_Tree_Autumn26" parent="SubViewportContainer/World/Foliage" instance=ExtResource("20_x23mu")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -249.23685, 0.22292477, -144.65324)
+
+[node name="Willow_Tree_Autumn26" parent="SubViewportContainer/World/Foliage" instance=ExtResource("21_7b08a")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -240.30101, 0.13933763, -142.01973)
+
+[node name="Pine_Tree_1_Autumn28" parent="SubViewportContainer/World/Foliage" instance=ExtResource("18_77xr6")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -243.83022, 0.07999558, -117.62479)
+
+[node name="Oak_Tree_Autumn28" parent="SubViewportContainer/World/Foliage" instance=ExtResource("19_w7ivt")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -239.02528, 0.18358813, -122.6055)
+
+[node name="Broken_Tree_Autumn27" parent="SubViewportContainer/World/Foliage" instance=ExtResource("20_x23mu")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -240.75543, 0.14999586, -115.9198)
+
+[node name="Willow_Tree_Autumn27" parent="SubViewportContainer/World/Foliage" instance=ExtResource("21_7b08a")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -249.15526, 0.18524691, -119.94812)
+
+[node name="Pine_Tree_1_Autumn29" parent="SubViewportContainer/World/Foliage" instance=ExtResource("18_77xr6")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -242.78488, 0.07999665, -110.18251)
+
+[node name="Oak_Tree_Autumn29" parent="SubViewportContainer/World/Foliage" instance=ExtResource("19_w7ivt")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -246.73169, 0.20172483, -104.49765)
+
+[node name="Broken_Tree_Autumn28" parent="SubViewportContainer/World/Foliage" instance=ExtResource("20_x23mu")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -246.09271, 0.18761048, -111.37396)
+
+[node name="Willow_Tree_Autumn28" parent="SubViewportContainer/World/Foliage" instance=ExtResource("21_7b08a")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -237.15689, 0.16525677, -108.74043)
+
+[node name="Pine_Tree_1_Autumn30" parent="SubViewportContainer/World/Foliage" instance=ExtResource("18_77xr6")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -232.87921, 0.12230106, -109.30664)
+
+[node name="Oak_Tree_Autumn30" parent="SubViewportContainer/World/Foliage" instance=ExtResource("19_w7ivt")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -228.07428, 0.31536853, -114.28735)
+
+[node name="Broken_Tree_Autumn29" parent="SubViewportContainer/World/Foliage" instance=ExtResource("20_x23mu")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -229.80441, 0.22281045, -107.601654)
+
+[node name="Willow_Tree_Autumn29" parent="SubViewportContainer/World/Foliage" instance=ExtResource("21_7b08a")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -238.20425, 0.15674116, -111.629974)
+
+[node name="Pine_Tree_1_Autumn31" parent="SubViewportContainer/World/Foliage" instance=ExtResource("18_77xr6")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -231.83386, 0.119997576, -101.864365)
+
+[node name="Oak_Tree_Autumn31" parent="SubViewportContainer/World/Foliage" instance=ExtResource("19_w7ivt")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -235.78067, 0.1988851, -96.17949)
+
+[node name="Broken_Tree_Autumn30" parent="SubViewportContainer/World/Foliage" instance=ExtResource("20_x23mu")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -235.1417, 0.18529843, -103.0558)
+
+[node name="Willow_Tree_Autumn30" parent="SubViewportContainer/World/Foliage" instance=ExtResource("21_7b08a")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -226.20587, 0.2689829, -100.42229)
+
+[node name="Pine_Tree_1_Autumn32" parent="SubViewportContainer/World/Foliage" instance=ExtResource("18_77xr6")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -285.45053, 0.24643388, -117.62479)
+
+[node name="Oak_Tree_Autumn32" parent="SubViewportContainer/World/Foliage" instance=ExtResource("19_w7ivt")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -280.6456, 0.37070385, -122.6055)
+
+[node name="Broken_Tree_Autumn31" parent="SubViewportContainer/World/Foliage" instance=ExtResource("20_x23mu")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -282.37573, 0.38292232, -115.9198)
+
+[node name="Willow_Tree_Autumn31" parent="SubViewportContainer/World/Foliage" instance=ExtResource("21_7b08a")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -290.77557, 0.34924573, -119.94812)
+
+[node name="Pine_Tree_1_Autumn33" parent="SubViewportContainer/World/Foliage" instance=ExtResource("18_77xr6")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -284.4052, 0.27776933, -110.18251)
+
+[node name="Oak_Tree_Autumn33" parent="SubViewportContainer/World/Foliage" instance=ExtResource("19_w7ivt")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -288.352, 0.30867803, -104.49765)
+
+[node name="Broken_Tree_Autumn32" parent="SubViewportContainer/World/Foliage" instance=ExtResource("20_x23mu")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -287.713, 0.39341235, -111.37396)
+
+[node name="Willow_Tree_Autumn32" parent="SubViewportContainer/World/Foliage" instance=ExtResource("21_7b08a")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -278.77722, 0.21564522, -108.74043)
+
+[node name="Pine_Tree_1_Autumn34" parent="SubViewportContainer/World/Foliage" instance=ExtResource("18_77xr6")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -274.4995, 0.13316986, -109.30664)
+
+[node name="Oak_Tree_Autumn34" parent="SubViewportContainer/World/Foliage" instance=ExtResource("19_w7ivt")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -269.69458, 0.2326959, -114.28735)
+
+[node name="Broken_Tree_Autumn33" parent="SubViewportContainer/World/Foliage" instance=ExtResource("20_x23mu")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -271.42474, 0.16688527, -107.601654)
+
+[node name="Willow_Tree_Autumn33" parent="SubViewportContainer/World/Foliage" instance=ExtResource("21_7b08a")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -279.8246, 0.27378082, -111.629974)
+
+[node name="Pine_Tree_1_Autumn35" parent="SubViewportContainer/World/Foliage" instance=ExtResource("18_77xr6")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -273.45416, 0.114591435, -101.864365)
+
+[node name="Oak_Tree_Autumn35" parent="SubViewportContainer/World/Foliage" instance=ExtResource("19_w7ivt")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -277.401, 0.23486906, -96.17949)
+
+[node name="Broken_Tree_Autumn34" parent="SubViewportContainer/World/Foliage" instance=ExtResource("20_x23mu")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -276.76202, 0.19238216, -103.0558)
+
+[node name="Willow_Tree_Autumn34" parent="SubViewportContainer/World/Foliage" instance=ExtResource("21_7b08a")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -267.82617, 0.15578341, -100.42229)
+
+[node name="Pine_Tree_1_Autumn36" parent="SubViewportContainer/World/Foliage" instance=ExtResource("18_77xr6")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -316.9781, 1.0542636, -144.14056)
+
+[node name="Oak_Tree_Autumn36" parent="SubViewportContainer/World/Foliage" instance=ExtResource("19_w7ivt")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -312.17316, 0.5595233, -149.12128)
+
+[node name="Broken_Tree_Autumn35" parent="SubViewportContainer/World/Foliage" instance=ExtResource("20_x23mu")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -313.90332, 0.5025606, -142.43558)
+
+[node name="Willow_Tree_Autumn35" parent="SubViewportContainer/World/Foliage" instance=ExtResource("21_7b08a")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -322.30313, 1.4838265, -146.4639)
+
+[node name="Pine_Tree_1_Autumn37" parent="SubViewportContainer/World/Foliage" instance=ExtResource("18_77xr6")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -315.93274, 0.65595376, -136.69829)
+
+[node name="Oak_Tree_Autumn37" parent="SubViewportContainer/World/Foliage" instance=ExtResource("19_w7ivt")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -319.87958, 0.8157007, -131.01343)
+
+[node name="Broken_Tree_Autumn36" parent="SubViewportContainer/World/Foliage" instance=ExtResource("20_x23mu")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -319.2406, 1.0431538, -137.88974)
+
+[node name="Willow_Tree_Autumn36" parent="SubViewportContainer/World/Foliage" instance=ExtResource("21_7b08a")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -310.30475, 0.6972, -135.25621)
+
+[node name="Pine_Tree_1_Autumn38" parent="SubViewportContainer/World/Foliage" instance=ExtResource("18_77xr6")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -306.0271, 0.57047486, -135.82242)
+
+[node name="Oak_Tree_Autumn38" parent="SubViewportContainer/World/Foliage" instance=ExtResource("19_w7ivt")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -301.22217, 0.93720186, -140.80313)
+
+[node name="Pine_Tree_1_Autumn39" parent="SubViewportContainer/World/Foliage" instance=ExtResource("18_77xr6")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -271.3246, 6.2324104, -221.66832)
+
+[node name="Oak_Tree_Autumn39" parent="SubViewportContainer/World/Foliage" instance=ExtResource("19_w7ivt")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -266.51965, 9.903969, -226.64903)
+
+[node name="Broken_Tree_Autumn37" parent="SubViewportContainer/World/Foliage" instance=ExtResource("20_x23mu")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -268.2498, 7.366582, -219.96333)
+
+[node name="Willow_Tree_Autumn37" parent="SubViewportContainer/World/Foliage" instance=ExtResource("21_7b08a")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -276.6496, 6.3416505, -223.99165)
+
+[node name="Pine_Tree_1_Autumn40" parent="SubViewportContainer/World/Foliage" instance=ExtResource("18_77xr6")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -270.27924, 4.9506164, -214.22604)
+
+[node name="Oak_Tree_Autumn40" parent="SubViewportContainer/World/Foliage" instance=ExtResource("19_w7ivt")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -274.22604, 1.3846724, -208.54117)
+
+[node name="Broken_Tree_Autumn38" parent="SubViewportContainer/World/Foliage" instance=ExtResource("20_x23mu")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -273.58707, 3.454515, -215.41748)
+
+[node name="Willow_Tree_Autumn38" parent="SubViewportContainer/World/Foliage" instance=ExtResource("21_7b08a")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -264.65125, 7.904843, -212.78397)
+
+[node name="Pine_Tree_1_Autumn41" parent="SubViewportContainer/World/Foliage" instance=ExtResource("18_77xr6")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -260.37357, 9.157873, -213.35016)
+
+[node name="Broken_Tree_Autumn39" parent="SubViewportContainer/World/Foliage" instance=ExtResource("20_x23mu")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -257.29877, 8.574959, -211.64517)
+
+[node name="Willow_Tree_Autumn39" parent="SubViewportContainer/World/Foliage" instance=ExtResource("21_7b08a")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -265.6986, 7.9931765, -215.6735)
+
+[node name="Pine_Tree_1_Autumn42" parent="SubViewportContainer/World/Foliage" instance=ExtResource("18_77xr6")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -259.32822, 5.761998, -205.9079)
+
+[node name="Oak_Tree_Autumn42" parent="SubViewportContainer/World/Foliage" instance=ExtResource("19_w7ivt")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -263.27502, 2.106536, -200.22302)
+
+[node name="Broken_Tree_Autumn40" parent="SubViewportContainer/World/Foliage" instance=ExtResource("20_x23mu")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -262.63605, 5.7550855, -207.09933)
+
+[node name="Willow_Tree_Autumn40" parent="SubViewportContainer/World/Foliage" instance=ExtResource("21_7b08a")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -253.70023, 4.2372994, -204.46582)
+
+[node name="Pine_Tree_1_Autumn43" parent="SubViewportContainer/World/Foliage" instance=ExtResource("18_77xr6")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -257.92535, 9.806308, -247.11873)
+
+[node name="Oak_Tree_Autumn43" parent="SubViewportContainer/World/Foliage" instance=ExtResource("19_w7ivt")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -253.12042, 6.3303237, -252.09944)
+
+[node name="Broken_Tree_Autumn41" parent="SubViewportContainer/World/Foliage" instance=ExtResource("20_x23mu")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -254.85057, 7.587404, -245.41374)
+
+[node name="Willow_Tree_Autumn41" parent="SubViewportContainer/World/Foliage" instance=ExtResource("21_7b08a")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -263.2504, 11.642995, -249.44206)
+
+[node name="Pine_Tree_1_Autumn44" parent="SubViewportContainer/World/Foliage" instance=ExtResource("18_77xr6")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -256.88, 10.543649, -239.67645)
+
+[node name="Oak_Tree_Autumn44" parent="SubViewportContainer/World/Foliage" instance=ExtResource("19_w7ivt")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -260.82684, 12.773026, -233.9916)
+
+[node name="Broken_Tree_Autumn42" parent="SubViewportContainer/World/Foliage" instance=ExtResource("20_x23mu")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -260.18787, 13.678543, -240.8679)
+
+[node name="Willow_Tree_Autumn42" parent="SubViewportContainer/World/Foliage" instance=ExtResource("21_7b08a")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -251.25201, 5.2450457, -238.23438)
+
+[node name="Pine_Tree_1_Autumn45" parent="SubViewportContainer/World/Foliage" instance=ExtResource("18_77xr6")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -246.97433, 4.5233617, -238.80058)
+
+[node name="Oak_Tree_Autumn45" parent="SubViewportContainer/World/Foliage" instance=ExtResource("19_w7ivt")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -242.1694, 1.808183, -243.7813)
+
+[node name="Broken_Tree_Autumn43" parent="SubViewportContainer/World/Foliage" instance=ExtResource("20_x23mu")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -243.89957, 5.007796, -237.0956)
+
+[node name="Willow_Tree_Autumn43" parent="SubViewportContainer/World/Foliage" instance=ExtResource("21_7b08a")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -252.29938, 5.4766755, -241.12392)
+
+[node name="Pine_Tree_1_Autumn46" parent="SubViewportContainer/World/Foliage" instance=ExtResource("18_77xr6")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -245.92902, 7.9412355, -231.3583)
+
+[node name="Oak_Tree_Autumn46" parent="SubViewportContainer/World/Foliage" instance=ExtResource("19_w7ivt")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -249.87582, 7.9881043, -225.67343)
+
+[node name="Broken_Tree_Autumn44" parent="SubViewportContainer/World/Foliage" instance=ExtResource("20_x23mu")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -249.23685, 7.503506, -232.54974)
+
+[node name="Willow_Tree_Autumn44" parent="SubViewportContainer/World/Foliage" instance=ExtResource("21_7b08a")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -240.30101, 8.241783, -229.91623)
+
+[node name="Pine_Tree_1_Autumn47" parent="SubViewportContainer/World/Foliage" instance=ExtResource("18_77xr6")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -243.83022, 2.6165764, -205.52129)
+
+[node name="Oak_Tree_Autumn47" parent="SubViewportContainer/World/Foliage" instance=ExtResource("19_w7ivt")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -239.02528, 3.36521, -210.502)
+
+[node name="Broken_Tree_Autumn45" parent="SubViewportContainer/World/Foliage" instance=ExtResource("20_x23mu")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -240.75543, 4.902398, -203.8163)
+
+[node name="Willow_Tree_Autumn45" parent="SubViewportContainer/World/Foliage" instance=ExtResource("21_7b08a")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -249.15526, 4.0501223, -207.84462)
+
+[node name="Pine_Tree_1_Autumn48" parent="SubViewportContainer/World/Foliage" instance=ExtResource("18_77xr6")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -242.78488, 2.4863677, -198.07901)
+
+[node name="Oak_Tree_Autumn48" parent="SubViewportContainer/World/Foliage" instance=ExtResource("19_w7ivt")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -246.73169, 0.42120555, -192.39415)
+
+[node name="Broken_Tree_Autumn46" parent="SubViewportContainer/World/Foliage" instance=ExtResource("20_x23mu")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -246.09271, 1.2678047, -199.27046)
+
+[node name="Willow_Tree_Autumn46" parent="SubViewportContainer/World/Foliage" instance=ExtResource("21_7b08a")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -237.15689, 5.533551, -196.63693)
+
+[node name="Pine_Tree_1_Autumn49" parent="SubViewportContainer/World/Foliage" instance=ExtResource("18_77xr6")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -232.87921, 7.04261, -197.20314)
+
+[node name="Oak_Tree_Autumn49" parent="SubViewportContainer/World/Foliage" instance=ExtResource("19_w7ivt")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -228.07428, 7.6798124, -202.18385)
+
+[node name="Broken_Tree_Autumn47" parent="SubViewportContainer/World/Foliage" instance=ExtResource("20_x23mu")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -229.80441, 6.2241254, -195.49815)
+
+[node name="Willow_Tree_Autumn47" parent="SubViewportContainer/World/Foliage" instance=ExtResource("21_7b08a")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -238.20425, 6.5793104, -199.52647)
+
+[node name="Pine_Tree_1_Autumn50" parent="SubViewportContainer/World/Foliage" instance=ExtResource("18_77xr6")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -231.83386, 2.3981066, -189.76086)
+
+[node name="Oak_Tree_Autumn50" parent="SubViewportContainer/World/Foliage" instance=ExtResource("19_w7ivt")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -235.78067, 0.2764315, -184.07599)
+
+[node name="Broken_Tree_Autumn48" parent="SubViewportContainer/World/Foliage" instance=ExtResource("20_x23mu")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -235.1417, 2.8089197, -190.9523)
+
+[node name="Willow_Tree_Autumn48" parent="SubViewportContainer/World/Foliage" instance=ExtResource("21_7b08a")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -226.20587, 0.81953007, -188.31879)
+
+[node name="Pine_Tree_1_Autumn51" parent="SubViewportContainer/World/Foliage" instance=ExtResource("18_77xr6")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -285.45053, 0.40303397, -205.52129)
+
+[node name="Oak_Tree_Autumn51" parent="SubViewportContainer/World/Foliage" instance=ExtResource("19_w7ivt")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -280.6456, 1.1121662, -210.502)
+
+[node name="Broken_Tree_Autumn49" parent="SubViewportContainer/World/Foliage" instance=ExtResource("20_x23mu")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -282.37573, 0.4226524, -203.8163)
+
+[node name="Willow_Tree_Autumn49" parent="SubViewportContainer/World/Foliage" instance=ExtResource("21_7b08a")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -290.77557, 0.29946625, -207.84462)
+
+[node name="Pine_Tree_1_Autumn52" parent="SubViewportContainer/World/Foliage" instance=ExtResource("18_77xr6")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -284.4052, 0.3895734, -198.07901)
+
+[node name="Oak_Tree_Autumn52" parent="SubViewportContainer/World/Foliage" instance=ExtResource("19_w7ivt")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -288.352, 0.40525818, -192.39415)
+
+[node name="Broken_Tree_Autumn50" parent="SubViewportContainer/World/Foliage" instance=ExtResource("20_x23mu")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -287.713, 0.5251536, -199.27046)
+
+[node name="Willow_Tree_Autumn50" parent="SubViewportContainer/World/Foliage" instance=ExtResource("21_7b08a")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -278.77722, 0.341427, -196.63693)
+
+[node name="Pine_Tree_1_Autumn53" parent="SubViewportContainer/World/Foliage" instance=ExtResource("18_77xr6")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -274.4995, 0.2370935, -197.20314)
+
+[node name="Oak_Tree_Autumn53" parent="SubViewportContainer/World/Foliage" instance=ExtResource("19_w7ivt")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -269.69458, 1.0675075, -202.18385)
+
+[node name="Broken_Tree_Autumn51" parent="SubViewportContainer/World/Foliage" instance=ExtResource("20_x23mu")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -271.42474, 0.27143455, -195.49815)
+
+[node name="Willow_Tree_Autumn51" parent="SubViewportContainer/World/Foliage" instance=ExtResource("21_7b08a")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -279.8246, 0.35682237, -199.52647)
+
+[node name="Pine_Tree_1_Autumn54" parent="SubViewportContainer/World/Foliage" instance=ExtResource("18_77xr6")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -273.45416, 0.33536214, -189.76086)
+
+[node name="Oak_Tree_Autumn54" parent="SubViewportContainer/World/Foliage" instance=ExtResource("19_w7ivt")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -277.401, 0.4715851, -184.07599)
+
+[node name="Broken_Tree_Autumn52" parent="SubViewportContainer/World/Foliage" instance=ExtResource("20_x23mu")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -276.76202, 0.30998692, -190.9523)
+
+[node name="Willow_Tree_Autumn52" parent="SubViewportContainer/World/Foliage" instance=ExtResource("21_7b08a")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -267.82617, 0.4162417, -188.31879)
+
+[node name="Pine_Tree_1_Autumn55" parent="SubViewportContainer/World/Foliage" instance=ExtResource("18_77xr6")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -316.9781, 2.367439, -232.03706)
+
+[node name="Oak_Tree_Autumn55" parent="SubViewportContainer/World/Foliage" instance=ExtResource("19_w7ivt")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -312.17316, 1.8836261, -237.01778)
+
+[node name="Broken_Tree_Autumn53" parent="SubViewportContainer/World/Foliage" instance=ExtResource("20_x23mu")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -313.90332, 3.1801286, -230.33208)
+
+[node name="Willow_Tree_Autumn53" parent="SubViewportContainer/World/Foliage" instance=ExtResource("21_7b08a")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -322.30313, 0.91375476, -234.3604)
+
+[node name="Pine_Tree_1_Autumn56" parent="SubViewportContainer/World/Foliage" instance=ExtResource("18_77xr6")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -315.93274, 8.497273, -224.59479)
+
+[node name="Oak_Tree_Autumn56" parent="SubViewportContainer/World/Foliage" instance=ExtResource("19_w7ivt")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -319.87958, 14.422688, -218.90993)
+
+[node name="Broken_Tree_Autumn54" parent="SubViewportContainer/World/Foliage" instance=ExtResource("20_x23mu")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -319.2406, 9.40657, -225.78624)
+
+[node name="Willow_Tree_Autumn54" parent="SubViewportContainer/World/Foliage" instance=ExtResource("21_7b08a")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -310.30475, 6.601738, -223.15271)
+
+[node name="Pine_Tree_1_Autumn57" parent="SubViewportContainer/World/Foliage" instance=ExtResource("18_77xr6")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -306.0271, 6.027016, -223.71892)
+
+[node name="Oak_Tree_Autumn57" parent="SubViewportContainer/World/Foliage" instance=ExtResource("19_w7ivt")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -301.22217, 10.421595, -228.69963)
+
+[node name="Pine_Tree_1_Autumn58" parent="SubViewportContainer/World/Foliage" instance=ExtResource("18_77xr6")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -160.07845, 6.173248, -221.66832)
+
+[node name="Broken_Tree_Autumn55" parent="SubViewportContainer/World/Foliage" instance=ExtResource("20_x23mu")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -157.00365, 6.410461, -219.96333)
+
+[node name="Willow_Tree_Autumn55" parent="SubViewportContainer/World/Foliage" instance=ExtResource("21_7b08a")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -165.40346, 5.854239, -223.99165)
+
+[node name="Pine_Tree_1_Autumn59" parent="SubViewportContainer/World/Foliage" instance=ExtResource("18_77xr6")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -159.0331, 4.9504867, -214.22604)
+
+[node name="Broken_Tree_Autumn56" parent="SubViewportContainer/World/Foliage" instance=ExtResource("20_x23mu")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -162.34093, 4.2683024, -215.41748)
+
+[node name="Willow_Tree_Autumn56" parent="SubViewportContainer/World/Foliage" instance=ExtResource("21_7b08a")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -153.4051, 6.7156444, -212.78397)
+
+[node name="Pine_Tree_1_Autumn60" parent="SubViewportContainer/World/Foliage" instance=ExtResource("18_77xr6")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -149.12743, 7.699116, -213.35016)
+
+[node name="Broken_Tree_Autumn57" parent="SubViewportContainer/World/Foliage" instance=ExtResource("20_x23mu")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -146.05263, 8.331914, -211.64517)
+
+[node name="Willow_Tree_Autumn57" parent="SubViewportContainer/World/Foliage" instance=ExtResource("21_7b08a")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -154.45247, 6.7079225, -215.6735)
+
+[node name="Pine_Tree_1_Autumn61" parent="SubViewportContainer/World/Foliage" instance=ExtResource("18_77xr6")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -148.08208, 7.7607474, -205.9079)
+
+[node name="Broken_Tree_Autumn58" parent="SubViewportContainer/World/Foliage" instance=ExtResource("20_x23mu")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -151.38991, 6.5879297, -207.09933)
+
+[node name="Willow_Tree_Autumn58" parent="SubViewportContainer/World/Foliage" instance=ExtResource("21_7b08a")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -142.45409, 9.499113, -204.46582)
+
+[node name="Pine_Tree_1_Autumn62" parent="SubViewportContainer/World/Foliage" instance=ExtResource("18_77xr6")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -146.67921, 4.3299966, -247.11873)
+
+[node name="Broken_Tree_Autumn59" parent="SubViewportContainer/World/Foliage" instance=ExtResource("20_x23mu")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -143.60443, 3.9391117, -245.41374)
+
+[node name="Willow_Tree_Autumn59" parent="SubViewportContainer/World/Foliage" instance=ExtResource("21_7b08a")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -152.00426, 5.3637223, -249.44206)
+
+[node name="Pine_Tree_1_Autumn63" parent="SubViewportContainer/World/Foliage" instance=ExtResource("18_77xr6")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -145.63387, 2.4354403, -239.67645)
+
+[node name="Broken_Tree_Autumn60" parent="SubViewportContainer/World/Foliage" instance=ExtResource("20_x23mu")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -148.94173, 3.49796, -240.8679)
+
+[node name="Willow_Tree_Autumn60" parent="SubViewportContainer/World/Foliage" instance=ExtResource("21_7b08a")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -140.00587, 1.911504, -238.23438)
+
+[node name="Pine_Tree_1_Autumn64" parent="SubViewportContainer/World/Foliage" instance=ExtResource("18_77xr6")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -135.7282, 2.4009464, -238.80058)
+
+[node name="Broken_Tree_Autumn61" parent="SubViewportContainer/World/Foliage" instance=ExtResource("20_x23mu")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -132.65343, 2.165332, -237.0956)
+
+[node name="Willow_Tree_Autumn61" parent="SubViewportContainer/World/Foliage" instance=ExtResource("21_7b08a")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -141.05324, 2.7659433, -241.12392)
+
+[node name="Pine_Tree_1_Autumn65" parent="SubViewportContainer/World/Foliage" instance=ExtResource("18_77xr6")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -134.68288, 1.7456341, -231.3583)
+
+[node name="Broken_Tree_Autumn62" parent="SubViewportContainer/World/Foliage" instance=ExtResource("20_x23mu")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -137.9907, 1.271309, -232.54974)
+
+[node name="Willow_Tree_Autumn62" parent="SubViewportContainer/World/Foliage" instance=ExtResource("21_7b08a")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -129.05487, 4.1995726, -229.91623)
+
+[node name="Pine_Tree_1_Autumn66" parent="SubViewportContainer/World/Foliage" instance=ExtResource("18_77xr6")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -132.58408, 9.229284, -205.52129)
+
+[node name="Broken_Tree_Autumn63" parent="SubViewportContainer/World/Foliage" instance=ExtResource("20_x23mu")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -129.5093, 7.879151, -203.8163)
+
+[node name="Willow_Tree_Autumn63" parent="SubViewportContainer/World/Foliage" instance=ExtResource("21_7b08a")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -137.90912, 10.294969, -207.84462)
+
+[node name="Pine_Tree_1_Autumn67" parent="SubViewportContainer/World/Foliage" instance=ExtResource("18_77xr6")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -131.53874, 5.803982, -198.07901)
+
+[node name="Broken_Tree_Autumn64" parent="SubViewportContainer/World/Foliage" instance=ExtResource("20_x23mu")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -134.84657, 7.126275, -199.27046)
+
+[node name="Willow_Tree_Autumn64" parent="SubViewportContainer/World/Foliage" instance=ExtResource("21_7b08a")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -125.91075, 2.6022298, -196.63693)
+
+[node name="Pine_Tree_1_Autumn68" parent="SubViewportContainer/World/Foliage" instance=ExtResource("18_77xr6")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -121.63307, 1.2565571, -197.20314)
+
+[node name="Broken_Tree_Autumn65" parent="SubViewportContainer/World/Foliage" instance=ExtResource("20_x23mu")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -118.55827, -1.464702, -195.49815)
+
+[node name="Willow_Tree_Autumn65" parent="SubViewportContainer/World/Foliage" instance=ExtResource("21_7b08a")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -126.958115, 4.480066, -199.52647)
+
+[node name="Pine_Tree_1_Autumn69" parent="SubViewportContainer/World/Foliage" instance=ExtResource("18_77xr6")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -120.58772, -1.8779334, -189.76086)
+
+[node name="Broken_Tree_Autumn66" parent="SubViewportContainer/World/Foliage" instance=ExtResource("20_x23mu")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -123.89555, 0.29151762, -190.9523)
+
+[node name="Willow_Tree_Autumn66" parent="SubViewportContainer/World/Foliage" instance=ExtResource("21_7b08a")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -114.95973, -5.061069, -188.31879)
+
+[node name="Pine_Tree_1_Autumn70" parent="SubViewportContainer/World/Foliage" instance=ExtResource("18_77xr6")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -174.20439, -2.5485306, -205.52129)
+
+[node name="Broken_Tree_Autumn67" parent="SubViewportContainer/World/Foliage" instance=ExtResource("20_x23mu")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -171.1296, -1.3761796, -203.8163)
+
+[node name="Willow_Tree_Autumn67" parent="SubViewportContainer/World/Foliage" instance=ExtResource("21_7b08a")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -179.52943, -2.9298394, -207.84462)
+
+[node name="Pine_Tree_1_Autumn71" parent="SubViewportContainer/World/Foliage" instance=ExtResource("18_77xr6")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -173.15907, -0.070069775, -198.07901)
+
+[node name="Broken_Tree_Autumn68" parent="SubViewportContainer/World/Foliage" instance=ExtResource("20_x23mu")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -176.46687, -1.0351429, -199.27046)
+
+[node name="Willow_Tree_Autumn68" parent="SubViewportContainer/World/Foliage" instance=ExtResource("21_7b08a")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -167.53108, 0.16800539, -196.63693)
+
+[node name="Pine_Tree_1_Autumn72" parent="SubViewportContainer/World/Foliage" instance=ExtResource("18_77xr6")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -163.25337, 0.12766261, -197.20314)
+
+[node name="Broken_Tree_Autumn69" parent="SubViewportContainer/World/Foliage" instance=ExtResource("20_x23mu")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -160.1786, 0.43506983, -195.49815)
+
+[node name="Willow_Tree_Autumn69" parent="SubViewportContainer/World/Foliage" instance=ExtResource("21_7b08a")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -168.57845, 0.16120858, -199.52647)
+
+[node name="Pine_Tree_1_Autumn73" parent="SubViewportContainer/World/Foliage" instance=ExtResource("18_77xr6")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -162.20802, 0.12879142, -189.76086)
+
+[node name="Broken_Tree_Autumn70" parent="SubViewportContainer/World/Foliage" instance=ExtResource("20_x23mu")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -165.51588, 0.92684984, -190.9523)
+
+[node name="Willow_Tree_Autumn70" parent="SubViewportContainer/World/Foliage" instance=ExtResource("21_7b08a")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -156.58003, 0.33875915, -188.31879)
+
+[node name="Pine_Tree_1_Autumn74" parent="SubViewportContainer/World/Foliage" instance=ExtResource("18_77xr6")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -205.73195, 0.07999157, -232.03706)
+
+[node name="Broken_Tree_Autumn71" parent="SubViewportContainer/World/Foliage" instance=ExtResource("20_x23mu")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -202.65718, 0.14998816, -230.33208)
+
+[node name="Willow_Tree_Autumn71" parent="SubViewportContainer/World/Foliage" instance=ExtResource("21_7b08a")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -211.05699, 0.13644011, -234.3604)
+
+[node name="Pine_Tree_1_Autumn75" parent="SubViewportContainer/World/Foliage" instance=ExtResource("18_77xr6")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -204.6866, 0.079989426, -224.59479)
+
+[node name="Broken_Tree_Autumn72" parent="SubViewportContainer/World/Foliage" instance=ExtResource("20_x23mu")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -207.99446, 0.14998925, -225.78624)
+
+[node name="Willow_Tree_Autumn72" parent="SubViewportContainer/World/Foliage" instance=ExtResource("21_7b08a")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -199.05861, 0.13644171, -223.15271)
+
+[node name="Pine_Tree_1_Autumn76" parent="SubViewportContainer/World/Foliage" instance=ExtResource("18_77xr6")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -194.78096, 0.07999263, -223.71892)
+
+[node name="Pine_Tree_1_Autumn77" parent="SubViewportContainer/World/Foliage" instance=ExtResource("18_77xr6")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -160.07845, 6.173248, -221.66832)
+
+[node name="Broken_Tree_Autumn73" parent="SubViewportContainer/World/Foliage" instance=ExtResource("20_x23mu")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -157.00365, 6.410461, -219.96333)
+
+[node name="Willow_Tree_Autumn73" parent="SubViewportContainer/World/Foliage" instance=ExtResource("21_7b08a")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -165.40346, 5.854239, -223.99165)
+
+[node name="Pine_Tree_1_Autumn78" parent="SubViewportContainer/World/Foliage" instance=ExtResource("18_77xr6")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -159.0331, 4.9504867, -214.22604)
+
+[node name="Broken_Tree_Autumn74" parent="SubViewportContainer/World/Foliage" instance=ExtResource("20_x23mu")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -162.34093, 4.2683024, -215.41748)
+
+[node name="Willow_Tree_Autumn74" parent="SubViewportContainer/World/Foliage" instance=ExtResource("21_7b08a")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -153.4051, 6.7156444, -212.78397)
+
+[node name="Pine_Tree_1_Autumn79" parent="SubViewportContainer/World/Foliage" instance=ExtResource("18_77xr6")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -149.12743, 7.699116, -213.35016)
+
+[node name="Broken_Tree_Autumn75" parent="SubViewportContainer/World/Foliage" instance=ExtResource("20_x23mu")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -146.05263, 8.331914, -211.64517)
+
+[node name="Willow_Tree_Autumn75" parent="SubViewportContainer/World/Foliage" instance=ExtResource("21_7b08a")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -154.45247, 6.7079225, -215.6735)
+
+[node name="Pine_Tree_1_Autumn80" parent="SubViewportContainer/World/Foliage" instance=ExtResource("18_77xr6")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -148.08208, 7.7607474, -205.9079)
+
+[node name="Broken_Tree_Autumn76" parent="SubViewportContainer/World/Foliage" instance=ExtResource("20_x23mu")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -151.38991, 6.5879297, -207.09933)
+
+[node name="Willow_Tree_Autumn76" parent="SubViewportContainer/World/Foliage" instance=ExtResource("21_7b08a")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -142.45409, 9.499113, -204.46582)
+
+[node name="Pine_Tree_1_Autumn81" parent="SubViewportContainer/World/Foliage" instance=ExtResource("18_77xr6")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -146.67921, 4.3299966, -247.11873)
+
+[node name="Broken_Tree_Autumn77" parent="SubViewportContainer/World/Foliage" instance=ExtResource("20_x23mu")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -143.60443, 3.9391117, -245.41374)
+
+[node name="Willow_Tree_Autumn77" parent="SubViewportContainer/World/Foliage" instance=ExtResource("21_7b08a")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -152.00426, 5.3637223, -249.44206)
+
+[node name="Pine_Tree_1_Autumn82" parent="SubViewportContainer/World/Foliage" instance=ExtResource("18_77xr6")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -145.63387, 2.4354403, -239.67645)
+
+[node name="Broken_Tree_Autumn78" parent="SubViewportContainer/World/Foliage" instance=ExtResource("20_x23mu")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -148.94173, 3.49796, -240.8679)
+
+[node name="Willow_Tree_Autumn78" parent="SubViewportContainer/World/Foliage" instance=ExtResource("21_7b08a")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -140.00587, 1.911504, -238.23438)
+
+[node name="Pine_Tree_1_Autumn83" parent="SubViewportContainer/World/Foliage" instance=ExtResource("18_77xr6")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -135.7282, 2.4009464, -238.80058)
+
+[node name="Broken_Tree_Autumn79" parent="SubViewportContainer/World/Foliage" instance=ExtResource("20_x23mu")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -132.65343, 2.165332, -237.0956)
+
+[node name="Willow_Tree_Autumn79" parent="SubViewportContainer/World/Foliage" instance=ExtResource("21_7b08a")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -141.05324, 2.7659433, -241.12392)
+
+[node name="Pine_Tree_1_Autumn84" parent="SubViewportContainer/World/Foliage" instance=ExtResource("18_77xr6")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -134.68288, 1.7456341, -231.3583)
+
+[node name="Broken_Tree_Autumn80" parent="SubViewportContainer/World/Foliage" instance=ExtResource("20_x23mu")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -137.9907, 1.271309, -232.54974)
+
+[node name="Willow_Tree_Autumn80" parent="SubViewportContainer/World/Foliage" instance=ExtResource("21_7b08a")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -129.05487, 4.1995726, -229.91623)
+
+[node name="Pine_Tree_1_Autumn85" parent="SubViewportContainer/World/Foliage" instance=ExtResource("18_77xr6")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -132.58408, 9.229284, -205.52129)
+
+[node name="Broken_Tree_Autumn81" parent="SubViewportContainer/World/Foliage" instance=ExtResource("20_x23mu")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -129.5093, 7.879151, -203.8163)
+
+[node name="Willow_Tree_Autumn81" parent="SubViewportContainer/World/Foliage" instance=ExtResource("21_7b08a")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -137.90912, 10.294969, -207.84462)
+
+[node name="Pine_Tree_1_Autumn86" parent="SubViewportContainer/World/Foliage" instance=ExtResource("18_77xr6")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -131.53874, 5.803982, -198.07901)
+
+[node name="Broken_Tree_Autumn82" parent="SubViewportContainer/World/Foliage" instance=ExtResource("20_x23mu")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -134.84657, 7.126275, -199.27046)
+
+[node name="Willow_Tree_Autumn82" parent="SubViewportContainer/World/Foliage" instance=ExtResource("21_7b08a")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -125.91075, 2.6022298, -196.63693)
+
+[node name="Pine_Tree_1_Autumn87" parent="SubViewportContainer/World/Foliage" instance=ExtResource("18_77xr6")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -121.63307, 1.2565571, -197.20314)
+
+[node name="Broken_Tree_Autumn83" parent="SubViewportContainer/World/Foliage" instance=ExtResource("20_x23mu")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -118.55827, -1.464702, -195.49815)
+
+[node name="Willow_Tree_Autumn83" parent="SubViewportContainer/World/Foliage" instance=ExtResource("21_7b08a")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -126.958115, 4.480066, -199.52647)
+
+[node name="Pine_Tree_1_Autumn88" parent="SubViewportContainer/World/Foliage" instance=ExtResource("18_77xr6")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -120.58772, -1.8779334, -189.76086)
+
+[node name="Broken_Tree_Autumn84" parent="SubViewportContainer/World/Foliage" instance=ExtResource("20_x23mu")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -123.89555, 0.29151762, -190.9523)
+
+[node name="Willow_Tree_Autumn84" parent="SubViewportContainer/World/Foliage" instance=ExtResource("21_7b08a")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -114.95973, -5.061069, -188.31879)
+
+[node name="Pine_Tree_1_Autumn89" parent="SubViewportContainer/World/Foliage" instance=ExtResource("18_77xr6")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -174.20439, -2.5485306, -205.52129)
+
+[node name="Broken_Tree_Autumn85" parent="SubViewportContainer/World/Foliage" instance=ExtResource("20_x23mu")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -171.1296, -1.3761796, -203.8163)
+
+[node name="Willow_Tree_Autumn85" parent="SubViewportContainer/World/Foliage" instance=ExtResource("21_7b08a")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -179.52943, -2.9298394, -207.84462)
+
+[node name="Pine_Tree_1_Autumn90" parent="SubViewportContainer/World/Foliage" instance=ExtResource("18_77xr6")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -173.15907, -0.070069775, -198.07901)
+
+[node name="Broken_Tree_Autumn86" parent="SubViewportContainer/World/Foliage" instance=ExtResource("20_x23mu")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -176.46687, -1.0351429, -199.27046)
+
+[node name="Willow_Tree_Autumn86" parent="SubViewportContainer/World/Foliage" instance=ExtResource("21_7b08a")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -167.53108, 0.16800539, -196.63693)
+
+[node name="Pine_Tree_1_Autumn91" parent="SubViewportContainer/World/Foliage" instance=ExtResource("18_77xr6")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -163.25337, 0.12766261, -197.20314)
+
+[node name="Broken_Tree_Autumn87" parent="SubViewportContainer/World/Foliage" instance=ExtResource("20_x23mu")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -160.1786, 0.43506983, -195.49815)
+
+[node name="Willow_Tree_Autumn87" parent="SubViewportContainer/World/Foliage" instance=ExtResource("21_7b08a")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -168.57845, 0.16120858, -199.52647)
+
+[node name="Pine_Tree_1_Autumn92" parent="SubViewportContainer/World/Foliage" instance=ExtResource("18_77xr6")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -162.20802, 0.12879142, -189.76086)
+
+[node name="Broken_Tree_Autumn88" parent="SubViewportContainer/World/Foliage" instance=ExtResource("20_x23mu")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -165.51588, 0.92684984, -190.9523)
+
+[node name="Willow_Tree_Autumn88" parent="SubViewportContainer/World/Foliage" instance=ExtResource("21_7b08a")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -156.58003, 0.33875915, -188.31879)
+
+[node name="Pine_Tree_1_Autumn93" parent="SubViewportContainer/World/Foliage" instance=ExtResource("18_77xr6")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -205.73195, 0.07999157, -232.03706)
+
+[node name="Broken_Tree_Autumn89" parent="SubViewportContainer/World/Foliage" instance=ExtResource("20_x23mu")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -202.65718, 0.14998816, -230.33208)
+
+[node name="Willow_Tree_Autumn89" parent="SubViewportContainer/World/Foliage" instance=ExtResource("21_7b08a")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -211.05699, 0.13644011, -234.3604)
+
+[node name="Pine_Tree_1_Autumn94" parent="SubViewportContainer/World/Foliage" instance=ExtResource("18_77xr6")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -204.6866, 0.079989426, -224.59479)
+
+[node name="Broken_Tree_Autumn90" parent="SubViewportContainer/World/Foliage" instance=ExtResource("20_x23mu")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -207.99446, 0.14998925, -225.78624)
+
+[node name="Willow_Tree_Autumn90" parent="SubViewportContainer/World/Foliage" instance=ExtResource("21_7b08a")]
+transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.4539905, -199.05861, 0.13644171, -223.15271)
+
+[node name="Pine_Tree_1_Autumn95" parent="SubViewportContainer/World/Foliage" instance=ExtResource("18_77xr6")]
+transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -194.78096, 0.07999263, -223.71892)
 
 [node name="UIRender" type="Control" parent="." node_paths=PackedStringArray("picSpots")]
 layout_mode = 3

@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://3yihf34r5buc"]
+
+[ext_resource type="PackedScene" uid="uid://dbep3mq4kwmag" path="res://rgsdev/Terrain/Terrain_Part_Plane_18.fbx" id="1_oc4hu"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_oc4hu"]
+data = PackedVector3Array(-0.19999999, -0.19999999, -0.0019999999, -0.19999999, -0.0277, -0.0019999999, 0, -0.19999999, -0.0019999999, -0.19999999, -0.0277, -0.0019999999, 0, -0.0257, -0.0014, 0, -0.0277, -0.0019999999, -0.19999999, -0.0257, -0.0014, 0, -0.023799999, -0.0004, 0, -0.0257, -0.0014, -0.19999999, -0.0257, -0.0014, 0, -0.0257, -0.0014, -0.19999999, -0.0277, -0.0019999999, -0.19999999, -0.0277, -0.0019999999, 0, -0.0277, -0.0019999999, 0, -0.19999999, -0.0019999999, -0.19999999, -0.023799999, -0.0004, 0, -0.023799999, -0.0004, -0.19999999, -0.0257, -0.0014, -0.19999999, 0, 0, 0, 0, 0, -0.19999999, -0.0218, 0, -0.19999999, -0.023799999, -0.0004, -0.19999999, -0.0218, 0, 0, -0.023799999, -0.0004, -0.19999999, -0.0218, 0, 0, -0.0218, 0, 0, -0.023799999, -0.0004, -0.19999999, -0.0218, 0, 0, 0, 0, 0, -0.0218, 0)
+
+[node name="Terrain_Part_Plane_18" instance=ExtResource("1_oc4hu")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Terrain_Part_Plane_18" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Terrain_Part_Plane_18/StaticBody3D" index="0"]
+shape = SubResource("ConcavePolygonShape3D_oc4hu")
