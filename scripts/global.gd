@@ -1,7 +1,7 @@
 extends Node
 
 var pics = []
-var picsmax = 0
+var picsmax = 30
 
 var is_using_puter = false
 

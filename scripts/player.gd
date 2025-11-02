@@ -106,23 +106,26 @@ func take_picture():
 	picdata["image"] = image
 	picdata["critters"] = []
 	
-	# now, grade the image. if the animal is on screen, 
+	# now, grade the image. for each animal
 	for c in get_node("../Critters").get_children():
+		# if it's in front of the camera...
 		if c.get_node("vis").is_on_screen():
 			# do a raycast to make sure that there's no terrain or anything blocking him
-			
-			# get data
-			var critter = {}
-			critter["name"] = c.name
-			critter["dist"] = c.global_position.distance_to(global_position)
-			critter["orient"] = abs(global_rotation.y - c.global_rotation.y)
-			critter["pose"] = c.get_node("AnimationPlayer").current_animation
-			picdata["critters"].push_back(critter)
-			print(critter)
+			var space_state = get_world_3d().direct_space_state
+			var query = PhysicsRayQueryParameters3D.create($%Camera3D.global_position, c.get_node("vis").global_position)
+			var result = space_state.intersect_ray(query)
+			if result.is_empty():
+				# get data
+				var critter = {}
+				critter["name"] = c.name
+				critter["dist"] = c.global_position.distance_to(global_position)
+				critter["orient"] = abs(global_rotation.y - c.global_rotation.y)
+				critter["pose"] = c.get_node("AnimationPlayer").current_animation
+				picdata["critters"].push_back(critter)
+				print(critter)
 	
 	get_node("../../../UIRender").push_image(image)
 	Global.add_pic(picdata)
-	get_node("../../../UIRender").update_total(Global.pic_count())
 	
 
 func landing_animation():

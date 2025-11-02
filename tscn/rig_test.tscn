@@ -1,10 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://di8lg0v3mwd2g"]
 
 [ext_resource type="PackedScene" uid="uid://v702hyp48klc" path="res://blender inbox/rig test guy/rig test.blend" id="1_8walo"]
-[ext_resource type="Script" uid="uid://bm62uyq3pxe4n" path="res://programmerart/critter.gd" id="2_do4cc"]
+[ext_resource type="Script" uid="uid://bm62uyq3pxe4n" path="res://scripts/critter.gd" id="2_do4cc"]
 
 [node name="rig test" instance=ExtResource("1_8walo")]
 script = ExtResource("2_do4cc")
 
 [node name="vis" type="VisibleOnScreenEnabler3D" parent="." index="2"]
-aabb = AABB(-0.2, 0.2, -0.2, 0.4, 0.4, 0.4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
+aabb = AABB(-0.2, -0.2, -0.2, 0.4, 0.4, 0.4)

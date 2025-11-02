@@ -1,12 +1,12 @@
-[gd_scene load_steps=24 format=3 uid="uid://bdkh5n42abtlg"]
+[gd_scene load_steps=25 format=3 uid="uid://bdkh5n42abtlg"]
 
-[ext_resource type="PackedScene" uid="uid://bf504syknspt3" path="res://programmerart/puter.tscn" id="1_5rndp"]
-[ext_resource type="PackedScene" uid="uid://jyncanbkjjnq" path="res://player/player.tscn" id="1_lifw2"]
+[ext_resource type="PackedScene" uid="uid://bf504syknspt3" path="res://tscn/puter.tscn" id="1_5rndp"]
+[ext_resource type="PackedScene" uid="uid://jyncanbkjjnq" path="res://tscn/player.tscn" id="1_lifw2"]
 [ext_resource type="AudioStream" uid="uid://c5cr7irse0r5b" path="res://sound/shutter.mp3" id="2_5rndp"]
 [ext_resource type="Texture2D" uid="uid://bncvkmvao7hnr" path="res://programmerart/film.png" id="2_mvm06"]
-[ext_resource type="Script" uid="uid://d2prupksdovq7" path="res://ui.gd" id="4_vmuxp"]
+[ext_resource type="Script" uid="uid://d2prupksdovq7" path="res://scripts/ui.gd" id="4_vmuxp"]
 [ext_resource type="PackedScene" uid="uid://bwdpj7t4c6bk2" path="res://environment/terrain_part_plane_17.tscn" id="5_0aefg"]
-[ext_resource type="PackedScene" uid="uid://di8lg0v3mwd2g" path="res://programmerart/rig_test.tscn" id="5_bw3fi"]
+[ext_resource type="PackedScene" uid="uid://di8lg0v3mwd2g" path="res://tscn/rig_test.tscn" id="5_bw3fi"]
 [ext_resource type="PackedScene" uid="uid://3yihf34r5buc" path="res://environment/terrain_part_plane_18.tscn" id="6_v78i8"]
 [ext_resource type="PackedScene" uid="uid://cu3c36c34hm2d" path="res://environment/terrain_part_ramp_1.tscn" id="7_6iyis"]
 [ext_resource type="PackedScene" uid="uid://ded0c3eevtu0u" path="res://environment/terrain_part_plane_1.tscn" id="9_7fhox"]
@@ -21,14 +21,12 @@
 [ext_resource type="PackedScene" uid="uid://dd0ejk8x4t51r" path="res://rgsdev/Trees/oak_tree_autumn.tscn" id="19_w7ivt"]
 [ext_resource type="PackedScene" uid="uid://2g7tgm6aop7d" path="res://rgsdev/Trees/broken_tree_autumn.tscn" id="20_x23mu"]
 [ext_resource type="PackedScene" uid="uid://bsb3v5pqlcb8x" path="res://rgsdev/Trees/Willow_Tree_Autumn.fbx" id="21_7b08a"]
+[ext_resource type="Texture2D" uid="uid://s2tijo12vng8" path="res://programmerart/nopic.png" id="22_w7ivt"]
+[ext_resource type="AudioStream" uid="uid://y7cgnxqgw0an" path="res://sound/upload.mp3" id="23_x23mu"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_0aefg"]
 subdivide_width = 10
 subdivide_depth = 10
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_a0tk4"]
-width = 95
-height = 70
 
 [node name="forest" type="Node3D"]
 
@@ -1558,7 +1556,7 @@ offset_left = 3.0
 offset_top = 15.0
 offset_right = 515.0
 offset_bottom = 527.0
-texture = SubResource("NoiseTexture2D_a0tk4")
+texture = ExtResource("22_w7ivt")
 stretch_mode = 2
 
 [node name="PicSpot2" type="TextureRect" parent="UIRender"]
@@ -1576,7 +1574,7 @@ offset_left = 3.0
 offset_top = 15.0
 offset_right = 515.0
 offset_bottom = 527.0
-texture = SubResource("NoiseTexture2D_a0tk4")
+texture = ExtResource("22_w7ivt")
 stretch_mode = 2
 
 [node name="PicSpot3" type="TextureRect" parent="UIRender"]
@@ -1594,7 +1592,7 @@ offset_left = 3.0
 offset_top = 15.0
 offset_right = 515.0
 offset_bottom = 527.0
-texture = SubResource("NoiseTexture2D_a0tk4")
+texture = ExtResource("22_w7ivt")
 stretch_mode = 2
 
 [node name="PicSpot4" type="TextureRect" parent="UIRender"]
@@ -1612,7 +1610,7 @@ offset_left = 3.0
 offset_top = 15.0
 offset_right = 515.0
 offset_bottom = 527.0
-texture = SubResource("NoiseTexture2D_a0tk4")
+texture = ExtResource("22_w7ivt")
 stretch_mode = 2
 
 [node name="PicSpot5" type="TextureRect" parent="UIRender"]
@@ -1630,7 +1628,7 @@ offset_left = 3.0
 offset_top = 15.0
 offset_right = 515.0
 offset_bottom = 527.0
-texture = SubResource("NoiseTexture2D_a0tk4")
+texture = ExtResource("22_w7ivt")
 stretch_mode = 2
 
 [node name="Flash" type="ColorRect" parent="UIRender"]
@@ -1639,3 +1637,7 @@ offset_right = 1000.0
 offset_bottom = 1000.0
 mouse_filter = 2
 color = Color(1, 1, 1, 0)
+
+[node name="Upload" type="AudioStreamPlayer" parent="UIRender"]
+stream = ExtResource("23_x23mu")
+volume_db = -10.0
