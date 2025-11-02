@@ -3,6 +3,8 @@ extends Node
 var pics = []
 var picsmax = 0
 
+var is_using_puter = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -12,5 +14,6 @@ func _ready() -> void:
 func add_pic(pic: Dictionary):
 	pics.push_front(pic)
 	
+
 func pic_count():
 	return pics.size()

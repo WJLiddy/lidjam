@@ -5,7 +5,6 @@ extends CharacterBody3D
 
 var run_speed = 5.5
 var speed = run_speed
-var walk_speed = 3
 var crouch_speed = 1.8
 
 var jump_velocity = 7
@@ -14,34 +13,30 @@ var landing_velocity
 var distance = 0
 var footstep_distance = 2.1
 
-var is_using_puter = false
-
+var action_cooldown = 0
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
-
 func _input(event: InputEvent) -> void:
-	if(is_using_puter):
-		if event is InputEventMouseMotion:
-			get_node("../Puter/pc-monitor/Mouse").position.x += event.relative.x / 1000
-			get_node("../Puter/pc-monitor/Mouse").position.y -= event.relative.y / 1000
+	if !Global.is_using_puter and event is InputEventMouseMotion:
+		rotation_degrees.y -= event.relative.x / 10
+		%Camera3D.rotation_degrees.x -= event.relative.y / 10
+		%Camera3D.rotation_degrees.x = clamp( %Camera3D.rotation_degrees.x, -90, 90 )
 		
-	else:
-		
-		if event is InputEventMouseMotion:
-			rotation_degrees.y -= event.relative.x / 10
-			%Camera3D.rotation_degrees.x -= event.relative.y / 10
-			%Camera3D.rotation_degrees.x = clamp( %Camera3D.rotation_degrees.x, -90, 90 )
-		
-
 
 func _physics_process(delta: float) -> void:
-
-	if(is_using_puter):
+	action_cooldown -= delta
+	if Global.is_using_puter:
 		%Camera3D.global_position = %Camera3D.global_position.lerp(get_node("../Puter").global_position - Vector3(0,-0.2,-0.5), delta*10)
 		%Camera3D.global_rotation = %Camera3D.global_rotation.lerp(Vector3(0,0,0), delta*10)
 		return
+	else:
+		%Camera3D.position = %Camera3D.position.lerp(Vector3(0,0,0), delta*10)
+		%Camera3D.rotation.y = lerp(%Camera3D.rotation.y, 0.0, delta*10)
+		%Camera3D.rotation.z = lerp(%Camera3D.rotation.z, 0.0, delta*10)
+		
+	
 	
 	if not is_on_floor():
 		velocity += get_gravity() * 2 * delta
@@ -87,19 +82,20 @@ func _physics_process(delta: float) -> void:
 
 	if distance >= footstep_distance:
 		distance = 0
-		if speed > walk_speed:
+		if speed > crouch_speed:
 			play_random_footstep_sound()
 
 	move_and_slide()
 	
-	if Input.is_action_just_pressed("action"):
+	if Input.is_action_just_pressed("action") and action_cooldown < 0:
 		# if we raycast into the computer, use it
 		%CamRayCast.force_raycast_update()
 		if %CamRayCast.is_colliding() and %CamRayCast.get_collider().name == "COMPUTER":
-			is_using_puter = true
+			Global.is_using_puter = true
 		else:
 			await RenderingServer.frame_post_draw
 			take_picture()
+			action_cooldown = 0.4
 
 func take_picture():
 	$Shutter.play()
@@ -115,12 +111,12 @@ func take_picture():
 		if c.get_node("vis").is_on_screen():
 			# do a raycast to make sure that there's no terrain or anything blocking him
 			
-			
 			# get data
 			var critter = {}
 			critter["name"] = c.name
 			critter["dist"] = c.global_position.distance_to(global_position)
 			critter["orient"] = abs(global_rotation.y - c.global_rotation.y)
+			critter["pose"] = c.get_node("AnimationPlayer").current_animation
 			picdata["critters"].push_back(critter)
 			print(critter)
 	
