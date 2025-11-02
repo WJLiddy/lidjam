@@ -1,9 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://d2hj04av6wa6k"]
+[gd_scene load_steps=4 format=3 uid="uid://d2hj04av6wa6k"]
 
 [ext_resource type="PackedScene" uid="uid://bb44q22c4wa5n" path="res://programmerart/animals/Bear_Rig.fbx" id="1_eyo4n"]
+[ext_resource type="Script" uid="uid://ch8e2askgijyr" path="res://programmerart/animals/bear.gd" id="2_lb4lg"]
 [ext_resource type="Material" uid="uid://drktr56ph13yw" path="res://programmerart/animals/bear_mat.tres" id="2_mh3jt"]
 
 [node name="Bear_Rig" instance=ExtResource("1_eyo4n")]
+script = ExtResource("2_lb4lg")
 
 [node name="brown_bea4" parent="Skeleton3D" index="0"]
 surface_material_override/0 = ExtResource("2_mh3jt")
+
+[node name="vis" type="VisibleOnScreenNotifier3D" parent="." index="2"]
+aabb = AABB(-0.3, 0.3, -0.3, 0.6, 0.6, 0.6)

@@ -14,20 +14,35 @@ var landing_velocity
 var distance = 0
 var footstep_distance = 2.1
 
+var is_using_puter = false
+
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 
 func _input(event: InputEvent) -> void:
-	if event is InputEventMouseMotion:
-		rotation_degrees.y -= event.relative.x / 10
-		%Camera3D.rotation_degrees.x -= event.relative.y / 10
-		%Camera3D.rotation_degrees.x = clamp( %Camera3D.rotation_degrees.x, -90, 90 )
+	if(is_using_puter):
+		if event is InputEventMouseMotion:
+			get_node("../Puter/pc-monitor/Mouse").position.x += event.relative.x / 1000
+			get_node("../Puter/pc-monitor/Mouse").position.y -= event.relative.y / 1000
+		
+	else:
+		
+		if event is InputEventMouseMotion:
+			rotation_degrees.y -= event.relative.x / 10
+			%Camera3D.rotation_degrees.x -= event.relative.y / 10
+			%Camera3D.rotation_degrees.x = clamp( %Camera3D.rotation_degrees.x, -90, 90 )
 		
 
 
 func _physics_process(delta: float) -> void:
+
+	if(is_using_puter):
+		%Camera3D.global_position = %Camera3D.global_position.lerp(get_node("../Puter").global_position - Vector3(0,-0.2,-0.5), delta*10)
+		%Camera3D.global_rotation = %Camera3D.global_rotation.lerp(Vector3(0,0,0), delta*10)
+		return
+	
 	if not is_on_floor():
 		velocity += get_gravity() * 2 * delta
 		landing_velocity = -velocity.y
@@ -78,18 +93,41 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 	if Input.is_action_just_pressed("action"):
-		await RenderingServer.frame_post_draw
-		take_picture()
+		# if we raycast into the computer, use it
+		%CamRayCast.force_raycast_update()
+		if %CamRayCast.is_colliding() and %CamRayCast.get_collider().name == "COMPUTER":
+			is_using_puter = true
+		else:
+			await RenderingServer.frame_post_draw
+			take_picture()
 
 func take_picture():
+	$Shutter.play()
+	var picdata = {}
+	
 	# Get the image data from the viewport's texture
 	var image = get_node("../").get_texture().get_image()
-	# now, grade the image. Raycast to every animal
+	picdata["image"] = image
+	picdata["critters"] = []
+	
+	# now, grade the image. if the animal is on screen, 
 	for c in get_node("../Critters").get_children():
-		pass
+		if c.get_node("vis").is_on_screen():
+			# do a raycast to make sure that there's no terrain or anything blocking him
+			
+			
+			# get data
+			var critter = {}
+			critter["name"] = c.name
+			critter["dist"] = c.global_position.distance_to(global_position)
+			critter["orient"] = abs(global_rotation.y - c.global_rotation.y)
+			picdata["critters"].push_back(critter)
+			print(critter)
+	
 	get_node("../../../UIRender").push_image(image)
-	Global.add_pic(image)
+	Global.add_pic(picdata)
 	get_node("../../../UIRender").update_total(Global.pic_count())
+	
 
 func landing_animation():
 	if landing_velocity >= 2:
