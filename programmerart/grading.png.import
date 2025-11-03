@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://s2tijo12vng8"
-path.s3tc="res://.godot/imported/nopic.png-02aaf7f8b8c86ace8315c2b6e974f17b.s3tc.ctex"
+uid="uid://bb5bijjij58bf"
+path.s3tc="res://.godot/imported/grading.png-1794e8813667dd77f9a425d9d75cc5ec.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://programmerart/nopic.png"
-dest_files=["res://.godot/imported/nopic.png-02aaf7f8b8c86ace8315c2b6e974f17b.s3tc.ctex"]
+source_file="res://programmerart/grading.png"
+dest_files=["res://.godot/imported/grading.png-1794e8813667dd77f9a425d9d75cc5ec.s3tc.ctex"]
 
 [params]
 

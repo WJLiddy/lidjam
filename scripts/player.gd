@@ -14,6 +14,7 @@ var distance = 0
 var footstep_distance = 2.1
 
 var action_cooldown = 0
+var ads_enabled = false
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -27,6 +28,12 @@ func _input(event: InputEvent) -> void:
 
 func _physics_process(delta: float) -> void:
 	action_cooldown -= delta
+	
+	if(ads_enabled):
+		%Camera3D.fov = lerp(%Camera3D.fov,35.0,7*delta)
+	else:
+		%Camera3D.fov = lerp(%Camera3D.fov,70.0,7*delta)
+	
 	if Global.is_using_puter:
 		%Camera3D.global_position = %Camera3D.global_position.lerp(get_node("../Puter").global_position - Vector3(0,-0.2,-0.5), delta*10)
 		%Camera3D.global_rotation = %Camera3D.global_rotation.lerp(Vector3(0,0,0), delta*10)
@@ -58,10 +65,8 @@ func _physics_process(delta: float) -> void:
 			landing_velocity = 0
 
 		speed = run_speed
-		if Input.is_action_pressed("crouch"):
+		if Input.is_action_pressed("crouch") or ads_enabled:
 			speed = crouch_speed
-		#elif Input.is_action_pressed("walk"):
-		#	speed = walk_speed
 
 	if Input.is_action_pressed("crouch"):
 		$CollisionShape3D.shape.height = lerp($CollisionShape3D.shape.height, 1.38, 0.1)
@@ -96,6 +101,16 @@ func _physics_process(delta: float) -> void:
 			await RenderingServer.frame_post_draw
 			take_picture()
 			action_cooldown = 0.4
+			
+	if Input.is_action_just_pressed("ads"):
+		ads_enabled = !ads_enabled
+		if(ads_enabled):
+			get_node("../../../ViewModel").ads_enable()
+		else:
+			get_node("../../../ViewModel").ads_disable()
+
+func camera_dist_sort(a: Dictionary, b: Dictionary):
+	return a["dist"] < b["dist"];
 
 func take_picture():
 	$Shutter.play()
@@ -106,7 +121,7 @@ func take_picture():
 	picdata["image"] = image
 	picdata["critters"] = []
 	
-	# now, grade the image. for each animal
+	# now, grade the image. for each animalmm
 	for c in get_node("../Critters").get_children():
 		# if it's in front of the camera...
 		if c.get_node("vis").is_on_screen():
@@ -117,12 +132,15 @@ func take_picture():
 			if result.is_empty():
 				# get data
 				var critter = {}
-				critter["name"] = c.name
+				critter["name"] = c.species
 				critter["dist"] = c.global_position.distance_to(global_position)
 				critter["orient"] = abs(global_rotation.y - c.global_rotation.y)
 				critter["pose"] = c.get_node("AnimationPlayer").current_animation
 				picdata["critters"].push_back(critter)
 				print(critter)
+	
+	# sort all the critters by distance.
+	picdata["critters"].sort_custom(camera_dist_sort)
 	
 	get_node("../../../UIRender").push_image(image)
 	Global.add_pic(picdata)

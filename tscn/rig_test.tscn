@@ -6,6 +6,21 @@
 [node name="rig test" instance=ExtResource("1_8walo")]
 script = ExtResource("2_do4cc")
 
-[node name="vis" type="VisibleOnScreenEnabler3D" parent="." index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
-aabb = AABB(-0.2, -0.2, -0.2, 0.4, 0.4, 0.4)
+[node name="Skeleton3D" parent="test armature" index="0"]
+bones/1/rotation = Quaternion(-3.5527103e-15, 1.7763568e-14, -4.0389676e-28, 1)
+bones/2/position = Vector3(0.07326214, 0.19322821, 2.6028053e-08)
+bones/2/rotation = Quaternion(3.210755e-07, 1.7052162e-07, -0.9530732, 0.30274004)
+bones/3/rotation = Quaternion(1.03242165e-07, 1.2672431e-14, 1.490119e-08, 1)
+bones/4/rotation = Quaternion(8.4167176e-08, 3.3873506e-09, -0.17629059, 0.98433816)
+bones/5/position = Vector3(0.06469016, -0.034909636, 2.3984354e-08)
+bones/5/rotation = Quaternion(-2.8212997e-07, 3.5527118e-15, 1, 3.7906652e-14)
+bones/6/rotation = Quaternion(3.5527014e-15, 2.2594125e-21, 3.790665e-14, 1)
+bones/7/rotation = Quaternion(-3.5527103e-15, 0, -4.038968e-28, 1)
+bones/8/rotation = Quaternion(-3.5527103e-15, 0, -4.038968e-28, 1)
+bones/9/position = Vector3(-0.07326214, 0.19322821, -8.9060315e-09)
+bones/9/rotation = Quaternion(9.384512e-08, -2.4270042e-07, 0.9530732, 0.30274004)
+bones/10/rotation = Quaternion(1.03242165e-07, -4.109415e-14, -1.4901218e-08, 1)
+bones/11/rotation = Quaternion(8.4167176e-08, -3.387342e-09, 0.17629057, 0.98433816)
+bones/12/position = Vector3(-0.06469016, -0.034909636, -6.8623187e-09)
+bones/12/rotation = Quaternion(4.371137e-08, 3.552708e-15, 1, -5.87301e-15)
+bones/13/rotation = Quaternion(3.552708e-15, -2.842171e-14, -5.8730097e-15, 1)

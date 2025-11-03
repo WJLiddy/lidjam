@@ -1,9 +1,9 @@
 extends Node3D
-
+@export var species : String
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	$AnimationPlayer.play("walking")
+	$rigmodel/AnimationPlayer.play("walking")
 	pass # Replace with function body.
 
 

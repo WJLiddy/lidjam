@@ -46,6 +46,9 @@ unique_name_in_owner = true
 
 [node name="Camera3D" type="Camera3D" parent="HeadPosition/LandingAnimation"]
 unique_name_in_owner = true
+cull_mask = 524287
+current = true
+fov = 70.0
 
 [node name="AudioListener3D" type="AudioListener3D" parent="HeadPosition/LandingAnimation/Camera3D"]
 current = true
