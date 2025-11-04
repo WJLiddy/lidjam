@@ -37,7 +37,7 @@ func _input(event: InputEvent) -> void:
 				else:
 					# grading
 					if $Grading/Next/Next.get_overlapping_bodies().size() == 1:
-						if pictures_to_grade > 0:
+						if pictures_to_grade.size() > 0:
 							var output = process_picture(pictures_to_grade[pictures_to_grade.size()-1])
 							pictures_to_grade.remove_at(pictures_to_grade.size()-1)
 							$Grading/LabelJustLeft.text = output[1]
