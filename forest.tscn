@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://bdkh5n42abtlg"]
+[gd_scene load_steps=32 format=3 uid="uid://bdkh5n42abtlg"]
 
 [ext_resource type="PackedScene" uid="uid://bf504syknspt3" path="res://tscn/puter.tscn" id="1_5rndp"]
 [ext_resource type="PackedScene" uid="uid://jyncanbkjjnq" path="res://tscn/player.tscn" id="1_lifw2"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://bpam2je0mdufy" path="res://environment/mountain_2_lod_high.tscn" id="17_3yfs4"]
 [ext_resource type="PackedScene" uid="uid://dxevtlh1c8erd" path="res://rgsdev/Trees/pine_tree_1_autumn.tscn" id="18_77xr6"]
 [ext_resource type="PackedScene" uid="uid://dd0ejk8x4t51r" path="res://rgsdev/Trees/oak_tree_autumn.tscn" id="19_w7ivt"]
+[ext_resource type="PackedScene" uid="uid://c5e0gk1w7oyca" path="res://map2.tscn" id="20_3yfs4"]
 [ext_resource type="PackedScene" uid="uid://2g7tgm6aop7d" path="res://rgsdev/Trees/broken_tree_autumn.tscn" id="20_x23mu"]
 [ext_resource type="PackedScene" uid="uid://bsb3v5pqlcb8x" path="res://rgsdev/Trees/Willow_Tree_Autumn.fbx" id="21_7b08a"]
 [ext_resource type="Texture2D" uid="uid://s2tijo12vng8" path="res://programmerart/nopic.png" id="22_w7ivt"]
@@ -29,17 +30,6 @@
 [sub_resource type="PlaneMesh" id="PlaneMesh_0aefg"]
 subdivide_width = 10
 subdivide_depth = 10
-
-[sub_resource type="Animation" id="Animation_vmfs8"]
-resource_name = "ads_engage"
-length = 0.3
-tracks/0/type = "position_3d"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("camera_exclusive")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 1.430275, -4.381772, 4.50354, 0.3, 1, 2.9485474, -4.2234535, 4.504)
 
 [sub_resource type="Animation" id="Animation_3yfs4"]
 length = 0.001
@@ -62,6 +52,17 @@ tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = PackedFloat32Array(0, 1, 2.9485474, -4.2234535, 4.504, 0.3, 1, 1.430275, -4.381772, 4.50354)
 
+[sub_resource type="Animation" id="Animation_vmfs8"]
+resource_name = "ads_engage"
+length = 0.3
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("camera_exclusive")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 1.430275, -4.381772, 4.50354, 0.3, 1, 2.9485474, -4.2234535, 4.504)
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1ykyx"]
 _data = {
 &"RESET": SubResource("Animation_3yfs4"),
@@ -82,7 +83,7 @@ size = Vector2i(900, 600)
 render_target_update_mode = 4
 
 [node name="Player" parent="World/World" instance=ExtResource("1_lifw2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -75, 0.021829784, -96.904175)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -81.7392, -1.9281914, -67.139626)
 
 [node name="Shutter" type="AudioStreamPlayer3D" parent="World/World/Player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -1567,6 +1568,9 @@ transform = Transform3D(0.4539905, 0, -0.89100647, 0, 1, 0, 0.89100647, 0, 0.453
 
 [node name="Pine_Tree_1_Autumn95" parent="World/World/Foliage" instance=ExtResource("18_77xr6")]
 transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.45399052, -194.78096, 0.07999263, -223.71892)
+
+[node name="map12" parent="World/World" instance=ExtResource("20_3yfs4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 187.08957, 24.135689, 0)
 
 [node name="ViewModel" type="SubViewportContainer" parent="."]
 offset_right = 40.0
