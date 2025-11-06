@@ -19,7 +19,7 @@ func _ready() -> void:
 	pass # Replace with function body.
 	
 func sort_by_score(a,b):
-	return a["score"] < b["score"]
+	return a["score"] > b["score"]
 	
 func _input(event: InputEvent) -> void:
 	if(Global.is_using_puter):
@@ -43,12 +43,15 @@ func _input(event: InputEvent) -> void:
 								var cname = p["critters"][0]["name"]
 								# check if it's in pics by critter
 								if(pics_by_critter.has(cname) and pics_by_critter[cname]["score"] < out["score"]):
+									# we have a better pic
 									pics_by_critter[cname] = out
-								else:
+								elif not pics_by_critter.has(cname):
+									# we have no other pic liek this
 									pics_by_critter[cname] = out
 						# done scoring
 						# put into list
 						pictures_to_grade = pics_by_critter.values()
+						grading_index = 0
 						
 						# sort, worst pics first
 						pictures_to_grade.sort_custom(sort_by_score)
@@ -62,11 +65,12 @@ func _input(event: InputEvent) -> void:
 					# grading
 					if $Grading/Next/Next.get_overlapping_bodies().size() == 1:
 						grading_index += 1
-						ui_grade()
 						if(grading_index == pictures_to_grade.size()):
 							$Background.visible = true
 							in_grading = false
 							$Grading.visible = false
+						else:
+							ui_grade()
 				
 		# clamp to -.25 to 25
 		# 0.15 to 0.45
@@ -90,10 +94,14 @@ func process_picture(pic : Dictionary) -> Dictionary:
 		
 	# get the first critter. it is the closest.
 	var c0 = pic["critters"][0]
-	var distance_val = clamp(int(2.1 * (50 - c0["dist"])),10,100) 
+	
+	# tryhard math eq
+	var dist_weighted = 60 - (40 * atan(0.3 * (c0["dist"] * c0["zoom"]) - 2))
+	
+	var distance_val = int(clamp(dist_weighted,5,100))
 	
 	# no points if the critter is really far away
-	if(distance_val > 70):
+	if(distance_val == 5):
 		return {"score":0}
 	
 	var base_val = base_scores[c0["name"]]
@@ -105,18 +113,18 @@ func process_picture(pic : Dictionary) -> Dictionary:
 	var orient_mult = 1
 	# good facing
 	if c0["orient"] < 1:
-		orient_mult = 2
+		orient_mult = 1.5
 		
-	var total_score = (base_val + distance_val + int(20 * sqrt(same_bonus)) + int(30 * sqrt(dif_bonus))) * pose_mult * orient_mult
+	var total_score = (base_val + distance_val + int(20 * sqrt(same_bonus)) + int(30 * sqrt(dif_bonus))) * (pose_mult + orient_mult)
 	
 	var left_text = "MONSTER\n"
 	var right_text = "\n"
 	left_text += c0["name"] + "\n"
 	right_text += str(base_val) + "\n"
 	
-	left_text += "DISTANCE\n"
+	left_text += "SIZE\n"
 	right_text += "\n"
-	left_text += str(int(c0["dist"])) + "\n"
+	left_text += str(int((c0["dist"] * c0["zoom"]))) + "\n"
 	right_text += str(distance_val) + "\n"
 	
 	left_text += "OTHER MONSTERS\n"
@@ -128,10 +136,14 @@ func process_picture(pic : Dictionary) -> Dictionary:
 	
 	left_text += "POSE\n"
 	right_text += "\n"
-	left_text += c0["pose"] + "\n"
-	right_text += str(pose_mult) + "\n"
+	left_text += c0["pose"] 
+	if(orient_mult != 1):
+		left_text += ", front"
+	left_text += "\n"
+	right_text += "x" + str(pose_mult + orient_mult) + "\n"
 	
 	left_text += "TOTAL"
 	right_text += str(total_score)
+	print(total_score)
 	
 	return {"score":total_score,"ltext":left_text,"rtext":right_text,"pic":pic["image"]}

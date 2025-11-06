@@ -12,6 +12,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	$Flash.color = Color(1,1,1,$Flash.color.a -  10 * delta)
 	$PicTotal.text = str(Global.pics.size()) + " / " + str(Global.picsmax)
+	$FPS.text = "FPS " + str(Engine.get_frames_per_second())
 
 	
 func push_image(image: Image) -> void:

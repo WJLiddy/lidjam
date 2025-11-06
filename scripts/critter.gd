@@ -15,15 +15,33 @@ func _physics_process(delta: float) -> void:
 	action_time -= delta
 	if(action_time > 0):
 		# we should do the present action
-		if(action == "walking"):
-			velocity = basis.z
+		if(action == "walking" or action == "fleeing"):
+			var dest = $nav.get_next_path_position()
+			var local_dest = dest - global_position
+			var dir = local_dest.normalized()
+			velocity = dir
+			if(action == "fleeing"):
+				velocity = dir * 3
+			look_at(transform.origin + Vector3(1,0,1)*velocity)
 			move_and_slide()
 		if(action == "tpose"):
 			rotate_y(delta)
+			
 		else:
 			velocity = Vector3(0,0,0)
 	else:
 		# pick new action
 		action = ["idle","walking","tpose"].pick_random()
+		if(action == "walking"):
+			$nav.set_target_position(global_position + Vector3(randf_range(-5,5),0,randf_range(-5,5)))
 		$rigmodel/AnimationPlayer.play(action)
 		action_time = randf_range(2.0,5.0)
+		
+	# check if should run from player.
+	if(species == "smalltest" && global_position.distance_to(get_node("../../Player").global_position) < 10):
+		$nav.set_target_position(global_position + ((global_position - get_node("../../Player").global_position).normalized() * 10))
+		action = "fleeing"
+		$rigmodel/AnimationPlayer.play("walking")
+		action_time = 5
+		
+	

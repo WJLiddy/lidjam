@@ -16,6 +16,9 @@ var footstep_distance = 2.1
 var action_cooldown = 0
 var ads_enabled = false
 
+var fov_base = 70.0
+var fov_zoom = 35.0
+
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
@@ -30,9 +33,9 @@ func _physics_process(delta: float) -> void:
 	action_cooldown -= delta
 	
 	if(ads_enabled):
-		%Camera3D.fov = lerp(%Camera3D.fov,35.0,7*delta)
+		%Camera3D.fov = lerp(%Camera3D.fov,fov_zoom,7*delta)
 	else:
-		%Camera3D.fov = lerp(%Camera3D.fov,70.0,7*delta)
+		%Camera3D.fov = lerp(%Camera3D.fov,fov_base,7*delta)
 	
 	if Global.is_using_puter:
 		%Camera3D.global_position = %Camera3D.global_position.lerp(get_node("../Puter").global_position - Vector3(0,-0.2,-0.5), delta*10)
@@ -137,9 +140,9 @@ func take_picture():
 				critter["name"] = c.species
 				critter["dist"] = c.global_position.distance_to(global_position)
 				critter["orient"] = abs(global_rotation.y - c.global_rotation.y)
-				critter["pose"] = c.get_node("rigmodel/AnimationPlayer").current_animation
+				critter["pose"] = c.action
+				critter["zoom"] = %Camera3D.fov / fov_base
 				picdata["critters"].push_back(critter)
-				print(critter)
 	
 	# sort all the critters by distance.
 	picdata["critters"].sort_custom(camera_dist_sort)
