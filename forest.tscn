@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://bdkh5n42abtlg"]
+[gd_scene load_steps=36 format=3 uid="uid://bdkh5n42abtlg"]
 
 [ext_resource type="PackedScene" uid="uid://bf504syknspt3" path="res://tscn/puter.tscn" id="1_5rndp"]
 [ext_resource type="PackedScene" uid="uid://jyncanbkjjnq" path="res://tscn/player.tscn" id="1_lifw2"]
@@ -21,11 +21,17 @@
 [ext_resource type="PackedScene" uid="uid://dd0ejk8x4t51r" path="res://rgsdev/Trees/oak_tree_autumn.tscn" id="19_w7ivt"]
 [ext_resource type="PackedScene" uid="uid://c5e0gk1w7oyca" path="res://map2.tscn" id="20_3yfs4"]
 [ext_resource type="PackedScene" uid="uid://2g7tgm6aop7d" path="res://rgsdev/Trees/broken_tree_autumn.tscn" id="20_x23mu"]
+[ext_resource type="PackedScene" uid="uid://ca11jvx8ohfef" path="res://map_1_no_nodes.tscn" id="21_1ykyx"]
 [ext_resource type="PackedScene" uid="uid://bsb3v5pqlcb8x" path="res://rgsdev/Trees/Willow_Tree_Autumn.fbx" id="21_7b08a"]
 [ext_resource type="Texture2D" uid="uid://s2tijo12vng8" path="res://programmerart/nopic.png" id="22_w7ivt"]
 [ext_resource type="AudioStream" uid="uid://y7cgnxqgw0an" path="res://sound/upload.mp3" id="23_x23mu"]
 [ext_resource type="Script" uid="uid://coxvv8wsxljv6" path="res://viewmodel.gd" id="24_vmfs8"]
 [ext_resource type="PackedScene" uid="uid://dcikus0dnpidr" path="res://camera_exclusive.tscn" id="25_vmfs8"]
+
+[sub_resource type="Environment" id="Environment_1ykyx"]
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 0.4
 
 [sub_resource type="Curve3D" id="Curve3D_3yfs4"]
 _data = {
@@ -94,8 +100,11 @@ audio_listener_enable_3d = true
 size = Vector2i(900, 600)
 render_target_update_mode = 4
 
+[node name="WorldEnvironment" type="WorldEnvironment" parent="World/World"]
+environment = SubResource("Environment_1ykyx")
+
 [node name="Player" parent="World/World" instance=ExtResource("1_lifw2")]
-transform = Transform3D(0.9959144, 0, 0.090302326, 0, 1, 0, -0.090302326, 0, 0.9959144, -59.79126, -2.6620374, -78.99933)
+transform = Transform3D(0.9959144, 0, 0.090302326, 0, 1, 0, -0.090302326, 0, 0.9959144, -59.79126, 23.837578, 20.782501)
 
 [node name="Shutter" type="AudioStreamPlayer3D" parent="World/World/Player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -107,16 +116,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -72, 0.36386132, -100.92095)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="World/World"]
 transform = Transform3D(1, 0, 0, 0, 0.1569862, 0.9876008, 0, -0.9876008, 0.1569862, 3.8745143, 11.156533, 2.1968136)
-visible = false
-layers = 524289
-light_energy = 4.395
-light_indirect_energy = 8.051
-
-[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="World/World"]
-transform = Transform3D(1, 0, 0, 0, 0.9326517, 0.36077818, 0, -0.36077818, 0.9326517, 3.8745143, 11.156533, 2.1968136)
 layers = 524289
 light_energy = 2.0
-light_indirect_energy = 1.571
+light_indirect_energy = 8.051
 
 [node name="WaterPath" type="Path3D" parent="World/World"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.354393, -6.5875273, -81.07461)
@@ -1665,6 +1667,9 @@ transform = Transform3D(0.45399052, 0, -0.8910065, 0, 1, 0, 0.8910065, 0, 0.4539
 
 [node name="map12" parent="World/World" instance=ExtResource("20_3yfs4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 187.08957, 24.135689, 0)
+
+[node name="map1NoNodes" parent="World/World" instance=ExtResource("21_1ykyx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 54.36489)
 
 [node name="ViewModel" type="SubViewportContainer" parent="."]
 offset_right = 40.0
