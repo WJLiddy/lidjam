@@ -1,6 +1,6 @@
 extends CharacterBody3D
 @export var species : String
-
+@export var follow : PathFollow3D
 var action_time = 0.0
 var action = "idle"
 
@@ -12,6 +12,12 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
+	
+	if(species == "fishguy"):
+		follow.progress += delta * 60
+		global_position = follow.global_position
+		return
+	
 	action_time -= delta
 	if(action_time > 0):
 		# we should do the present action

@@ -133,7 +133,6 @@ func take_picture():
 			var coll_mask = 1
 			var query = PhysicsRayQueryParameters3D.create($%Camera3D.global_position, c.get_node("vis").global_position,coll_mask)
 			var result = space_state.intersect_ray(query)
-			print(result)
 			if result.is_empty():
 				# get data
 				var critter = {}
