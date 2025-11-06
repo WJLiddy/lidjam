@@ -7,7 +7,7 @@ var run_speed = 5.5
 var speed = run_speed
 var crouch_speed = 1.8
 
-var jump_velocity = 7
+var jump_velocity = 10
 var landing_velocity
 
 var distance = 0
@@ -127,15 +127,17 @@ func take_picture():
 		if c.get_node("vis").is_on_screen():
 			# do a raycast to make sure that there's no terrain or anything blocking him
 			var space_state = get_world_3d().direct_space_state
-			var query = PhysicsRayQueryParameters3D.create($%Camera3D.global_position, c.get_node("vis").global_position)
+			var coll_mask = 1
+			var query = PhysicsRayQueryParameters3D.create($%Camera3D.global_position, c.get_node("vis").global_position,coll_mask)
 			var result = space_state.intersect_ray(query)
+			print(result)
 			if result.is_empty():
 				# get data
 				var critter = {}
 				critter["name"] = c.species
 				critter["dist"] = c.global_position.distance_to(global_position)
 				critter["orient"] = abs(global_rotation.y - c.global_rotation.y)
-				critter["pose"] = c.get_node("AnimationPlayer").current_animation
+				critter["pose"] = c.get_node("rigmodel/AnimationPlayer").current_animation
 				picdata["critters"].push_back(critter)
 				print(critter)
 	

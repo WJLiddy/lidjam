@@ -1,6 +1,7 @@
 extends Node
 
 var pictures_to_grade = []
+var grading_index = 0
 var in_grading = false
 
 var base_scores = {
@@ -8,13 +9,17 @@ var base_scores = {
 }
 
 var pose_mults = {
-	"idle" : 2,
+	"tpose" : 2,
+	"idle" : 1.5,
 	"walking" : 1
 }
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
+	
+func sort_by_score(a,b):
+	return a["score"] < b["score"]
 	
 func _input(event: InputEvent) -> void:
 	if(Global.is_using_puter):
@@ -29,7 +34,26 @@ func _input(event: InputEvent) -> void:
 						Global.is_using_puter = false
 						get_node("../../Player").action_cooldown = 0.4
 					if $Background/Upload/Upload.get_overlapping_bodies().size() == 1:
-						pictures_to_grade = Global.pics.duplicate()
+						
+						# score all photos, pick the highest scoring pic of each critter
+						var pics_by_critter = {}
+						for p in Global.pics.duplicate():
+							var out = process_picture(p)
+							if(out["score"] != 0):
+								var cname = p["critters"][0]["name"]
+								# check if it's in pics by critter
+								if(pics_by_critter.has(cname) and pics_by_critter[cname]["score"] < out["score"]):
+									pics_by_critter[cname] = out
+								else:
+									pics_by_critter[cname] = out
+						# done scoring
+						# put into list
+						pictures_to_grade = pics_by_critter.values()
+						
+						# sort, worst pics first
+						pictures_to_grade.sort_custom(sort_by_score)
+						# pictures are ready. load the first one.
+						ui_grade()
 						get_node("/root/forest/UIRender").rewind()
 						$Background.visible = false
 						in_grading = true
@@ -37,12 +61,9 @@ func _input(event: InputEvent) -> void:
 				else:
 					# grading
 					if $Grading/Next/Next.get_overlapping_bodies().size() == 1:
-						if pictures_to_grade.size() > 0:
-							var output = process_picture(pictures_to_grade[pictures_to_grade.size()-1])
-							pictures_to_grade.remove_at(pictures_to_grade.size()-1)
-							$Grading/LabelJustLeft.text = output[1]
-							$Grading/LabelJustRight.text = output[2]
-						else:
+						grading_index += 1
+						ui_grade()
+						if(grading_index == pictures_to_grade.size()):
 							$Background.visible = true
 							in_grading = false
 							$Grading.visible = false
@@ -52,21 +73,32 @@ func _input(event: InputEvent) -> void:
 	get_node("Mouse").position.x = clamp(get_node("Mouse").position.x,-0.25,0.25)
 	get_node("Mouse").position.y = clamp(get_node("Mouse").position.y,0.15,0.45)
 
-func process_picture(pic : Dictionary):
-	var cr =  ImageTexture.create_from_image(pic["image"])
+func ui_grade():
+	var p = pictures_to_grade[grading_index]
+	var cr = ImageTexture.create_from_image(p["pic"])
 	cr.set_size_override(Vector2(200,150))
-	$Grading/Preview.texture = cr 
+	$Grading/Preview.texture = cr
+	$Grading/LabelJustLeft.text = p["ltext"]
+	$Grading/LabelJustRight.text = p["rtext"]
+	
+	
+	
+func process_picture(pic : Dictionary) -> Dictionary:
+
 	if(pic["critters"].size() == 0):
-		return [0,"",""]
+		return {"score":0}
+		
 	# get the first critter. it is the closest.
 	var c0 = pic["critters"][0]
+	var distance_val = clamp(int(2.1 * (50 - c0["dist"])),10,100) 
 	
 	# no points if the critter is really far away
-	if(c0["dist"] > 90):
-		return [0,"",""]
+	if(distance_val > 70):
+		return {"score":0}
 	
 	var base_val = base_scores[c0["name"]]
-	var distance_val = int((100 - c0["dist"])) 
+	# dist of less than 2 is perfect
+	# dist of 50 is too far
 	var same_bonus = pic["critters"].reduce(func(count, next): return count + 1 if c0["name"] == next["name"] else count, -1)
 	var dif_bonus = pic["critters"].reduce(func(count, next): return count + 1 if c0["name"] != next["name"] else count, 0)
 	var pose_mult = pose_mults[c0["pose"]]
@@ -102,4 +134,4 @@ func process_picture(pic : Dictionary):
 	left_text += "TOTAL"
 	right_text += str(total_score)
 	
-	return [total_score,left_text,right_text]
+	return {"score":total_score,"ltext":left_text,"rtext":right_text,"pic":pic["image"]}

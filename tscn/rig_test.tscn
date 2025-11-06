@@ -1,10 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://di8lg0v3mwd2g"]
+[gd_scene load_steps=2 format=3 uid="uid://di8lg0v3mwd2g"]
 
 [ext_resource type="PackedScene" uid="uid://v702hyp48klc" path="res://blender inbox/rig test guy/rig test.blend" id="1_8walo"]
-[ext_resource type="Script" uid="uid://bm62uyq3pxe4n" path="res://scripts/critter.gd" id="2_do4cc"]
 
 [node name="rig test" instance=ExtResource("1_8walo")]
-script = ExtResource("2_do4cc")
 
 [node name="Skeleton3D" parent="test armature" index="0"]
 bones/1/rotation = Quaternion(-3.5527103e-15, 1.7763568e-14, -4.0389676e-28, 1)

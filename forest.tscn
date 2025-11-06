@@ -83,7 +83,7 @@ size = Vector2i(900, 600)
 render_target_update_mode = 4
 
 [node name="Player" parent="World/World" instance=ExtResource("1_lifw2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -81.7392, -1.9281914, -67.139626)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 220.33757, 36.06859, -24.179295)
 
 [node name="Shutter" type="AudioStreamPlayer3D" parent="World/World/Player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -95,6 +95,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -72, 0.36386132, -100.92095)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="World/World"]
 transform = Transform3D(1, 0, 0, 0, 0.1569862, 0.9876008, 0, -0.9876008, 0.1569862, 3.8745143, 11.156533, 2.1968136)
+visible = false
 layers = 524289
 light_energy = 4.395
 light_indirect_energy = 8.051
@@ -240,6 +241,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 0, -40)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="World/World/Terrain/Waters"]
 transform = Transform3D(12.5, 0, 0, 0, 0.25, 0, 0, 0, 12.5, -32.5, -1.25, -1.25)
+mesh = SubResource("PlaneMesh_0aefg")
+skeleton = NodePath("../../../../..")
+surface_material_override/0 = ExtResource("17_0aefg")
+
+[node name="MeshInstance3D57" type="MeshInstance3D" parent="World/World/Terrain/Waters"]
+transform = Transform3D(12.5, 0, 0, 0, 0.25, 0, 0, 0, 12.5, 53.262066, 8.501232, -8.926865)
+mesh = SubResource("PlaneMesh_0aefg")
+skeleton = NodePath("../../../../..")
+surface_material_override/0 = ExtResource("17_0aefg")
+
+[node name="MeshInstance3D58" type="MeshInstance3D" parent="World/World/Terrain/Waters"]
+transform = Transform3D(12.5, 0, 0, 0, 0.25, 0, 0, 0, 12.5, 53.262066, 8.501234, 10.856529)
 mesh = SubResource("PlaneMesh_0aefg")
 skeleton = NodePath("../../../../..")
 surface_material_override/0 = ExtResource("17_0aefg")

@@ -8,10 +8,11 @@ radius = 0.2
 height = 1.0
 
 [node name="Rigfull" type="CharacterBody3D"]
+collision_layer = 2
+collision_mask = 3
 script = ExtResource("1_n1306")
 
 [node name="rigmodel" parent="." instance=ExtResource("1_le5a0")]
-script = null
 
 [node name="vis" type="VisibleOnScreenEnabler3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
