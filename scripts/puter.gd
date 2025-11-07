@@ -111,6 +111,15 @@ func ui_grade():
 		$Grading/OldText.text = str(Global.bests[critter].score)
 	else:
 		$Grading/Old.texture = null
+	
+	if(not Global.bests.has(critter)):
+		$Grading/ProfText.text = "First time taking\n a picture of\n this critter. Weow"
+	else:
+		if(Global.bests[critter]["score"] > p["score"]):
+			$Grading/ProfText.text = "This is your best pic\n of " + critter + ". However\n, your old pic was better."
+		else:
+			$Grading/ProfText.text = "This pic of " + critter + "\n is better than\n your previous best!"
+			
 
 func ui_review():
 	for p in get_node("Review/PrevPics").get_children():
@@ -181,6 +190,5 @@ func process_picture(pic : Dictionary) -> Dictionary:
 	
 	left_text += "TOTAL"
 	right_text += str(total_score)
-	print(total_score)
 	
 	return {"score":total_score,"ltext":left_text,"rtext":right_text,"pic":pic["image"],"critter":pic["critters"][0]["name"]}
