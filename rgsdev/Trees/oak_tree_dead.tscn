@@ -1,5 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://bnsmteup5hwtb"]
-
-[ext_resource type="PackedScene" uid="uid://dfj3y5a7y480q" path="res://rgsdev/Trees/Oak_Tree_Dead.fbx" id="1_yjfve"]
-
-[node name="Oak_Tree_Dead" instance=ExtResource("1_yjfve")]
