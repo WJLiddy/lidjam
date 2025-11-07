@@ -2,6 +2,7 @@ extends Node
 
 var pics = []
 var picsmax = 30
+var bests = {}
 
 var is_using_puter = false
 

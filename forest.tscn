@@ -104,7 +104,7 @@ render_target_update_mode = 4
 environment = SubResource("Environment_1ykyx")
 
 [node name="Player" parent="World/World" instance=ExtResource("1_lifw2")]
-transform = Transform3D(0.9959144, 0, 0.090302326, 0, 1, 0, -0.090302326, 0, 0.9959144, -59.79126, 23.837578, 20.782501)
+transform = Transform3D(0.9959144, 0, 0.090302326, 0, 1, 0, -0.090302326, 0, 0.9959144, -89.6472, 1.6385394e-06, -91.25493)
 
 [node name="Shutter" type="AudioStreamPlayer3D" parent="World/World/Player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
