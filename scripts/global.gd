@@ -4,6 +4,7 @@ var pics = []
 var picsmax = 30
 var bests = {}
 var is_on_title = true
+var money = 0
 
 var is_using_puter = false
 

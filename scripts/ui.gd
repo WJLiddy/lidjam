@@ -11,7 +11,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.wwdea
 func _process(delta: float) -> void:
 	$Flash.color = Color(1,1,1,$Flash.color.a -  10 * delta)
-	$PicTotal.text = str(Global.pics.size()) + " / " + str(Global.picsmax)
+	$PicTotal.text = str(Global.pics.size()) + " / " + str(Global.picsmax) + "\n$" + str(Global.money)
 	$FPS.text = "FPS " + str(Engine.get_frames_per_second())
 
 	

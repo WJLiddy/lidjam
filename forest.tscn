@@ -257,7 +257,6 @@ libraries = {
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
 [node name="UIRender" type="Control" parent="." node_paths=PackedStringArray("picSpots")]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_top = -1.0

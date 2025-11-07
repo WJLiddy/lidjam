@@ -78,7 +78,9 @@ func _input(event: InputEvent) -> void:
 							for p in pictures_to_grade:
 								if not Global.bests.has(p["critter"]):
 									Global.bests[p["critter"]] = p
+									Global.money += p["score"]
 								elif Global.bests[p["critter"]]["score"] < p["score"]:
+									Global.money += (p["score"] - Global.bests[p["critter"]]["score"])
 									Global.bests[p["critter"]] = p
 							ui_review()
 						else:
