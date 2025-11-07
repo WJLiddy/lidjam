@@ -3,6 +3,7 @@ extends Node
 var pics = []
 var picsmax = 30
 var bests = {}
+var is_on_title = true
 
 var is_using_puter = false
 

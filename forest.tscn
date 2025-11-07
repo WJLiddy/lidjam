@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://bdkh5n42abtlg"]
+[gd_scene load_steps=41 format=3 uid="uid://bdkh5n42abtlg"]
 
 [ext_resource type="PackedScene" uid="uid://bf504syknspt3" path="res://tscn/puter.tscn" id="1_5rndp"]
 [ext_resource type="PackedScene" uid="uid://jyncanbkjjnq" path="res://tscn/player.tscn" id="1_lifw2"]
@@ -27,6 +27,7 @@
 [ext_resource type="AudioStream" uid="uid://y7cgnxqgw0an" path="res://sound/upload.mp3" id="23_x23mu"]
 [ext_resource type="Script" uid="uid://coxvv8wsxljv6" path="res://viewmodel.gd" id="24_vmfs8"]
 [ext_resource type="PackedScene" uid="uid://dcikus0dnpidr" path="res://camera_exclusive.tscn" id="25_vmfs8"]
+[ext_resource type="Script" uid="uid://d0d3d8e1ouxld" path="res://title.gd" id="28_5xr7u"]
 
 [sub_resource type="Environment" id="Environment_1ykyx"]
 ambient_light_source = 2
@@ -48,6 +49,33 @@ geometry_parsed_geometry_type = 1
 [sub_resource type="PlaneMesh" id="PlaneMesh_0aefg"]
 subdivide_width = 10
 subdivide_depth = 10
+
+[sub_resource type="Animation" id="Animation_5xr7u"]
+resource_name = "introcam"
+length = 15.0
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0.033333335, 1, 13.359125, 34.391346, 58.773476, 14.933333, 1, 29.169512, 34.391346, 30.041092)
+
+[sub_resource type="Animation" id="Animation_8pife"]
+length = 0.001
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 13.359125, 34.391346, 58.773476)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wsut6"]
+_data = {
+&"RESET": SubResource("Animation_8pife"),
+&"introcam": SubResource("Animation_5xr7u")
+}
 
 [sub_resource type="Animation" id="Animation_3yfs4"]
 length = 0.001
@@ -87,6 +115,9 @@ _data = {
 &"ads_disengage": SubResource("Animation_1ykyx"),
 &"ads_engage": SubResource("Animation_vmfs8")
 }
+
+[sub_resource type="LabelSettings" id="LabelSettings_1ykyx"]
+font_size = 90
 
 [node name="forest" type="Node3D"]
 
@@ -1671,7 +1702,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 187.08957, 24.135689, 0)
 [node name="map1NoNodes" parent="World/World" instance=ExtResource("21_1ykyx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 54.36489)
 
+[node name="IntroCam" type="Camera3D" parent="World/World"]
+transform = Transform3D(1, 0, 0, 0, 0.8341651, 0.55151486, 0, -0.55151486, 0.8341651, 13.359125, 34.391346, 58.773476)
+current = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="World/World/IntroCam"]
+libraries = {
+&"": SubResource("AnimationLibrary_wsut6")
+}
+autoplay = "introcam"
+
 [node name="ViewModel" type="SubViewportContainer" parent="."]
+visible = false
 offset_right = 40.0
 offset_bottom = 40.0
 mouse_filter = 2
@@ -1682,7 +1724,7 @@ transparent_bg = true
 handle_input_locally = false
 size = Vector2i(900, 600)
 render_target_clear_mode = 1
-render_target_update_mode = 4
+render_target_update_mode = 0
 
 [node name="Camera3D" type="Camera3D" parent="ViewModel/Viewmodel"]
 cull_mask = 524288
@@ -1696,6 +1738,7 @@ libraries = {
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
 [node name="UIRender" type="Control" parent="." node_paths=PackedStringArray("picSpots")]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_top = -1.0
@@ -1819,3 +1862,30 @@ volume_db = -10.0
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
+
+[node name="Title" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_top = -1.0
+offset_right = 40.0
+offset_bottom = 39.0
+script = ExtResource("28_5xr7u")
+
+[node name="FPS" type="Label" parent="Title"]
+layout_mode = 0
+offset_right = 900.0
+offset_bottom = 600.0
+text = "SPOOKY SNAP"
+label_settings = SubResource("LabelSettings_1ykyx")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="Title"]
+layout_mode = 0
+offset_left = 425.0
+offset_top = 358.0
+offset_right = 478.0
+offset_bottom = 389.0
+text = "CLICK"
+
+[connection signal="pressed" from="Title/Button" to="Title" method="_on_button_pressed"]

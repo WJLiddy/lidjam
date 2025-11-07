@@ -58,13 +58,14 @@ func _input(event: InputEvent) -> void:
 						get_node("../../Player").action_cooldown = 0.4
 					if $Background/Upload/Upload.get_overlapping_bodies().size() == 1 and Global.pics.size() > 0:
 						process_all_pictures()
-						
-						grading_index = 0
-						ui_grade()
 						get_node("/root/forest/UIRender").rewind()
-						$Background.visible = false
-						state = "grading"
-						$Grading.visible = true
+						# fix later
+						if not pictures_to_grade.is_empty():
+							grading_index = 0
+							ui_grade()
+							$Background.visible = false
+							state = "grading"
+							$Grading.visible = true
 				elif(state == "grading"):
 					# grading
 					if $Grading/Next/Next.get_overlapping_bodies().size() == 1:

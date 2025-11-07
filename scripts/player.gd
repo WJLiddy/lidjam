@@ -19,8 +19,6 @@ var ads_enabled = false
 var fov_base = 70.0
 var fov_zoom = 35.0
 
-func _ready() -> void:
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func _input(event: InputEvent) -> void:
 	if !Global.is_using_puter and event is InputEventMouseMotion:
@@ -30,6 +28,9 @@ func _input(event: InputEvent) -> void:
 		
 
 func _physics_process(delta: float) -> void:
+	if Global.is_on_title:
+		return
+	
 	action_cooldown -= delta
 	
 	if(ads_enabled):
