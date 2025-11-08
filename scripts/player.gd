@@ -18,8 +18,11 @@ var ads_enabled = false
 var double_zoom = false
 
 var fov_base = 70.0
-var fov_zoom = 70.0 / 2
-var fov_double_zoom = 70.0 / 4
+var fov_zoom = 70.0 / 3
+var fov_double_zoom = 70.0 / 6
+
+
+const bait = preload("res://tscn/bait.tscn")
 
 
 func _input(event: InputEvent) -> void:
@@ -126,6 +129,13 @@ func _physics_process(delta: float) -> void:
 			get_node("../../../ViewModel").ads_enable()
 		else:
 			get_node("../../../ViewModel").ads_disable()
+	
+	if Input.is_action_just_pressed("bait"):
+		print("bait")
+		var b = bait.instantiate()
+		b.global_position = $%Camera3D.global_position
+		b.apply_impulse(-$%Camera3D.global_basis.z.normalized() * 10)
+		get_parent().add_child(b)
 
 func camera_dist_sort(a: Dictionary, b: Dictionary):
 	return a["dist"] < b["dist"];
