@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://jyncanbkjjnq"]
+[gd_scene load_steps=16 format=3 uid="uid://jyncanbkjjnq"]
 
 [ext_resource type="Script" uid="uid://c1ra6l46652u8" path="res://scripts/player.gd" id="1_oul6g"]
 [ext_resource type="AudioStream" uid="uid://eqlentp01xuq" path="res://sound/footsteps/footstep_1.wav" id="2_2ieo8"]
@@ -11,6 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://b8j5dvefv2fmt" path="res://sound/footsteps/footstep_8.wav" id="9_e7oew"]
 [ext_resource type="AudioStream" uid="uid://48xt4llun7t8" path="res://sound/footsteps/footstep_9.wav" id="10_c35mf"]
 [ext_resource type="AudioStream" uid="uid://dly32slohyd7p" path="res://sound/footsteps/footstep_10.wav" id="11_65viv"]
+[ext_resource type="AudioStream" uid="uid://dwdvr4bbm1nqc" path="res://sound/whistle.mp3" id="12_udxxx"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_oul6g"]
 radius = 0.4
@@ -66,4 +67,9 @@ target_position = Vector3(0, 2.1, 0)
 
 [node name="FootstepSound" type="AudioStreamPlayer" parent="."]
 volume_db = -20.0
+max_polyphony = 10
+
+[node name="WhistleSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_udxxx")
+volume_db = -80.0
 max_polyphony = 10
