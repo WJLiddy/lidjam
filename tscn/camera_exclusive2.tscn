@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dcikus0dnpidr"]
+
+[ext_resource type="PackedScene" uid="uid://51b2ghpn2h1k" path="res://programmerart/camera_exclusive.fbx" id="1_dicu8"]
+
+[node name="camera_exclusive" instance=ExtResource("1_dicu8")]
+
+[node name="camera_exclusive" parent="." index="0"]
+layers = 524288

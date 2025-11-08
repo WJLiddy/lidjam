@@ -6,7 +6,7 @@ var grading_index = 0
 var state = "desktop"
 
 var base_scores = {
-	"rigtest" : 30,
+	"testguy" : 30,
 	"smalltest" : 10,
 	"fishguy" : 40
 }

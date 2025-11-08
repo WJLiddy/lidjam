@@ -134,7 +134,7 @@ func _physics_process(delta: float) -> void:
 		var b = bait.instantiate()
 		b.global_position = $%Camera3D.global_position
 		b.apply_impulse(-$%Camera3D.global_basis.z.normalized() * 10)
-		get_parent().add_child(b)
+		get_node("../Baits").add_child(b)
 		
 	if Input.is_action_pressed("whistle"):
 		$WhistleSound.volume_db = lerp($WhistleSound.volume_db,0.0,10*delta)
@@ -142,7 +142,6 @@ func _physics_process(delta: float) -> void:
 			$WhistleSound.play()
 	else:
 		$WhistleSound.volume_db = lerp($WhistleSound.volume_db,-80.0,10*delta)
-	print($WhistleSound.volume_db)
 		
 
 func camera_dist_sort(a: Dictionary, b: Dictionary):
