@@ -1,7 +1,7 @@
 extends Node
 
 var pics = []
-var picsmax = 30
+var picsmax = 20
 var bests = {}
 var is_on_title = true
 var money = 999

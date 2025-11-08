@@ -104,6 +104,7 @@ func _input(event: InputEvent) -> void:
 					if $Shop/Buy3/Buy3.get_overlapping_bodies().size() == 1 and Global.money > 100 and not Global.bonus_film_unlocked:
 						Global.bonus_film_unlocked = true
 						Global.money -= 100
+						Global.picsmax = 40
 					if $Shop/Buy4/Buy4.get_overlapping_bodies().size() == 1 and Global.money > 100 and not Global.bonus_film_unlocked:
 						Global.bait_unlocked = true
 						Global.money -= 100

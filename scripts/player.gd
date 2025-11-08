@@ -15,9 +15,11 @@ var footstep_distance = 2.1
 
 var action_cooldown = 0
 var ads_enabled = false
+var double_zoom = false
 
 var fov_base = 70.0
-var fov_zoom = 35.0
+var fov_zoom = 70.0 / 2
+var fov_double_zoom = 70.0 / 4
 
 
 func _input(event: InputEvent) -> void:
@@ -33,10 +35,17 @@ func _physics_process(delta: float) -> void:
 	
 	action_cooldown -= delta
 	
+	var speedup = 1
+	if(Global.quickscope_unlocked):
+		speedup = 2
+	
 	if(ads_enabled):
-		%Camera3D.fov = lerp(%Camera3D.fov,fov_zoom,7*delta)
+		if(double_zoom):
+			%Camera3D.fov = lerp(%Camera3D.fov,fov_double_zoom,4*speedup*delta)
+		else:
+			%Camera3D.fov = lerp(%Camera3D.fov,fov_zoom,4*speedup*delta)
 	else:
-		%Camera3D.fov = lerp(%Camera3D.fov,fov_base,7*delta)
+		%Camera3D.fov = lerp(%Camera3D.fov,fov_base,4*speedup*delta)
 	
 	if Global.is_using_puter:
 		%Camera3D.global_position = %Camera3D.global_position.lerp(get_node("../Puter").global_position - Vector3(0,-0.27,-0.4), delta*10)
@@ -107,7 +116,12 @@ func _physics_process(delta: float) -> void:
 			action_cooldown = 0.4
 			
 	if Input.is_action_just_pressed("ads"):
-		ads_enabled = !ads_enabled
+		if(ads_enabled and Global.zoom_unlocked and not double_zoom):
+			double_zoom = true
+			return
+		else:
+			ads_enabled = !ads_enabled
+			double_zoom = false
 		if(ads_enabled):
 			get_node("../../../ViewModel").ads_enable()
 		else:
@@ -117,6 +131,9 @@ func camera_dist_sort(a: Dictionary, b: Dictionary):
 	return a["dist"] < b["dist"];
 
 func take_picture():
+	if(Global.pics.size() == Global.picsmax):
+		return
+	
 	$Shutter.play()
 	var picdata = {}
 	
