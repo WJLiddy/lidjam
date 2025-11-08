@@ -29,7 +29,7 @@ func _physics_process(delta: float) -> void:
 	
 	if(action_time > 0):
 		# !! Action Lookup Map
-		if(action == "walking" or action == "fleeing"):
+		if(action == "walking" or action == "fleeing" or action == "baiting"):
 			var dest = $nav.get_next_path_position()
 			var local_dest = dest - global_position
 			if(local_dest.length() < 0.1):

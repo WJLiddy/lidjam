@@ -10,7 +10,7 @@ func speed():
 func pick_action():
 	var dist_to_player = global_position.distance_to(get_node("../../Player").global_position)
 	# check if should run from player.
-	if(dist_to_player < 20 or (action == "fleeing" and dist_to_player < 30)):
+	if(dist_to_player < 10):
 		$nav.set_target_position(global_position + ((global_position - get_node("../../Player").global_position).normalized() * 5))
 		if(not $nav.is_target_reachable()):
 			# pick a random spot in a 5x5 grid for now
@@ -27,10 +27,10 @@ func pick_action():
 				# eat it
 				action = "eating"
 				action_time = 1.0
+				v.queue_free()
 				return
-			action = "baiting"
 			action_time = randf_range(1.0,2.0)
-			$nav.set_target_position(v)
+			$nav.set_target_position(v.global_position)
 			$rigmodel/AnimationPlayer.play("walking")
 			return
 			
