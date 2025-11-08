@@ -12,13 +12,16 @@ var action_time = 0.0
 func _ready() -> void:
 	pass # Replace with function body.
 
+# helper
+func dist_to_player():
+	return global_position.distance_to(get_node("../../Player").global_position)
+
+# to be overridden:
 func pick_action():
 	action = "idle"
 	action_time = 2.0
-	
 func speed():
 	return 1.0
-	
 func fleespeed():
 	return 1.0
 
@@ -28,6 +31,7 @@ func _physics_process(delta: float) -> void:
 	action_time -= delta
 	
 	if(action_time > 0):
+		
 		# !! Action Lookup Map
 		if(action == "walking" or action == "fleeing" or action == "baiting"):
 			var dest = $nav.get_next_path_position()
@@ -47,7 +51,11 @@ func _physics_process(delta: float) -> void:
 		elif(action == "tpose"):
 			rotate_y(delta)
 			
-		elif(action == "idle"):
+		# any of the idle actions
+		elif(action.contains("idle")):
 			velocity = Vector3(0,0,0)
+			
+		else:
+			print("unknown action " + action)
 	else:
 		pick_action()
