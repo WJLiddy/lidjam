@@ -56,9 +56,13 @@ func _input(event: InputEvent) -> void:
 					if $Background/Logoff/Logoff.get_overlapping_bodies().size() == 1:
 						Global.is_using_puter = false
 						get_node("../../Player").action_cooldown = 0.4
+					if $Background/Shop/Shop.get_overlapping_bodies().size() == 1:
+						state = "shop"
+						$Background.visible = false
+						$Shop.visible = true
 					if $Background/Upload/Upload.get_overlapping_bodies().size() == 1 and Global.pics.size() > 0:
 						process_all_pictures()
-						get_node("/root/forest/UIRender").rewind()
+						get_node("../../../../UIRender").rewind()
 						# fix later
 						if not pictures_to_grade.is_empty():
 							grading_index = 0
@@ -89,6 +93,26 @@ func _input(event: InputEvent) -> void:
 					if $Review/Next/Next.get_overlapping_bodies().size() == 1:
 						state = "desktop"
 						$Review.visible = false
+						$Background.visible = true
+				elif(state == "shop"):
+					if $Shop/Buy1/Buy1.get_overlapping_bodies().size() == 1 and Global.money > 100 and not Global.zoom_unlocked:
+						Global.zoom_unlocked = true
+						Global.money -= 100
+					if $Shop/Buy2/Buy2.get_overlapping_bodies().size() == 1 and Global.money > 100 and not Global.quickscope_unlocked:
+						Global.quickscope_unlocked = true
+						Global.money -= 100
+					if $Shop/Buy3/Buy3.get_overlapping_bodies().size() == 1 and Global.money > 100 and not Global.bonus_film_unlocked:
+						Global.bonus_film_unlocked = true
+						Global.money -= 100
+					if $Shop/Buy4/Buy4.get_overlapping_bodies().size() == 1 and Global.money > 100 and not Global.bonus_film_unlocked:
+						Global.bait_unlocked = true
+						Global.money -= 100
+					if $Shop/Buy5/Buy5.get_overlapping_bodies().size() == 1 and Global.money > 100 and not Global.whistle_unlocked:
+						Global.whistle_unlocked = true
+						Global.money -= 100
+					if $Shop/Next/Next.get_overlapping_bodies().size() == 1:
+						state = "desktop"
+						$Shop.visible = false
 						$Background.visible = true
 				
 		# clamp to -.25 to 25

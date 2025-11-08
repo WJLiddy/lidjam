@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://bdkh5n42abtlg"]
+[gd_scene load_steps=35 format=3 uid="uid://bdkh5n42abtlg"]
 
 [ext_resource type="PackedScene" uid="uid://bf504syknspt3" path="res://tscn/puter.tscn" id="1_5rndp"]
 [ext_resource type="PackedScene" uid="uid://jyncanbkjjnq" path="res://tscn/player.tscn" id="1_lifw2"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://df62bathlqpv3" path="res://tscn/rigfull.tscn" id="4_x23mu"]
 [ext_resource type="PackedScene" uid="uid://dv3bc75iqnroi" path="res://tscn/tree1col.tscn" id="7_8dl3p"]
 [ext_resource type="PackedScene" uid="uid://d24tv6lv5qb8a" path="res://tscn/tree2col.tscn" id="8_uu8yv"]
+[ext_resource type="FontFile" uid="uid://b66pf6t0mwf83" path="res://Daydream DEMO.otf" id="15_6iyis"]
 [ext_resource type="Material" uid="uid://dns7bivatfxtb" path="res://watershader.tres" id="17_0aefg"]
 [ext_resource type="PackedScene" uid="uid://ca11jvx8ohfef" path="res://tscn/map_1_no_nodes.tscn" id="21_1ykyx"]
 [ext_resource type="Texture2D" uid="uid://s2tijo12vng8" path="res://programmerart/nopic.png" id="22_w7ivt"]
@@ -28,7 +29,7 @@ shader_parameter/enabled = true
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7fhox"]
 shader = ExtResource("2_v78i8")
 shader_parameter/dither_tex = ExtResource("3_6iyis")
-shader_parameter/col_depth = 12.0
+shader_parameter/col_depth = 14.0
 shader_parameter/dither_banding = true
 shader_parameter/enabled = true
 
@@ -38,6 +39,7 @@ ambient_light_color = Color(1, 1, 1, 1)
 ambient_light_energy = 0.4
 fog_enabled = true
 fog_light_color = Color(0.8627451, 0.9882353, 1, 1)
+fog_density = 0.005
 
 [sub_resource type="Curve3D" id="Curve3D_3yfs4"]
 _data = {
@@ -121,6 +123,12 @@ _data = {
 &"ads_engage": SubResource("Animation_vmfs8")
 }
 
+[sub_resource type="LabelSettings" id="LabelSettings_7fhox"]
+font = ExtResource("15_6iyis")
+font_size = 12
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
 [sub_resource type="LabelSettings" id="LabelSettings_1ykyx"]
 font_size = 90
 
@@ -147,7 +155,9 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="SubViewport" type="SubViewport" parent="HBlur/SubViewport/SubViewportContainer"]
+handle_input_locally = false
 size = Vector2i(400, 300)
+render_target_update_mode = 4
 
 [node name="World" type="SubViewportContainer" parent="HBlur/SubViewport/SubViewportContainer/SubViewport"]
 offset_right = 400.0
@@ -305,24 +315,27 @@ offset_top = -1.0
 offset_right = 40.0
 offset_bottom = 39.0
 script = ExtResource("4_vmuxp")
-picSpots = [NodePath("PicSpot5/Pic"), NodePath("PicSpot4/Pic"), NodePath("PicSpot3/Pic"), NodePath("PicSpot2/Pic"), NodePath("PicSpot/Pic")]
+picSpots = [NodePath("PicSpot3/Pic"), NodePath("PicSpot2/Pic"), NodePath("PicSpot/Pic")]
 
-[node name="PicTotal" type="Label" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/UIRender"]
+[node name="Status" type="Label" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/UIRender"]
 layout_mode = 0
-offset_left = 665.0
-offset_top = 1.0
-offset_right = 898.0
-offset_bottom = 43.0
+offset_left = 164.0
+offset_top = 4.0
+offset_right = 397.0
+offset_bottom = 48.0
 theme_override_font_sizes/font_size = 30
-text = "df"
+text = "19/20
+$ 39"
+label_settings = SubResource("LabelSettings_7fhox")
 horizontal_alignment = 2
 
 [node name="PicSpot" type="TextureRect" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/UIRender"]
 layout_mode = 0
-offset_left = 800.0
-offset_top = 106.0
-offset_right = 1006.0
-offset_bottom = 290.0
+offset_left = 349.5
+offset_top = 251.5
+offset_right = 555.5
+offset_bottom = 435.5
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_mvm06")
 stretch_mode = 2
 
@@ -337,10 +350,11 @@ stretch_mode = 2
 
 [node name="PicSpot2" type="TextureRect" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/UIRender"]
 layout_mode = 0
-offset_left = 800.0
-offset_top = 204.0
-offset_right = 1006.0
-offset_bottom = 388.0
+offset_left = 309.5
+offset_top = 262.0
+offset_right = 515.5
+offset_bottom = 446.0
+scale = Vector2(0.4, 0.4)
 texture = ExtResource("2_mvm06")
 stretch_mode = 2
 
@@ -355,50 +369,15 @@ stretch_mode = 2
 
 [node name="PicSpot3" type="TextureRect" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/UIRender"]
 layout_mode = 0
-offset_left = 800.0
-offset_top = 302.0
-offset_right = 1006.0
-offset_bottom = 486.0
+offset_left = 279.0
+offset_top = 270.5
+offset_right = 485.0
+offset_bottom = 454.5
+scale = Vector2(0.3, 0.3)
 texture = ExtResource("2_mvm06")
 stretch_mode = 2
 
 [node name="Pic" type="TextureRect" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/UIRender/PicSpot3"]
-layout_mode = 0
-offset_left = 3.0
-offset_top = 15.0
-offset_right = 515.0
-offset_bottom = 527.0
-texture = ExtResource("22_w7ivt")
-stretch_mode = 2
-
-[node name="PicSpot4" type="TextureRect" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/UIRender"]
-layout_mode = 0
-offset_left = 800.0
-offset_top = 402.0
-offset_right = 1006.0
-offset_bottom = 586.0
-texture = ExtResource("2_mvm06")
-stretch_mode = 2
-
-[node name="Pic" type="TextureRect" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/UIRender/PicSpot4"]
-layout_mode = 0
-offset_left = 3.0
-offset_top = 15.0
-offset_right = 515.0
-offset_bottom = 527.0
-texture = ExtResource("22_w7ivt")
-stretch_mode = 2
-
-[node name="PicSpot5" type="TextureRect" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/UIRender"]
-layout_mode = 0
-offset_left = 800.0
-offset_top = 501.0
-offset_right = 1006.0
-offset_bottom = 685.0
-texture = ExtResource("2_mvm06")
-stretch_mode = 2
-
-[node name="Pic" type="TextureRect" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/UIRender/PicSpot5"]
 layout_mode = 0
 offset_left = 3.0
 offset_top = 15.0

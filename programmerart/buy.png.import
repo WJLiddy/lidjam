@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://do8ivp5ynjxhs"
-path.s3tc="res://.godot/imported/amazon.png-b11b8ee22fc51091c5db414d3b7ea733.s3tc.ctex"
+uid="uid://ynw6e617hjsg"
+path.s3tc="res://.godot/imported/buy.png-ffe6aa94061fa43532cc879908a6f75d.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://programmerart/amazon.png"
-dest_files=["res://.godot/imported/amazon.png-b11b8ee22fc51091c5db414d3b7ea733.s3tc.ctex"]
+source_file="res://programmerart/buy.png"
+dest_files=["res://.godot/imported/buy.png-ffe6aa94061fa43532cc879908a6f75d.s3tc.ctex"]
 
 [params]
 

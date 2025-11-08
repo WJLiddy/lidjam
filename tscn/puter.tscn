@@ -1,13 +1,16 @@
-[gd_scene load_steps=14 format=3 uid="uid://bf504syknspt3"]
+[gd_scene load_steps=17 format=3 uid="uid://bf504syknspt3"]
 
 [ext_resource type="PackedScene" uid="uid://dndwj10egr80j" path="res://programmerart/pc-monitor.fbx" id="1_kic1t"]
 [ext_resource type="Texture2D" uid="uid://c5t4kq1pm500p" path="res://programmerart/win.png" id="2_0hlij"]
 [ext_resource type="Script" uid="uid://cv40x2rxokmiw" path="res://scripts/puter.gd" id="2_tsq5d"]
 [ext_resource type="Texture2D" uid="uid://b5i2xc4b7x24r" path="res://programmerart/mouse.png" id="3_ra6hk"]
 [ext_resource type="Texture2D" uid="uid://caprvn8uxfoxe" path="res://programmerart/log off.png" id="4_lawu1"]
+[ext_resource type="Texture2D" uid="uid://dlnogg7nkhtjq" path="res://programmerart/shop.png" id="5_4ap5h"]
 [ext_resource type="Texture2D" uid="uid://bb5bijjij58bf" path="res://programmerart/grading.png" id="6_2ndsu"]
 [ext_resource type="Texture2D" uid="uid://cpgsb1s2l8q7l" path="res://programmerart/upload.png" id="6_om0pq"]
+[ext_resource type="Texture2D" uid="uid://do8ivp5ynjxhs" path="res://programmerart/amazon.png" id="7_sjatc"]
 [ext_resource type="Texture2D" uid="uid://byyhqhnwoxjhq" path="res://programmerart/next.png" id="7_wyg07"]
+[ext_resource type="Texture2D" uid="uid://ynw6e617hjsg" path="res://programmerart/buy.png" id="8_3rc7y"]
 [ext_resource type="Texture2D" uid="uid://s2tijo12vng8" path="res://programmerart/nopic.png" id="8_sbthb"]
 [ext_resource type="Texture2D" uid="uid://dpkeht6ti002n" path="res://programmerart/best.png" id="9_1ewvw"]
 
@@ -46,7 +49,20 @@ collision_mask = 2
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 shape = SubResource("BoxShape3D_r1ldu")
 
-[node name="Upload" type="Sprite3D" parent="pc-monitor/Background" index="1"]
+[node name="Shop" type="Sprite3D" parent="pc-monitor/Background" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2033838, 0.00023365021)
+sorting_offset = 1.0
+texture = ExtResource("5_4ap5h")
+
+[node name="Shop" type="Area3D" parent="pc-monitor/Background/Shop" index="0"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="pc-monitor/Background/Shop/Shop" index="0"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+shape = SubResource("BoxShape3D_r1ldu")
+
+[node name="Upload" type="Sprite3D" parent="pc-monitor/Background" index="2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.18768668, 0.00023365021)
 sorting_offset = 1.0
 texture = ExtResource("6_om0pq")
@@ -59,7 +75,125 @@ collision_mask = 2
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 shape = SubResource("BoxShape3D_r1ldu")
 
-[node name="Grading" type="Sprite3D" parent="pc-monitor" index="2"]
+[node name="Shop" type="Sprite3D" parent="pc-monitor" index="2"]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.2989939, 0.063055426)
+visible = false
+texture = ExtResource("7_sjatc")
+
+[node name="Buy1" type="Sprite3D" parent="pc-monitor/Shop" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6671696, 0.35039067, 0.00023365021)
+sorting_offset = 1.0
+texture = ExtResource("8_3rc7y")
+
+[node name="Buy1" type="Area3D" parent="pc-monitor/Shop/Buy1" index="0"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="pc-monitor/Shop/Buy1/Buy1" index="0"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+shape = SubResource("BoxShape3D_r1ldu")
+
+[node name="Label3D" type="Label3D" parent="pc-monitor/Shop/Buy1" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.28722018, 0, 0)
+sorting_offset = 1.0
+modulate = Color(0, 0, 0, 1)
+text = "camera zoomer"
+horizontal_alignment = 0
+
+[node name="Buy2" type="Sprite3D" parent="pc-monitor/Shop" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.66716963, 0.052053213, 0.00023365021)
+sorting_offset = 1.0
+texture = ExtResource("8_3rc7y")
+
+[node name="Buy2" type="Area3D" parent="pc-monitor/Shop/Buy2" index="0"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="pc-monitor/Shop/Buy2/Buy2" index="0"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+shape = SubResource("BoxShape3D_r1ldu")
+
+[node name="Label3D" type="Label3D" parent="pc-monitor/Shop/Buy2" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29397228, 0.01790452, -0.00023365021)
+sorting_offset = 1.0
+modulate = Color(0, 0, 0, 1)
+text = "camera quickscope"
+horizontal_alignment = 0
+
+[node name="Buy3" type="Sprite3D" parent="pc-monitor/Shop" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.66716963, -0.23148179, 0.00023365021)
+sorting_offset = 1.0
+texture = ExtResource("8_3rc7y")
+
+[node name="Buy3" type="Area3D" parent="pc-monitor/Shop/Buy3" index="0"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="pc-monitor/Shop/Buy3/Buy3" index="0"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+shape = SubResource("BoxShape3D_r1ldu")
+
+[node name="Label3D" type="Label3D" parent="pc-monitor/Shop/Buy3" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29397228, 0.01790452, -0.00023365021)
+sorting_offset = 1.0
+modulate = Color(0, 0, 0, 1)
+text = "camera bonus film"
+horizontal_alignment = 0
+
+[node name="Buy4" type="Sprite3D" parent="pc-monitor/Shop" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.66716963, -0.48051965, 0.00023365021)
+sorting_offset = 1.0
+texture = ExtResource("8_3rc7y")
+
+[node name="Buy4" type="Area3D" parent="pc-monitor/Shop/Buy4" index="0"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="pc-monitor/Shop/Buy4/Buy4" index="0"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+shape = SubResource("BoxShape3D_r1ldu")
+
+[node name="Label3D" type="Label3D" parent="pc-monitor/Shop/Buy4" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29397228, 0.01790452, -0.00023365021)
+sorting_offset = 1.0
+modulate = Color(0, 0, 0, 1)
+text = "bait"
+horizontal_alignment = 0
+
+[node name="Buy5" type="Sprite3D" parent="pc-monitor/Shop" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.66716963, -0.7328341, 0.00023365021)
+sorting_offset = 1.0
+texture = ExtResource("8_3rc7y")
+
+[node name="Buy5" type="Area3D" parent="pc-monitor/Shop/Buy5" index="0"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="pc-monitor/Shop/Buy5/Buy5" index="0"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+shape = SubResource("BoxShape3D_r1ldu")
+
+[node name="Label3D" type="Label3D" parent="pc-monitor/Shop/Buy5" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29397228, 0.01790452, -0.00023365021)
+sorting_offset = 1.0
+modulate = Color(0, 0, 0, 1)
+text = "whistle"
+horizontal_alignment = 0
+
+[node name="Next" type="Sprite3D" parent="pc-monitor/Shop" index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8529873, -0.4986661, 0.00023365021)
+sorting_offset = 1.0
+texture = ExtResource("7_wyg07")
+
+[node name="Next" type="Area3D" parent="pc-monitor/Shop/Next" index="0"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="pc-monitor/Shop/Next/Next" index="0"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+shape = SubResource("BoxShape3D_r1ldu")
+
+[node name="Grading" type="Sprite3D" parent="pc-monitor" index="3"]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.2989939, 0.063055426)
 visible = false
 texture = ExtResource("6_2ndsu")
@@ -145,7 +279,7 @@ font_size = 16
 horizontal_alignment = 0
 vertical_alignment = 0
 
-[node name="Review" type="Sprite3D" parent="pc-monitor" index="3"]
+[node name="Review" type="Sprite3D" parent="pc-monitor" index="4"]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.2989939, 0.063055426)
 visible = false
 texture = ExtResource("9_1ewvw")
@@ -225,7 +359,7 @@ collision_mask = 2
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 shape = SubResource("BoxShape3D_r1ldu")
 
-[node name="Mouse" type="Sprite3D" parent="pc-monitor" index="4"]
+[node name="Mouse" type="Sprite3D" parent="pc-monitor" index="5"]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.010566011, 0.45, 0.063)
 sorting_offset = 10.0
 texture = ExtResource("3_ra6hk")

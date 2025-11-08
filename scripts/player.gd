@@ -39,7 +39,7 @@ func _physics_process(delta: float) -> void:
 		%Camera3D.fov = lerp(%Camera3D.fov,fov_base,7*delta)
 	
 	if Global.is_using_puter:
-		%Camera3D.global_position = %Camera3D.global_position.lerp(get_node("../Puter").global_position - Vector3(0,-0.2,-0.5), delta*10)
+		%Camera3D.global_position = %Camera3D.global_position.lerp(get_node("../Puter").global_position - Vector3(0,-0.27,-0.4), delta*10)
 		%Camera3D.global_rotation = %Camera3D.global_rotation.lerp(Vector3(0,0,0), delta*10)
 		return
 	else:
