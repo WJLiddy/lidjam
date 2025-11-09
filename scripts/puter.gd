@@ -5,17 +5,13 @@ var grading_index = 0
 # desktop, menu, shopping, review
 var state = "desktop"
 
-var base_scores = {
-	"testguy" : 30,
-	"smalltest" : 10,
-	"fishguy" : 40
+var base_score = {
+	"Turtle" : 2,
 }
 
-var pose_mults = {
-	"tpose" : 2,
-	"idle" : 1.5,
-	"walking" : 1,
-	"fleeing" : 0.5
+var pose_score = {
+	"Resting" : 1,
+	"Walking" : 2,
 }
 
 # Called when the node enters the scene tree for the first time.
@@ -175,12 +171,12 @@ func process_picture(pic : Dictionary) -> Dictionary:
 	if(distance_val == 5):
 		return {"score":0}
 	
-	var base_val = base_scores[c0["name"]]
+	var base_val = base_score[c0["name"]]
 	# dist of less than 2 is perfect
 	# dist of 50 is too far
 	var same_bonus = pic["critters"].reduce(func(count, next): return count + 1 if c0["name"] == next["name"] else count, -1)
 	var dif_bonus = pic["critters"].reduce(func(count, next): return count + 1 if c0["name"] != next["name"] else count, 0)
-	var pose_mult = pose_mults[c0["pose"]]
+	var pose_mult = pose_score[c0["pose"]]
 	var orient_mult = 1
 	# good facing
 	if c0["orient"] < 1:
