@@ -5,7 +5,7 @@ class_name Critter
 @export var species : String
 
 # state and state time.
-var action = "idle"
+var action = "Resting"
 var action_time = 0.0
 
 # Called when the node enters the scene tree for the first time.
@@ -32,8 +32,8 @@ func _physics_process(delta: float) -> void:
 	
 	if(action_time > 0):
 		
-		# !! Action Lookup Map
-		if(action == "walking" or action == "fleeing" or action == "baiting"):
+		# !! Action Lookup Mapw
+		if(action == "Walking" or action == "fleeing" or action == "baiting"):
 			var dest = $nav.get_next_path_position()
 			var local_dest = dest - global_position
 			if(local_dest.length() < 0.1):
@@ -48,11 +48,8 @@ func _physics_process(delta: float) -> void:
 			look_at(transform.origin + Vector3(-1,0,-1)*velocity)
 			move_and_slide()
 			
-		elif(action == "tpose"):
-			rotate_y(delta)
-			
 		# any of the idle actions
-		elif(action.contains("idle")):
+		elif(action.contains("Resting")):
 			velocity = Vector3(0,0,0)
 			
 		else:

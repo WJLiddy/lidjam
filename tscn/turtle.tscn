@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://b2l0cs2ulaxn1"]
+
+[ext_resource type="Script" uid="uid://b8tw03j3k7mri" path="res://scripts/critters/turtle.gd" id="1_jhxmu"]
+[ext_resource type="PackedScene" uid="uid://bc8mg21exfwx3" path="res://blender inbox/tortle/tortle.blend" id="2_yl0vm"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_n1306"]
+radius = 1.0
+
+[node name="Turtle" type="CharacterBody3D"]
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_jhxmu")
+species = "testguy"
+
+[node name="model" parent="." instance=ExtResource("2_yl0vm")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="vis" type="VisibleOnScreenEnabler3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)
+aabb = AABB(-0.2, -0.2, -0.2, 0.4, 0.4, 0.4)
+
+[node name="col" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_n1306")
+
+[node name="nav" type="NavigationAgent3D" parent="."]

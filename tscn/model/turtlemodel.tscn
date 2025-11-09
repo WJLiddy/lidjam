@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://dhdwpgahbk3yd"]
+
+[ext_resource type="PackedScene" uid="uid://bc8mg21exfwx3" path="res://blender inbox/tortle/tortle.blend" id="1_w86ko"]
+
+[node name="tortle2" instance=ExtResource("1_w86ko")]
+
+[node name="Skeleton3D" parent="tortle armature" index="0"]
+bones/3/rotation = Quaternion(-0.25407368, -1.1529691e-07, -2.1201545e-07, 0.9671849)
+bones/4/rotation = Quaternion(0.2757175, 1.1458847e-07, 2.3007651e-07, 0.96123874)
+bones/5/position = Vector3(0.46145958, 0.32283187, 0.84316087)
+bones/5/rotation = Quaternion(0.5805484, 0.20105754, -0.24911204, 0.7486538)
+bones/6/rotation = Quaternion(0.49298358, 0.15044972, 0.021638189, 0.85665864)
+bones/7/rotation = Quaternion(0.3500804, 0.059651293, 0.09423524, 0.9300566)
+bones/8/position = Vector3(0.40228155, 0.32655758, -0.88871443)
+bones/8/rotation = Quaternion(-0.5734302, -0.21003167, -0.28077304, 0.74042624)
+bones/9/rotation = Quaternion(-0.4216666, -0.44707194, 0.15442763, 0.7736123)
+bones/10/rotation = Quaternion(-0.23053877, -0.08340122, 0.3280707, 0.91228604)
+bones/11/rotation = Quaternion(-0.7071067, 0, 0, 0.7071068)
+bones/12/position = Vector3(-0.46145958, 0.32283187, 0.84316087)
+bones/12/rotation = Quaternion(0.5805484, -0.20105754, 0.24911204, 0.7486538)
+bones/13/rotation = Quaternion(0.49298358, -0.15044972, -0.021638189, 0.85665864)
+bones/14/rotation = Quaternion(0.3500804, -0.059651293, -0.09423524, 0.9300566)
+bones/15/position = Vector3(-0.40228155, 0.32655758, -0.88871443)
+bones/15/rotation = Quaternion(-0.5734302, 0.21003167, 0.28077304, 0.74042624)
+bones/16/rotation = Quaternion(-0.4216666, 0.44707194, -0.15442763, 0.7736123)
+bones/17/rotation = Quaternion(-0.23053877, 0.08340122, -0.3280707, 0.91228604)

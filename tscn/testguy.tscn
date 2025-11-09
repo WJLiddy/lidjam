@@ -1,19 +1,20 @@
 [gd_scene load_steps=4 format=3 uid="uid://df62bathlqpv3"]
 
-[ext_resource type="PackedScene" uid="uid://di8lg0v3mwd2g" path="res://tscn/rig_test.tscn" id="1_le5a0"]
-[ext_resource type="Script" uid="uid://b8tw03j3k7mri" path="res://scripts/critters/testguy.gd" id="1_lm3d2"]
+[ext_resource type="Script" uid="uid://b8tw03j3k7mri" path="res://scripts/critters/turtle.gd" id="1_lm3d2"]
+[ext_resource type="PackedScene" uid="uid://bc8mg21exfwx3" path="res://blender inbox/tortle/tortle.blend" id="2_lm3d2"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_n1306"]
 radius = 0.2
 height = 1.0
 
-[node name="Rigfull" type="CharacterBody3D"]
+[node name="Turtle" type="CharacterBody3D"]
 collision_layer = 2
 collision_mask = 3
 script = ExtResource("1_lm3d2")
 species = "testguy"
 
-[node name="rigmodel" parent="." instance=ExtResource("1_le5a0")]
+[node name="model" parent="." instance=ExtResource("2_lm3d2")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="vis" type="VisibleOnScreenEnabler3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 0)

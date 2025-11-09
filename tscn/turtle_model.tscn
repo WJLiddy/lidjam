@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://oofh6w8m426e"]
+
+[ext_resource type="PackedScene" uid="uid://bc8mg21exfwx3" path="res://blender inbox/tortle/tortle.blend" id="1_57yc7"]
+
+[node name="tortle2" instance=ExtResource("1_57yc7")]

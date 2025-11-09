@@ -36,7 +36,7 @@ func pick_action():
 	# fallback
 	action = "walking"
 	$nav.set_target_position(global_position + Vector3(randf_range(-5,5),0,randf_range(-5,5)))
-	$rigmodel/AnimationPlayer.play(action)
+	$model/AnimationPlayer.play(action)
 	action_time = randf_range(1.0,2.0)
 			
 			

@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://bdkh5n42abtlg"]
+[gd_scene load_steps=36 format=3 uid="uid://bdkh5n42abtlg"]
 
 [ext_resource type="PackedScene" uid="uid://bf504syknspt3" path="res://tscn/puter.tscn" id="1_5rndp"]
 [ext_resource type="PackedScene" uid="uid://jyncanbkjjnq" path="res://tscn/player.tscn" id="1_lifw2"]
@@ -11,10 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://df62bathlqpv3" path="res://tscn/testguy.tscn" id="4_x23mu"]
 [ext_resource type="PackedScene" uid="uid://dv3bc75iqnroi" path="res://tscn/tree1col.tscn" id="7_8dl3p"]
 [ext_resource type="PackedScene" uid="uid://d24tv6lv5qb8a" path="res://tscn/tree2col.tscn" id="8_uu8yv"]
-[ext_resource type="Script" uid="uid://k71k82t0r5ku" path="res://scripts/critters/fish.gd" id="8_v78i8"]
-[ext_resource type="Script" uid="uid://bkuvfyd1ytt18" path="res://scripts/critters/rat.gd" id="9_6iyis"]
-[ext_resource type="Script" uid="uid://bdvpvkbbsuhsc" path="res://scripts/critters/cowbird.gd" id="10_7fhox"]
-[ext_resource type="Script" uid="uid://cwn701xos6cqt" path="res://scripts/critters/salamander.gd" id="11_w7ivt"]
 [ext_resource type="FontFile" uid="uid://b66pf6t0mwf83" path="res://Daydream DEMO.otf" id="15_6iyis"]
 [ext_resource type="AudioStream" uid="uid://d1elis4hvywts" path="res://music/spawn.mp3" id="15_77xr6"]
 [ext_resource type="Material" uid="uid://dns7bivatfxtb" path="res://shaders/watershader.tres" id="17_0aefg"]
@@ -247,50 +243,8 @@ progress = 2.0252244
 
 [node name="Critters" type="Node3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World"]
 
-[node name="fishtest" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" node_paths=PackedStringArray("follow") instance=ExtResource("4_x23mu")]
-transform = Transform3D(-0.71523774, 0.058338277, 3.9351025, -3.9220757, 0.3199037, -0.7176126, -0.32517955, -3.9867585, -1.4214049e-08, 0.354393, -6.5875273, -73.97727)
-script = ExtResource("8_v78i8")
-follow = NodePath("../../WaterPath/WaterFollow")
-species = "fishguy"
-
-[node name="Rigfull" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" instance=ExtResource("4_x23mu")]
+[node name="Turtle" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" instance=ExtResource("4_x23mu")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -58.808517, 1.2616329, -43.993168)
-
-[node name="Rigfull2" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" instance=ExtResource("4_x23mu")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -59.834064, 4.3020053, -36.40861)
-
-[node name="Rigfull3" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" instance=ExtResource("4_x23mu")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -63.300396, 4.4732847, -40.831505)
-
-[node name="rattest" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" instance=ExtResource("4_x23mu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -63.300396, 4.5359344, 26.769815)
-script = ExtResource("9_6iyis")
-species = "smalltest"
-
-[node name="birdtest" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" instance=ExtResource("4_x23mu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.299946, 8.621008, -42.139442)
-script = ExtResource("10_7fhox")
-species = "smalltest"
-
-[node name="rattest2" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" instance=ExtResource("4_x23mu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -61.42051, 4.1928945, -40.313393)
-script = ExtResource("9_6iyis")
-species = "smalltest"
-
-[node name="rattest3" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" instance=ExtResource("4_x23mu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58.03124, 3.7247834, -40.313393)
-script = ExtResource("9_6iyis")
-species = "smalltest"
-
-[node name="rattest4" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" instance=ExtResource("4_x23mu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -62.56226, 4.4344587, -40.313393)
-script = ExtResource("9_6iyis")
-species = "smalltest"
-
-[node name="rattest5" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" instance=ExtResource("4_x23mu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -62.56226, 4.4344587, -40.313393)
-script = ExtResource("11_w7ivt")
-species = "salamander"
 
 [node name="Water" type="MeshInstance3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World"]
 transform = Transform3D(49.04691, 0, -9.715998, 0, 1, 0, 9.715998, 0, 49.04691, 42.0822, 10, -39.04691)
