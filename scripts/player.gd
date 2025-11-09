@@ -4,6 +4,7 @@ extends CharacterBody3D
 @export var footstep_sound: Array[AudioStream]
 
 var run_speed = 5.5
+var sprint_speed = 8
 var speed = run_speed
 var crouch_speed = 1.8
 
@@ -80,6 +81,8 @@ func _physics_process(delta: float) -> void:
 			landing_velocity = 0
 
 		speed = run_speed
+		if Input.is_action_pressed("sprint"):
+			speed = sprint_speed
 		if Input.is_action_pressed("crouch") or ads_enabled:
 			speed = crouch_speed
 
