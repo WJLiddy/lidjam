@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://bdkh5n42abtlg"]
+[gd_scene load_steps=37 format=3 uid="uid://bdkh5n42abtlg"]
 
 [ext_resource type="PackedScene" uid="uid://bf504syknspt3" path="res://tscn/puter.tscn" id="1_5rndp"]
 [ext_resource type="PackedScene" uid="uid://jyncanbkjjnq" path="res://tscn/player.tscn" id="1_lifw2"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://b6kcbughmhco" path="res://shaders/psxdither.png" id="3_6iyis"]
 [ext_resource type="Script" uid="uid://d2prupksdovq7" path="res://scripts/ui.gd" id="4_vmuxp"]
 [ext_resource type="PackedScene" uid="uid://df62bathlqpv3" path="res://tscn/testguy.tscn" id="4_x23mu"]
+[ext_resource type="PackedScene" uid="uid://brv4x8urgfq2c" path="res://tscn/critters/gopher.tscn" id="7_6iyis"]
 [ext_resource type="PackedScene" uid="uid://dv3bc75iqnroi" path="res://tscn/tree1col.tscn" id="7_8dl3p"]
 [ext_resource type="PackedScene" uid="uid://d24tv6lv5qb8a" path="res://tscn/tree2col.tscn" id="8_uu8yv"]
 [ext_resource type="FontFile" uid="uid://b66pf6t0mwf83" path="res://Daydream DEMO.otf" id="15_6iyis"]
@@ -243,8 +244,21 @@ progress = 2.0252244
 
 [node name="Critters" type="Node3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World"]
 
+[node name="Gopher" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" instance=ExtResource("7_6iyis")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -69.765854, 4.5339317, -40.52736)
+species = "Pargopher"
+
+[node name="Gopher2" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" instance=ExtResource("7_6iyis")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -69.765854, 4.5339317, -36.07507)
+species = "Pargopher"
+
+[node name="Gopher3" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" instance=ExtResource("7_6iyis")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -66.01612, 4.5339317, -39.225285)
+species = "Pargopher"
+
 [node name="Turtle" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" instance=ExtResource("4_x23mu")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -58.808517, 1.2616329, -43.993168)
+species = "Olturle"
 
 [node name="Water" type="MeshInstance3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World"]
 transform = Transform3D(49.04691, 0, -9.715998, 0, 1, 0, 9.715998, 0, 49.04691, 42.0822, 10, -39.04691)

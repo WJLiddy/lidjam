@@ -6,12 +6,17 @@ var grading_index = 0
 var state = "desktop"
 
 var base_score = {
-	"Turtle" : 2,
+	"Olturtle" : 2,
+	"Pargopher" : 3,
 }
-
+# Walking, Dancing, Diving, Eating, Judging
 var pose_score = {
 	"Resting" : 1,
 	"Walking" : 2,
+	"Dancing" : 3,
+	"Judging" : 4,
+	"Diving" : 5,
+	"Eating" : 7,
 }
 
 # Called when the node enters the scene tree for the first time.

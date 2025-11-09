@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://ew4wc5afnh0f"]
+
+[ext_resource type="PackedScene" uid="uid://bbwp06xhqatgo" path="res://blender inbox/gopher/gopher.blend" id="1_8yehd"]
+
+[node name="gopher2" instance=ExtResource("1_8yehd")]
+
+[node name="Skeleton3D" parent="gopher armature" index="0"]
+bones/3/rotation = Quaternion(1.7868555e-07, 1.0510425e-07, -0.7071068, 0.7071068)
+bones/4/position = Vector3(0.12888147, 0.48887473, 0.38667727)
+bones/4/rotation = Quaternion(-0.21007429, 0.23337103, -0.6275569, 0.7124459)
+bones/5/rotation = Quaternion(0.7071068, -3.090863e-08, 1.3767878e-07, 0.7071068)
+bones/6/rotation = Quaternion(1.0098112e-08, -2.7369163e-07, 0.7071068, 0.7071068)
+bones/7/position = Vector3(-0.1288817, 0.48887482, 0.38667724)
+bones/7/rotation = Quaternion(-0.21007434, -0.23337124, 0.62755686, 0.71244586)
+bones/8/rotation = Quaternion(0.08338356, -0.11310756, -0.917775, 0.371407)
+bones/9/rotation = Quaternion(0.07959257, -0.012040406, -0.221317, 0.9718739)
+bones/10/position = Vector3(0.2963973, -0.10483223, 2.934165e-10)
+bones/10/rotation = Quaternion(0.07328499, 0.7032988, 0.7032989, -0.0732852)
+bones/11/position = Vector3(-0.3816529, 0.52867746, -9.481182e-08)
+bones/11/rotation = Quaternion(0.08338335, 0.11310746, 0.917775, 0.37140694)
+bones/12/rotation = Quaternion(0.079592586, 0.012040416, 0.22131705, 0.9718739)
+bones/13/position = Vector3(-0.29639727, -0.10483223, -1.4103983e-07)
+bones/13/rotation = Quaternion(-0.07328523, 0.7032988, 0.7032989, 0.07328532)

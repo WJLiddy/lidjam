@@ -1,5 +1,6 @@
 extends Critter
 
+# Walking, Dancing, Diving, Eating, Judging
 func pick_action():
 	
 	# burying
