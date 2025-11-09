@@ -59,8 +59,7 @@ func _physics_process(delta: float) -> void:
 		%Camera3D.rotation.y = lerp(%Camera3D.rotation.y, 0.0, delta*10)
 		%Camera3D.rotation.z = lerp(%Camera3D.rotation.z, 0.0, delta*10)
 		
-	
-	
+
 	if not is_on_floor():
 		velocity += get_gravity() * 2 * delta
 		landing_velocity = -velocity.y
