@@ -134,9 +134,9 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("bait"):
 		var b = bait.instantiate()
-		b.global_position = $%Camera3D.global_position
 		b.apply_impulse(-$%Camera3D.global_basis.z.normalized() * 10)
 		get_node("../Baits").add_child(b)
+		b.global_position = $%Camera3D.global_position
 		
 	if Input.is_action_pressed("whistle"):
 		$WhistleSound.volume_db = lerp($WhistleSound.volume_db,0.0,10*delta)

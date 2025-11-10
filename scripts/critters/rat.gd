@@ -5,7 +5,6 @@ func speed():
 		return 8
 	return 5
 
-var target_bait = null
 var fleeing = false
 # Eating, Rolling, Roll Starting, Roll Ending
 
@@ -14,11 +13,14 @@ func pick_action():
 		action = "Eating"
 		action_time = get_anim_length(action)
 	elif(action == "Eating"):
+		# bug prone
+		if(get_nearest_bait() != null):
+			get_nearest_bait().queue_free()
 		action = "Roll Starting"
 		action_time = get_anim_length(action)
 	
 	# check if should run from player.
-	elif(dist_to_player() < 10):
+	elif(dist_to_player() < 5):
 		fleeing = true
 		$nav.set_target_position(global_position + ((global_position - get_node("../../Player").global_position).normalized() * 5))
 		if(not $nav.is_target_reachable()):
@@ -36,11 +38,12 @@ func pick_action():
 		if(global_position.distance_to(bait.global_position) < 1):
 			# eat it
 			action = "Roll Ending"
-			action_time = 1.25
-			target_bait = bait
-		action = "Rolling"
-		action_time = get_anim_length(action)
-		$nav.set_target_position(target_bait.global_position)
+			action_time = get_anim_length("Roll Ending")
+		else:
+			action = "Rolling"
+			action_time = get_anim_length(action)
+			$nav.set_target_position(bait.global_position)
+		
 
 	else:
 	# fallback
@@ -48,5 +51,5 @@ func pick_action():
 		action = "Rolling"
 		$nav.set_target_position(global_position + Vector3(randf_range(-5,5),0,randf_range(-5,5)))
 		action_time = get_anim_length(action)
-		
+
 	$model/AnimationPlayer.play(action)

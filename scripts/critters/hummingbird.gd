@@ -32,9 +32,7 @@ func _physics_process(delta: float) -> void:
 			var coll_mask = 1
 			var query = PhysicsRayQueryParameters3D.create(global_position, perchtarg.global_position,coll_mask)
 			var result = space_state.intersect_ray(query)
-			print(result)
 			if result.is_empty():
-				print("going to perch!")
 				ascending = false
 			else:
 				velocity = Vector3(randf_range(-0.4,0.4),1,randf_range(-0.4,0.4)).normalized() * speed()

@@ -19,6 +19,14 @@ func dist_to_player():
 func get_anim_length(animname):
 	return $model/AnimationPlayer.get_animation(animname).length
 
+func get_nearest_bait():
+	var best = null
+	for v in get_node("../../Baits").get_children():
+		if best == null or global_position.distance_to(v.global_position) < global_position.distance_to(best.global_position):
+			best = v
+	return best
+	
+
 # to be overridden:
 func pick_action():
 	action = "idle"
@@ -50,12 +58,12 @@ func _physics_process(delta: float) -> void:
 	if(action_time > 0):
 		
 		# !! Action Lookup Map
-		if(action == "Walking" or action == "Rolling"):
+		if(action == "Walking" or action == "Rolling" or action == "Roll Starting" or action == "Roll Ending"):
 			
 			var dest = $nav.get_next_path_position()
 			var local_dest = dest - global_position
 			
-			if(local_dest.length() < 0.1):
+			if(local_dest.length() < 0.2):
 				# close enough, next action.
 				pick_action()
 				return
@@ -65,6 +73,13 @@ func _physics_process(delta: float) -> void:
 			velocity = dir * speed()
 			look_at_grad(delta,global_position + velocity)
 			move_and_slide()
+		
+		elif(action == "Eating"):
+			if(get_nearest_bait() != null):
+				# always turn toward the nearest bait.
+				look_at_grad(delta, get_nearest_bait().global_position)
+				print(get_nearest_bait().global_position)
+			
 		
 		elif(action == "Turning"):
 			look_at_grad(delta, get_node("../../Player").global_position)

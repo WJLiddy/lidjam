@@ -13,6 +13,7 @@ script = ExtResource("1_einli")
 species = "testguy"
 
 [node name="model" parent="." instance=ExtResource("2_einli")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
 [node name="vis" type="VisibleOnScreenEnabler3D" parent="."]
 transform = Transform3D(2.4, 0, 0, 0, 2.4, 0, 0, 0, 2.4, 0, 0.50441253, -0.11217344)
