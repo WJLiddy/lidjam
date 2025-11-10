@@ -10,7 +10,6 @@ var fleeing = false
 # Eating, Rolling, Roll Starting, Roll Ending
 
 func pick_action():
-	print(get_anim_length("Rolling"))
 	if(action == "Roll Ending"):
 		action = "Eating"
 		action_time = get_anim_length(action)

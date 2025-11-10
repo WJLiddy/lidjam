@@ -5,22 +5,44 @@ var grading_index = 0
 # desktop, menu, shopping, review
 var state = "desktop"
 
+# species hardcoded stuff
 var base_score = {
 	"Olturtle" : 2,
+	"Burglerat" : 2,
 	"Pargopher" : 3,
+	"Cresbird" : 4,
 }
+
+var species_same_max = {
+	"Olturtle" : 0,
+	"Burglerat" : 2,
+	"Pargopher" : 3,
+	"Cresbird" : 3,
+}
+
+# best possible score
+var species_best_pose = {
+	"Olturtle" : "Resting",
+	"Burglerat" : "Eating",
+	"Pargopher" : "Diving",
+	"Cresbird" : "Eating",
+}
+
 # Walking, Dancing, Diving, Eating, Judging
 var pose_score = {
 	"Resting" : 1,
 	"Walking" : 1,
 	"Turning" : 1,
 	"Flying" : 1,
+	"Rolling" : 1,
 	
-	"Dancing" : 3,
-	"Judging" : 4,
-	"Eating" : 4,
-	"Diving" : 5,
+	"Dancing" : 2,
+	"Judging" : 2,
+	"Eating" : 3,
+	"Diving" : 4,
 }
+
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -29,20 +51,28 @@ func _ready() -> void:
 func sort_by_score(a,b):
 	return a["score"] > b["score"]
 	
+func get_star_string(total,max):
+	var retstr = ""
+	for i in range(total):
+		retstr += "★"
+	for i in range(max-total):
+		retstr += "☆"
+	return retstr
+
 func process_all_pictures():
 	# score all photos, pick the highest scoring pic of each critter
 	var pics_by_critter = {}
 	for p in Global.pics.duplicate():
 		var out = process_picture(p)
-		if(out["score"] != 0):
+		for c in out:
 			var cname = p["critters"][0]["name"]
 			# check if it's in pics by critter
-			if(pics_by_critter.has(cname) and pics_by_critter[cname]["score"] < out["score"]):
+			if(pics_by_critter.has(cname) and pics_by_critter[cname]["score"] < c["score"]):
 				# we have a better pic
-				pics_by_critter[cname] = out
+				pics_by_critter[cname] = c
 			elif not pics_by_critter.has(cname):
 				# we have no other pic liek this
-				pics_by_critter[cname] = out
+				pics_by_critter[cname] = c
 	# done scoring
 	# put into list
 	pictures_to_grade = pics_by_critter.values()
@@ -131,7 +161,6 @@ func ui_grade():
 	cr.set_size_override(Vector2(200,150))
 	$Grading/Preview.texture = cr
 	$Grading/LabelJustLeft.text = p["ltext"]
-	$Grading/LabelJustRight.text = p["rtext"]
 	var critter = pictures_to_grade[grading_index]["critter"]
 	if(Global.bests.has(critter)):
 		var cr2 = ImageTexture.create_from_image(Global.bests[critter]["pic"])
@@ -162,62 +191,52 @@ func ui_review():
 		get_node("Review/PrevPics").get_children()[i].get_node("Label3D").text = b["critter"] + ", " + str(b["score"])
 	
 	
-func process_picture(pic : Dictionary) -> Dictionary:
+func process_picture(pic : Dictionary) -> Array:
 
-	if(pic["critters"].size() == 0):
-		return {"score":0}
+	var out = []
+	for c0 in pic["critters"]:
 		
-	# get the first critter. it is the closest.
-	var c0 = pic["critters"][0]
-	
-	# tryhard math eq
-	var dist_weighted = 60 - (40 * atan(0.3 * (c0["dist"] * c0["zoom"]) - 2))
-	
-	var distance_val = int(clamp(dist_weighted,5,100))
-	
-	# no points if the critter is really far away
-	if(distance_val == 5):
-		return {"score":0}
-	
-	var base_val = base_score[c0["name"]]
-	# dist of less than 2 is perfect
-	# dist of 50 is too far
-	var same_bonus = pic["critters"].reduce(func(count, next): return count + 1 if c0["name"] == next["name"] else count, -1)
-	var dif_bonus = pic["critters"].reduce(func(count, next): return count + 1 if c0["name"] != next["name"] else count, 0)
-	var pose_mult = pose_score[c0["pose"]]
-	var orient_mult = 1
-	# good facing
-	if c0["orient"] < 1:
-		orient_mult = 1.5
+		var dist_rating = 0
+		var dist_total = (c0["dist"])
+		if (dist_total > 25):
+			dist_rating = 5
+		elif (dist_total > 15):
+			dist_rating = 4
+		elif (dist_total > 7):
+			dist_rating = 3
+		elif (dist_total > 2):
+			dist_rating = 2
+		elif (dist_total > 0.5):
+			dist_rating = 1
 		
-	var total_score = (base_val + distance_val + int(20 * sqrt(same_bonus)) + int(30 * sqrt(dif_bonus))) * (pose_mult + orient_mult)
-	
-	var left_text = "MONSTER\n"
-	var right_text = "\n"
-	left_text += c0["name"] + "\n"
-	right_text += str(base_val) + "\n"
-	
-	left_text += "SIZE\n"
-	right_text += "\n"
-	left_text += str(int((c0["dist"] * c0["zoom"]))) + "\n"
-	right_text += str(distance_val) + "\n"
-	
-	left_text += "OTHER MONSTERS\n"
-	right_text += "\n"
-	left_text += str(same_bonus) + " same\n"
-	right_text += str(int(20 * sqrt(same_bonus))) + "\n"
-	left_text += str(dif_bonus) + " different\n"
-	right_text += str(int(20 * sqrt(dif_bonus)))  + "\n"
-	
-	left_text += "POSE\n"
-	right_text += "\n"
-	left_text += c0["pose"] 
-	if(orient_mult != 1):
-		left_text += ", front"
-	left_text += "\n"
-	right_text += "x" + str(pose_mult + orient_mult) + "\n"
-	
-	left_text += "TOTAL"
-	right_text += str(total_score)
-	
-	return {"score":total_score,"ltext":left_text,"rtext":right_text,"pic":pic["image"],"critter":pic["critters"][0]["name"]}
+		# no points if the critter is really far away
+		if(dist_rating == 0):
+			continue
+		
+		var base_val = base_score[c0["name"]]
+		
+		var same_val = clamp(pic["critters"].reduce(func(count, next): return count + 1 if c0["name"] == next["name"] else count, -1),0,species_same_max[c0["name"]])
+		var dif_val = clamp(pic["critters"].reduce(func(count, next): return count + 1 if c0["name"] != next["name"] else count, 0),0,3)
+		var pose_val = pose_score[c0["pose"]]
+		var orient_good = c0["orient"] < 1
+		if orient_good:
+			pose_val += 1
+		var best_possible_pose = pose_score[species_best_pose[c0["name"]]] + 1
+			
+		var total_score = (base_val + dist_rating + same_val + dif_val + pose_val)
+		
+		var left_text = ""
+		left_text += c0["name"] + "\n" + get_star_string(base_val,base_val) + "\n"
+		left_text += "SIZE\n" + get_star_string(dist_rating,5)+"\n"
+		left_text += c0["pose"]
+		if(orient_good):
+			left_text += ",\nFACING CAM"
+			
+		left_text += "\n" + get_star_string(pose_val,best_possible_pose) + "\n"
+		
+		left_text += "SAME MON \n" + get_star_string(same_val,species_same_max[c0["name"]]) + "\n"
+		left_text += "DIFF MON \n" + get_star_string(dif_val,3) + "\n"
+
+		left_text += "TOTAL" + str(total_score)
+		out.push_back({"score":total_score,"ltext":left_text,"pic":pic["image"],"critter":pic["critters"][0]["name"]})
+	return out

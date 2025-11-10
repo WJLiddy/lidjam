@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://bdkh5n42abtlg"]
+[gd_scene load_steps=39 format=3 uid="uid://bdkh5n42abtlg"]
 
 [ext_resource type="PackedScene" uid="uid://bf504syknspt3" path="res://tscn/puter.tscn" id="1_5rndp"]
 [ext_resource type="PackedScene" uid="uid://jyncanbkjjnq" path="res://tscn/player.tscn" id="1_lifw2"]
@@ -8,7 +8,7 @@
 [ext_resource type="Shader" uid="uid://cn7m0t1vprf71" path="res://shaders/pp_band-dither.gdshader" id="2_v78i8"]
 [ext_resource type="Texture2D" uid="uid://b6kcbughmhco" path="res://shaders/psxdither.png" id="3_6iyis"]
 [ext_resource type="Script" uid="uid://d2prupksdovq7" path="res://scripts/ui.gd" id="4_vmuxp"]
-[ext_resource type="PackedScene" uid="uid://df62bathlqpv3" path="res://tscn/testguy.tscn" id="4_x23mu"]
+[ext_resource type="PackedScene" uid="uid://df62bathlqpv3" path="res://tscn/critters/turtle.tscn" id="4_x23mu"]
 [ext_resource type="PackedScene" uid="uid://brv4x8urgfq2c" path="res://tscn/critters/gopher.tscn" id="7_6iyis"]
 [ext_resource type="PackedScene" uid="uid://dv3bc75iqnroi" path="res://tscn/tree1col.tscn" id="7_8dl3p"]
 [ext_resource type="PackedScene" uid="uid://bkymdh02rnhv1" path="res://tscn/critters/hummingbird.tscn" id="8_77xr6"]
@@ -18,7 +18,6 @@
 [ext_resource type="AudioStream" uid="uid://d1elis4hvywts" path="res://music/spawn.mp3" id="15_77xr6"]
 [ext_resource type="PackedScene" uid="uid://65ol4l7oq2n" path="res://tscn/terrain.tscn" id="15_w7ivt"]
 [ext_resource type="Material" uid="uid://dns7bivatfxtb" path="res://shaders/watershader.tres" id="17_0aefg"]
-[ext_resource type="PackedScene" uid="uid://ca11jvx8ohfef" path="res://tscn/map_1_no_nodes.tscn" id="21_1ykyx"]
 [ext_resource type="Texture2D" uid="uid://s2tijo12vng8" path="res://programmerart/nopic.png" id="22_w7ivt"]
 [ext_resource type="AudioStream" uid="uid://y7cgnxqgw0an" path="res://sound/upload.mp3" id="23_x23mu"]
 [ext_resource type="PackedScene" uid="uid://dcikus0dnpidr" path="res://tscn/camera_exclusive.tscn" id="25_vmfs8"]
@@ -219,7 +218,7 @@ render_target_update_mode = 4
 environment = SubResource("Environment_1ykyx")
 
 [node name="Player" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World" instance=ExtResource("1_lifw2")]
-transform = Transform3D(0.9959144, 0, 0.090302326, 0, 1, 0, -0.090302326, 0, 0.9959144, -204.05759, 51.625557, 102.88312)
+transform = Transform3D(0.9959144, 0, 0.090302326, 0, 1, 0, -0.090302326, 0, 0.9959144, -136.37274, 51.625557, 118.47632)
 
 [node name="Shutter" type="AudioStreamPlayer3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -229,7 +228,7 @@ max_distance = 4096.0
 [node name="Baits" type="Node3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World"]
 
 [node name="Puter" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World" instance=ExtResource("1_5rndp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.7547, 6.27608, -36.462303)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -135.34338, 45.743534, 111.34832)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World"]
 transform = Transform3D(1, 0, 0, 0, 0.1569862, 0.9876008, 0, -0.9876008, 0.1569862, 3.8745143, 11.156533, 2.1968136)
@@ -245,76 +244,164 @@ curve = SubResource("Curve3D_3yfs4")
 transform = Transform3D(1, 0, 0, 0, 0.9999995, 0, 0, 0, 0.9999995, 0, 0, 7.0973344)
 progress = 2.0252244
 
+[node name="Waters" type="Node3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World"]
+
+[node name="Water" type="MeshInstance3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Waters"]
+transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 50, -149.45403, 41.069717, 182.63074)
+mesh = SubResource("PlaneMesh_0aefg")
+skeleton = NodePath("../../../../../../../..")
+surface_material_override/0 = ExtResource("17_0aefg")
+
+[node name="Water3" type="MeshInstance3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Waters"]
+transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 50, -20, 4, -40)
+mesh = SubResource("PlaneMesh_0aefg")
+skeleton = NodePath("../../../../../../../..")
+surface_material_override/0 = ExtResource("17_0aefg")
+
+[node name="Water4" type="MeshInstance3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Waters"]
+transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 50, -20, 4, 60)
+mesh = SubResource("PlaneMesh_0aefg")
+skeleton = NodePath("../../../../../../../..")
+surface_material_override/0 = ExtResource("17_0aefg")
+
+[node name="Water5" type="MeshInstance3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Waters"]
+transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 50, -20, 4, 160)
+mesh = SubResource("PlaneMesh_0aefg")
+skeleton = NodePath("../../../../../../../..")
+surface_material_override/0 = ExtResource("17_0aefg")
+
+[node name="Water6" type="MeshInstance3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Waters"]
+transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 50, -20, 4, 260)
+mesh = SubResource("PlaneMesh_0aefg")
+skeleton = NodePath("../../../../../../../..")
+surface_material_override/0 = ExtResource("17_0aefg")
+
+[node name="Water7" type="MeshInstance3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Waters"]
+transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 50, 80, 4, 60)
+mesh = SubResource("PlaneMesh_0aefg")
+skeleton = NodePath("../../../../../../../..")
+surface_material_override/0 = ExtResource("17_0aefg")
+
+[node name="Water8" type="MeshInstance3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Waters"]
+transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 50, 80, 4, 160)
+mesh = SubResource("PlaneMesh_0aefg")
+skeleton = NodePath("../../../../../../../..")
+surface_material_override/0 = ExtResource("17_0aefg")
+
+[node name="Water9" type="MeshInstance3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Waters"]
+transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 50, 80, 4, 260)
+mesh = SubResource("PlaneMesh_0aefg")
+skeleton = NodePath("../../../../../../../..")
+surface_material_override/0 = ExtResource("17_0aefg")
+
+[node name="Water10" type="MeshInstance3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Waters"]
+transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 50, 180, 4, 60)
+mesh = SubResource("PlaneMesh_0aefg")
+skeleton = NodePath("../../../../../../../..")
+surface_material_override/0 = ExtResource("17_0aefg")
+
+[node name="Water11" type="MeshInstance3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Waters"]
+transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 50, 180, 4, 160)
+mesh = SubResource("PlaneMesh_0aefg")
+skeleton = NodePath("../../../../../../../..")
+surface_material_override/0 = ExtResource("17_0aefg")
+
+[node name="Water12" type="MeshInstance3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Waters"]
+transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 50, 180, 4, 260)
+mesh = SubResource("PlaneMesh_0aefg")
+skeleton = NodePath("../../../../../../../..")
+surface_material_override/0 = ExtResource("17_0aefg")
+
 [node name="Critters" type="Node3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World"]
 
 [node name="Gopher" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" instance=ExtResource("7_6iyis")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -69.765854, 4.5339317, -40.52736)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -159.3969, 46.151115, 86.45649)
 species = "Pargopher"
 
 [node name="Hummingbird" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" instance=ExtResource("8_77xr6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50.085533, 7.98903, -27.372828)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -139.71658, 44.80542, 99.61103)
+species = "Cresbird"
 
 [node name="Gopher2" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" instance=ExtResource("7_6iyis")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -69.765854, 4.5339317, -36.07507)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -159.3969, 46.07576, 90.908775)
 species = "Pargopher"
 
 [node name="Gopher3" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" instance=ExtResource("7_6iyis")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -66.01612, 4.5339317, -39.225285)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -155.64717, 46.308327, 87.75857)
 species = "Pargopher"
 
 [node name="Turtle" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" instance=ExtResource("4_x23mu")]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -58.808517, 1.2616329, -43.993168)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -148.43956, 45.46869, 82.990685)
 species = "Olturtle"
 
 [node name="Rat" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" instance=ExtResource("9_77xr6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -64.03183, 4.6515193, -29.608385)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -153.66289, 46.519264, 97.375465)
 species = "Burglerat"
-
-[node name="Water" type="MeshInstance3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World"]
-transform = Transform3D(49.04691, 0, -9.715998, 0, 1, 0, 9.715998, 0, 49.04691, 42.0822, 10, -39.04691)
-mesh = SubResource("PlaneMesh_0aefg")
-skeleton = NodePath("../../../../../../..")
-surface_material_override/0 = ExtResource("17_0aefg")
-
-[node name="Water2" type="MeshInstance3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World"]
-transform = Transform3D(49.04691, 0, -9.715998, 0, 1, 0, 9.715998, 0, 49.04691, 22.650206, 10, 59.04691)
-mesh = SubResource("PlaneMesh_0aefg")
-skeleton = NodePath("../../../../../../..")
-surface_material_override/0 = ExtResource("17_0aefg")
 
 [node name="Nav" type="NavigationRegion3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World"]
 navigation_mesh = SubResource("NavigationMesh_3yfs4")
 
-[node name="map1NoNodes" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav" instance=ExtResource("21_1ykyx")]
-visible = false
+[node name="terrain" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav" instance=ExtResource("15_w7ivt")]
+transform = Transform3D(0.8, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="Foliage" type="Node3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav"]
 
 [node name="tree12" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Foliage" instance=ExtResource("7_8dl3p")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 24.886797, 12.393663, 0)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -148.53659, 45.494415, 88.111435)
 
 [node name="tree22" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Foliage" instance=ExtResource("8_uu8yv")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 15.310364, 11.935743, 9.718537)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -149.49112, 46.027508, 97.82997)
 
 [node name="tree13" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Foliage" instance=ExtResource("7_8dl3p")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 23.009394, 12.325382, 37.53332)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -141.53183, 46.002018, 125.64476)
 
 [node name="tree23" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Foliage" instance=ExtResource("8_uu8yv")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 13.4329605, 11.937731, 47.251858)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -132.91266, 44.31006, 135.3633)
 
 [node name="tree14" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Foliage" instance=ExtResource("7_8dl3p")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -42.157806, 4.667493, -27.361897)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -125.97661, 14.32835, -132.1376)
 
 [node name="tree24" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Foliage" instance=ExtResource("8_uu8yv")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -51.734238, 4.4136057, -17.64336)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -126.93114, 14.195278, -122.41906)
 
 [node name="tree15" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Foliage" instance=ExtResource("7_8dl3p")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -56.705074, 4.825536, -27.361897)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -118.97185, 16.717455, -94.60427)
 
 [node name="tree25" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Foliage" instance=ExtResource("8_uu8yv")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -66.28151, 4.7367496, -17.64336)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -110.35268, 15.064615, -84.885735)
 
-[node name="terrain" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav" instance=ExtResource("15_w7ivt")]
+[node name="tree16" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Foliage" instance=ExtResource("7_8dl3p")]
+transform = Transform3D(-0.14111215, 0, -0.47967422, 0, 0.5, 0, 0.47967422, 0, -0.14111215, -119.436935, 16.670761, -107.04214)
+
+[node name="tree26" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Foliage" instance=ExtResource("8_uu8yv")]
+transform = Transform3D(-0.14111215, 0, -0.47967422, 0, 0.5, 0, 0.47967422, 0, -0.14111215, -128.49101, 15.391712, -110.70067)
+
+[node name="tree17" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Foliage" instance=ExtResource("7_8dl3p")]
+transform = Transform3D(-0.14111215, 0, -0.47967422, 0, 0.5, 0, 0.47967422, 0, -0.14111215, -157.4214, 13.044941, -110.91495)
+
+[node name="tree27" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Foliage" instance=ExtResource("8_uu8yv")]
+transform = Transform3D(-0.14111215, 0, -0.47967422, 0, 0.5, 0, 0.47967422, 0, -0.14111215, -169.1774, 11.451374, -105.38897)
+
+[node name="tree28" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Foliage" instance=ExtResource("8_uu8yv")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -126.93114, 16.264246, -91.741486)
+
+[node name="tree18" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Foliage" instance=ExtResource("7_8dl3p")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -118.97185, 13.307163, -63.926697)
+
+[node name="tree29" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Foliage" instance=ExtResource("8_uu8yv")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -110.35268, 14.22608, -54.20816)
+
+[node name="tree19" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Foliage" instance=ExtResource("7_8dl3p")]
+transform = Transform3D(-0.14111215, 0, -0.47967422, 0, 0.5, 0, 0.47967422, 0, -0.14111215, -119.436935, 15.190737, -76.36456)
+
+[node name="tree30" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Foliage" instance=ExtResource("8_uu8yv")]
+transform = Transform3D(-0.14111215, 0, -0.47967422, 0, 0.5, 0, 0.47967422, 0, -0.14111215, -128.49101, 17.918873, -80.023094)
+
+[node name="tree20" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Foliage" instance=ExtResource("7_8dl3p")]
+transform = Transform3D(-0.14111215, 0, -0.47967422, 0, 0.5, 0, 0.47967422, 0, -0.14111215, -157.4214, 18.695168, -80.23737)
+
+[node name="tree31" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Foliage" instance=ExtResource("8_uu8yv")]
+transform = Transform3D(-0.14111215, 0, -0.47967422, 0, 0.5, 0, 0.47967422, 0, -0.14111215, -169.1774, 15.430449, -74.711395)
 
 [node name="IntroCam" type="Camera3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World"]
 transform = Transform3D(1, 0, 0, 0, 0.8341651, 0.55151486, 0, -0.55151486, 0.8341651, 13.359125, 34.391346, 58.773476)
