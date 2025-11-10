@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://bdkh5n42abtlg"]
+[gd_scene load_steps=41 format=3 uid="uid://bdkh5n42abtlg"]
 
 [ext_resource type="PackedScene" uid="uid://bf504syknspt3" path="res://tscn/puter.tscn" id="1_5rndp"]
 [ext_resource type="PackedScene" uid="uid://jyncanbkjjnq" path="res://tscn/player.tscn" id="1_lifw2"]
@@ -17,6 +17,7 @@
 [ext_resource type="FontFile" uid="uid://b66pf6t0mwf83" path="res://Daydream DEMO.otf" id="15_6iyis"]
 [ext_resource type="AudioStream" uid="uid://d1elis4hvywts" path="res://music/spawn.mp3" id="15_77xr6"]
 [ext_resource type="PackedScene" uid="uid://65ol4l7oq2n" path="res://tscn/terrain.tscn" id="15_w7ivt"]
+[ext_resource type="PackedScene" uid="uid://w0d2eopqs5eo" path="res://tscn/spawntree2col.tscn" id="15_x23mu"]
 [ext_resource type="Material" uid="uid://dns7bivatfxtb" path="res://shaders/watershader.tres" id="17_0aefg"]
 [ext_resource type="Texture2D" uid="uid://s2tijo12vng8" path="res://programmerart/nopic.png" id="22_w7ivt"]
 [ext_resource type="Script" uid="uid://d0d3d8e1ouxld" path="res://scripts/title.gd" id="22_x23mu"]
@@ -315,6 +316,7 @@ species = "Pargopher"
 
 [node name="Hummingbird" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" instance=ExtResource("8_77xr6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -139.71658, 44.80542, 99.61103)
+is_spawnbird = true
 species = "Cresbird"
 
 [node name="Gopher2" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" instance=ExtResource("7_6iyis")]
@@ -344,14 +346,8 @@ transform = Transform3D(0.8, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 [node name="tree12" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Foliage" instance=ExtResource("7_8dl3p")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -148.53659, 45.494415, 88.111435)
 
-[node name="tree22" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Foliage" instance=ExtResource("8_uu8yv")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -149.49112, 46.027508, 97.82997)
-
 [node name="tree13" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Foliage" instance=ExtResource("7_8dl3p")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -141.53183, 46.002018, 125.64476)
-
-[node name="tree23" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Foliage" instance=ExtResource("8_uu8yv")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -132.91266, 44.31006, 135.3633)
 
 [node name="tree14" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Foliage" instance=ExtResource("7_8dl3p")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -125.97661, 14.32835, -132.1376)
@@ -397,6 +393,18 @@ transform = Transform3D(-0.14111215, 0, -0.47967422, 0, 0.5, 0, 0.47967422, 0, -
 
 [node name="tree31" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Foliage" instance=ExtResource("8_uu8yv")]
 transform = Transform3D(-0.14111215, 0, -0.47967422, 0, 0.5, 0, 0.47967422, 0, -0.14111215, -169.1774, 15.430449, -74.711395)
+
+[node name="Spawntree" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Foliage" instance=ExtResource("15_x23mu")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -138.02641, 44.841976, 97.56121)
+
+[node name="Spawntree2" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Foliage" instance=ExtResource("15_x23mu")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -152.0318, 47.022427, 104.45639)
+
+[node name="Spawntree3" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Foliage" instance=ExtResource("15_x23mu")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -142.1166, 44.450855, 77.52255)
+
+[node name="Spawntree4" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Foliage" instance=ExtResource("15_x23mu")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -160.81175, 46.828835, 82.955414)
 
 [node name="IntroCam" type="Camera3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World"]
 transform = Transform3D(1, 0, 0, 0, 0.8341651, 0.55151486, 0, -0.55151486, 0.8341651, 13.359125, 34.391346, 58.773476)

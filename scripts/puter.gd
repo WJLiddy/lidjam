@@ -36,6 +36,7 @@ var pose_score = {
 	"Flying" : 1,
 	"Rolling" : 1,
 	
+	"Perching" : 2,
 	"Dancing" : 2,
 	"Judging" : 2,
 	"Eating" : 3,
@@ -237,6 +238,6 @@ func process_picture(pic : Dictionary) -> Array:
 		left_text += "SAME MON \n" + get_star_string(same_val,species_same_max[c0["name"]]) + "\n"
 		left_text += "DIFF MON \n" + get_star_string(dif_val,3) + "\n"
 
-		left_text += "TOTAL" + str(total_score)
+		left_text += "TOTAL " + str(total_score)
 		out.push_back({"score":total_score,"ltext":left_text,"pic":pic["image"],"critter":c0["name"]})
 	return out
