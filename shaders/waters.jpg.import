@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dhn12e7dw3dv3"
-path.s3tc="res://.godot/imported/clear+sea+water.jpg-d2b003a4d1a2a6f85cc7b3b60c55b1e0.s3tc.ctex"
+uid="uid://coajg4cb4xi1w"
+path.s3tc="res://.godot/imported/waters.jpg-5622d3cf849a9e349095fd6fa15b3a20.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://programmerart/clear+sea+water.jpg"
-dest_files=["res://.godot/imported/clear+sea+water.jpg-d2b003a4d1a2a6f85cc7b3b60c55b1e0.s3tc.ctex"]
+source_file="res://shaders/waters.jpg"
+dest_files=["res://.godot/imported/waters.jpg-5622d3cf849a9e349095fd6fa15b3a20.s3tc.ctex"]
 
 [params]
 

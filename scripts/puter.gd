@@ -66,7 +66,7 @@ func process_all_pictures():
 	for p in Global.pics.duplicate():
 		var out = process_picture(p)
 		for c in out:
-			var cname = p["critters"][0]["name"]
+			var cname = c["critter"]
 			# check if it's in pics by critter
 			if(pics_by_critter.has(cname) and pics_by_critter[cname]["score"] < c["score"]):
 				# we have a better pic

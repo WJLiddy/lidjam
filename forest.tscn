@@ -336,6 +336,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -153.66289, 46.519264, 97.375
 species = "Burglerat"
 
 [node name="Nav" type="NavigationRegion3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0771027, 0.9083786, -2.5661926)
 navigation_mesh = SubResource("NavigationMesh_3yfs4")
 
 [node name="terrain" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav" instance=ExtResource("15_w7ivt")]
