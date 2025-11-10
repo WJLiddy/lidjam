@@ -218,7 +218,7 @@ func process_picture(pic : Dictionary) -> Array:
 		var same_val = clamp(pic["critters"].reduce(func(count, next): return count + 1 if c0["name"] == next["name"] else count, -1),0,species_same_max[c0["name"]])
 		var dif_val = clamp(pic["critters"].reduce(func(count, next): return count + 1 if c0["name"] != next["name"] else count, 0),0,3)
 		var pose_val = pose_score[c0["pose"]]
-		var orient_good = c0["orient"] < 1
+		var orient_good = c0["orient"] > 2
 		if orient_good:
 			pose_val += 1
 		var best_possible_pose = pose_score[species_best_pose[c0["name"]]] + 1
