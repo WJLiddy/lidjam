@@ -238,5 +238,5 @@ func process_picture(pic : Dictionary) -> Array:
 		left_text += "DIFF MON \n" + get_star_string(dif_val,3) + "\n"
 
 		left_text += "TOTAL" + str(total_score)
-		out.push_back({"score":total_score,"ltext":left_text,"pic":pic["image"],"critter":pic["critters"][0]["name"]})
+		out.push_back({"score":total_score,"ltext":left_text,"pic":pic["image"],"critter":c0["name"]})
 	return out

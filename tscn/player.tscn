@@ -47,6 +47,7 @@ unique_name_in_owner = true
 
 [node name="Camera3D" type="Camera3D" parent="HeadPosition/LandingAnimation"]
 unique_name_in_owner = true
+visible = false
 cull_mask = 524287
 fov = 70.0
 

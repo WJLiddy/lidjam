@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://bdkh5n42abtlg"]
+[gd_scene load_steps=40 format=3 uid="uid://bdkh5n42abtlg"]
 
 [ext_resource type="PackedScene" uid="uid://bf504syknspt3" path="res://tscn/puter.tscn" id="1_5rndp"]
 [ext_resource type="PackedScene" uid="uid://jyncanbkjjnq" path="res://tscn/player.tscn" id="1_lifw2"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://65ol4l7oq2n" path="res://tscn/terrain.tscn" id="15_w7ivt"]
 [ext_resource type="Material" uid="uid://dns7bivatfxtb" path="res://shaders/watershader.tres" id="17_0aefg"]
 [ext_resource type="Texture2D" uid="uid://s2tijo12vng8" path="res://programmerart/nopic.png" id="22_w7ivt"]
+[ext_resource type="Script" uid="uid://d0d3d8e1ouxld" path="res://scripts/title.gd" id="22_x23mu"]
 [ext_resource type="AudioStream" uid="uid://y7cgnxqgw0an" path="res://sound/upload.mp3" id="23_x23mu"]
 [ext_resource type="PackedScene" uid="uid://dcikus0dnpidr" path="res://tscn/camera_exclusive.tscn" id="25_vmfs8"]
 
@@ -154,27 +155,21 @@ font_size = 12
 outline_size = 4
 outline_color = Color(0, 0, 0, 1)
 
-[sub_resource type="GDScript" id="GDScript_v78i8"]
-script/source = "extends Control
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	_on_button_pressed()
-	pass # Replace with function body.
-
-func _on_button_pressed() -> void:
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	Global.is_on_title = false
-	get_node(\"../World/World/Player/HeadPosition/LandingAnimation/Camera3D\").current = true
-	get_node(\"../World/World/IntroCam\").current = false
-	get_node(\"../UIRender\").visible = true
-	get_node(\"../ViewModel\").visible = true
-	queue_free()
-"
-
 [sub_resource type="LabelSettings" id="LabelSettings_1ykyx"]
-font_size = 90
+font = ExtResource("15_6iyis")
+font_size = 32
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 0
+shadow_color = Color(0, 0.7176471, 0.4, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_w7ivt"]
+font = ExtResource("15_6iyis")
+font_size = 8
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 0
+shadow_color = Color(0, 0.7176471, 0.4, 0)
 
 [node name="forest" type="Node3D"]
 
@@ -218,7 +213,7 @@ render_target_update_mode = 4
 environment = SubResource("Environment_1ykyx")
 
 [node name="Player" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World" instance=ExtResource("1_lifw2")]
-transform = Transform3D(0.9959144, 0, 0.090302326, 0, 1, 0, -0.090302326, 0, 0.9959144, -136.37274, 51.625557, 118.47632)
+transform = Transform3D(0.9959144, 0, 0.090302326, 0, 1, 0, -0.090302326, 0, 0.9959144, -136.37274, 50.292942, 118.47632)
 
 [node name="Shutter" type="AudioStreamPlayer3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -419,6 +414,7 @@ volume_db = -20.0
 autoplay = true
 
 [node name="ViewModel" type="SubViewportContainer" parent="HBlur/SubViewport/SubViewportContainer/SubViewport"]
+visible = false
 offset_right = 400.0
 offset_bottom = 300.0
 mouse_filter = 2
@@ -430,7 +426,7 @@ transparent_bg = true
 handle_input_locally = false
 size = Vector2i(400, 300)
 render_target_clear_mode = 1
-render_target_update_mode = 4
+render_target_update_mode = 0
 
 [node name="Camera3D" type="Camera3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/ViewModel/Viewmodel"]
 cull_mask = 524288
@@ -444,6 +440,7 @@ libraries = {
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
 [node name="UIRender" type="Control" parent="HBlur/SubViewport/SubViewportContainer/SubViewport" node_paths=PackedStringArray("picSpots")]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_top = -1.0
@@ -543,23 +540,32 @@ anchors_preset = 0
 offset_top = -1.0
 offset_right = 40.0
 offset_bottom = 39.0
-script = SubResource("GDScript_v78i8")
+script = ExtResource("22_x23mu")
 
-[node name="FPS" type="Label" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/Title"]
+[node name="Title" type="Label" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/Title"]
 layout_mode = 0
-offset_right = 900.0
-offset_bottom = 600.0
+offset_right = 400.0
+offset_bottom = 300.0
 text = "SPOOKY SNAP"
 label_settings = SubResource("LabelSettings_1ykyx")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Credit" type="Label" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/Title"]
+layout_mode = 0
+offset_right = 400.0
+offset_bottom = 300.0
+text = "a  game  by  hacj,  meshmonki  &   raviden"
+label_settings = SubResource("LabelSettings_w7ivt")
+horizontal_alignment = 1
+vertical_alignment = 2
+
 [node name="Button" type="Button" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/Title"]
 layout_mode = 0
-offset_left = 425.0
-offset_top = 358.0
-offset_right = 478.0
-offset_bottom = 389.0
+offset_left = 151.0
+offset_top = 181.5
+offset_right = 275.0
+offset_bottom = 222.0
 text = "CLICK"
 
 [connection signal="pressed" from="HBlur/SubViewport/SubViewportContainer/SubViewport/Title/Button" to="HBlur/SubViewport/SubViewportContainer/SubViewport/Title" method="_on_button_pressed"]
