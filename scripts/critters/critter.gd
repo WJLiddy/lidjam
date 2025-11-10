@@ -24,6 +24,22 @@ func speed():
 	return 1.0
 func fleespeed():
 	return 1.0
+func rotspeed():
+	return 10.0
+
+func look_at_grad(delta,target_pos):
+	var target_vec = global_position - target_pos 
+
+	if not target_vec.length():
+		return
+
+	var target_rotation = lerp_angle(
+		global_rotation.y,
+		atan2(target_vec.x, target_vec.z),
+		rotspeed() * delta
+	)
+	global_rotation.y = target_rotation
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 # handles every behavior for each action. this is a little dirty but it works.
@@ -34,26 +50,29 @@ func _physics_process(delta: float) -> void:
 		
 		# !! Action Lookup Mapw
 		if(action == "Walking" or action == "fleeing" or action == "baiting"):
+			
 			var dest = $nav.get_next_path_position()
 			var local_dest = dest - global_position
+			
 			if(local_dest.length() < 0.1):
-				# can't get there, try something else
+				# close enough, next action.
 				pick_action()
 				return
 			
+			# set the speed and move the player + lookdir
 			var dir = local_dest.normalized()
 			velocity = dir * speed()
 			if(action == "fleeing"):
 				velocity = dir * fleespeed()
-			look_at(transform.origin + Vector3(-1,0,-1)*velocity)
+			look_at_grad(delta,global_position + velocity)
 			move_and_slide()
 		
 		elif(action == "Turning"):
-			look_at(get_node("../../Player").global_position)
+			look_at_grad(delta, get_node("../../Player").global_position)
 			
 		# any of the idle actions
 		elif(action.contains("IDLE")):
-			velocity = Vector3(0,0,0)
+			pass
 			
 		else:
 			print("unknown action " + action)
