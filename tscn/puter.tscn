@@ -37,7 +37,7 @@ transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.2989939, 0.0630554
 texture = ExtResource("2_0hlij")
 
 [node name="Logoff" type="Sprite3D" parent="pc-monitor/Background" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5480858, 0.00023365021)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.15, 0.78, 0)
 sorting_offset = 1.0
 texture = ExtResource("4_lawu1")
 
@@ -50,7 +50,7 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 shape = SubResource("BoxShape3D_r1ldu")
 
 [node name="Shop" type="Sprite3D" parent="pc-monitor/Background" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2033838, 0.00023365021)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.404, -0.529, 0)
 sorting_offset = 1.0
 texture = ExtResource("5_4ap5h")
 
@@ -63,7 +63,7 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 shape = SubResource("BoxShape3D_r1ldu")
 
 [node name="Upload" type="Sprite3D" parent="pc-monitor/Background" index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.18768668, 0.00023365021)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.46215892, -0.52858406, 0.00023365021)
 sorting_offset = 1.0
 texture = ExtResource("6_om0pq")
 
