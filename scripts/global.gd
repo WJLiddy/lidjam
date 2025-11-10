@@ -5,6 +5,7 @@ var picsmax = 20
 var bests = {}
 var is_on_title = true
 var money = 99
+var bait = 20
 
 var zoom_unlocked = false
 var quickscope_unlocked = false

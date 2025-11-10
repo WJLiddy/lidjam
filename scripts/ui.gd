@@ -3,6 +3,8 @@ extends Control
 @export var picSpots: Array[TextureRect]
 var nopic = load("res://programmerart/nopic.png")
 
+var whistling = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -13,8 +15,14 @@ func _process(delta: float) -> void:
 	$Flash.color = Color(1,1,1,$Flash.color.a -  10 * delta)
 	$Status.text = str(Global.pics.size()) + " / " + str(Global.picsmax) + "\n$ " + str(Global.money)
 	$FPS.text = "FPS " + str(Engine.get_frames_per_second())
+	$CandyCount/Label.text = str(Global.bait)
+	if(whistling):
+		$Whistle.modulate.a = move_toward($Whistle.modulate.a,1,delta)
+	else:
+		$Whistle.modulate.a = move_toward($Whistle.modulate.a,0.5,delta)
+		
 
-	
+
 func push_image(image: Image) -> void:
 	$Flash.color = Color(1,1,1,1)
 	for i in picSpots.size():

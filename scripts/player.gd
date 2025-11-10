@@ -132,7 +132,8 @@ func _physics_process(delta: float) -> void:
 		else:
 			get_node("../../../ViewModel").ads_disable()
 	
-	if Input.is_action_just_pressed("bait"):
+	if Input.is_action_just_pressed("bait") and Global.bait > 0:
+		Global.bait -= 1
 		var b = bait.instantiate()
 		b.apply_impulse(-$%Camera3D.global_basis.z.normalized() * 10)
 		get_node("../Baits").add_child(b)
@@ -140,10 +141,12 @@ func _physics_process(delta: float) -> void:
 		
 	if Input.is_action_pressed("whistle"):
 		$WhistleSound.volume_db = lerp($WhistleSound.volume_db,0.0,10*delta)
+		get_node("../../../UIRender").whistling = true
 		if(!$WhistleSound.playing):
 			$WhistleSound.play()
 	else:
 		$WhistleSound.volume_db = lerp($WhistleSound.volume_db,-80.0,10*delta)
+		get_node("../../../UIRender").whistling = false
 		
 func take_picture():
 	if(Global.pics.size() == Global.picsmax):
