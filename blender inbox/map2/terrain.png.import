@@ -2,20 +2,17 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://fy8p5v337485"
-path.s3tc="res://.godot/imported/rig test_test guy.png-1f2d79a0a9294417e3d475e6c5c2f5e0.s3tc.ctex"
+uid="uid://ybbv6630fere"
+path.s3tc="res://.godot/imported/terrain.png-e863ae5cf4e56ff81f7f57aa5bcfc747.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
-generator_parameters={
-"md5": "0ea8600676e15c47356c403ff128d295"
-}
 
 [deps]
 
-source_file="res://blender inbox/rig test guy/rig test_test guy.png"
-dest_files=["res://.godot/imported/rig test_test guy.png-1f2d79a0a9294417e3d475e6c5c2f5e0.s3tc.ctex"]
+source_file="res://blender inbox/map2/terrain.png"
+dest_files=["res://.godot/imported/terrain.png-e863ae5cf4e56ff81f7f57aa5bcfc747.s3tc.ctex"]
 
 [params]
 

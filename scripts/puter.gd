@@ -14,10 +14,12 @@ var pose_score = {
 	"Resting" : 1,
 	"Walking" : 1,
 	"Turning" : 1,
+	"Flying" : 1,
+	
 	"Dancing" : 3,
 	"Judging" : 4,
+	"Eating" : 4,
 	"Diving" : 5,
-	"Eating" : 7,
 }
 
 # Called when the node enters the scene tree for the first time.

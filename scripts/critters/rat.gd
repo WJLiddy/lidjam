@@ -1,42 +1,53 @@
 extends Critter
 
-func fleespeed():
-	return 8
-
 func speed():
-	return 3
+	if fleeing:
+		return 8
+	return 5
 
+var target_bait = null
+var fleeing = false
+# Eating, Rolling, Roll Starting, Roll Ending
 
 func pick_action():
+	print(get_anim_length("Rolling"))
+	if(action == "Roll Ending"):
+		action = "Eating"
+		action_time = get_anim_length(action)
+	elif(action == "Eating"):
+		action = "Roll Starting"
+		action_time = get_anim_length(action)
+	
 	# check if should run from player.
-	if(dist_to_player() < 10):
+	elif(dist_to_player() < 10):
+		fleeing = true
 		$nav.set_target_position(global_position + ((global_position - get_node("../../Player").global_position).normalized() * 5))
 		if(not $nav.is_target_reachable()):
 			# pick a random spot in a 5x5 grid for now
 			$nav.set_target_position(global_position + Vector3(randf_range(-5,5),0,randf_range(-5,5)))
-			
-		action = "fleeing"
-		$rigmodel/AnimationPlayer.play("walking")
-		action_time = randf_range(0.5,1.0)
+		action = "Rolling"
+		action_time = get_anim_length(action)
 		return
-	else:
+		
+	# check if i should go towards or eat bait
+	elif(get_node("../../Baits").get_children().size() > 0):
+		fleeing = false
 		# look for any baits.
-		for v in get_node("../../Baits").get_children():
-			if(global_position.distance_to(v.global_position) < 1):
-				# eat it
-				action = "eating_idle"
-				action_time = 1.0
-				v.queue_free()
-				return
-			action_time = randf_range(1.0,2.0)
-			$nav.set_target_position(v.global_position)
-			$rigmodel/AnimationPlayer.play("walking")
-			return
-			
+		var bait = get_node("../../Baits").get_children().pick_random()
+		if(global_position.distance_to(bait.global_position) < 1):
+			# eat it
+			action = "Roll Ending"
+			action_time = 1.25
+			target_bait = bait
+		action = "Rolling"
+		action_time = get_anim_length(action)
+		$nav.set_target_position(target_bait.global_position)
+
+	else:
 	# fallback
-	action = "walking"
-	$nav.set_target_position(global_position + Vector3(randf_range(-5,5),0,randf_range(-5,5)))
+		fleeing = false
+		action = "Rolling"
+		$nav.set_target_position(global_position + Vector3(randf_range(-5,5),0,randf_range(-5,5)))
+		action_time = get_anim_length(action)
+		
 	$model/AnimationPlayer.play(action)
-	action_time = randf_range(1.0,2.0)
-			
-			

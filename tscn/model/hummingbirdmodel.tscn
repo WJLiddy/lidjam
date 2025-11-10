@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://b6hdgfpxm3vof"]
+
+[ext_resource type="PackedScene" uid="uid://cp8ti2mk0dgsn" path="res://blender inbox/moonbird/moon bird.blend" id="1_vxjwa"]
+
+[node name="moonbird" instance=ExtResource("1_vxjwa")]

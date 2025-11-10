@@ -16,13 +16,14 @@ func _ready() -> void:
 func dist_to_player():
 	return global_position.distance_to(get_node("../../Player").global_position)
 
+func get_anim_length(animname):
+	return $model/AnimationPlayer.get_animation(animname).length
+
 # to be overridden:
 func pick_action():
 	action = "idle"
 	action_time = 2.0
 func speed():
-	return 1.0
-func fleespeed():
 	return 1.0
 func rotspeed():
 	return 10.0
@@ -48,8 +49,8 @@ func _physics_process(delta: float) -> void:
 	
 	if(action_time > 0):
 		
-		# !! Action Lookup Mapw
-		if(action == "Walking" or action == "fleeing" or action == "baiting"):
+		# !! Action Lookup Map
+		if(action == "Walking" or action == "Rolling"):
 			
 			var dest = $nav.get_next_path_position()
 			var local_dest = dest - global_position
@@ -62,8 +63,6 @@ func _physics_process(delta: float) -> void:
 			# set the speed and move the player + lookdir
 			var dir = local_dest.normalized()
 			velocity = dir * speed()
-			if(action == "fleeing"):
-				velocity = dir * fleespeed()
 			look_at_grad(delta,global_position + velocity)
 			move_and_slide()
 		
