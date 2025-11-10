@@ -47,9 +47,12 @@ func _physics_process(delta: float) -> void:
 				velocity = dir * fleespeed()
 			look_at(transform.origin + Vector3(-1,0,-1)*velocity)
 			move_and_slide()
+		
+		elif(action == "Turning"):
+			look_at(get_node("../../Player").global_position)
 			
 		# any of the idle actions
-		elif(action.contains("Resting")):
+		elif(action.contains("IDLE")):
 			velocity = Vector3(0,0,0)
 			
 		else:

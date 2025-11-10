@@ -258,7 +258,7 @@ species = "Pargopher"
 
 [node name="Turtle" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" instance=ExtResource("4_x23mu")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -58.808517, 1.2616329, -43.993168)
-species = "Olturle"
+species = "Olturtle"
 
 [node name="Water" type="MeshInstance3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World"]
 transform = Transform3D(49.04691, 0, -9.715998, 0, 1, 0, 9.715998, 0, 49.04691, 42.0822, 10, -39.04691)

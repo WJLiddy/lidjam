@@ -1,22 +1,26 @@
 extends Critter
 
-# Walking, Dancing, Diving, Eating, Judging
+# Turning, Dancing, Diving, Eating, Judging
 func pick_action():
-	
-	# burying
-	if(action == "judging_idle"):
-		action = "burying_idle"
-		action_time = 30.0
-		# play animation "bury"
-		
-	# looking at player if player is close. next action is immediately buried
-	if(dist_to_player() < 10):
-		action = "judging_idle"
-		look_at(get_node("../../Player").global_position)
-		# play animation "glare"
+	if(action == "Resting"):
+		action = "DancingIDLE"
 		action_time = 1.0
 		
-	else:
-		action = "idle"
+	elif(action == "DancingIDLE" and dist_to_player() < 10):
+		action = "Turning"
 		action_time = 0.5
 	
+	elif(action == "Turning"):
+		action = "JudgingIDLE"
+		action_time = 1.0
+	# burying
+	elif(action == "JudgingIDLE"):
+		action = "DivingIDLE"
+		action_time = 30.0
+		# play animation "bury"
+	elif(action == "DivingIDLE"):
+		if(dist_to_player() > 20):
+			action = "DancingIDLE"
+			action_time = 1.0
+	
+	$model/AnimationPlayer.play(action)

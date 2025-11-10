@@ -12,7 +12,8 @@ var base_score = {
 # Walking, Dancing, Diving, Eating, Judging
 var pose_score = {
 	"Resting" : 1,
-	"Walking" : 2,
+	"Walking" : 1,
+	"Turning" : 1,
 	"Dancing" : 3,
 	"Judging" : 4,
 	"Diving" : 5,
