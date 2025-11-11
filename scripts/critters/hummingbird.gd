@@ -19,7 +19,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	action_time -= delta
 	if(action_time < 0):
-		if action == "Perching" or action == "Resting":
+		if action == "Perched" or action == "Resting":
 			# time 2 go
 			ascending = true
 			perchtarg = get_node("../../Nav/Foliage").find_children("Perch").pick_random()
@@ -44,7 +44,7 @@ func _physics_process(delta: float) -> void:
 			action_time = get_anim_length(action)
 			# made it
 			if((perchtarg.global_position - global_position).length() < 0.5):
-				action = "Perching"
+				action = "Perched"
 				action_time = 20
 				velocity = Vector3.ZERO
 		$model/AnimationPlayer.play(action)

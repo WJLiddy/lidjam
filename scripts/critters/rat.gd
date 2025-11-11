@@ -9,6 +9,11 @@ var fleeing = false
 # Eating, Rolling, Roll Starting, Roll Ending
 
 func pick_action():
+	if(species == "Gold Burglerat"):
+		action = "Resting"
+		$model/AnimationPlayer.play(action)
+		return
+		
 	if(action == "Roll Ending"):
 		action = "Eating"
 		action_time = get_anim_length(action)
@@ -20,7 +25,7 @@ func pick_action():
 		action_time = get_anim_length(action)
 	
 	# check if should run from player.
-	elif(dist_to_player() < 5):
+	elif(dist_to_player() < 10):
 		fleeing = true
 		$nav.set_target_position(global_position + ((global_position - get_node("../../Player").global_position).normalized() * 5))
 		if(not $nav.is_target_reachable()):
@@ -34,7 +39,7 @@ func pick_action():
 	elif(get_node("../../Baits").get_children().size() > 0):
 		fleeing = false
 		# look for any baits.
-		var bait = get_node("../../Baits").get_children().pick_random()
+		var bait = get_nearest_bait()
 		if(global_position.distance_to(bait.global_position) < 1):
 			# eat it
 			action = "Roll Ending"
