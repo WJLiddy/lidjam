@@ -35,7 +35,6 @@ shape = SubResource("ConcavePolygonShape3D_0hlij")
 
 [node name="Background" type="Sprite3D" parent="pc-monitor" index="1"]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.2989939, 0.063055426)
-visible = false
 texture = ExtResource("2_0hlij")
 
 [node name="Logoff" type="Sprite3D" parent="pc-monitor/Background" index="0"]
@@ -263,6 +262,7 @@ vertical_alignment = 0
 
 [node name="Review" type="Sprite3D" parent="pc-monitor" index="4"]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.2989939, 0.063055426)
+visible = false
 texture = ExtResource("9_1ewvw")
 
 [node name="Label3D" type="Label3D" parent="pc-monitor/Review" index="0"]
