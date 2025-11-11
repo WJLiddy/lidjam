@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://sw7jvqyq5yya"]
+
+[ext_resource type="Script" uid="uid://cfsor74xp1sa3" path="res://scripts/critters/deer.gd" id="1_wvlqg"]
+[ext_resource type="PackedScene" uid="uid://4ickr787q0pa" path="res://tscn/model/deermodel.tscn" id="2_wvlqg"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_n1306"]
+radius = 0.2
+height = 1.0
+
+[node name="Deer" type="CharacterBody3D"]
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_wvlqg")
+species = "testguy"
+
+[node name="model" parent="." instance=ExtResource("2_wvlqg")]
+
+[node name="vis" type="VisibleOnScreenEnabler3D" parent="."]
+transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 7, 0, 1.6957408, 0)
+aabb = AABB(-0.2, -0.2, -0.2, 0.4, 0.4, 0.4)
+
+[node name="col" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("CapsuleShape3D_n1306")
+
+[node name="nav" type="NavigationAgent3D" parent="."]

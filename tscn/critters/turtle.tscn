@@ -3,9 +3,9 @@
 [ext_resource type="Script" uid="uid://b8tw03j3k7mri" path="res://scripts/critters/turtle.gd" id="1_lm3d2"]
 [ext_resource type="PackedScene" uid="uid://bc8mg21exfwx3" path="res://blender inbox/tortle/tortle.blend" id="2_lm3d2"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_n1306"]
-radius = 0.2
-height = 1.0
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_pjl8l"]
+radius = 1.5
+height = 4.0
 
 [node name="Turtle" type="CharacterBody3D"]
 collision_layer = 2
@@ -21,7 +21,7 @@ transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 7, 0, 1.6957408, 0)
 aabb = AABB(-0.2, -0.2, -0.2, 0.4, 0.4, 0.4)
 
 [node name="col" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-shape = SubResource("CapsuleShape3D_n1306")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+shape = SubResource("CapsuleShape3D_pjl8l")
 
 [node name="nav" type="NavigationAgent3D" parent="."]

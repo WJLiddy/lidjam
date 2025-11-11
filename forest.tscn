@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://bdkh5n42abtlg"]
+[gd_scene load_steps=53 format=3 uid="uid://bdkh5n42abtlg"]
 
 [ext_resource type="PackedScene" uid="uid://bf504syknspt3" path="res://tscn/puter.tscn" id="1_5rndp"]
 [ext_resource type="PackedScene" uid="uid://jyncanbkjjnq" path="res://tscn/player.tscn" id="1_lifw2"]
@@ -14,6 +14,8 @@
 [ext_resource type="PackedScene" uid="uid://bkymdh02rnhv1" path="res://tscn/critters/hummingbird.tscn" id="8_77xr6"]
 [ext_resource type="PackedScene" uid="uid://d24tv6lv5qb8a" path="res://tscn/tree2col.tscn" id="8_uu8yv"]
 [ext_resource type="PackedScene" uid="uid://da88pv54pfnlq" path="res://tscn/critters/rat.tscn" id="9_77xr6"]
+[ext_resource type="PackedScene" uid="uid://sw7jvqyq5yya" path="res://tscn/critters/deer.tscn" id="10_wsut6"]
+[ext_resource type="Script" uid="uid://cfsor74xp1sa3" path="res://scripts/critters/deer.gd" id="11_md6d6"]
 [ext_resource type="FontFile" uid="uid://b66pf6t0mwf83" path="res://Daydream DEMO.otf" id="15_6iyis"]
 [ext_resource type="AudioStream" uid="uid://d1elis4hvywts" path="res://music/spawn.mp3" id="15_77xr6"]
 [ext_resource type="PackedScene" uid="uid://65ol4l7oq2n" path="res://tscn/terrain.tscn" id="15_w7ivt"]
@@ -340,6 +342,11 @@ species = "Pargopher"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -139.71658, 36.376194, 99.61103)
 is_spawnbird = true
 species = "Cresbird"
+
+[node name="Deer" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" instance=ExtResource("10_wsut6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -150.77496, 36.113834, 57.15664)
+script = ExtResource("11_md6d6")
+species = ""
 
 [node name="Gopher2" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" instance=ExtResource("7_6iyis")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -159.3969, 37.41123, 90.908775)

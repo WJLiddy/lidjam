@@ -3,8 +3,9 @@
 [ext_resource type="Script" uid="uid://67glbb6gipqm" path="res://scripts/critters/hummingbird.gd" id="1_uqmib"]
 [ext_resource type="PackedScene" uid="uid://b6hdgfpxm3vof" path="res://tscn/model/hummingbirdmodel.tscn" id="2_uqmib"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_n1306"]
-radius = 1.0
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_uqmib"]
+radius = 0.2
+height = 0.6
 
 [node name="Hummingbird" type="CharacterBody3D"]
 collision_layer = 2
@@ -15,11 +16,11 @@ species = "testguy"
 [node name="model" parent="." instance=ExtResource("2_uqmib")]
 
 [node name="vis" type="VisibleOnScreenEnabler3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.36428577, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, 0)
 aabb = AABB(-0.2, -0.2, -0.2, 0.4, 0.4, 0.4)
 
 [node name="col" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-shape = SubResource("CapsuleShape3D_n1306")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+shape = SubResource("CapsuleShape3D_uqmib")
 
 [node name="nav" type="NavigationAgent3D" parent="."]

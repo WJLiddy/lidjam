@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://4ickr787q0pa"]
+
+[ext_resource type="PackedScene" uid="uid://jvkmrfbkl3bb" path="res://blender inbox/frankendeer/frankendeer.blend" id="1_kls4i"]
+
+[node name="frankendeer2" instance=ExtResource("1_kls4i")]

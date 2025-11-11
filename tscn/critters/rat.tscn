@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://bkuvfyd1ytt18" path="res://scripts/critters/rat.gd" id="1_einli"]
 [ext_resource type="PackedScene" uid="uid://bdfpab08kjd5h" path="res://tscn/model/ratmodel.tscn" id="2_einli"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_n1306"]
-radius = 1.0
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_einli"]
+height = 1.0
 
 [node name="Rat" type="CharacterBody3D"]
 collision_layer = 2
@@ -20,7 +20,7 @@ transform = Transform3D(2.4, 0, 0, 0, 2.4, 0, 0, 0, 2.4, 0, 0.50441253, -0.11217
 aabb = AABB(-0.2, -0.2, -0.2, 0.4, 0.4, 0.4)
 
 [node name="col" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-shape = SubResource("CapsuleShape3D_n1306")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("CapsuleShape3D_einli")
 
 [node name="nav" type="NavigationAgent3D" parent="."]

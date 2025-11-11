@@ -1,0 +1,58 @@
+extends Critter
+
+func speed():
+	if fleeing:
+		return 8
+	return 5
+
+var fleeing = false
+# Eating, Rolling, Roll Starting, Roll Ending
+
+# walking grazing scared resting
+func pick_action():
+	action = "RestingIDLE"
+	action_time = 10.0
+	$model/AnimationPlayer.play(action)
+	return
+	
+	if(action == "Eating"):
+		# bug prone
+		if(get_nearest_bait() != null):
+			get_nearest_bait().queue_free()
+		action = "Roll Starting"
+		action_time = get_anim_length(action)
+	
+	# check if should run from player.
+	elif(dist_to_player() < 10):
+		fleeing = true
+		$nav.set_target_position(global_position + ((global_position - get_node("../../Player").global_position).normalized() * 5))
+		if(not $nav.is_target_reachable()):
+			# pick a random spot in a 5x5 grid for now
+			$nav.set_target_position(global_position + Vector3(randf_range(-5,5),0,randf_range(-5,5)))
+		action = "Fleeing"
+		action_time = get_anim_length(action)
+		return
+		
+	# check if i should go towards or eat bait
+	elif(get_node("../../Baits").get_children().size() > 0):
+		fleeing = false
+		# look for any baits.
+		var bait = get_nearest_bait()
+		if(global_position.distance_to(bait.global_position) < 1):
+			# eat it
+			action = "Roll Ending"
+			action_time = get_anim_length("Roll Ending")
+		else:
+			action = "Rolling"
+			action_time = get_anim_length(action)
+			$nav.set_target_position(bait.global_position)
+		
+
+	else:
+	# fallback
+		fleeing = false
+		action = "Rolling"
+		$nav.set_target_position(global_position + Vector3(randf_range(-5,5),0,randf_range(-5,5)))
+		action_time = get_anim_length(action)
+
+	$model/AnimationPlayer.play(action)
