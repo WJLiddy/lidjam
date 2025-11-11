@@ -1,5 +1,26 @@
-[gd_scene load_steps=2 format=3 uid="uid://l4c6qqk4ss13"]
+[gd_scene load_steps=3 format=3 uid="uid://l4c6qqk4ss13"]
 
 [ext_resource type="PackedScene" uid="uid://dki1wxoewhgqu" path="res://blender inbox/ghost/ghost.blend" id="1_pvkfl"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pvkfl"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.47843137)
+
 [node name="ghost2" instance=ExtResource("1_pvkfl")]
+
+[node name="Skeleton3D" parent="ghost armature" index="0"]
+bones/3/position = Vector3(0.079295084, 0.24958318, 0.28573447)
+bones/3/rotation = Quaternion(8.068707e-09, 1.4496278e-08, -0.48634368, 0.8737676)
+bones/4/position = Vector3(-0.079295084, 0.24958318, 0.28573447)
+bones/4/rotation = Quaternion(8.068707e-09, -1.4496278e-08, 0.48634368, 0.8737676)
+bones/5/position = Vector3(0.20824517, -0.004947162, -3.8703096e-08)
+bones/5/rotation = Quaternion(-0.7060597, -0.038467646, 0.7060598, -0.03846624)
+bones/6/rotation = Quaternion(0.033686906, 1.2690447e-07, -1.4005467e-08, 0.99943244)
+bones/7/rotation = Quaternion(0.020733517, 2.3117147e-08, 7.069128e-08, 0.99978507)
+bones/8/position = Vector3(-0.20824517, -0.004947162, -3.8703096e-08)
+bones/8/rotation = Quaternion(0.7060597, -0.038467646, 0.7060598, 0.03846624)
+bones/9/rotation = Quaternion(0.033686906, -1.2690447e-07, 1.4005467e-08, 0.99943244)
+bones/10/rotation = Quaternion(0.020733517, -2.3117147e-08, -7.069128e-08, 0.99978507)
+
+[node name="ghost" parent="ghost armature/Skeleton3D" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_pvkfl")

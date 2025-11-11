@@ -11,3 +11,4 @@ func pick_action():
 			action = "Resting"
 		
 	action_time = get_anim_length(action)
+	$model/AnimationPlayer.play(action)

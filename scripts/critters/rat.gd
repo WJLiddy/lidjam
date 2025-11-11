@@ -28,10 +28,7 @@ func pick_action():
 	# check if should run from player.
 	elif(dist_to_player() < 10):
 		fleeing = true
-		$nav.set_target_position(global_position + ((global_position - get_node("../../Player").global_position).normalized() * 5))
-		if(not $nav.is_target_reachable()):
-			# pick a random spot in a 5x5 grid for now
-			$nav.set_target_position(global_position + Vector3(randf_range(-5,5),0,randf_range(-5,5)))
+		set_nav_flee_from_player()
 		action = "Rolling"
 		action_time = get_anim_length(action)
 		return

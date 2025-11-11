@@ -9,6 +9,7 @@ var action = "Resting"
 var action_time = 0.0
 
 var emoticon = preload("res://tscn/emoticon.tscn")
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -22,6 +23,9 @@ func get_anim_length(animname):
 	
 func player_is_whistling():
 	return get_node("../../Player").whistling
+	
+func player_is_ads():
+	return get_node("../../Player").ads_enabled
 
 func get_nearest_bait():
 	var best = null
@@ -30,6 +34,12 @@ func get_nearest_bait():
 			best = v
 	return best
 	
+func set_nav_flee_from_player():
+	$nav.set_target_position(global_position + ((global_position - get_node("../../Player").global_position).normalized() * 5))
+	if(not $nav.is_target_reachable()):
+		# pick a random spot in a 5x5 grid for now
+		$nav.set_target_position(global_position + Vector3(randf_range(-5,5),0,randf_range(-5,5)))
+
 func make_emoticon():
 	var e = emoticon.instantiate()
 	get_node("../../Emoticons").add_child(e)
@@ -65,8 +75,9 @@ func _physics_process(delta: float) -> void:
 		
 	if(action_time > 0):
 		
+		var actions = ["Walking","Rolling","Roll Starting","Roll Ending","Flying","Scared"]
 		# !! Action Lookup Map
-		if(action == "Walking" or action == "Rolling" or action == "Roll Starting" or action == "Roll Ending" or action == "Flying"):
+		if(action in actions):
 			
 			var dest = $nav.get_next_path_position()
 			var local_dest = dest - global_position
@@ -89,7 +100,7 @@ func _physics_process(delta: float) -> void:
 				print(get_nearest_bait().global_position)
 			
 		
-		elif(action == "Turning" or action == "Listening"):
+		elif(action == "Turning" or action == "Listening" or action == "Excited"):
 			look_at_grad(delta, get_node("../../Player").global_position)
 			
 		# any of the idle actions

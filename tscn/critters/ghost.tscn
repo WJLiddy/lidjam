@@ -7,11 +7,12 @@
 height = 2.5
 
 [node name="Ghost" type="CharacterBody3D"]
-collision_layer = 2
+collision_layer = 0
 collision_mask = 7
 script = ExtResource("1_pdku6")
 
 [node name="model" parent="." instance=ExtResource("2_pdku6")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
 [node name="vis" type="VisibleOnScreenEnabler3D" parent="."]
 transform = Transform3D(3, 0, 0, 0, 6, 0, 0, 0, 2, 0, 1.3, 0)
@@ -21,4 +22,14 @@ aabb = AABB(-0.2, -0.2, -0.2, 0.4, 0.4, 0.4)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3, 0)
 shape = SubResource("CapsuleShape3D_pjl8l")
 
+[node name="BaitDetect" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 8
+
+[node name="col" type="CollisionShape3D" parent="BaitDetect"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3, 0)
+shape = SubResource("CapsuleShape3D_pjl8l")
+
 [node name="nav" type="NavigationAgent3D" parent="."]
+
+[connection signal="body_entered" from="BaitDetect" to="." method="_on_bait_detect_body_entered"]
