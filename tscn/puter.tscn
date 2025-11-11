@@ -35,10 +35,11 @@ shape = SubResource("ConcavePolygonShape3D_0hlij")
 
 [node name="Background" type="Sprite3D" parent="pc-monitor" index="1"]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.2989939, 0.063055426)
+visible = false
 texture = ExtResource("2_0hlij")
 
 [node name="Logoff" type="Sprite3D" parent="pc-monitor/Background" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.15, 0.78, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1, 0.765, 0)
 sorting_offset = 1.0
 texture = ExtResource("4_lawu1")
 
@@ -82,7 +83,7 @@ visible = false
 texture = ExtResource("7_sjatc")
 
 [node name="Buy1" type="Sprite3D" parent="pc-monitor/Shop" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6671696, 0.35039067, 0.00023365021)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.667, 0.4, 0)
 sorting_offset = 1.0
 texture = ExtResource("8_3rc7y")
 
@@ -102,7 +103,7 @@ text = "camera zoomer"
 horizontal_alignment = 0
 
 [node name="Buy2" type="Sprite3D" parent="pc-monitor/Shop" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.66716963, 0.052053213, 0.00023365021)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.667, 0.15, 0)
 sorting_offset = 1.0
 texture = ExtResource("8_3rc7y")
 
@@ -122,7 +123,7 @@ text = "camera quickscope"
 horizontal_alignment = 0
 
 [node name="Buy3" type="Sprite3D" parent="pc-monitor/Shop" index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.66716963, -0.23148179, 0.00023365021)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.667, -0.1, 0)
 sorting_offset = 1.0
 texture = ExtResource("8_3rc7y")
 
@@ -142,7 +143,7 @@ text = "camera bonus film"
 horizontal_alignment = 0
 
 [node name="Buy4" type="Sprite3D" parent="pc-monitor/Shop" index="3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.66716963, -0.48051965, 0.00023365021)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.667, -0.35, 0)
 sorting_offset = 1.0
 texture = ExtResource("8_3rc7y")
 
@@ -162,7 +163,7 @@ text = "bait"
 horizontal_alignment = 0
 
 [node name="Buy5" type="Sprite3D" parent="pc-monitor/Shop" index="4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.66716963, -0.7328341, 0.00023365021)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.667, -0.6, 0)
 sorting_offset = 1.0
 texture = ExtResource("8_3rc7y")
 
@@ -200,7 +201,7 @@ visible = false
 texture = ExtResource("6_2ndsu")
 
 [node name="Next" type="Sprite3D" parent="pc-monitor/Grading" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.97455853, -0.54025763, 0.00023365021)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.975, -0.7, 0)
 sorting_offset = 1.0
 texture = ExtResource("7_wyg07")
 
@@ -213,12 +214,12 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 shape = SubResource("BoxShape3D_r1ldu")
 
 [node name="Preview" type="Sprite3D" parent="pc-monitor/Grading" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.476, 0.305, 0)
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -0.45, 0.27, 0)
 sorting_offset = 1.0
 texture = ExtResource("8_sbthb")
 
 [node name="LabelJustLeft" type="Label3D" parent="pc-monitor/Grading" index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5861271, 0.60665345, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.586, 0.85, 0)
 sorting_offset = 1.0
 modulate = Color(0, 0, 0, 1)
 text = "Charmander 
@@ -240,7 +241,7 @@ horizontal_alignment = 0
 vertical_alignment = 0
 
 [node name="Old" type="Sprite3D" parent="pc-monitor/Grading" index="3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2876107, -0.68497497, 0)
+transform = Transform3D(1.37, 0, 0, 0, 1.37, 0, 0, 0, 1.37, 0.21, -0.68, 0)
 sorting_offset = 1.0
 texture = ExtResource("8_sbthb")
 
@@ -253,7 +254,7 @@ horizontal_alignment = 2
 vertical_alignment = 0
 
 [node name="ProfText" type="Label3D" parent="pc-monitor/Grading" index="5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.84399116, -0.40649188, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1, -0.5, 0)
 sorting_offset = 1.0
 modulate = Color(0, 0, 0, 1)
 font_size = 16
@@ -262,7 +263,6 @@ vertical_alignment = 0
 
 [node name="Review" type="Sprite3D" parent="pc-monitor" index="4"]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.2989939, 0.063055426)
-visible = false
 texture = ExtResource("9_1ewvw")
 
 [node name="Label3D" type="Label3D" parent="pc-monitor/Review" index="0"]
