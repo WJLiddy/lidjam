@@ -351,6 +351,7 @@ species = ""
 [node name="Salamander" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" instance=ExtResource("11_md6d6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54.46356, 7.3604736, 78.94649)
 script = ExtResource("12_2cw64")
+species = ""
 
 [node name="Gopher2" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" instance=ExtResource("7_6iyis")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -159.3969, 37.41123, 90.908775)
