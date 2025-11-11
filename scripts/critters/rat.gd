@@ -25,7 +25,7 @@ func pick_action():
 		action_time = get_anim_length(action)
 	
 	# check if should run from player.
-	elif(dist_to_player() < 5):
+	elif(dist_to_player() < 10):
 		fleeing = true
 		$nav.set_target_position(global_position + ((global_position - get_node("../../Player").global_position).normalized() * 5))
 		if(not $nav.is_target_reachable()):

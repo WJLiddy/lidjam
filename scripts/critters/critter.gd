@@ -54,7 +54,7 @@ func look_at_grad(delta,target_pos):
 # handles every behavior for each action. this is a little dirty but it works.
 func _physics_process(delta: float) -> void:
 	action_time -= delta
-	
+		
 	if(action_time > 0):
 		
 		# !! Action Lookup Map
