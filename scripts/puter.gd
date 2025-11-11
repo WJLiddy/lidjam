@@ -41,25 +41,47 @@ var species_same_max = {
 var species_best_pose = {
 	"Olturtle" : "Resting",
 	"Burglerat" : "Eating",
-	"Pargopher" : "Diving",
+	"Veerabbit" : "Running",
+	"Cowbug" : "Listening",
+	"Pargopher" : "Partying",
+	"Leghost" : "Spooked",
+	"Bugleton" : "Bugling",
+	"Cowbird" : "Eating",
 	"Cresbird" : "Eating",
-	"Frankendeer" : "Scared",
+	"Frankendeer" : "Petrified",
 	"Gold Burglerat" : "Resting"
 }
 
 var pose_score = {
+	"Hiding" : 0,
+	
 	"Resting" : 1,
 	"Walking" : 1,
 	"Turning" : 1,
 	"Flying" : 1,
 	"Rolling" : 1,
+	"Peeking" : 1,
+	"Swimming" : 1,
 	
-	"Perching" : 2,
-	"Dancing" : 2,
+	"Perched" : 2,
 	"Judging" : 2,
+	"Grazing" : 2,
+	
 	"Eating" : 3,
 	"Scared" : 3,
+	"Waddling" : 3,
+	
+	"Listening" : 4,
 	"Diving" : 4,
+	"Petrified" : 4,
+	
+	"Dancing" : 5,
+	"Confused" : 5,
+	"Running" : 5,
+	"Bugling" : 5,
+	
+	"Spooked" : 6,
+	"Using Magic" : 6
 }
 
 func get_best_possible_score(creature):
