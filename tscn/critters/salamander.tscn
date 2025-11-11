@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://bqpj431w644eb"]
+
+[ext_resource type="Script" uid="uid://b8tw03j3k7mri" path="res://scripts/critters/turtle.gd" id="1_r7vnh"]
+[ext_resource type="PackedScene" uid="uid://d3dkmo5h7jdrm" path="res://tscn/model/salamandermodel.tscn" id="2_r7vnh"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_r7vnh"]
+radius = 1.0
+height = 3.0
+
+[node name="Salamander" type="CharacterBody3D"]
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_r7vnh")
+species = "testguy"
+
+[node name="model" parent="." instance=ExtResource("2_r7vnh")]
+
+[node name="vis" type="VisibleOnScreenEnabler3D" parent="."]
+transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 7, 0, 1.5, -0.289)
+aabb = AABB(-0.120770134, -0.2, -0.2, 0.24154027, 0.4, 0.4)
+
+[node name="col" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+shape = SubResource("CapsuleShape3D_r7vnh")
+
+[node name="nav" type="NavigationAgent3D" parent="."]

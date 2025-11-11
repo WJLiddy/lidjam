@@ -6,7 +6,6 @@ func speed():
 	return 5
 
 var fleeing = false
-# Eating, Rolling, Roll Starting, Roll Ending
 
 # walking grazing scared resting
 func pick_action():
