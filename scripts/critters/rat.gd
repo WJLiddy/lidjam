@@ -34,7 +34,7 @@ func pick_action():
 	elif(get_node("../../Baits").get_children().size() > 0):
 		fleeing = false
 		# look for any baits.
-		var bait = get_node("../../Baits").get_children().pick_random()
+		var bait = get_nearest_bait()
 		if(global_position.distance_to(bait.global_position) < 1):
 			# eat it
 			action = "Roll Ending"

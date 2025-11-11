@@ -4,11 +4,11 @@ extends CharacterBody3D
 @export var footstep_sound: Array[AudioStream]
 
 var run_speed = 6.5
-var sprint_speed = 10
+var sprint_speed = 10.5
 var speed = run_speed
-var crouch_speed = 1.8
+var crouch_speed = 2
 
-var jump_velocity = 10
+var jump_velocity = 8
 var landing_velocity
 
 var distance = 0
