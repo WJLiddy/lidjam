@@ -17,6 +17,7 @@ var footstep_distance = 2.1
 var action_cooldown = 0
 var ads_enabled = false
 var double_zoom = false
+var whistling = false
 
 var fov_base = 70.0
 var fov_zoom = 70.0 / 3
@@ -142,11 +143,13 @@ func _physics_process(delta: float) -> void:
 		b.global_position = $%Camera3D.global_position
 		
 	if Input.is_action_pressed("whistle"):
+		whistling = true
 		$WhistleSound.volume_db = lerp($WhistleSound.volume_db,0.0,10*delta)
 		get_node("../../../UIRender").whistling = true
 		if(!$WhistleSound.playing):
 			$WhistleSound.play()
 	else:
+		whistling = false
 		$WhistleSound.volume_db = lerp($WhistleSound.volume_db,-80.0,10*delta)
 		get_node("../../../UIRender").whistling = false
 		

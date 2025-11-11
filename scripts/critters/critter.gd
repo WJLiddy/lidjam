@@ -19,6 +19,9 @@ func dist_to_player():
 
 func get_anim_length(animname):
 	return $model/AnimationPlayer.get_animation(animname).length
+	
+func player_is_whistling():
+	return get_node("../../Player").whistling
 
 func get_nearest_bait():
 	var best = null
@@ -63,7 +66,7 @@ func _physics_process(delta: float) -> void:
 	if(action_time > 0):
 		
 		# !! Action Lookup Map
-		if(action == "Walking" or action == "Rolling" or action == "Roll Starting" or action == "Roll Ending"):
+		if(action == "Walking" or action == "Rolling" or action == "Roll Starting" or action == "Roll Ending" or action == "Flying"):
 			
 			var dest = $nav.get_next_path_position()
 			var local_dest = dest - global_position
@@ -86,7 +89,7 @@ func _physics_process(delta: float) -> void:
 				print(get_nearest_bait().global_position)
 			
 		
-		elif(action == "Turning"):
+		elif(action == "Turning" or action == "Listening"):
 			look_at_grad(delta, get_node("../../Player").global_position)
 			
 		# any of the idle actions

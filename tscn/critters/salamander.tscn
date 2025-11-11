@@ -9,7 +9,7 @@ height = 3.0
 
 [node name="Salamander" type="CharacterBody3D"]
 collision_layer = 2
-collision_mask = 3
+collision_mask = 15
 script = ExtResource("1_r7vnh")
 species = "Vamphibian"
 

@@ -5,7 +5,7 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_1a13l"]
 
 [node name="Bait" type="RigidBody3D"]
-collision_layer = 0
+collision_layer = 8
 continuous_cd = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
