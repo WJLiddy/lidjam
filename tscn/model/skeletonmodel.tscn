@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://c7okg40kptwsc"]
+
+[ext_resource type="PackedScene" uid="uid://ml7vkvas4cyg" path="res://blender inbox/skelol/skelol.blend" id="1_6ovk0"]
+
+[node name="skelol2" instance=ExtResource("1_6ovk0")]

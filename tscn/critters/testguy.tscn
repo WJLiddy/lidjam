@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://ctoe4vf4v21fp"]
 
-[ext_resource type="Script" uid="uid://bkuvfyd1ytt18" path="res://scripts/critters/rat.gd" id="1_3yu3x"]
-[ext_resource type="PackedScene" uid="uid://di8lg0v3mwd2g" path="res://tscn/rig_test.tscn" id="2_2a5v7"]
+[ext_resource type="Script" uid="uid://bkuvfyd1ytt18" path="res://scripts/critters/rat.gd" id="1_i7j4n"]
+[ext_resource type="PackedScene" uid="uid://di8lg0v3mwd2g" path="res://tscn/model/testguymodel.tscn" id="2_6m06j"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_n1306"]
 radius = 0.2
@@ -10,10 +10,10 @@ height = 1.0
 [node name="Rigfull" type="CharacterBody3D"]
 collision_layer = 2
 collision_mask = 3
-script = ExtResource("1_3yu3x")
+script = ExtResource("1_i7j4n")
 species = "rigtest"
 
-[node name="rigmodel" parent="." instance=ExtResource("2_2a5v7")]
+[node name="model" parent="." instance=ExtResource("2_6m06j")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
 [node name="vis" type="VisibleOnScreenEnabler3D" parent="."]

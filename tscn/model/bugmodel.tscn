@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://dedkhk83v4rlr"]
+
+[ext_resource type="PackedScene" uid="uid://c3w1nd0biaxvo" path="res://blender inbox/cowbug/cowbug.blend" id="1_08juu"]
+
+[node name="cowbug2" instance=ExtResource("1_08juu")]

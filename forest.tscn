@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://bdkh5n42abtlg"]
+[gd_scene load_steps=57 format=3 uid="uid://bdkh5n42abtlg"]
 
 [ext_resource type="PackedScene" uid="uid://bf504syknspt3" path="res://tscn/puter.tscn" id="1_5rndp"]
 [ext_resource type="PackedScene" uid="uid://jyncanbkjjnq" path="res://tscn/player.tscn" id="1_lifw2"]
@@ -14,6 +14,8 @@
 [ext_resource type="PackedScene" uid="uid://bkymdh02rnhv1" path="res://tscn/critters/hummingbird.tscn" id="8_77xr6"]
 [ext_resource type="PackedScene" uid="uid://d24tv6lv5qb8a" path="res://tscn/tree2col.tscn" id="8_uu8yv"]
 [ext_resource type="PackedScene" uid="uid://da88pv54pfnlq" path="res://tscn/critters/rat.tscn" id="9_77xr6"]
+[ext_resource type="PackedScene" uid="uid://dkv84g78ja7cp" path="res://tscn/critters/ghost.tscn" id="9_mq2pq"]
+[ext_resource type="PackedScene" uid="uid://b6wloe02e4ac1" path="res://tscn/critters/skeleton.tscn" id="10_b6w6p"]
 [ext_resource type="PackedScene" uid="uid://sw7jvqyq5yya" path="res://tscn/critters/deer.tscn" id="10_wsut6"]
 [ext_resource type="PackedScene" uid="uid://bqpj431w644eb" path="res://tscn/critters/salamander.tscn" id="11_md6d6"]
 [ext_resource type="Script" uid="uid://cwn701xos6cqt" path="res://scripts/critters/salamander.gd" id="12_2cw64"]
@@ -21,8 +23,9 @@
 [ext_resource type="AudioStream" uid="uid://d1elis4hvywts" path="res://music/spawn.mp3" id="15_77xr6"]
 [ext_resource type="PackedScene" uid="uid://65ol4l7oq2n" path="res://tscn/terrain.tscn" id="15_w7ivt"]
 [ext_resource type="PackedScene" uid="uid://w0d2eopqs5eo" path="res://tscn/spawntree2col.tscn" id="15_x23mu"]
-[ext_resource type="Script" uid="uid://f1o87l3pi03t" path="res://music.gd" id="16_3yfs4"]
+[ext_resource type="Script" uid="uid://f1o87l3pi03t" path="res://scripts/music.gd" id="16_3yfs4"]
 [ext_resource type="Material" uid="uid://dns7bivatfxtb" path="res://shaders/watershader.tres" id="17_0aefg"]
+[ext_resource type="PackedScene" uid="uid://cf37ugijxowef" path="res://tscn/terrain_watercollide.tscn" id="17_cd8fk"]
 [ext_resource type="AudioStream" uid="uid://rmx3p2083acl" path="res://music/forest.mp3" id="17_vmfs8"]
 [ext_resource type="AudioStream" uid="uid://wymd1wuyy7b5" path="res://music/graveyard.mp3" id="18_3yfs4"]
 [ext_resource type="AudioStream" uid="uid://bfsvlahmsc2ys" path="res://music/ocean.mp3" id="20_1ykyx"]
@@ -338,6 +341,12 @@ surface_material_override/0 = ExtResource("17_0aefg")
 [node name="Gopher" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" instance=ExtResource("7_6iyis")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -159.3969, 37.230465, 86.45649)
 
+[node name="Ghost" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" instance=ExtResource("9_mq2pq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -153.361, 36.547493, 65.592674)
+
+[node name="Skeleton" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" instance=ExtResource("10_b6w6p")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -161.0638, 36.775448, 72.927414)
+
 [node name="Hummingbird" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" instance=ExtResource("8_77xr6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -139.71658, 36.376194, 99.61103)
 is_spawnbird = true
@@ -364,6 +373,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -153.66289, 37.675735, 97.375
 [node name="GoldRat" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" instance=ExtResource("9_77xr6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -223.10313, 35.571392, -80.49562)
 species = "Gold Burglerat"
+
+[node name="map2 water collision2" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World" instance=ExtResource("17_cd8fk")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
+visible = false
 
 [node name="Nav" type="NavigationRegion3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World"]
 navigation_mesh = SubResource("NavigationMesh_3yfs4")

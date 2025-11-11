@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://l4c6qqk4ss13"]
+
+[ext_resource type="PackedScene" uid="uid://dki1wxoewhgqu" path="res://blender inbox/ghost/ghost.blend" id="1_pvkfl"]
+
+[node name="ghost2" instance=ExtResource("1_pvkfl")]

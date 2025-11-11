@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://cudhkhc1xsdf0"]
+
+[ext_resource type="Script" uid="uid://ditbqf7rd4o80" path="res://scripts/critters/bug.gd" id="1_eh6mv"]
+[ext_resource type="PackedScene" uid="uid://dedkhk83v4rlr" path="res://tscn/model/bugmodel.tscn" id="2_x5nwu"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_pjl8l"]
+height = 1.0
+
+[node name="Cowbug" type="CharacterBody3D"]
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_eh6mv")
+
+[node name="model" parent="." instance=ExtResource("2_x5nwu")]
+
+[node name="vis" type="VisibleOnScreenEnabler3D" parent="."]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 2.5, 0, 0.2, 0.2)
+aabb = AABB(-0.2, -0.2, -0.2, 0.4, 0.4, 0.4)
+
+[node name="col" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("CapsuleShape3D_pjl8l")
+
+[node name="nav" type="NavigationAgent3D" parent="."]

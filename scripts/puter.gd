@@ -4,6 +4,7 @@ var pictures_to_grade = []
 var grading_index = 0
 # desktop, menu, shopping, review
 var state = "desktop"
+var nopic = load("res://programmerart/nopic.png")
 
 # species hardcoded stuff
 var base_score = {
@@ -191,12 +192,15 @@ func ui_grade():
 
 func ui_review():
 	for p in get_node("Review/PrevPics").get_children():
-		p.texture = null
+		p.get_node("S1").texture = nopic
+		p.get_node("Name").text = "?????"
+		p.get_node("Prev").text = "??/??"
+		
 	
 	for i in range(Global.bests.keys().size()):
 		var b = Global.bests[Global.bests.keys()[i]]
 		var cr = ImageTexture.create_from_image(b["pic"])
-		cr.set_size_override(Vector2(40,30))
+		cr.set_size_override(Vector2(80,60))
 		get_node("Review/PrevPics").get_children()[i].get_node("S1").texture = cr
 		get_node("Review/PrevPics").get_children()[i].get_node("Name").text = b["critter"]
 		get_node("Review/PrevPics").get_children()[i].get_node("Prev").text = str(b["score"]) + "/" + str(get_best_possible_score(b["critter"]))
