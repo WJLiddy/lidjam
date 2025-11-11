@@ -11,7 +11,7 @@ height = 1.0
 collision_layer = 2
 collision_mask = 3
 script = ExtResource("1_wvlqg")
-species = "testguy"
+species = "Frankendeer"
 
 [node name="model" parent="." instance=ExtResource("2_wvlqg")]
 

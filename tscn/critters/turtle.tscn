@@ -11,7 +11,7 @@ height = 4.0
 collision_layer = 2
 collision_mask = 3
 script = ExtResource("1_lm3d2")
-species = "testguy"
+species = "Olturtle"
 
 [node name="model" parent="." instance=ExtResource("2_lm3d2")]
 transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, 0, 0, 0)

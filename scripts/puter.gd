@@ -10,7 +10,9 @@ var base_score = {
 	"Olturtle" : 2,
 	"Burglerat" : 2,
 	"Pargopher" : 3,
+	"Frankendeer" :3,
 	"Cresbird" : 4,
+	"Gold Burglerat" : 7
 }
 
 var species_same_max = {
@@ -18,6 +20,8 @@ var species_same_max = {
 	"Burglerat" : 2,
 	"Pargopher" : 3,
 	"Cresbird" : 3,
+	"Frankendeer" : 2,
+	"Gold Burglerat" : 0
 }
 
 # best possible score
@@ -26,6 +30,8 @@ var species_best_pose = {
 	"Burglerat" : "Eating",
 	"Pargopher" : "Diving",
 	"Cresbird" : "Eating",
+	"Frankendeer" : "Scared",
+	"Gold Burglerat" : "Resting"
 }
 
 # Walking, Dancing, Diving, Eating, Judging
@@ -40,9 +46,12 @@ var pose_score = {
 	"Dancing" : 2,
 	"Judging" : 2,
 	"Eating" : 3,
+	"Scared" : 3,
 	"Diving" : 4,
 }
 
+func get_best_possible_score(creature):
+	return 5 + 5 + 3 + species_same_max[creature] + pose_score[species_best_pose[creature]]
 
 
 # Called when the node enters the scene tree for the first time.
@@ -188,10 +197,11 @@ func ui_review():
 		var b = Global.bests[Global.bests.keys()[i]]
 		var cr = ImageTexture.create_from_image(b["pic"])
 		cr.set_size_override(Vector2(40,30))
-		get_node("Review/PrevPics").get_children()[i].texture = cr
-		get_node("Review/PrevPics").get_children()[i].get_node("Label3D").text = b["critter"] + ", " + str(b["score"])
+		get_node("Review/PrevPics").get_children()[i].get_node("S1").texture = cr
+		get_node("Review/PrevPics").get_children()[i].get_node("Name").text = b["critter"]
+		get_node("Review/PrevPics").get_children()[i].get_node("Prev").text = str(b["score"]) + "/" + str(get_best_possible_score(b["critter"]))
 	
-	
+
 func process_picture(pic : Dictionary) -> Array:
 
 	var out = []

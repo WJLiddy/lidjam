@@ -337,37 +337,29 @@ surface_material_override/0 = ExtResource("17_0aefg")
 
 [node name="Gopher" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" instance=ExtResource("7_6iyis")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -159.3969, 37.230465, 86.45649)
-species = "Pargopher"
 
 [node name="Hummingbird" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" instance=ExtResource("8_77xr6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -139.71658, 36.376194, 99.61103)
 is_spawnbird = true
-species = "Cresbird"
 
 [node name="Deer" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" instance=ExtResource("10_wsut6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -150.77496, 36.113834, 57.15664)
-species = ""
 
 [node name="Salamander" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" instance=ExtResource("11_md6d6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54.46356, 7.3604736, 78.94649)
 script = ExtResource("12_2cw64")
-species = ""
 
 [node name="Gopher2" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" instance=ExtResource("7_6iyis")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -159.3969, 37.41123, 90.908775)
-species = "Pargopher"
 
 [node name="Gopher3" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" instance=ExtResource("7_6iyis")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -155.64717, 37.300236, 87.75857)
-species = "Pargopher"
 
 [node name="Turtle" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" instance=ExtResource("4_x23mu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -148.43956, 36.96168, 82.990685)
-species = "Olturtle"
 
 [node name="Rat" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" instance=ExtResource("9_77xr6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -153.66289, 37.675735, 97.375465)
-species = "Burglerat"
 
 [node name="GoldRat" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" instance=ExtResource("9_77xr6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -223.10313, 35.571392, -80.49562)

@@ -115,6 +115,8 @@ func _physics_process(delta: float) -> void:
 		%CamRayCast.force_raycast_update()
 		if %CamRayCast.is_colliding() and %CamRayCast.get_collider().name == "COMPUTER":
 			Global.is_using_puter = true
+			# hide the camera
+			get_node("../../../ViewModel").visible = false
 		else:
 			await RenderingServer.frame_post_draw
 			take_picture()
