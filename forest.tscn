@@ -271,61 +271,61 @@ skeleton = NodePath("../../../../../../../..")
 surface_material_override/0 = ExtResource("17_0aefg")
 
 [node name="Water3" type="MeshInstance3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Waters"]
-transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 50, -20, 4, -40)
+transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 50, -20, 1.4874687, -40)
 mesh = SubResource("PlaneMesh_0aefg")
 skeleton = NodePath("../../../../../../../..")
 surface_material_override/0 = ExtResource("17_0aefg")
 
 [node name="Water4" type="MeshInstance3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Waters"]
-transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 50, -20, 4, 60)
+transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 50, -20, 1.4874687, 60)
 mesh = SubResource("PlaneMesh_0aefg")
 skeleton = NodePath("../../../../../../../..")
 surface_material_override/0 = ExtResource("17_0aefg")
 
 [node name="Water5" type="MeshInstance3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Waters"]
-transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 50, -20, 4, 160)
+transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 50, -20, 1.4874687, 160)
 mesh = SubResource("PlaneMesh_0aefg")
 skeleton = NodePath("../../../../../../../..")
 surface_material_override/0 = ExtResource("17_0aefg")
 
 [node name="Water6" type="MeshInstance3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Waters"]
-transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 50, -20, 4, 260)
+transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 50, -20, 1.4874687, 260)
 mesh = SubResource("PlaneMesh_0aefg")
 skeleton = NodePath("../../../../../../../..")
 surface_material_override/0 = ExtResource("17_0aefg")
 
 [node name="Water7" type="MeshInstance3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Waters"]
-transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 50, 80, 4, 60)
+transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 50, 80, 1.4874687, 60)
 mesh = SubResource("PlaneMesh_0aefg")
 skeleton = NodePath("../../../../../../../..")
 surface_material_override/0 = ExtResource("17_0aefg")
 
 [node name="Water8" type="MeshInstance3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Waters"]
-transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 50, 80, 4, 160)
+transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 50, 80, 1.4874687, 160)
 mesh = SubResource("PlaneMesh_0aefg")
 skeleton = NodePath("../../../../../../../..")
 surface_material_override/0 = ExtResource("17_0aefg")
 
 [node name="Water9" type="MeshInstance3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Waters"]
-transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 50, 80, 4, 260)
+transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 50, 80, 1.4874687, 260)
 mesh = SubResource("PlaneMesh_0aefg")
 skeleton = NodePath("../../../../../../../..")
 surface_material_override/0 = ExtResource("17_0aefg")
 
 [node name="Water10" type="MeshInstance3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Waters"]
-transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 50, 180, 4, 60)
+transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 50, 180, 1.4874687, 60)
 mesh = SubResource("PlaneMesh_0aefg")
 skeleton = NodePath("../../../../../../../..")
 surface_material_override/0 = ExtResource("17_0aefg")
 
 [node name="Water11" type="MeshInstance3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Waters"]
-transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 50, 180, 4, 160)
+transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 50, 180, 1.4874687, 160)
 mesh = SubResource("PlaneMesh_0aefg")
 skeleton = NodePath("../../../../../../../..")
 surface_material_override/0 = ExtResource("17_0aefg")
 
 [node name="Water12" type="MeshInstance3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Waters"]
-transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 50, 180, 4, 260)
+transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 50, 180, 1.4874687, 260)
 mesh = SubResource("PlaneMesh_0aefg")
 skeleton = NodePath("../../../../../../../..")
 surface_material_override/0 = ExtResource("17_0aefg")
@@ -356,6 +356,10 @@ species = "Olturtle"
 [node name="Rat" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" instance=ExtResource("9_77xr6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -153.66289, 37.675735, 97.375465)
 species = "Burglerat"
+
+[node name="Rat2" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" instance=ExtResource("9_77xr6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -223.10313, 35.80505, -80.49562)
+species = "Gold Burglerat"
 
 [node name="Nav" type="NavigationRegion3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World"]
 navigation_mesh = SubResource("NavigationMesh_3yfs4")
@@ -868,6 +872,42 @@ shape = SubResource("BoxShape3D_8pife")
 metadata/_edit_lock_ = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming/Crate36/CollisionShape3D"]
+mesh = SubResource("BoxMesh_wsut6")
+metadata/_edit_lock_ = true
+
+[node name="Crate39" type="StaticBody3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming"]
+transform = Transform3D(-0.54233897, 0, -0.84015983, 0, 1, 0, 0.84015983, 0, -0.54233897, -221.56635, 34.783573, -80.78055)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming/Crate39"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("BoxShape3D_8pife")
+metadata/_edit_lock_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming/Crate39/CollisionShape3D"]
+mesh = SubResource("BoxMesh_wsut6")
+metadata/_edit_lock_ = true
+
+[node name="Crate40" type="StaticBody3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming"]
+transform = Transform3D(-0.54233897, 0, -0.84015983, 0, 1, 0, 0.84015983, 0, -0.54233897, -221.56635, 34.783573, -79.39297)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming/Crate40"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("BoxShape3D_8pife")
+metadata/_edit_lock_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming/Crate40/CollisionShape3D"]
+mesh = SubResource("BoxMesh_wsut6")
+metadata/_edit_lock_ = true
+
+[node name="Crate41" type="StaticBody3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming"]
+transform = Transform3D(-0.54233897, 0, -0.84015983, 0, 1, 0, 0.84015983, 0, -0.54233897, -221.56635, 35.79196, -80.05656)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming/Crate41"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("BoxShape3D_8pife")
+metadata/_edit_lock_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming/Crate41/CollisionShape3D"]
 mesh = SubResource("BoxMesh_wsut6")
 metadata/_edit_lock_ = true
 

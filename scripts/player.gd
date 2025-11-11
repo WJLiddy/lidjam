@@ -135,7 +135,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("bait") and Global.bait > 0:
 		Global.bait -= 1
 		var b = bait.instantiate()
-		b.apply_impulse(-$%Camera3D.global_basis.z.normalized() * 10)
+		b.apply_impulse(velocity + (-$%Camera3D.global_basis.z.normalized() * 10))
 		get_node("../Baits").add_child(b)
 		b.global_position = $%Camera3D.global_position
 		
@@ -176,7 +176,6 @@ func take_picture():
 				critter["dist"] = get_screen_coverage_percent(%Camera3D,c.get_node("vis"))
 				print(critter["dist"])
 				critter["orient"] = abs(global_rotation.y - c.global_rotation.y)
-				print(critter["orient"])
 				critter["pose"] = c.action.replace("IDLE","")
 				picdata["critters"].push_back(critter)
 	

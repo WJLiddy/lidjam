@@ -9,6 +9,11 @@ var fleeing = false
 # Eating, Rolling, Roll Starting, Roll Ending
 
 func pick_action():
+	if(species == "Gold Burglerat"):
+		action = "Resting"
+		$model/AnimationPlayer.play(action)
+		return
+		
 	if(action == "Roll Ending"):
 		action = "Eating"
 		action_time = get_anim_length(action)
