@@ -176,7 +176,6 @@ func take_picture():
 				var critter = {}
 				critter["name"] = c.species
 				critter["dist"] = get_screen_coverage_percent(%Camera3D,c.get_node("vis"))
-				print(critter["dist"])
 				critter["orient"] = abs(global_rotation.y - c.global_rotation.y)
 				critter["pose"] = c.action.replace("IDLE","")
 				picdata["critters"].push_back(critter)

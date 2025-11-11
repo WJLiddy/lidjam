@@ -35,8 +35,7 @@ func make_emoticon():
 
 # to be overridden:
 func pick_action():
-	action = "idle"
-	action_time = 2.0
+	print("pick action not overridden!")
 func speed():
 	return 1.0
 func rotspeed():

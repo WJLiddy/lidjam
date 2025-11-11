@@ -48,6 +48,7 @@ var species_best_pose = {
 	"Bugleton" : "Bugling",
 	"Cowbird" : "Eating",
 	"Cresbird" : "Eating",
+	"Vamphibian" : "Using Magic",
 	"Frankendeer" : "Petrified",
 	"Gold Burglerat" : "Resting"
 }
@@ -72,10 +73,10 @@ var pose_score = {
 	"Waddling" : 3,
 	
 	"Listening" : 4,
-	"Diving" : 4,
+	"Digging" : 4,
 	"Petrified" : 4,
 	
-	"Dancing" : 5,
+	"Partying" : 5,
 	"Confused" : 5,
 	"Running" : 5,
 	"Bugling" : 5,
@@ -236,6 +237,8 @@ func ui_review():
 		cr.set_size_override(Vector2(80,60))
 		get_node("Review/PrevPics").get_children()[i].get_node("S1").texture = cr
 		get_node("Review/PrevPics").get_children()[i].get_node("Name").text = b["critter"]
+		if(b["critter"] == "Gold Burglerat"):
+			get_node("Review/PrevPics").get_children()[i].get_node("Name").text = "G. Burglerat"
 		get_node("Review/PrevPics").get_children()[i].get_node("Prev").text = str(b["score"]) + "/" + str(get_best_possible_score(b["critter"]))
 	
 
@@ -274,7 +277,12 @@ func process_picture(pic : Dictionary) -> Array:
 		var total_score = (base_val + dist_rating + same_val + dif_val + pose_val)
 		
 		var left_text = ""
-		left_text += c0["name"] + "\n" + get_star_string(base_val,base_val) + "\n"
+		
+		if(c0["name"] == "Gold Buglerat"):
+			left_text += "G. Buglerat" + "\n" + get_star_string(base_val,base_val) + "\n"
+		else:
+			left_text += c0["name"] + "\n" + get_star_string(base_val,base_val) + "\n"
+			
 		left_text += "SIZE\n" + get_star_string(dist_rating,5)+"\n"
 		left_text += c0["pose"]
 		if(orient_good):

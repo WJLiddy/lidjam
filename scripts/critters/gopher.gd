@@ -3,10 +3,10 @@ extends Critter
 # Turning, Dancing, Diving, Eating, Judging
 func pick_action():
 	if(action == "Resting"):
-		action = "DancingIDLE"
+		action = "PartyingIDLE"
 		action_time = get_anim_length(action)
 		
-	elif(action == "DancingIDLE" and dist_to_player() < 10):
+	elif(action == "PartyingIDLE" and dist_to_player() < 10):
 		action = "Turning"
 		action_time = get_anim_length(action)
 	
@@ -15,9 +15,9 @@ func pick_action():
 		action_time = get_anim_length(action)
 	# burying
 	elif(action == "JudgingIDLE"):
-		action = "DivingIDLE"
+		action = "DiggingIDLE"
 		action_time = 30.0
-	elif(action == "DivingIDLE"):
+	elif(action == "DiggingwwIDLE"):
 		# later, only if player can't see us.
 		if(dist_to_player() > 20):
 			action = "DancingIDLE"
