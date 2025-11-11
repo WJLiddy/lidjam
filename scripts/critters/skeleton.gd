@@ -1,4 +1,4 @@
-extends CharacterBody3D
+extends Critter
 
 
 func _physics_process(delta: float) -> void:

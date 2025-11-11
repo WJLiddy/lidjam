@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://bdkh5n42abtlg"]
+[gd_scene load_steps=60 format=3 uid="uid://bdkh5n42abtlg"]
 
 [ext_resource type="PackedScene" uid="uid://bf504syknspt3" path="res://tscn/puter.tscn" id="1_5rndp"]
 [ext_resource type="PackedScene" uid="uid://jyncanbkjjnq" path="res://tscn/player.tscn" id="1_lifw2"]
@@ -27,7 +27,10 @@
 [ext_resource type="Material" uid="uid://dns7bivatfxtb" path="res://shaders/watershader.tres" id="17_0aefg"]
 [ext_resource type="PackedScene" uid="uid://cf37ugijxowef" path="res://tscn/terrain_watercollide.tscn" id="17_cd8fk"]
 [ext_resource type="AudioStream" uid="uid://rmx3p2083acl" path="res://music/forest.mp3" id="17_vmfs8"]
+[ext_resource type="PackedScene" uid="uid://cvr0urygk7ebm" path="res://tscn/critters/rabbit.tscn" id="17_x8p8v"]
+[ext_resource type="PackedScene" uid="uid://dkcr5vvwt1pyt" path="res://tscn/critters/cowbird.tscn" id="18_3w53r"]
 [ext_resource type="AudioStream" uid="uid://wymd1wuyy7b5" path="res://music/graveyard.mp3" id="18_3yfs4"]
+[ext_resource type="PackedScene" uid="uid://cudhkhc1xsdf0" path="res://tscn/critters/bug.tscn" id="19_sdsnp"]
 [ext_resource type="AudioStream" uid="uid://bfsvlahmsc2ys" path="res://music/ocean.mp3" id="20_1ykyx"]
 [ext_resource type="Texture2D" uid="uid://s2tijo12vng8" path="res://programmerart/nopic.png" id="22_w7ivt"]
 [ext_resource type="Script" uid="uid://d0d3d8e1ouxld" path="res://scripts/title.gd" id="22_x23mu"]
@@ -343,9 +346,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -159.3969, 37.230465, 86.4564
 
 [node name="Ghost" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" instance=ExtResource("9_mq2pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -153.361, 36.547493, 65.592674)
+species = "Leghost"
 
 [node name="Skeleton" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" instance=ExtResource("10_b6w6p")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -161.0638, 36.775448, 72.927414)
+species = "Bugleton"
 
 [node name="Hummingbird" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" instance=ExtResource("8_77xr6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -139.71658, 36.376194, 99.61103)
@@ -370,8 +375,24 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -148.43956, 36.96168, 82.9906
 [node name="Rat" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" instance=ExtResource("9_77xr6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -153.66289, 37.675735, 97.375465)
 
+[node name="Rabbit" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" instance=ExtResource("17_x8p8v")]
+transform = Transform3D(-0.8960684, 0, -0.44391602, 0, 1, 0, 0.44391602, 0, -0.8960684, -137.28023, 34.470257, 40.920307)
+species = "Veerabbit"
+
+[node name="Cowbird" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" instance=ExtResource("18_3w53r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -144.31467, 35.583504, 64.29369)
+species = "Cowbird"
+
+[node name="Cowbug" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" instance=ExtResource("19_sdsnp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -160.80658, 35.305428, 58.448776)
+species = "Cowbug"
+
 [node name="GoldRat" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" instance=ExtResource("9_77xr6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -223.10313, 35.571392, -80.49562)
+species = "Gold Burglerat"
+
+[node name="GoldRat2" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" instance=ExtResource("9_77xr6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -145.00732, 35.27386, 50.910355)
 species = "Gold Burglerat"
 
 [node name="map2 water collision2" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World" instance=ExtResource("17_cd8fk")]

@@ -10,18 +10,30 @@ var nopic = load("res://programmerart/nopic.png")
 var base_score = {
 	"Olturtle" : 2,
 	"Burglerat" : 2,
+	"Veerabbit" : 2,
+	"Cowbug" : 2,
 	"Pargopher" : 3,
 	"Frankendeer" :3,
+	"Vamphibian" : 3,
+	"Cowbird" : 3,
 	"Cresbird" : 4,
+	"Leghost" : 4,
+	"Bugleton" : 4,
 	"Gold Burglerat" : 7
 }
 
 var species_same_max = {
 	"Olturtle" : 0,
 	"Burglerat" : 2,
+	"Veerabbit" : 3,
+	"Cowbug" : 3,
 	"Pargopher" : 3,
 	"Cresbird" : 3,
 	"Frankendeer" : 2,
+	"Vamphibian" : 0,
+	"Cowbird" : 5,
+	"Leghost" : 2,
+	"Bugleton" : 2,
 	"Gold Burglerat" : 0
 }
 
@@ -35,7 +47,6 @@ var species_best_pose = {
 	"Gold Burglerat" : "Resting"
 }
 
-# Walking, Dancing, Diving, Eating, Judging
 var pose_score = {
 	"Resting" : 1,
 	"Walking" : 1,

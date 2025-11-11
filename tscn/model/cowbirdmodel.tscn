@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://ylxmudobv7fp"]
+
+[ext_resource type="PackedScene" uid="uid://boeq6dt7l0jvt" path="res://blender inbox/cowbird/cowbird.blend" id="1_01c8m"]
+
+[node name="cowbird2" instance=ExtResource("1_01c8m")]

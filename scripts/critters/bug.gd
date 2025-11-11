@@ -1,4 +1,4 @@
-extends CharacterBody3D
+extends Critter
 
 
 const SPEED = 5.0
