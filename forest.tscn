@@ -989,6 +989,8 @@ volume_db = -80.0
 shape = SubResource("CapsuleShape3D_1ykyx")
 metadata/_edit_lock_ = true
 
+[node name="Emoticons" type="Node3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World"]
+
 [node name="ViewModel" type="SubViewportContainer" parent="HBlur/SubViewport/SubViewportContainer/SubViewport"]
 visible = false
 offset_right = 400.0

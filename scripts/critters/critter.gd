@@ -8,6 +8,7 @@ class_name Critter
 var action = "Resting"
 var action_time = 0.0
 
+var emoticon = preload("res://tscn/emoticon.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -25,6 +26,11 @@ func get_nearest_bait():
 		if best == null or global_position.distance_to(v.global_position) < global_position.distance_to(best.global_position):
 			best = v
 	return best
+	
+func make_emoticon():
+	var e = emoticon.instantiate()
+	get_node("../../Emoticons").add_child(e)
+	e.global_position = global_position
 	
 
 # to be overridden:

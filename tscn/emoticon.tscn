@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dr4tkgkry3mnl"]
+
+[ext_resource type="Script" uid="uid://uqricf1h5c2b" path="res://emote.gd" id="1_ser34"]
+[ext_resource type="Texture2D" uid="uid://2axp7axltjr8" path="res://emotes/emote_anger.png" id="2_gn0eo"]
+
+[node name="emoticon" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0)
+script = ExtResource("1_ser34")
+
+[node name="Sprite" type="Sprite3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+texture = ExtResource("2_gn0eo")
+metadata/_edit_lock_ = true
