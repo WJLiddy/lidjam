@@ -14,7 +14,9 @@ func _process(delta: float) -> void:
 	
 func ads_enable():
 	$Viewmodel/Camera3D/AnimationPlayer.play("ads_engage")
+	get_node("../UIRender").photomode = true
 
 func ads_disable():
 	$Viewmodel/Camera3D/AnimationPlayer.play("ads_disengage")
+	get_node("../UIRender").photomode = false
 	

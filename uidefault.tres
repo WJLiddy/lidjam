@@ -1,0 +1,10 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://c1ih44p7kryui"]
+
+[ext_resource type="FontFile" uid="uid://b66pf6t0mwf83" path="res://Daydream DEMO.otf" id="1_5c7n4"]
+
+[resource]
+line_spacing = 0.0
+font = ExtResource("1_5c7n4")
+font_size = 12
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)

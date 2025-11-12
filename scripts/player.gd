@@ -19,6 +19,8 @@ var ads_enabled = false
 var double_zoom = false
 var whistling = false
 
+var ads_zoom_delay = 0
+
 var fov_base = 70.0
 var fov_zoom = 70.0 / 3
 var fov_double_zoom = 70.0 / 6
@@ -39,12 +41,14 @@ func _physics_process(delta: float) -> void:
 		return
 	
 	action_cooldown -= delta
+	ads_zoom_delay -= delta
+	
 	
 	var speedup = 1
 	if(Global.quickscope_unlocked):
 		speedup = 2
 	
-	if(ads_enabled):
+	if(ads_enabled and ads_zoom_delay < 0):
 		if(double_zoom):
 			%Camera3D.fov = lerp(%Camera3D.fov,fov_double_zoom,4*speedup*delta)
 		else:
@@ -132,17 +136,18 @@ func _physics_process(delta: float) -> void:
 			double_zoom = false
 		if(ads_enabled):
 			get_node("../../../ViewModel").ads_enable()
+			ads_zoom_delay = 0.4
 		else:
 			get_node("../../../ViewModel").ads_disable()
 	
-	if Input.is_action_just_pressed("bait") and Global.bait > 0:
+	if Input.is_action_just_pressed("bait") and Global.bait > 0 and not ads_enabled:
 		Global.bait -= 1
 		var b = bait.instantiate()
 		b.apply_impulse(velocity + (-$%Camera3D.global_basis.z.normalized() * 10))
 		get_node("../Baits").add_child(b)
 		b.global_position = $%Camera3D.global_position
 		
-	if Input.is_action_pressed("whistle"):
+	if Input.is_action_pressed("whistle") and not ads_enabled:
 		whistling = true
 		$WhistleSound.volume_db = lerp($WhistleSound.volume_db,0.0,10*delta)
 		get_node("../../../UIRender").whistling = true
@@ -153,6 +158,24 @@ func _physics_process(delta: float) -> void:
 		$WhistleSound.volume_db = lerp($WhistleSound.volume_db,-80.0,10*delta)
 		get_node("../../../UIRender").whistling = false
 		
+	get_node("../../../UIRender").critterprevtext = getcritterprevtext()
+
+func getcritterprevtext():
+	if(ads_zoom_delay > 0):
+		return ""
+	for c in get_node("../Critters").get_children():
+		# if it's in front of the camera...
+		if c.get_node("vis").is_on_screen():
+			# do a raycast to make sure that there's no terrain or anything blocking him
+			var space_state = get_world_3d().direct_space_state
+			var coll_mask = 1
+			var query = PhysicsRayQueryParameters3D.create($%Camera3D.global_position, c.get_node("vis").global_position,coll_mask)
+			var result = space_state.intersect_ray(query)
+			if result.is_empty():
+				return c.species
+	return ""
+	
+
 func take_picture():
 	if(Global.pics.size() == Global.picsmax):
 		return

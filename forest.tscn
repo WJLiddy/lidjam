@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://bdkh5n42abtlg"]
+[gd_scene load_steps=60 format=3 uid="uid://bdkh5n42abtlg"]
 
 [ext_resource type="PackedScene" uid="uid://bf504syknspt3" path="res://tscn/puter.tscn" id="1_5rndp"]
 [ext_resource type="PackedScene" uid="uid://jyncanbkjjnq" path="res://tscn/player.tscn" id="1_lifw2"]
@@ -34,9 +34,11 @@
 [ext_resource type="Texture2D" uid="uid://s2tijo12vng8" path="res://programmerart/nopic.png" id="22_w7ivt"]
 [ext_resource type="Script" uid="uid://d0d3d8e1ouxld" path="res://scripts/title.gd" id="22_x23mu"]
 [ext_resource type="AudioStream" uid="uid://y7cgnxqgw0an" path="res://sound/upload.mp3" id="23_x23mu"]
-[ext_resource type="PackedScene" uid="uid://dcikus0dnpidr" path="res://tscn/camera_exclusive.tscn" id="25_vmfs8"]
 [ext_resource type="Texture2D" uid="uid://uu36jxa0e0yn" path="res://programmerart/peppermint.png" id="27_5xr7u"]
 [ext_resource type="Texture2D" uid="uid://dfag3m40iqt2v" path="res://programmerart/whistle.png" id="28_8pife"]
+[ext_resource type="PackedScene" uid="uid://ne08efha0yj8" path="res://tscn/camera.tscn" id="29_rjcrk"]
+[ext_resource type="Script" uid="uid://coxvv8wsxljv6" path="res://scripts/viewmodel.gd" id="29_x8p8v"]
+[ext_resource type="LabelSettings" uid="uid://c1ih44p7kryui" path="res://uidefault.tres" id="32_3w53r"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0aefg"]
 shader = ExtResource("1_uu8yv")
@@ -110,60 +112,37 @@ _data = {
 radius = 100.0
 height = 300.0
 
-[sub_resource type="GDScript" id="GDScript_0aefg"]
-script/source = "extends SubViewportContainer
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass
-	#$Viewmodel.world_3d = get_viewport().world_3d
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	$Viewmodel/Camera3D.global_position = get_node(\"../World/World/Player/HeadPosition/LandingAnimation/Camera3D\").global_position
-	$Viewmodel/Camera3D.global_rotation = get_node(\"../World/World/Player/HeadPosition/LandingAnimation/Camera3D\").global_rotation
-	
-func ads_enable():
-	$Viewmodel/Camera3D/AnimationPlayer.play(\"ads_engage\")
-
-func ads_disable():
-	$Viewmodel/Camera3D/AnimationPlayer.play(\"ads_disengage\")
-	
-"
-
 [sub_resource type="Animation" id="Animation_3yfs4"]
 length = 0.001
 tracks/0/type = "position_3d"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("camera_exclusive")
+tracks/0/path = NodePath("cameraviewmodel")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0)
+tracks/0/keys = PackedFloat32Array(0, 1, -0.74070996, -0.6318781, -1.0825827)
 
 [sub_resource type="Animation" id="Animation_1ykyx"]
 resource_name = "ads_disengage"
-length = 0.3
+length = 0.5
 tracks/0/type = "position_3d"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("camera_exclusive")
+tracks/0/path = NodePath("cameraviewmodel")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 2.9485474, -4.2234535, 4.504, 0.3, 1, 1.430275, -4.381772, 4.50354)
+tracks/0/keys = PackedFloat32Array(0, 1, 0.03, -0.165, 0.5, 0.03333334, 1, 0.03, -0.165, -0.17, 0.13333334, 1, 0.03, -0.165, -0.17, 0.5, 1, -0.74070996, -0.6318781, -1.0825827)
 
 [sub_resource type="Animation" id="Animation_vmfs8"]
 resource_name = "ads_engage"
-length = 0.3
+length = 0.5
 tracks/0/type = "position_3d"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("camera_exclusive")
+tracks/0/path = NodePath("cameraviewmodel")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 1.430275, -4.381772, 4.50354, 0.3, 1, 2.9485474, -4.2234535, 4.504)
+tracks/0/keys = PackedFloat32Array(0, 1, -0.74070996, -0.6318781, -1.0825827, 0.2, 1, 0.03, -0.165, -0.17, 0.4, 1, 0.03, -0.165, -0.17, 0.5, 1, 0.03, -0.165, 0.5)
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1ykyx"]
 _data = {
@@ -172,14 +151,14 @@ _data = {
 &"ads_engage": SubResource("Animation_vmfs8")
 }
 
-[sub_resource type="LabelSettings" id="LabelSettings_7fhox"]
-line_spacing = 0.0
+[sub_resource type="LabelSettings" id="LabelSettings_5xr7u"]
 font = ExtResource("15_6iyis")
 font_size = 12
 outline_size = 4
 outline_color = Color(0, 0, 0, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_5xr7u"]
+[sub_resource type="LabelSettings" id="LabelSettings_sdsnp"]
+line_spacing = 0.0
 font = ExtResource("15_6iyis")
 font_size = 12
 outline_size = 4
@@ -243,7 +222,7 @@ render_target_update_mode = 4
 environment = SubResource("Environment_1ykyx")
 
 [node name="Player" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World" instance=ExtResource("1_lifw2")]
-transform = Transform3D(0.9959144, 0, 0.090302326, 0, 1, 0, -0.090302326, 0, 0.9959144, -133.32742, 37.280025, 105.39168)
+transform = Transform3D(0.9959144, 0, 0.090302326, 0, 1, 0, -0.090302326, 0, 0.9959144, 40.50119, 4.142245, 71.82668)
 collision_layer = 4
 
 [node name="Shutter" type="AudioStreamPlayer3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Player"]
@@ -359,7 +338,7 @@ is_spawnbird = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -150.77496, 36.113834, 57.15664)
 
 [node name="Salamander" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" instance=ExtResource("11_md6d6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -156.33112, 37.054512, 70.879166)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.342712, 3.061855, 89.06199)
 
 [node name="Gopher2" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" instance=ExtResource("7_6iyis")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -159.3969, 37.41123, 90.908775)
@@ -1031,33 +1010,32 @@ metadata/_edit_lock_ = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 47.918232, 0, 94.00223)
 
 [node name="ViewModel" type="SubViewportContainer" parent="HBlur/SubViewport/SubViewportContainer/SubViewport"]
-visible = false
 offset_right = 400.0
 offset_bottom = 300.0
 mouse_filter = 2
 stretch = true
-script = SubResource("GDScript_0aefg")
+script = ExtResource("29_x8p8v")
 
 [node name="Viewmodel" type="SubViewport" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/ViewModel"]
 transparent_bg = true
 handle_input_locally = false
 size = Vector2i(400, 300)
 render_target_clear_mode = 1
-render_target_update_mode = 0
+render_target_update_mode = 4
 
 [node name="Camera3D" type="Camera3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/ViewModel/Viewmodel"]
 cull_mask = 524288
+near = 0.01
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/ViewModel/Viewmodel/Camera3D"]
 libraries = {
 &"": SubResource("AnimationLibrary_1ykyx")
 }
 
-[node name="camera_exclusive" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/ViewModel/Viewmodel/Camera3D" instance=ExtResource("25_vmfs8")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+[node name="cameraviewmodel" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/ViewModel/Viewmodel/Camera3D" instance=ExtResource("29_rjcrk")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.74070996, -0.6318781, -1.0825827)
 
 [node name="UIRender" type="Control" parent="HBlur/SubViewport/SubViewportContainer/SubViewport" node_paths=PackedStringArray("picSpots")]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_top = -1.0
@@ -1075,7 +1053,7 @@ offset_bottom = 48.0
 theme_override_font_sizes/font_size = 30
 text = "19/20
 $ 39"
-label_settings = SubResource("LabelSettings_7fhox")
+label_settings = ExtResource("32_3w53r")
 horizontal_alignment = 2
 
 [node name="PicSpot" type="TextureRect" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/UIRender"]
@@ -1178,6 +1156,15 @@ offset_right = 410.0
 offset_bottom = 241.5
 texture = ExtResource("28_8pife")
 stretch_mode = 2
+
+[node name="CritterPrev" type="Label" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/UIRender"]
+layout_mode = 0
+offset_right = 400.0
+offset_bottom = 300.0
+text = "TEST"
+label_settings = SubResource("LabelSettings_sdsnp")
+horizontal_alignment = 1
+vertical_alignment = 2
 
 [node name="Title" type="Control" parent="HBlur/SubViewport/SubViewportContainer/SubViewport"]
 layout_mode = 3
