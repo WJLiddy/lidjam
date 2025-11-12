@@ -204,25 +204,25 @@ func _input(event: InputEvent) -> void:
 						$Review.visible = false
 						$Background.visible = true
 				elif(state == "shop"):
-					if $Shop/Buy1/Buy1.get_overlapping_bodies().size() == 1 and Global.money >= 100 and not Global.zoom_unlocked:
+					if $Shop/Buy1/Buy1.get_overlapping_bodies().size() == 1 and Global.money >= 50 and not Global.zoom_unlocked:
 						Global.zoom_unlocked = true
-						Global.money -= 100
-					if $Shop/Buy2/Buy2.get_overlapping_bodies().size() == 1 and Global.money >= 70 and not Global.quickscope_unlocked:
-						Global.quickscope_unlocked = true
-						Global.money -= 70
-					if $Shop/Buy3/Buy3.get_overlapping_bodies().size() == 1 and Global.money >= 70 and not Global.bonus_film_unlocked:
-						Global.bonus_film_unlocked = true
-						Global.money -= 70
-						Global.picsmax = 40
-					if $Shop/Buy4/Buy4.get_overlapping_bodies().size() == 1 and Global.money >= 50 and not Global.bait_unlocked:
-						Global.bait_unlocked = true
 						Global.money -= 50
-					if $Shop/Buy5/Buy5.get_overlapping_bodies().size() == 1 and Global.money >= 120 and not Global.whistle_unlocked:
-						Global.whistle_unlocked = true
-						Global.money -= 120
-					if $Shop/Buy6/Buy6.get_overlapping_bodies().size() == 1 and Global.money >= 30 and not Global.shoes_unlocked:
-						Global.shoes_unlocked = true
+					if $Shop/Buy2/Buy2.get_overlapping_bodies().size() == 1 and Global.money >= 40 and not Global.quickscope_unlocked:
+						Global.quickscope_unlocked = true
+						Global.money -= 40
+					if $Shop/Buy3/Buy3.get_overlapping_bodies().size() == 1 and Global.money >= 40 and not Global.bonus_film_unlocked:
+						Global.bonus_film_unlocked = true
+						Global.money -= 40
+						Global.picsmax = 40
+					if $Shop/Buy4/Buy4.get_overlapping_bodies().size() == 1 and Global.money >= 30 and not Global.bait_unlocked:
+						Global.bait_unlocked = true
 						Global.money -= 30
+					if $Shop/Buy5/Buy5.get_overlapping_bodies().size() == 1 and Global.money >= 70 and not Global.whistle_unlocked:
+						Global.whistle_unlocked = true
+						Global.money -= 70
+					if $Shop/Buy6/Buy6.get_overlapping_bodies().size() == 1 and Global.money >= 20 and not Global.shoes_unlocked:
+						Global.shoes_unlocked = true
+						Global.money -= 20
 					if $Shop/Next/Next.get_overlapping_bodies().size() == 1:
 						state = "desktop"
 						$Shop.visible = false

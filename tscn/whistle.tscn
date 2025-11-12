@@ -3,3 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://bn6ap3sfyjrkg" path="res://blender inbox/whistle/whistle.blend" id="1_ww6co"]
 
 [node name="whistle2" instance=ExtResource("1_ww6co")]
+
+[node name="whistle" parent="." index="0"]
+layers = 524288

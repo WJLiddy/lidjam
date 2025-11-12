@@ -3,3 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://cymerm6yrr4by" path="res://blender inbox/camera viewmodel/camera viewmodel.blend" id="1_prdtf"]
 
 [node name="camera viewmodel2" instance=ExtResource("1_prdtf")]
+
+[node name="camera viewmodel" parent="." index="0"]
+layers = 524288
