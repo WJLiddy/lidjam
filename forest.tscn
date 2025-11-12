@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=3 uid="uid://bdkh5n42abtlg"]
+[gd_scene load_steps=66 format=3 uid="uid://bdkh5n42abtlg"]
 
 [ext_resource type="PackedScene" uid="uid://bf504syknspt3" path="res://tscn/puter.tscn" id="1_5rndp"]
 [ext_resource type="PackedScene" uid="uid://jyncanbkjjnq" path="res://tscn/player.tscn" id="1_lifw2"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://cmlgtxeyju1we" path="res://tscn/critters/fly.tscn" id="9_gn76q"]
 [ext_resource type="PackedScene" uid="uid://dkv84g78ja7cp" path="res://tscn/critters/ghost.tscn" id="9_mq2pq"]
 [ext_resource type="PackedScene" uid="uid://b6wloe02e4ac1" path="res://tscn/critters/skeleton.tscn" id="10_b6w6p"]
+[ext_resource type="PackedScene" uid="uid://drc4p0vufea8h" path="res://tscn/critters/crab.tscn" id="10_ms0gx"]
 [ext_resource type="PackedScene" uid="uid://sw7jvqyq5yya" path="res://tscn/critters/deer.tscn" id="10_wsut6"]
 [ext_resource type="PackedScene" uid="uid://bqpj431w644eb" path="res://tscn/critters/salamander.tscn" id="11_md6d6"]
 [ext_resource type="FontFile" uid="uid://b66pf6t0mwf83" path="res://Daydream DEMO.otf" id="15_6iyis"]
@@ -354,6 +355,9 @@ species = "Corpofish"
 
 [node name="Fly" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" instance=ExtResource("9_gn76q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5527077, 8.611213, 0)
+
+[node name="Crab" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" instance=ExtResource("10_ms0gx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.340515, 4.5247817, 1.196599)
 
 [node name="Gopher" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" instance=ExtResource("7_6iyis")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -159.3969, 37.230465, 86.45649)

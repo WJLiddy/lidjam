@@ -12,7 +12,8 @@ collision_layer = 2
 collision_mask = 47
 script = ExtResource("1_saetr")
 
-[node name="wizard crab2" parent="." instance=ExtResource("2_saetr")]
+[node name="model" parent="." instance=ExtResource("2_saetr")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
 [node name="vis" type="VisibleOnScreenEnabler3D" parent="."]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0.67615414, 0.07148653)
