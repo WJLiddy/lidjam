@@ -6,7 +6,7 @@ func pick_action():
 	else:
 		if(randf_range(0,3) == 1):
 			action = "Flying"
-			$nav.set_target_position(global_position + Vector3(randf_range(-5,5),0,randf_range(-5,5)))
+			set_nav_meander()
 		else:
 			action = "Resting"
 		

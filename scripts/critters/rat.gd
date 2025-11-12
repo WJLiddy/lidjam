@@ -52,7 +52,7 @@ func pick_action():
 	# fallback
 		fleeing = false
 		action = "Rolling"
-		$nav.set_target_position(global_position + Vector3(randf_range(-5,5),0,randf_range(-5,5)))
+		set_nav_meander()
 		action_time = get_anim_length(action)
 
 	$model/AnimationPlayer.play(action)
