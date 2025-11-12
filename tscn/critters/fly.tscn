@@ -9,7 +9,7 @@ height = 1.0
 
 [node name="Fly" type="CharacterBody3D"]
 collision_layer = 2
-collision_mask = 47
+collision_mask = 15
 script = ExtResource("1_7yjpn")
 
 [node name="model" parent="." instance=ExtResource("2_7yjpn")]

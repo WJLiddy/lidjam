@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=3 uid="uid://bdkh5n42abtlg"]
+[gd_scene load_steps=65 format=3 uid="uid://bdkh5n42abtlg"]
 
 [ext_resource type="PackedScene" uid="uid://bf504syknspt3" path="res://tscn/puter.tscn" id="1_5rndp"]
 [ext_resource type="PackedScene" uid="uid://jyncanbkjjnq" path="res://tscn/player.tscn" id="1_lifw2"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://bkymdh02rnhv1" path="res://tscn/critters/hummingbird.tscn" id="8_77xr6"]
 [ext_resource type="PackedScene" uid="uid://d24tv6lv5qb8a" path="res://tscn/tree2col.tscn" id="8_uu8yv"]
 [ext_resource type="PackedScene" uid="uid://da88pv54pfnlq" path="res://tscn/critters/rat.tscn" id="9_77xr6"]
+[ext_resource type="PackedScene" uid="uid://cmlgtxeyju1we" path="res://tscn/critters/fly.tscn" id="9_gn76q"]
 [ext_resource type="PackedScene" uid="uid://dkv84g78ja7cp" path="res://tscn/critters/ghost.tscn" id="9_mq2pq"]
 [ext_resource type="PackedScene" uid="uid://b6wloe02e4ac1" path="res://tscn/critters/skeleton.tscn" id="10_b6w6p"]
 [ext_resource type="PackedScene" uid="uid://sw7jvqyq5yya" path="res://tscn/critters/deer.tscn" id="10_wsut6"]
@@ -350,6 +351,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.848833, 0, 33.983932)
 follow = NodePath("../../WaterPath/WaterFollow")
 is_lead = true
 species = "Corpofish"
+
+[node name="Fly" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" instance=ExtResource("9_gn76q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5527077, 8.611213, 0)
 
 [node name="Gopher" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" instance=ExtResource("7_6iyis")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -159.3969, 37.230465, 86.45649)
