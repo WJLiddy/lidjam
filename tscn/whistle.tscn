@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://c8gh5txso1qv3"]
+
+[ext_resource type="PackedScene" uid="uid://bn6ap3sfyjrkg" path="res://blender inbox/whistle/whistle.blend" id="1_ww6co"]
+
+[node name="whistle2" instance=ExtResource("1_ww6co")]

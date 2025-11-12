@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=3 uid="uid://bdkh5n42abtlg"]
+[gd_scene load_steps=62 format=3 uid="uid://bdkh5n42abtlg"]
 
 [ext_resource type="PackedScene" uid="uid://bf504syknspt3" path="res://tscn/puter.tscn" id="1_5rndp"]
 [ext_resource type="PackedScene" uid="uid://jyncanbkjjnq" path="res://tscn/player.tscn" id="1_lifw2"]
@@ -144,11 +144,35 @@ tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = PackedFloat32Array(0, 1, -0.74070996, -0.6318781, -1.0825827, 0.2, 1, 0.03, -0.165, -0.17, 0.4, 1, 0.03, -0.165, -0.17, 0.5, 1, 0.03, -0.165, 0.5)
 
+[sub_resource type="Animation" id="Animation_3w53r"]
+resource_name = "hide"
+length = 0.2
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("cameraviewmodel")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, -0.74070996, -0.6318781, -1.0825827, 0.2, 1, -0.741, -1.5, -1.083)
+
+[sub_resource type="Animation" id="Animation_sdsnp"]
+resource_name = "show"
+length = 0.2
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("cameraviewmodel")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, -0.741, -1.5, -1.083, 0.2, 1, -0.74070996, -0.6318781, -1.0825827)
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1ykyx"]
 _data = {
 &"RESET": SubResource("Animation_3yfs4"),
 &"ads_disengage": SubResource("Animation_1ykyx"),
-&"ads_engage": SubResource("Animation_vmfs8")
+&"ads_engage": SubResource("Animation_vmfs8"),
+&"hide": SubResource("Animation_3w53r"),
+&"show": SubResource("Animation_sdsnp")
 }
 
 [sub_resource type="LabelSettings" id="LabelSettings_5xr7u"]
@@ -1027,7 +1051,7 @@ render_target_update_mode = 4
 cull_mask = 524288
 near = 0.01
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/ViewModel/Viewmodel/Camera3D"]
+[node name="CamViewModel" type="AnimationPlayer" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/ViewModel/Viewmodel/Camera3D"]
 libraries = {
 &"": SubResource("AnimationLibrary_1ykyx")
 }

@@ -88,6 +88,10 @@ func _physics_process(delta: float) -> void:
 		speed = run_speed
 		if Input.is_action_pressed("sprint"):
 			speed = sprint_speed
+			get_node("../../../ViewModel").cam_hide()
+		else:
+			get_node("../../../ViewModel").cam_show()
+			
 		if Input.is_action_pressed("crouch") or ads_enabled:
 			speed = crouch_speed
 
@@ -115,13 +119,13 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 	
-	if Input.is_action_just_pressed("action") and action_cooldown < 0:
+	if Input.is_action_just_pressed("action") and action_cooldown < 0 and speed != sprint_speed:
 		# if we raycast into the computer, use it
 		%CamRayCast.force_raycast_update()
 		if %CamRayCast.is_colliding() and %CamRayCast.get_collider().name == "COMPUTER":
 			Global.is_using_puter = true
 			# hide the camera
-			get_node("../../../ViewModel").visible = false
+			get_node("../../../ViewModel").cam_hide()
 		else:
 			await RenderingServer.frame_post_draw
 			take_picture()
