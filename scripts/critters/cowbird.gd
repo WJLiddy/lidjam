@@ -24,7 +24,6 @@ func _physics_process(delta: float) -> void:
 		action_time = 0
 	
 	if(action_time <= 0):
-		print(action)
 		if(action == "Eating"):
 			get_nearest_bait().queue_free()
 
