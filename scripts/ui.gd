@@ -24,8 +24,8 @@ func _process(delta: float) -> void:
 	else:
 		$Whistle.modulate.a = move_toward($Whistle.modulate.a,0.5,delta)
 
-	$CandyCount.visible = not photomode
-	$Whistle.visible = not photomode
+	$CandyCount.visible = not photomode and Global.bait_unlocked
+	$Whistle.visible = not photomode and Global.whistle_unlocked
 	$PicSpot.visible = not photomode
 	$PicSpot2.visible = not photomode
 	$PicSpot3.visible = not photomode
@@ -64,9 +64,9 @@ func push_image_reverse(image: Image) -> void:
 func rewind():
 	while(Global.pics.size() > 0):
 		$Upload.play()
-		if(Global.pics.size() > 5):
-			push_image_reverse(Global.pics[5]["image"]) 
+		if(Global.pics.size() > 3):
+			push_image_reverse(Global.pics[3]["image"]) 
 		else:
 			push_image_reverse(nopic.get_image())
 		Global.pics.remove_at(0)
-		await get_tree().create_timer(0.3).timeout
+		await get_tree().create_timer(0.2).timeout

@@ -6,6 +6,8 @@ var grading_index = 0
 var state = "desktop"
 var nopic = load("res://programmerart/nopic.png")
 
+var upload_timer = 5
+
 # species hardcoded stuff
 var base_score = {
 	"Olturtle" : 2,
@@ -106,6 +108,19 @@ func get_best_possible_score(creature):
 func _ready() -> void:
 	pass # Replace with function body.
 	
+func _process(delta: float) -> void:
+	upload_timer -= delta
+	if(state == "upload" and upload_timer < 0):
+		$Upload.visible = false
+		state = "grading"
+		$Grading.visible = true
+	$Shop/Buy1.visible = !Global.zoom_unlocked
+	$Shop/Buy2.visible = !Global.quickscope_unlocked
+	$Shop/Buy3.visible = !Global.bonus_film_unlocked
+	$Shop/Buy4.visible = !Global.bait_unlocked
+	$Shop/Buy5.visible = !Global.whistle_unlocked
+	$Shop/Buy6.visible = !Global.shoes_unlocked
+			
 func sort_by_score(a,b):
 	return a["score"] > b["score"]
 	
@@ -158,11 +173,12 @@ func _input(event: InputEvent) -> void:
 						get_node("../../../../UIRender").rewind()
 						# fix later
 						if not pictures_to_grade.is_empty():
+							upload_timer = 0.2 * (2+Global.pics.size())
 							grading_index = 0
 							ui_grade()
 							$Background.visible = false
-							state = "grading"
-							$Grading.visible = true
+							state = "upload"
+							$Upload.visible = true
 				elif(state == "grading"):
 					# grading
 					if $Grading/Next/Next.get_overlapping_bodies().size() == 1:
@@ -188,22 +204,25 @@ func _input(event: InputEvent) -> void:
 						$Review.visible = false
 						$Background.visible = true
 				elif(state == "shop"):
-					if $Shop/Buy1/Buy1.get_overlapping_bodies().size() == 1 and Global.money > 100 and not Global.zoom_unlocked:
+					if $Shop/Buy1/Buy1.get_overlapping_bodies().size() == 1 and Global.money >= 100 and not Global.zoom_unlocked:
 						Global.zoom_unlocked = true
 						Global.money -= 100
-					if $Shop/Buy2/Buy2.get_overlapping_bodies().size() == 1 and Global.money > 100 and not Global.quickscope_unlocked:
+					if $Shop/Buy2/Buy2.get_overlapping_bodies().size() == 1 and Global.money >= 70 and not Global.quickscope_unlocked:
 						Global.quickscope_unlocked = true
-						Global.money -= 100
-					if $Shop/Buy3/Buy3.get_overlapping_bodies().size() == 1 and Global.money > 100 and not Global.bonus_film_unlocked:
+						Global.money -= 70
+					if $Shop/Buy3/Buy3.get_overlapping_bodies().size() == 1 and Global.money >= 70 and not Global.bonus_film_unlocked:
 						Global.bonus_film_unlocked = true
-						Global.money -= 100
+						Global.money -= 70
 						Global.picsmax = 40
-					if $Shop/Buy4/Buy4.get_overlapping_bodies().size() == 1 and Global.money > 100 and not Global.bonus_film_unlocked:
+					if $Shop/Buy4/Buy4.get_overlapping_bodies().size() == 1 and Global.money >= 50 and not Global.bait_unlocked:
 						Global.bait_unlocked = true
-						Global.money -= 100
-					if $Shop/Buy5/Buy5.get_overlapping_bodies().size() == 1 and Global.money > 100 and not Global.whistle_unlocked:
+						Global.money -= 50
+					if $Shop/Buy5/Buy5.get_overlapping_bodies().size() == 1 and Global.money >= 120 and not Global.whistle_unlocked:
 						Global.whistle_unlocked = true
-						Global.money -= 100
+						Global.money -= 120
+					if $Shop/Buy6/Buy6.get_overlapping_bodies().size() == 1 and Global.money >= 30 and not Global.shoes_unlocked:
+						Global.shoes_unlocked = true
+						Global.money -= 20
 					if $Shop/Next/Next.get_overlapping_bodies().size() == 1:
 						state = "desktop"
 						$Shop.visible = false

@@ -13,8 +13,9 @@ func pick_action():
 		action = "Resting"
 		$model/AnimationPlayer.play(action)
 		return
+	print(action)
 		
-	if(action == "Roll Ending"):
+	if(action == "Roll EndingIDLE"):
 		action = "Eating"
 		#make_emoticon()
 		action_time = get_anim_length(action)
@@ -22,7 +23,7 @@ func pick_action():
 		# bug prone
 		if(get_nearest_bait() != null):
 			get_nearest_bait().queue_free()
-		action = "Roll Starting"
+		action = "Roll StartingIDLE"
 		action_time = get_anim_length(action)
 	
 	# check if should run from player.
@@ -40,8 +41,8 @@ func pick_action():
 		var bait = get_nearest_bait()
 		if(global_position.distance_to(bait.global_position) < 1):
 			# eat it
-			action = "Roll Ending"
-			action_time = get_anim_length("Roll Ending")
+			action = "Roll EndingIDLE"
+			action_time = get_anim_length(action)
 		else:
 			action = "Rolling"
 			action_time = get_anim_length(action)

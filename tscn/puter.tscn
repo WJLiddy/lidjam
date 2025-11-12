@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bf504syknspt3"]
+[gd_scene load_steps=20 format=3 uid="uid://bf504syknspt3"]
 
 [ext_resource type="PackedScene" uid="uid://dndwj10egr80j" path="res://programmerart/pc-monitor.fbx" id="1_kic1t"]
 [ext_resource type="Texture2D" uid="uid://c5t4kq1pm500p" path="res://programmerart/win.png" id="2_0hlij"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bb5bijjij58bf" path="res://programmerart/grading.png" id="6_2ndsu"]
 [ext_resource type="Texture2D" uid="uid://cpgsb1s2l8q7l" path="res://programmerart/upload.png" id="6_om0pq"]
 [ext_resource type="Texture2D" uid="uid://bohai8cmuaxck" path="res://programmerart/amazon.png" id="7_sjatc"]
+[ext_resource type="Texture2D" uid="uid://crrby1wwugg82" path="res://programmerart/uploading.png" id="7_vt4ab"]
 [ext_resource type="Texture2D" uid="uid://byyhqhnwoxjhq" path="res://programmerart/next.png" id="7_wyg07"]
 [ext_resource type="Texture2D" uid="uid://ynw6e617hjsg" path="res://programmerart/buy.png" id="8_3rc7y"]
 [ext_resource type="Texture2D" uid="uid://s2tijo12vng8" path="res://programmerart/nopic.png" id="8_sbthb"]
@@ -77,13 +78,17 @@ collision_mask = 2
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 shape = SubResource("BoxShape3D_r1ldu")
 
-[node name="Shop" type="Sprite3D" parent="pc-monitor" index="2"]
+[node name="Upload" type="Sprite3D" parent="pc-monitor" index="2"]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.2989939, 0.063055426)
 visible = false
+texture = ExtResource("7_vt4ab")
+
+[node name="Shop" type="Sprite3D" parent="pc-monitor" index="3"]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.2989939, 0.063055426)
 texture = ExtResource("7_sjatc")
 
 [node name="Buy1" type="Sprite3D" parent="pc-monitor/Shop" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.667, 0.4, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.96700007, -0.39999986, 0)
 sorting_offset = 1.0
 texture = ExtResource("8_3rc7y")
 
@@ -99,11 +104,13 @@ shape = SubResource("BoxShape3D_r1ldu")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.28722018, 0, 0)
 sorting_offset = 1.0
 modulate = Color(0, 0, 0, 1)
-text = "camera zoomer"
+text = "SUPER ZOOM $100"
+font = ExtResource("12_3rc7y")
+font_size = 20
 horizontal_alignment = 0
 
 [node name="Buy2" type="Sprite3D" parent="pc-monitor/Shop" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.667, 0.15, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.96700007, 0.05000019, 0)
 sorting_offset = 1.0
 texture = ExtResource("8_3rc7y")
 
@@ -119,11 +126,13 @@ shape = SubResource("BoxShape3D_r1ldu")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29397228, 0.01790452, -0.00023365021)
 sorting_offset = 1.0
 modulate = Color(0, 0, 0, 1)
-text = "camera quickscope"
+text = "QUICK ZOOM $70"
+font = ExtResource("12_3rc7y")
+font_size = 20
 horizontal_alignment = 0
 
 [node name="Buy3" type="Sprite3D" parent="pc-monitor/Shop" index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.667, -0.1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.96700007, -0.1749996, 0)
 sorting_offset = 1.0
 texture = ExtResource("8_3rc7y")
 
@@ -139,11 +148,14 @@ shape = SubResource("BoxShape3D_r1ldu")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29397228, 0.01790452, -0.00023365021)
 sorting_offset = 1.0
 modulate = Color(0, 0, 0, 1)
-text = "camera bonus film"
+text = "EXTRA FILM $70
+"
+font = ExtResource("12_3rc7y")
+font_size = 20
 horizontal_alignment = 0
 
 [node name="Buy4" type="Sprite3D" parent="pc-monitor/Shop" index="3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.667, -0.35, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.96700007, 0.27500033, 0)
 sorting_offset = 1.0
 texture = ExtResource("8_3rc7y")
 
@@ -159,11 +171,13 @@ shape = SubResource("BoxShape3D_r1ldu")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29397228, 0.01790452, -0.00023365021)
 sorting_offset = 1.0
 modulate = Color(0, 0, 0, 1)
-text = "bait"
+text = "BAIT $50"
+font = ExtResource("12_3rc7y")
+font_size = 20
 horizontal_alignment = 0
 
 [node name="Buy5" type="Sprite3D" parent="pc-monitor/Shop" index="4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.667, -0.6, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.96700007, -0.6249999, 0)
 sorting_offset = 1.0
 texture = ExtResource("8_3rc7y")
 
@@ -179,11 +193,35 @@ shape = SubResource("BoxShape3D_r1ldu")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29397228, 0.01790452, -0.00023365021)
 sorting_offset = 1.0
 modulate = Color(0, 0, 0, 1)
-text = "whistle"
+text = "WHISTLE $120"
+font = ExtResource("12_3rc7y")
+font_size = 20
 horizontal_alignment = 0
 
-[node name="Next" type="Sprite3D" parent="pc-monitor/Shop" index="5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8529873, -0.4986661, 0.00023365021)
+[node name="Buy6" type="Sprite3D" parent="pc-monitor/Shop" index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.96700007, 0.50000024, 0)
+sorting_offset = 1.0
+texture = ExtResource("8_3rc7y")
+
+[node name="Buy6" type="Area3D" parent="pc-monitor/Shop/Buy6" index="0"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="pc-monitor/Shop/Buy6/Buy6" index="0"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+shape = SubResource("BoxShape3D_r1ldu")
+
+[node name="Label3D" type="Label3D" parent="pc-monitor/Shop/Buy6" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.29397228, 0.01790452, -0.00023365021)
+sorting_offset = 1.0
+modulate = Color(0, 0, 0, 1)
+text = "RUNNING SHOES $30"
+font = ExtResource("12_3rc7y")
+font_size = 20
+horizontal_alignment = 0
+
+[node name="Next" type="Sprite3D" parent="pc-monitor/Shop" index="6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0029874, -0.5236661, 0.00023365021)
 sorting_offset = 1.0
 texture = ExtResource("7_wyg07")
 
@@ -195,7 +233,7 @@ collision_mask = 2
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 shape = SubResource("BoxShape3D_r1ldu")
 
-[node name="Grading" type="Sprite3D" parent="pc-monitor" index="3"]
+[node name="Grading" type="Sprite3D" parent="pc-monitor" index="4"]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.2989939, 0.063055426)
 visible = false
 texture = ExtResource("6_2ndsu")
@@ -259,14 +297,19 @@ horizontal_alignment = 2
 vertical_alignment = 0
 
 [node name="ProfText" type="Label3D" parent="pc-monitor/Grading" index="6"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1, -0.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.95000005, -0.49999988, 0)
 sorting_offset = 1.0
 modulate = Color(0, 0, 0, 1)
-font_size = 16
+text = "aaa
+aaa
+aaa
+aaa"
+font = ExtResource("12_3rc7y")
+font_size = 12
 horizontal_alignment = 0
 vertical_alignment = 0
 
-[node name="Review" type="Sprite3D" parent="pc-monitor" index="4"]
+[node name="Review" type="Sprite3D" parent="pc-monitor" index="5"]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.2989939, 0.063055426)
 visible = false
 texture = ExtResource("9_1ewvw")
@@ -653,7 +696,7 @@ collision_mask = 2
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 shape = SubResource("BoxShape3D_r1ldu")
 
-[node name="Mouse" type="Sprite3D" parent="pc-monitor" index="5"]
+[node name="Mouse" type="Sprite3D" parent="pc-monitor" index="6"]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.010566011, 0.45, 0.063)
 sorting_offset = 10.0
 texture = ExtResource("3_ra6hk")

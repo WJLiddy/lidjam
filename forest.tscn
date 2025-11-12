@@ -180,17 +180,6 @@ _data = {
 &"show": SubResource("Animation_sdsnp")
 }
 
-[sub_resource type="Animation" id="Animation_5u7ok"]
-resource_name = "show"
-length = 0.2
-tracks/0/type = "position_3d"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("whistle")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 0, -0.8143853, -0.72785723, 0.2, 1, 0, -0.36719817, -0.46790034)
-
 [sub_resource type="Animation" id="Animation_cbth3"]
 length = 0.001
 tracks/0/type = "position_3d"
@@ -210,6 +199,17 @@ tracks/0/path = NodePath("whistle")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = PackedFloat32Array(0, 1, 0, -0.36719817, -0.46790034, 0.2, 1, 0, -0.8143853, -0.72785723)
+
+[sub_resource type="Animation" id="Animation_5u7ok"]
+resource_name = "show"
+length = 0.2
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("whistle")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, -0.8143853, -0.72785723, 0.2, 1, 0, -0.36719817, -0.46790034)
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cj7we"]
 _data = {
@@ -400,7 +400,7 @@ species = "Billterfly"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.340515, 4.5247817, 1.196599)
 
 [node name="Gopher" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" instance=ExtResource("7_6iyis")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -159.3969, 37.230465, 86.45649)
+transform = Transform3D(-0.83526075, 0, -0.54985404, 0, 1, 0, 0.54985404, 0, -0.83526075, -159.3969, 37.230465, 86.45649)
 
 [node name="Ghost" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" instance=ExtResource("9_mq2pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -153.361, 36.547493, 65.592674)
@@ -421,10 +421,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -150.77496, 36.113834, 57.156
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.342712, 3.061855, 89.06199)
 
 [node name="Gopher2" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" instance=ExtResource("7_6iyis")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -159.3969, 37.41123, 90.908775)
+transform = Transform3D(0.5647654, 0, -0.8252515, 0, 1, 0, 0.8252515, 0, 0.5647654, -159.3969, 37.41123, 90.908775)
 
 [node name="Gopher3" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" instance=ExtResource("7_6iyis")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -155.64717, 37.300236, 87.75857)
+transform = Transform3D(-0.25271106, 0, 0.9675418, 0, 1, 0, -0.9675418, 0, -0.25271106, -155.64717, 37.300236, 87.75857)
 
 [node name="Turtle" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" instance=ExtResource("4_x23mu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -148.43956, 36.96168, 82.990685)

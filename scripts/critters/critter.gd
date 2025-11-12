@@ -77,7 +77,7 @@ func _physics_process(delta: float) -> void:
 		
 	if(action_time > 0):
 		
-		var walk_actions = ["Walking","Rolling","Roll Starting","Roll Ending","Flying","Scared","Waddling"]
+		var walk_actions = ["Walking","Rolling","Flying","Scared","Waddling"]
 		var look_at_player_actions = ["Turning","Listening","Excited","Judging","Petrified"]
 		# !! Action Lookup Map
 		if(action in walk_actions):

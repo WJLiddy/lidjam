@@ -6,6 +6,7 @@ var bugle = false
 func pick_action():
 	if(bugle):
 		action = "BuglingIDLE"
+		bugle = false
 	elif(dist_to_player() < 10):
 		action = "HidingIDLE"
 	else:
