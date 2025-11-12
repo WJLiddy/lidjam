@@ -20,7 +20,6 @@ func pick_action():
 			
 	if(action == "Waddling" or action == "RestingIDLE" or action == "Using MagicIDLE"):
 		if(to_shore):
-			print(entry_position.distance_to(global_position))
 			if(entry_position.distance_to(global_position) < 4):
 				action = "Swimming"
 				global_position = entry_position
@@ -30,23 +29,21 @@ func pick_action():
 		else:
 			# check for confusion w/bait
 			if(get_nearest_bait() != null and global_position.distance_to(get_nearest_bait().global_position) < 1):
-				action = "ConfusedIDLE"
-			
-			var rand = randi_range(1,3)
-			print(rand)
-			# go to shore eventually
-			if(rand == 1):
-				to_shore = true
-				action = "Waddling"
-			if(rand == 2):
-				action = "Using MagicIDLE"
-			if(rand == 3):
-				action = "RestingIDLE"
-				
-			if(action == "Waddling"):
-				set_nav_meander()
-		
-	print(action + str(to_shore))
+				action = "Curious"
+			else:
+				var rand = randi_range(1,5)
+				# go to shore eventually
+				if(rand == 1):
+					to_shore = true
+					action = "Waddling"
+				if(rand == 2):
+					action = "Using MagicIDLE"
+				if(rand == 3):
+					action = "RestingIDLE"
+				if(rand > 3):
+					action = "Waddling"
+					set_nav_meander()
+					
 	action_time = get_anim_length(action)
 	if(action == "Swimming"):
 		action_time = 20

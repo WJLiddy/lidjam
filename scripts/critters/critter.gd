@@ -96,7 +96,7 @@ func _physics_process(delta: float) -> void:
 			look_at_grad(delta,global_position + velocity)
 			move_and_slide()
 		
-		elif(action == "Eating"):
+		elif(action == "Eating" or action == "Curious"):
 			if(get_nearest_bait() != null):
 				# always turn toward the nearest bait.
 				look_at_grad(delta, get_nearest_bait().global_position)

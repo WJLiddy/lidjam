@@ -16,7 +16,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.wwdea
 func _process(delta: float) -> void:
-	$Flash.color = Color(1,1,1,$Flash.color.a -  10 * delta)
+	$Flash.color = Color(1,1,1,$Flash.color.a -  5 * delta)
 	$FPS.text = "FPS " + str(Engine.get_frames_per_second())
 	$CandyCount/Label.text = str(Global.bait)
 	if(whistling):
