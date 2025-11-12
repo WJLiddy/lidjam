@@ -222,7 +222,7 @@ func _input(event: InputEvent) -> void:
 						Global.money -= 120
 					if $Shop/Buy6/Buy6.get_overlapping_bodies().size() == 1 and Global.money >= 30 and not Global.shoes_unlocked:
 						Global.shoes_unlocked = true
-						Global.money -= 20
+						Global.money -= 30
 					if $Shop/Next/Next.get_overlapping_bodies().size() == 1:
 						state = "desktop"
 						$Shop.visible = false
@@ -244,7 +244,7 @@ func ui_grade():
 		var cr2 = ImageTexture.create_from_image(Global.bests[critter]["pic"])
 		cr2.set_size_override(Vector2(40,30))
 		$Grading/Old.texture = cr2
-		$Grading/OldText.text = str(Global.bests[critter].score)
+		$Grading/OldText.text = "Prev:" + str(Global.bests[critter].score)
 	else:
 		$Grading/Old.texture = null
 	
