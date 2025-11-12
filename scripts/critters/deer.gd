@@ -2,7 +2,7 @@ extends Critter
 
 func speed():
 	if fleeing:
-		return 10
+		return 12
 	return 6
 
 var fleeing = false
@@ -30,4 +30,3 @@ func pick_action():
 			set_nav_meander()
 	action_time = get_anim_length(action)
 	$model/AnimationPlayer.play(action)
-	print(action)

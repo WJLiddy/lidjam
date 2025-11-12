@@ -2,18 +2,25 @@ extends Critter
 
 func speed():
 	if fleeing:
-		return 8
+		return 10
 	return 5
 
 var fleeing = false
 # Eating, Rolling, Roll Starting, Roll Ending
 
 func pick_action():
+	
+	# check if we should stop fleeing
+	if(dist_to_player() > 20):
+		fleeing = false
+	
+	# special - ignore this one
 	if(species == "Gold Burglerat"):
 		action = "Resting"
 		$model/AnimationPlayer.play(action)
 		return
 		
+	# state stuff, always play this
 	if(action == "Roll EndingIDLE"):
 		action = "Eating"
 		#make_emoticon()
@@ -26,25 +33,24 @@ func pick_action():
 		action_time = get_anim_length(action)
 	
 	# check if should run from player.
-	elif(dist_to_player() < 10):
+	elif(dist_to_player() < 10 or fleeing):
 		fleeing = true
 		set_nav_flee_from_player()
 		action = "Rolling"
 		action_time = get_anim_length(action)
-		return
 		
 	# check if i should go towards or eat bait
-	elif(get_node("../../Baits").get_children().size() > 0):
-		fleeing = false
+	elif(get_nearest_bait() != null):
 		# look for any baits.
 		var bait = get_nearest_bait()
-		if(global_position.distance_to(bait.global_position) < 1):
-			# eat it
+		if(global_position.distance_to(bait.global_position) < 1 and bait.global_position.distance_to(get_node("../../Player").global_position) > 10):
+			# the bait is left alone, eat it
 			action = "Roll EndingIDLE"
 			action_time = get_anim_length(action)
 		else:
 			action = "Rolling"
 			action_time = get_anim_length(action)
+			# go to the bait
 			$nav.set_target_position(bait.global_position)
 		
 

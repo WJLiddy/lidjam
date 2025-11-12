@@ -16,8 +16,8 @@ species = "Frankendeer"
 [node name="model" parent="." instance=ExtResource("2_wvlqg")]
 
 [node name="vis" type="VisibleOnScreenNotifier3D" parent="."]
-transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 7, 0, 1.6957408, 0)
-aabb = AABB(-0.2, -0.2, -0.2, 0.4, 0.4, 0.4)
+transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 7, 0, 1.9683272, -0.29207098)
+aabb = AABB(-0.10111387, -0.20810649, -0.24644274, 0.20222774, 0.41621298, 0.49288547)
 
 [node name="col" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)

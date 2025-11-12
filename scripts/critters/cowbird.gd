@@ -17,6 +17,12 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	action_time -= delta
 	
+	# if the perchtarg EVER gets stale, check that first.
+	if(not is_instance_valid(perchtarg)):
+		# someone ate our bait..
+		action = "Perched"
+		action_time = 0
+	
 	if(action_time < 0):
 		if(action == "Eating"):
 			get_nearest_bait().queue_free()

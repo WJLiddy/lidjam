@@ -65,7 +65,7 @@ unique_name_in_owner = true
 target_position = Vector3(0, 0, -1)
 
 [node name="ThrowPos" type="Node3D" parent="HeadPosition/LandingAnimation/Camera3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0, 0)
 
 [node name="CeilingDetector" type="RayCast3D" parent="."]
 target_position = Vector3(0, 2.1, 0)
