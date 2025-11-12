@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3 uid="uid://bdkh5n42abtlg"]
+[gd_scene load_steps=64 format=3 uid="uid://bdkh5n42abtlg"]
 
 [ext_resource type="PackedScene" uid="uid://bf504syknspt3" path="res://tscn/puter.tscn" id="1_5rndp"]
 [ext_resource type="PackedScene" uid="uid://jyncanbkjjnq" path="res://tscn/player.tscn" id="1_lifw2"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://df62bathlqpv3" path="res://tscn/critters/turtle.tscn" id="4_x23mu"]
 [ext_resource type="PackedScene" uid="uid://brv4x8urgfq2c" path="res://tscn/critters/gopher.tscn" id="7_6iyis"]
 [ext_resource type="PackedScene" uid="uid://dv3bc75iqnroi" path="res://tscn/tree1col.tscn" id="7_8dl3p"]
+[ext_resource type="PackedScene" uid="uid://b6qr41t8l5nkc" path="res://tscn/critters/fish.tscn" id="8_8o60n"]
 [ext_resource type="PackedScene" uid="uid://bkymdh02rnhv1" path="res://tscn/critters/hummingbird.tscn" id="8_77xr6"]
 [ext_resource type="PackedScene" uid="uid://d24tv6lv5qb8a" path="res://tscn/tree2col.tscn" id="8_uu8yv"]
 [ext_resource type="PackedScene" uid="uid://da88pv54pfnlq" path="res://tscn/critters/rat.tscn" id="9_77xr6"]
@@ -64,7 +65,7 @@ fog_density = 0.005
 
 [sub_resource type="Curve3D" id="Curve3D_3yfs4"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 9.122185, 0, 0, 0, 0, 0, 0, 0, 0, -16.371544, 0, 0, 0, 0, 0, 0, 0, 0, -52.933525, 0, 0, 0, 0, 0, 0, 0, 12.015995, -75.723076, 0, 0, 0, 0, 0, 0, 0, 0, -104.27068),
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -3.0890007, 0, -19.955135, 0, 0, 0, 0, 0, 0, -13.16288, 0, -47.419754, 0, 0, 0, 0, 0, 0, -8.983267, 0, -72.046005, 0, 0, 0, 0, 0, 0, -8.475, 0, -93.573, 0, 0, 0, 0, 0, 0, -13.342, 0, -116.72),
 "tilts": PackedFloat32Array(0, 0, 0, 0, 0)
 }
 point_count = 5
@@ -267,11 +268,11 @@ light_energy = 2.0
 light_indirect_energy = 8.051
 
 [node name="WaterPath" type="Path3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.108816, 9.71038, 47.097816)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.515636, -1.2349443, 62.128544)
 curve = SubResource("Curve3D_3yfs4")
 
 [node name="WaterFollow" type="PathFollow3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/WaterPath"]
-transform = Transform3D(1, 0, 0, 0, 0.9999995, 0, 0, 0, 0.9999995, 0, 0, 7.0973344)
+transform = Transform3D(0.9388333, 0, 0.34435916, 0, 0.9999995, 0, -0.34435916, 0, 0.9388333, -3.786102, 0, -21.855656)
 progress = 2.0252244
 
 [node name="Waters" type="Node3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World"]
@@ -343,6 +344,12 @@ skeleton = NodePath("../../../../../../../..")
 surface_material_override/0 = ExtResource("17_0aefg")
 
 [node name="Critters" type="Node3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World"]
+
+[node name="Fish" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" node_paths=PackedStringArray("follow") instance=ExtResource("8_8o60n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.848833, 0, 33.983932)
+follow = NodePath("../../WaterPath/WaterFollow")
+is_lead = true
+species = "Corpofish"
 
 [node name="Gopher" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" instance=ExtResource("7_6iyis")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -159.3969, 37.230465, 86.45649)
