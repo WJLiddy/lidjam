@@ -355,6 +355,7 @@ species = "Corpofish"
 
 [node name="Fly" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" instance=ExtResource("9_gn76q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5527077, 8.611213, 0)
+species = "Billterfly"
 
 [node name="Crab" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" instance=ExtResource("10_ms0gx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.340515, 4.5247817, 1.196599)

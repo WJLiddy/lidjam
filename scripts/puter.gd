@@ -12,13 +12,16 @@ var base_score = {
 	"Burglerat" : 2,
 	"Veerabbit" : 2,
 	"Cowbug" : 2,
+	"Castcrab" : 2,
 	"Pargopher" : 3,
 	"Frankendeer" :3,
 	"Vamphibian" : 3,
 	"Cowbird" : 3,
+	"Billterfly" : 3,
 	"Cresbird" : 4,
 	"Leghost" : 4,
 	"Bugleton" : 4,
+	"Corpofish" : 4,
 	"Gold Burglerat" : 7
 }
 
@@ -34,7 +37,11 @@ var species_same_max = {
 	"Cowbird" : 5,
 	"Leghost" : 2,
 	"Bugleton" : 2,
-	"Gold Burglerat" : 0
+	"Gold Burglerat" : 0,
+	
+	"Castcrab" : 0,
+	"Billterfly" : 0,
+	"Corpofish" : 0,
 }
 
 # best possible score
@@ -50,7 +57,10 @@ var species_best_pose = {
 	"Cresbird" : "Eating",
 	"Vamphibian" : "Using Magic",
 	"Frankendeer" : "Petrified",
-	"Gold Burglerat" : "Resting"
+	"Gold Burglerat" : "Resting",
+	"Castcrab" : "Resting",
+	"Corpofish" : "Swimming",
+	"Billterfly" : "Flying"
 }
 
 var pose_score = {
