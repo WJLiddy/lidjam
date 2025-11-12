@@ -5,6 +5,7 @@ var targ
 func _ready() -> void:
 	home = global_position
 	targ = global_position
+	$model/AnimationPlayer.play("Flying")
 	
 func _physics_process(delta: float) -> void:
 	if(global_position.distance_to(targ) < 1):
