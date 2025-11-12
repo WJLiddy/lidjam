@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=3 uid="uid://bdkh5n42abtlg"]
+[gd_scene load_steps=71 format=3 uid="uid://bdkh5n42abtlg"]
 
 [ext_resource type="PackedScene" uid="uid://bf504syknspt3" path="res://tscn/puter.tscn" id="1_5rndp"]
 [ext_resource type="PackedScene" uid="uid://jyncanbkjjnq" path="res://tscn/player.tscn" id="1_lifw2"]
@@ -43,6 +43,7 @@
 [ext_resource type="PackedScene" uid="uid://ne08efha0yj8" path="res://tscn/camera.tscn" id="29_rjcrk"]
 [ext_resource type="Script" uid="uid://coxvv8wsxljv6" path="res://scripts/viewmodel.gd" id="29_x8p8v"]
 [ext_resource type="LabelSettings" uid="uid://c1ih44p7kryui" path="res://uidefault.tres" id="32_3w53r"]
+[ext_resource type="PackedScene" uid="uid://c8gh5txso1qv3" path="res://tscn/whistle.tscn" id="34_5u7ok"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0aefg"]
 shader = ExtResource("1_uu8yv")
@@ -179,6 +180,44 @@ _data = {
 &"show": SubResource("Animation_sdsnp")
 }
 
+[sub_resource type="Animation" id="Animation_5u7ok"]
+resource_name = "show"
+length = 0.2
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("whistle")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, -0.8143853, -0.72785723, 0.2, 1, 0, -0.36719817, -0.46790034)
+
+[sub_resource type="Animation" id="Animation_cbth3"]
+length = 0.001
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("whistle")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, -0.36719817, -0.46790034)
+
+[sub_resource type="Animation" id="Animation_cj7we"]
+resource_name = "hide"
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("whistle")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, -0.36719817, -0.46790034, 0.2, 1, 0, -0.8143853, -0.72785723)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cj7we"]
+_data = {
+&"RESET": SubResource("Animation_cbth3"),
+&"hide": SubResource("Animation_cj7we"),
+&"show": SubResource("Animation_5u7ok")
+}
+
 [sub_resource type="LabelSettings" id="LabelSettings_5xr7u"]
 font = ExtResource("15_6iyis")
 font_size = 12
@@ -250,7 +289,7 @@ render_target_update_mode = 4
 environment = SubResource("Environment_1ykyx")
 
 [node name="Player" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World" instance=ExtResource("1_lifw2")]
-transform = Transform3D(0.9959144, 0, 0.090302326, 0, 1, 0, -0.090302326, 0, 0.9959144, 40.50119, 4.142245, 71.82668)
+transform = Transform3D(0.9959144, 0, 0.090302326, 0, 1, 0, -0.090302326, 0, 0.9959144, -136.67545, 35.60501, 71.82668)
 collision_layer = 4
 
 [node name="Shutter" type="AudioStreamPlayer3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Player"]
@@ -1078,6 +1117,14 @@ near = 0.01
 libraries = {
 &"": SubResource("AnimationLibrary_1ykyx")
 }
+
+[node name="WhistleViewModel" type="AnimationPlayer" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/ViewModel/Viewmodel/Camera3D"]
+libraries = {
+&"": SubResource("AnimationLibrary_cj7we")
+}
+
+[node name="whistle" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/ViewModel/Viewmodel/Camera3D" instance=ExtResource("34_5u7ok")]
+transform = Transform3D(-0.1, 0, -8.742278e-09, 0, 0.1, 0, 8.742278e-09, 0, -0.1, 0, -0.36719817, -0.46790034)
 
 [node name="cameraviewmodel" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/ViewModel/Viewmodel/Camera3D" instance=ExtResource("29_rjcrk")]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.74070996, -0.6318781, -1.0825827)

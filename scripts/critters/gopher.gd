@@ -19,8 +19,8 @@ func pick_action():
 		action_time = 30.0
 	elif(action == "DiggingIDLE"):
 		# later, only if player can't see us.
-		if(dist_to_player() > 20):
-			action = "DancingIDLE"
+		if(dist_to_player() > 30 and not get_node("vis").is_on_screen()):
+			action = "PartyingIDLE"
 			action_time = get_anim_length(action)
 	
 	$model/AnimationPlayer.play(action)

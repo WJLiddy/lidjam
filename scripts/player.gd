@@ -159,11 +159,13 @@ func _physics_process(delta: float) -> void:
 		whistling = true
 		$WhistleSound.volume_db = lerp($WhistleSound.volume_db,0.0,10*delta)
 		get_node("../../../UIRender").whistling = true
+		get_node("../../../ViewModel").whis_show()
 		if(!$WhistleSound.playing):
 			$WhistleSound.play()
 	else:
 		whistling = false
 		$WhistleSound.volume_db = lerp($WhistleSound.volume_db,-80.0,10*delta)
+		get_node("../../../ViewModel").whis_hide()
 		get_node("../../../UIRender").whistling = false
 		
 	get_node("../../../UIRender").critterprevtext = getcritterprevtext()

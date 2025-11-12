@@ -1,6 +1,7 @@
 extends SubViewportContainer
 
 var hidecam = false
+var hidewhis
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass
@@ -29,4 +30,14 @@ func cam_show():
 	if(hidecam):
 		$Viewmodel/Camera3D/CamViewModel.play("show")
 		hidecam = false
+		
+func whis_hide():
+	if(not hidewhis):
+		$Viewmodel/Camera3D/WhistleViewModel.play("hide")
+		hidewhis = true
+
+func whis_show():
+	if(hidewhis):
+		$Viewmodel/Camera3D/WhistleViewModel.play("show")
+		hidewhis = false
 	

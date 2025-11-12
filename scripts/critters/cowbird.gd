@@ -54,7 +54,7 @@ func _physics_process(delta: float) -> void:
 			velocity = (perchtarg.global_position - global_position).normalized() * speed()
 			# abort early if goal reached.
 			if((perchtarg.global_position - global_position).length() < 0.5):
-				if(get_nearest_bait().global_position.distance_to(global_position) < 0.5):
+				if(get_nearest_bait() != null and get_nearest_bait().global_position.distance_to(global_position) < 0.5):
 					action = "Eating"
 					action_time = get_anim_length(action)
 					velocity = Vector3.ZERO
