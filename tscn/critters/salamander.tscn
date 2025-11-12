@@ -17,11 +17,11 @@ species = "Vamphibian"
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
 [node name="vis" type="VisibleOnScreenNotifier3D" parent="."]
-transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 7, 0, 1.5, 0.26416388)
-aabb = AABB(-0.120770134, -0.2, -0.2, 0.24154027, 0.4, 0.4)
+transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 7, 0, 1.3764288, 0.057245404)
+aabb = AABB(-0.120770134, -0.17344488, -0.07506208, 0.24154027, 0.34688976, 0.15012416)
 
 [node name="col" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0.14356852)
 shape = SubResource("CapsuleShape3D_r7vnh")
 
 [node name="nav" type="NavigationAgent3D" parent="."]

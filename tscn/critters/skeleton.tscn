@@ -22,6 +22,7 @@ transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0.66574085, 0)
 aabb = AABB(-0.2, -0.2, -0.2, 0.4, 0.4, 0.4)
 
 [node name="col" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.55, 0)
 shape = SubResource("CapsuleShape3D_gkt25")
 
 [node name="nav" type="NavigationAgent3D" parent="."]

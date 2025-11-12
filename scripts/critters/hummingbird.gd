@@ -17,9 +17,8 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 # Birds do not use any of the same state junk from critter.
 func _physics_process(delta: float) -> void:
-	
-	
 	action_time -= delta
+	
 	if(action_time < 0):
 		if action == "Perched" or action == "RestingIDLE":
 			# time 2 go
@@ -45,12 +44,16 @@ func _physics_process(delta: float) -> void:
 			action = "Flying"
 			action_time = get_anim_length(action)
 			# made it
-			if((perchtarg.global_position - global_position).length() < 0.5):
+			if((perchtarg.global_position - global_position).length() < 0.05):
 				action = "Perched"
 				action_time =  get_anim_length(action)
 				velocity = Vector3.ZERO
 		$model/AnimationPlayer.play(action)
 	else:
-		if not ascending:
+		if not ascending and action != "Perched":
 			velocity = (perchtarg.global_position - global_position).normalized() * speed()
+			if((perchtarg.global_position - global_position).length() < 0.05):
+				action_time = 0
+		if(velocity != Vector3(0,0,0)):
+			look_at_grad(delta,global_position + velocity)
 		move_and_slide()

@@ -3,9 +3,9 @@
 [ext_resource type="Script" uid="uid://bdvpvkbbsuhsc" path="res://scripts/critters/cowbird.gd" id="1_g7fwy"]
 [ext_resource type="PackedScene" uid="uid://ylxmudobv7fp" path="res://tscn/model/cowbirdmodel.tscn" id="2_g7fwy"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_pjl8l"]
-radius = 1.5
-height = 4.0
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_g7fwy"]
+radius = 0.3
+height = 0.8
 
 [node name="Cowbird" type="CharacterBody3D"]
 collision_layer = 2
@@ -14,13 +14,14 @@ script = ExtResource("1_g7fwy")
 species = "Olturtle"
 
 [node name="model" parent="." instance=ExtResource("2_g7fwy")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
 [node name="vis" type="VisibleOnScreenNotifier3D" parent="."]
-transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 7, 0, 1.6957408, 0)
-aabb = AABB(-0.2, -0.2, -0.2, 0.4, 0.4, 0.4)
+transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 7, 0, 0.4552796, 0.026403427)
+aabb = AABB(-0.035120044, -0.05322964, -0.03322363, 0.07024009, 0.10645928, 0.06644726)
 
 [node name="col" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
-shape = SubResource("CapsuleShape3D_pjl8l")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.40424806, 0)
+shape = SubResource("CapsuleShape3D_g7fwy")
 
 [node name="nav" type="NavigationAgent3D" parent="."]

@@ -13,7 +13,7 @@ func pick_action():
 	if(dist_to_player() > 50):
 		fleeing = false
 	
-	if(not fleeing and (action == "Walking" or action == "Grazing" or action == "RestingIDLE") and player_is_whistling()):
+	if(not fleeing and (action == "Walking" or action == "Grazing" or action == "RestingIDLE") and player_is_whistling() and dist_to_player() < 50):
 		action = "Petrified"
 		fleeing = true
 	elif(dist_to_player() < 30 or fleeing):

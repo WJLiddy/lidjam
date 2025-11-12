@@ -5,7 +5,7 @@ var perchtarg = null
 var ascending = true
 
 func speed():
-	return 10.0
+	return 7.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -23,7 +23,8 @@ func _physics_process(delta: float) -> void:
 		action = "Perched"
 		action_time = 0
 	
-	if(action_time < 0):
+	if(action_time <= 0):
+		print(action)
 		if(action == "Eating"):
 			get_nearest_bait().queue_free()
 
@@ -45,7 +46,7 @@ func _physics_process(delta: float) -> void:
 			if result.is_empty():
 				ascending = false
 			else:
-				velocity = Vector3(randf_range(-0.4,0.4),1,randf_range(-0.4,0.4)).normalized() * speed()
+				velocity = Vector3(randf_range(-0.4,0.4),0.2,randf_range(-0.4,0.4)).normalized() * speed()
 				action = "Flying"
 				action_time = get_anim_length(action)
 		if not ascending:
@@ -59,8 +60,8 @@ func _physics_process(delta: float) -> void:
 		if not ascending and action == "Flying":
 			velocity = (perchtarg.global_position - global_position).normalized() * speed()
 			# abort early if goal reached.
-			if((perchtarg.global_position - global_position).length() < 0.5):
-				if(get_nearest_bait() != null and get_nearest_bait().global_position.distance_to(global_position) < 0.5):
+			if((perchtarg.global_position - global_position).length() < 0.2):
+				if(get_nearest_bait() != null and get_nearest_bait().global_position.distance_to(global_position) < 0.2):
 					action = "Eating"
 					action_time = get_anim_length(action)
 					velocity = Vector3.ZERO
@@ -70,4 +71,6 @@ func _physics_process(delta: float) -> void:
 					velocity = Vector3.ZERO
 				$model/AnimationPlayer.play(action)
 	
+	if(velocity != Vector3(0,0,0)):
+		look_at_grad(delta,global_position + velocity)
 	move_and_slide()

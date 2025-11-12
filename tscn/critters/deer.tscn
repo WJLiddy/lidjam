@@ -3,9 +3,9 @@
 [ext_resource type="Script" uid="uid://cfsor74xp1sa3" path="res://scripts/critters/deer.gd" id="1_wvlqg"]
 [ext_resource type="PackedScene" uid="uid://4ickr787q0pa" path="res://tscn/model/deermodel.tscn" id="2_wvlqg"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_n1306"]
-radius = 0.2
-height = 1.0
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_wvlqg"]
+radius = 1.5
+height = 4.0
 
 [node name="Deer" type="CharacterBody3D"]
 collision_layer = 2
@@ -20,7 +20,7 @@ transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 7, 0, 1.9683272, -0.29207098)
 aabb = AABB(-0.10111387, -0.20810649, -0.24644274, 0.20222774, 0.41621298, 0.49288547)
 
 [node name="col" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-shape = SubResource("CapsuleShape3D_n1306")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -0.82922167)
+shape = SubResource("CapsuleShape3D_wvlqg")
 
 [node name="nav" type="NavigationAgent3D" parent="."]

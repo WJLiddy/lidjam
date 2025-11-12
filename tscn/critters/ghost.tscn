@@ -1,9 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://dkv84g78ja7cp"]
+[gd_scene load_steps=5 format=3 uid="uid://dkv84g78ja7cp"]
 
 [ext_resource type="Script" uid="uid://cg26fu7eog7ow" path="res://scripts/critters/ghost.gd" id="1_pdku6"]
 [ext_resource type="PackedScene" uid="uid://l4c6qqk4ss13" path="res://tscn/model/ghostmodel.tscn" id="2_pdku6"]
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_pdku6"]
+radius = 0.4
+height = 2.5
+
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_pjl8l"]
+radius = 0.001
 height = 2.5
 
 [node name="Ghost" type="CharacterBody3D"]
@@ -15,12 +20,12 @@ script = ExtResource("1_pdku6")
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
 [node name="vis" type="VisibleOnScreenNotifier3D" parent="."]
-transform = Transform3D(3, 0, 0, 0, 6, 0, 0, 0, 2, 0, 1.3, 0)
+transform = Transform3D(2, 0, 0, 0, 6, 0, 0, 0, 1.5, 0, 1.3, 0)
 aabb = AABB(-0.2, -0.2, -0.2, 0.4, 0.4, 0.4)
 
 [node name="col" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3, 0)
-shape = SubResource("CapsuleShape3D_pjl8l")
+shape = SubResource("CapsuleShape3D_pdku6")
 
 [node name="BaitDetect" type="Area3D" parent="."]
 collision_layer = 0

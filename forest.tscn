@@ -393,7 +393,7 @@ is_lead = true
 species = "Corpofish"
 
 [node name="Fly" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" instance=ExtResource("9_gn76q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5527077, 8.611213, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5527077, 5.758844, 5.459696)
 species = "Billterfly"
 
 [node name="Crab" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" instance=ExtResource("10_ms0gx")]
@@ -407,7 +407,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -153.361, 36.547493, 65.59267
 species = "Leghost"
 
 [node name="Skeleton" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" instance=ExtResource("10_b6w6p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -161.0638, 36.775448, 72.927414)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -161.0638, 37.04461, 75.71275)
 species = "Bugleton"
 
 [node name="Hummingbird" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" instance=ExtResource("8_77xr6")]

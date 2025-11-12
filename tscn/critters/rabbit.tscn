@@ -16,8 +16,8 @@ script = ExtResource("1_8hv6w")
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
 [node name="vis" type="VisibleOnScreenNotifier3D" parent="."]
-transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 7, 0, 1.6957408, 0)
-aabb = AABB(-0.2, -0.2, -0.2, 0.4, 0.4, 0.4)
+transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 7, 0, 0.89945686, 0)
+aabb = AABB(-0.061605547, -0.10319156, -0.055980533, 0.12321109, 0.20638312, 0.11196107)
 
 [node name="col" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
