@@ -99,13 +99,14 @@ tracks/0/keys = PackedFloat32Array(0, 1, 13.359125, 34.391346, 58.773476)
 [sub_resource type="Animation" id="Animation_5xr7u"]
 resource_name = "introcam"
 length = 15.0
+loop_mode = 1
 tracks/0/type = "position_3d"
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/path = NodePath(".")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0.033333335, 1, 13.359125, 34.391346, 58.773476, 14.933333, 1, 29.169512, 34.391346, 30.041092)
+tracks/0/keys = PackedFloat32Array(0.033333335, 1, 13.359125, 34.391346, 58.773476, 4.9666667, 1, 18.629253, 34.391346, 49.196014, 5, 1, -178.56819, 34.391346, -53.873405, 9.966666, 1, -150, 34.391, -45, 10, 1, 74.33723, 16.495342, -44.320747, 14.966666, 1, 48, 35, -38, 15.0002, 1, 60.028336, 25.394375, 19.872864)
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wsut6"]
 _data = {
@@ -472,7 +473,7 @@ transform = Transform3D(0.19334397, 0, 0.9811311, 0, 1, 0, -0.9811311, 0, 0.1933
 species = "Bugleton"
 
 [node name="Hummingbird" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" instance=ExtResource("8_77xr6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -139.71658, 36.376194, 99.61103)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -144.0268, 37.701015, 99.61103)
 is_spawnbird = true
 
 [node name="Hummingbird2" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" instance=ExtResource("8_77xr6")]
@@ -534,15 +535,15 @@ transform = Transform3D(-0.8960684, 0, -0.44391602, 0, 1, 0, 0.44391602, 0, -0.8
 species = "Veerabbit"
 
 [node name="Rabbit3" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" instance=ExtResource("17_x8p8v")]
-transform = Transform3D(-0.8960684, 0, -0.44391602, 0, 1, 0, 0.44391602, 0, -0.8960684, 56.682648, 2.4920928, -40.959892)
+transform = Transform3D(-0.8960684, 0, -0.44391602, 0, 1, 0, 0.44391602, 0, -0.8960684, -87.57523, 17.209702, 27.99976)
 species = "Veerabbit"
 
 [node name="Rabbit5" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" instance=ExtResource("17_x8p8v")]
-transform = Transform3D(-0.8960684, 0, -0.44391602, 0, 1, 0, 0.44391602, 0, -0.8960684, 85.737564, 5.616195, -119.6362)
+transform = Transform3D(-0.8960684, 0, -0.44391602, 0, 1, 0, 0.44391602, 0, -0.8960684, -72.41635, 17.280973, -16.871979)
 species = "Veerabbit"
 
 [node name="Rabbit6" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" instance=ExtResource("17_x8p8v")]
-transform = Transform3D(-0.8960684, 0, -0.44391602, 0, 1, 0, 0.44391602, 0, -0.8960684, 85.737564, 5.5848656, -137.58084)
+transform = Transform3D(-0.8960684, 0, -0.44391602, 0, 1, 0, 0.44391602, 0, -0.8960684, -72.41635, 15.219551, -34.81662)
 species = "Veerabbit"
 
 [node name="Rabbit8" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" instance=ExtResource("17_x8p8v")]
@@ -1289,6 +1290,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.83432, -20.84343, 0.924362
 shape = SubResource("CapsuleShape3D_5u7ok")
 
 [node name="ViewModel" type="SubViewportContainer" parent="HBlur/SubViewport/SubViewportContainer/SubViewport"]
+visible = false
 offset_right = 400.0
 offset_bottom = 300.0
 mouse_filter = 2
@@ -1300,7 +1302,7 @@ transparent_bg = true
 handle_input_locally = false
 size = Vector2i(400, 300)
 render_target_clear_mode = 1
-render_target_update_mode = 4
+render_target_update_mode = 0
 
 [node name="Camera3D" type="Camera3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/ViewModel/Viewmodel"]
 cull_mask = 524288
@@ -1323,6 +1325,7 @@ transform = Transform3D(-0.1, 0, -8.742278e-09, 0, 0.1, 0, 8.742278e-09, 0, -0.1
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.74070996, -0.6318781, -1.0825827)
 
 [node name="UIRender" type="Control" parent="HBlur/SubViewport/SubViewportContainer/SubViewport" node_paths=PackedStringArray("picSpots")]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_top = -1.0
