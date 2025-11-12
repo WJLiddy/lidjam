@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6qr41t8l5nkc"]
+
+[ext_resource type="Script" uid="uid://b8tw03j3k7mri" path="res://scripts/critters/turtle.gd" id="1_71qe4"]
+[ext_resource type="PackedScene" uid="uid://ciusfcdgk87ad" path="res://tscn/model/fishmodel.tscn" id="2_71qe4"]
+
+[node name="Fish" type="CharacterBody3D"]
+collision_layer = 2
+collision_mask = 47
+script = ExtResource("1_71qe4")
+species = "Olturtle"
+
+[node name="model" parent="." instance=ExtResource("2_71qe4")]
+
+[node name="vis" type="VisibleOnScreenEnabler3D" parent="."]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0.16142833, 0)
+aabb = AABB(-0.2, -0.2, -0.2, 0.4, 0.4, 0.4)
+
+[node name="nav" type="NavigationAgent3D" parent="."]

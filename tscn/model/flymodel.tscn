@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://hj2sbkikhlkp"]
+
+[ext_resource type="PackedScene" uid="uid://c0olkmx74genn" path="res://blender inbox/billterfly/billterfly.blend" id="1_6mtvc"]
+
+[node name="billterfly" instance=ExtResource("1_6mtvc")]

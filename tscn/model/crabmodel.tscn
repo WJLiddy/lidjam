@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://bs6c6ptv78kd2"]
+
+[ext_resource type="PackedScene" uid="uid://uhivutsopwl6" path="res://blender inbox/wizard crab/wizard crab.blend" id="1_n56uu"]
+
+[node name="wizard crab2" instance=ExtResource("1_n56uu")]

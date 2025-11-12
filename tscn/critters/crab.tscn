@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://drc4p0vufea8h"]
+
+[ext_resource type="Script" uid="uid://7t6viitesnir" path="res://scripts/critters/crab.gd" id="1_saetr"]
+[ext_resource type="PackedScene" uid="uid://bs6c6ptv78kd2" path="res://tscn/model/crabmodel.tscn" id="2_saetr"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_saetr"]
+radius = 0.7
+height = 1.4
+
+[node name="Crab" type="CharacterBody3D"]
+collision_layer = 2
+collision_mask = 47
+script = ExtResource("1_saetr")
+
+[node name="wizard crab2" parent="." instance=ExtResource("2_saetr")]
+
+[node name="vis" type="VisibleOnScreenEnabler3D" parent="."]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0.67615414, 0.07148653)
+aabb = AABB(-0.2, -0.2, -0.2, 0.4, 0.4, 0.4)
+
+[node name="col" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7, 0)
+shape = SubResource("CapsuleShape3D_saetr")
+
+[node name="nav" type="NavigationAgent3D" parent="."]

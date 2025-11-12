@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://ciusfcdgk87ad"]
+
+[ext_resource type="PackedScene" uid="uid://b1xg88f63yetv" path="res://blender inbox/greenback/greenback.blend" id="1_fxfhe"]
+
+[node name="greenback2" instance=ExtResource("1_fxfhe")]
