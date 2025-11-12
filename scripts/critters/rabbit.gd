@@ -2,10 +2,13 @@ extends Critter
 # Easting, Resting, Runnig, Walking?
 
 func pick_action():
-	if(player_is_whistling()):
+	if(action == "Eating" and get_nearest_bait() != null):
+		get_nearest_bait().queue_free()
+		action = "RestingIDLE"
+	elif(player_is_whistling()):
 		action = "Scared"
 		set_nav_flee_from_player()
-	if(get_nearest_bait() != null and global_position.distance_to(get_nearest_bait().global_position) < 1):
+	elif(get_nearest_bait() != null and global_position.distance_to(get_nearest_bait().global_position) < 1):
 		action = "Eating"
 	else:
 		action = ["Walking","RestingIDLE"].pick_random()

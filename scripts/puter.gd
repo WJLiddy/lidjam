@@ -41,7 +41,7 @@ var species_same_max = {
 var species_best_pose = {
 	"Olturtle" : "Resting",
 	"Burglerat" : "Eating",
-	"Veerabbit" : "Running",
+	"Veerabbit" : "Scared",
 	"Cowbug" : "Listening",
 	"Pargopher" : "Partying",
 	"Leghost" : "Spooked",
@@ -70,12 +70,13 @@ var pose_score = {
 	"Excited" : 2,
 	
 	"Eating" : 3,
-	"Scared" : 3,
 	"Waddling" : 3,
 	
 	"Listening" : 4,
 	"Digging" : 4,
 	"Petrified" : 4,
+	# scared is a running animation
+	"Scared" : 4,
 	
 	"Partying" : 5,
 	"Confused" : 5,
