@@ -1031,7 +1031,10 @@ metadata/_edit_lock_ = true
 [node name="Emoticons" type="Node3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World"]
 
 [node name="SalamanderEntryPoint" type="Node3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 47.918232, 0, 94.00223)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.127, -0.5795555, 92.45934)
+
+[node name="SalamanderExitPoint" type="Node3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.127472, 2.9557586, 89.82023)
 
 [node name="ViewModel" type="SubViewportContainer" parent="HBlur/SubViewport/SubViewportContainer/SubViewport"]
 offset_right = 400.0

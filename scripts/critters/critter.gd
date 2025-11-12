@@ -77,7 +77,7 @@ func _physics_process(delta: float) -> void:
 		
 	if(action_time > 0):
 		
-		var walk_actions = ["Walking","Rolling","Roll Starting","Roll Ending","Flying","Scared"]
+		var walk_actions = ["Walking","Rolling","Roll Starting","Roll Ending","Flying","Scared","Waddling"]
 		var look_at_player_actions = ["Turning","Listening","Excited","Judging","Petrified"]
 		# !! Action Lookup Map
 		if(action in walk_actions):
@@ -103,6 +103,16 @@ func _physics_process(delta: float) -> void:
 			
 		elif(action in look_at_player_actions):
 			look_at_grad(delta, get_node("../../Player").global_position)
+		
+		elif(action == "Swimming"):
+			#  placeholder
+			if(action_time > 10):
+				global_position = global_position.move_toward(global_position + Vector3(0,0,1),speed()*delta)
+				look_at_grad(delta, global_position + Vector3(0,0,1))
+			else:
+				global_position = global_position.move_toward(global_position + Vector3(0,0,-1),speed()*delta)
+				look_at_grad(delta, global_position + Vector3(0,0,-1))
+				
 			
 		# any of the idle actions
 		elif(action.contains("IDLE")):

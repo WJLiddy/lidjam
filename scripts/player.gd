@@ -46,15 +46,15 @@ func _physics_process(delta: float) -> void:
 	
 	var speedup = 1
 	if(Global.quickscope_unlocked):
-		speedup = 2
+		speedup = 4
 	
 	if(ads_enabled and ads_zoom_delay < 0):
 		if(double_zoom):
-			%Camera3D.fov = lerp(%Camera3D.fov,fov_double_zoom,4*speedup*delta)
+			%Camera3D.fov = lerp(%Camera3D.fov,fov_double_zoom,3*speedup*delta)
 		else:
-			%Camera3D.fov = lerp(%Camera3D.fov,fov_zoom,4*speedup*delta)
+			%Camera3D.fov = lerp(%Camera3D.fov,fov_zoom,3*speedup*delta)
 	else:
-		%Camera3D.fov = lerp(%Camera3D.fov,fov_base,4*speedup*delta)
+		%Camera3D.fov = lerp(%Camera3D.fov,fov_base,3*speedup*delta)
 	
 	if Global.is_using_puter:
 		%Camera3D.global_position = %Camera3D.global_position.lerp(get_node("../Puter").global_position - Vector3(0,-0.27,-0.4), delta*10)
@@ -141,6 +141,8 @@ func _physics_process(delta: float) -> void:
 		if(ads_enabled):
 			get_node("../../../ViewModel").ads_enable()
 			ads_zoom_delay = 0.4
+			if(Global.quickscope_unlocked):
+				ads_zoom_delay = 0.3
 		else:
 			get_node("../../../ViewModel").ads_disable()
 	
