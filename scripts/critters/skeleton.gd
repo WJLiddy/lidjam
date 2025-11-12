@@ -5,11 +5,11 @@ var bugle = false
 # bugling, hiding, peeking
 func pick_action():
 	if(bugle):
-		action = "Bugling"
+		action = "BuglingIDLE"
 	elif(dist_to_player() < 10):
-		action = "Hiding"
+		action = "HidingIDLE"
 	else:
-		action = "Peeking"
+		action = "PeekingIDLE"
 	action_time = get_anim_length(action)
 	$model/AnimationPlayer.play(action)
 	
@@ -17,3 +17,5 @@ func pick_action():
 
 func _on_spook_zone_body_entered(body: Node3D) -> void:
 	bugle = true
+	if "species" in body and body.species == "Leghost":
+		body.spooked = true

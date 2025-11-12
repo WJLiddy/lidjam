@@ -17,7 +17,12 @@ var is_using_puter = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	if(true):
+		zoom_unlocked = true
+		quickscope_unlocked = true
+		bonus_film_unlocked = true
+		bait_unlocked = true
+		whistle_unlocked = true
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

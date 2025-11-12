@@ -7,10 +7,9 @@ data = PackedVector3Array(1.9154999, -92.355995, 270.7816, -0.9799, 173.5232, 27
 
 [node name="map2 water collision2" instance=ExtResource("1_mbxum")]
 
-[node name="map2 water collision" parent="." index="0"]
-layers = 4
-
 [node name="StaticBody3D" type="StaticBody3D" parent="map2 water collision" index="0"]
+collision_layer = 32
+collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="map2 water collision/StaticBody3D" index="0"]
 shape = SubResource("ConcavePolygonShape3D_jqlnm")

@@ -6,6 +6,7 @@ func speed():
 func rotspeed():
 	return 3
 
+#confused, resting, swimming, using nagic, waddling
 func pick_action():
 	action = ["Walking","RestingIDLE"].pick_random()
 	if(action == "Walking"):

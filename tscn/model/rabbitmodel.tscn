@@ -1,5 +1,5 @@
 [gd_scene load_steps=2 format=3 uid="uid://433y8317cpjt"]
 
-[ext_resource type="PackedScene" uid="uid://b155htubuef7k" path="res://blender inbox/rabbit guy/rabbit guy.blend" id="1_whkb3"]
+[ext_resource type="PackedScene" uid="uid://dyes7sahaekrq" path="res://blender inbox/rabbit guy/rabbit guy.blend" id="1_whkb3"]
 
 [node name="rabbit guy2" instance=ExtResource("1_whkb3")]

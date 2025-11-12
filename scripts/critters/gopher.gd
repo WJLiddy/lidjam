@@ -2,7 +2,7 @@ extends Critter
 
 # Turning, Dancing, Diving, Eating, Judging
 func pick_action():
-	if(action == "Resting"):
+	if(action == "RestingIDLE"):
 		action = "PartyingIDLE"
 		action_time = get_anim_length(action)
 		
@@ -11,13 +11,13 @@ func pick_action():
 		action_time = get_anim_length(action)
 	
 	elif(action == "Turning"):
-		action = "JudgingIDLE"
+		action = "Judging"
 		action_time = get_anim_length(action)
 	# burying
-	elif(action == "JudgingIDLE"):
+	elif(action == "Judging"):
 		action = "DiggingIDLE"
 		action_time = 30.0
-	elif(action == "DiggingwwIDLE"):
+	elif(action == "DiggingIDLE"):
 		# later, only if player can't see us.
 		if(dist_to_player() > 20):
 			action = "DancingIDLE"

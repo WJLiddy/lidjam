@@ -5,7 +5,7 @@ class_name Critter
 @export var species : String
 
 # state and state time.
-var action = "Resting"
+var action = "RestingIDLE"
 var action_time = 0.0
 
 var emoticon = preload("res://tscn/emoticon.tscn")
@@ -77,9 +77,10 @@ func _physics_process(delta: float) -> void:
 		
 	if(action_time > 0):
 		
-		var actions = ["Walking","Rolling","Roll Starting","Roll Ending","Flying","Scared"]
+		var walk_actions = ["Walking","Rolling","Roll Starting","Roll Ending","Flying","Scared"]
+		var look_at_player_actions = ["Turning","Listening","Excited","Judging","Petrified"]
 		# !! Action Lookup Map
-		if(action in actions):
+		if(action in walk_actions):
 			
 			var dest = $nav.get_next_path_position()
 			var local_dest = dest - global_position
@@ -99,10 +100,8 @@ func _physics_process(delta: float) -> void:
 			if(get_nearest_bait() != null):
 				# always turn toward the nearest bait.
 				look_at_grad(delta, get_nearest_bait().global_position)
-				print(get_nearest_bait().global_position)
 			
-		
-		elif(action == "Turning" or action == "Listening" or action == "Excited"):
+		elif(action in look_at_player_actions):
 			look_at_grad(delta, get_node("../../Player").global_position)
 			
 		# any of the idle actions
@@ -110,6 +109,6 @@ func _physics_process(delta: float) -> void:
 			pass
 			
 		else:
-			print("unknown action " + action)
+			print("unknown action " + action + " from " + species)
 	else:
 		pick_action()

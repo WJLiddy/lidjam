@@ -18,8 +18,13 @@ func _ready() -> void:
 # Birds do not use any of the same state junk from critter.
 func _physics_process(delta: float) -> void:
 	action_time -= delta
+	
+	if(get_nearest_bait() != null and global_position.distance_to(get_nearest_bait().global_position) < 100):
+		perchtarg = get_nearest_bait()
+		ascending = true
+	
 	if(action_time < 0):
-		if action == "Perched" or action == "Resting":
+		if action == "Perched" or action == "RestingIDLE":
 			# time 2 go
 			ascending = true
 			perchtarg = get_node("../../Nav/Foliage").find_children("Perch").pick_random()
@@ -30,7 +35,7 @@ func _physics_process(delta: float) -> void:
 		if ascending:
 			var space_state = get_world_3d().direct_space_state
 			var coll_mask = 1
-			var query = PhysicsRayQueryParameters3D.create(global_position, perchtarg.global_position,coll_mask)
+			var query = PhysicsRayQueryParameters3D.create(global_position + Vector3(0,1,0), perchtarg.global_position,coll_mask)
 			var result = space_state.intersect_ray(query)
 			if result.is_empty():
 				ascending = false

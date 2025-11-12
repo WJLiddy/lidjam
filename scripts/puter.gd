@@ -67,6 +67,7 @@ var pose_score = {
 	"Perched" : 2,
 	"Judging" : 2,
 	"Grazing" : 2,
+	"Excited" : 2,
 	
 	"Eating" : 3,
 	"Scared" : 3,
@@ -86,7 +87,7 @@ var pose_score = {
 }
 
 func get_best_possible_score(creature):
-	return 5 + 5 + 3 + species_same_max[creature] + pose_score[species_best_pose[creature]]
+	return base_score[creature] + 5 + 3 + species_same_max[creature] + 1 + pose_score[species_best_pose[creature]]
 
 
 # Called when the node enters the scene tree for the first time.
@@ -125,6 +126,7 @@ func process_all_pictures():
 	
 func _input(event: InputEvent) -> void:
 	if(Global.is_using_puter):
+		Global.bait = 20
 		if event is InputEventMouseMotion:
 			get_node("Mouse").position.x += event.relative.x / 1000
 			get_node("Mouse").position.y -= event.relative.y / 1000

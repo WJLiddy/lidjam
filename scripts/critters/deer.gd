@@ -11,13 +11,13 @@ var fleeing = false
 func pick_action():
 	if((action == "Walking" or action == "Grazing" or action == "RestingIDLE") and player_is_whistling()):
 		action = "Petrified"
-	elif(dist_to_player() < 20 or action == "Petrified"):
+	elif(dist_to_player() < 30 or action == "Petrified"):
 		action = "Walking"
 		set_nav_flee_from_player()
 	else:
 		var rand = randi_range(0,3)
 		if(rand == 1):
-			action = "Grazing"
+			action = "GrazingIDLE"
 		elif(rand == 2):
 			action = "Walking"
 			set_nav_meander()

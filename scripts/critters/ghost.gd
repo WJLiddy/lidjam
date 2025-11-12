@@ -9,17 +9,17 @@ var baited = false
 func pick_action():
 	if(baited):
 		baited = false
-		action = "Confused"
+		action = "ConfusedIDLE"
 	elif(spooked):
 		spooked = false
-		action = "Spooked"
+		action = "SpookedIDLE"
 	elif(player_is_whistling()):
 		action = "Scared"
 		set_nav_flee_from_player()
 	elif(get_node("vis").is_on_screen() and player_is_ads()):
 		action = "Excited"
 	else:
-		action = "Resting"
+		action = "RestingIDLE"
 	action_time = get_anim_length(action)
 	$model/AnimationPlayer.play(action)
 
