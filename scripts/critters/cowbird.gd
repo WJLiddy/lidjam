@@ -5,13 +5,11 @@ var perchtarg = null
 var ascending = true
 
 func speed():
-	return 5.0
+	return 10.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
-	
-@export var is_spawnbird: bool
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -19,18 +17,19 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	action_time -= delta
 	
-	if(get_nearest_bait() != null and global_position.distance_to(get_nearest_bait().global_position) < 100):
-		perchtarg = get_nearest_bait()
-		ascending = true
-	
 	if(action_time < 0):
-		if action == "Perched" or action == "RestingIDLE":
+		if(action == "Eating"):
+			get_nearest_bait().queue_free()
+
+		# change the perchtarg
+		if(ascending and get_nearest_bait() != null and global_position.distance_to(get_nearest_bait().global_position) < 100):
+			perchtarg = get_nearest_bait()
+
+		if action == "Perched" or action == "RestingIDLE" or action == "Eating":
 			# time 2 go
 			ascending = true
 			perchtarg = get_node("../../Nav/Foliage").find_children("Perch").pick_random()
-			if(is_spawnbird):
-				perchtarg = get_node("../../Nav/Foliage").find_children("SpawnPerch").pick_random()
-			
+
 		# if we're ascending, keep flying up
 		if ascending:
 			var space_state = get_world_3d().direct_space_state
@@ -48,12 +47,21 @@ func _physics_process(delta: float) -> void:
 			action = "Flying"
 			action_time = get_anim_length(action)
 			# made it
-			if((perchtarg.global_position - global_position).length() < 0.5):
-				action = "Perched"
-				action_time = 20
-				velocity = Vector3.ZERO
+
 		$model/AnimationPlayer.play(action)
 	else:
-		if not ascending:
+		if not ascending and action == "Flying":
 			velocity = (perchtarg.global_position - global_position).normalized() * speed()
-		move_and_slide()
+			# abort early if goal reached.
+			if((perchtarg.global_position - global_position).length() < 0.5):
+				if(get_nearest_bait().global_position.distance_to(global_position) < 0.5):
+					action = "Eating"
+					action_time = get_anim_length(action)
+					velocity = Vector3.ZERO
+				else:
+					action = "Perched"
+					action_time = 20
+					velocity = Vector3.ZERO
+				$model/AnimationPlayer.play(action)
+	
+	move_and_slide()

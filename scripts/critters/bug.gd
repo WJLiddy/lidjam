@@ -4,7 +4,7 @@ func pick_action():
 	if(player_is_whistling()):
 		action = "ListeningIDLE"
 	else:
-		if(randf_range(0,3) == 1):
+		if(randf_range(0,3) > 0):
 			action = "Flying"
 			set_nav_meander()
 		else:
