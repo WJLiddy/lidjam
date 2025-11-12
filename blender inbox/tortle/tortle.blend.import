@@ -44,7 +44,7 @@ _subresources={
 "save_to_file/fallback_path": "",
 "save_to_file/keep_custom_tracks": "",
 "save_to_file/path": "",
-"settings/loop_mode": 2,
+"settings/loop_mode": 1,
 "slice_1/end_frame": 0,
 "slice_1/loop_mode": 0,
 "slice_1/name": "",
@@ -4168,7 +4168,7 @@ blender/meshes/skins=2
 blender/meshes/export_bones_deforming_mesh_only=false
 blender/materials/unpack_enabled=true
 blender/materials/export_materials=1
-blender/animation/limit_playback=true
+blender/animation/limit_playback=false
 blender/animation/always_sample=true
 blender/animation/group_tracks=true
 gltf/naming_version=2

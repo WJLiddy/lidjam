@@ -12,7 +12,7 @@ species = "Olturtle"
 [node name="model" parent="." instance=ExtResource("2_71qe4")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
-[node name="vis" type="VisibleOnScreenEnabler3D" parent="."]
+[node name="vis" type="VisibleOnScreenNotifier3D" parent="."]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0.16142833, 0)
 aabb = AABB(-0.2, -0.2, -0.2, 0.4, 0.4, 0.4)
 

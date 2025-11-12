@@ -18,6 +18,13 @@ var is_using_puter = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	if(true):
+		zoom_unlocked = true
+		quickscope_unlocked = true
+		bonus_film_unlocked = true
+		bait_unlocked = true
+		whistle_unlocked = true
+		shoes_unlocked = true
 	pass
 
 

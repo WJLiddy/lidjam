@@ -16,7 +16,7 @@ species = "Vamphibian"
 [node name="model" parent="." instance=ExtResource("2_r7vnh")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
-[node name="vis" type="VisibleOnScreenEnabler3D" parent="."]
+[node name="vis" type="VisibleOnScreenNotifier3D" parent="."]
 transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 7, 0, 1.5, 0.26416388)
 aabb = AABB(-0.120770134, -0.2, -0.2, 0.24154027, 0.4, 0.4)
 

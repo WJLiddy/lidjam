@@ -15,7 +15,7 @@ species = "Frankendeer"
 
 [node name="model" parent="." instance=ExtResource("2_wvlqg")]
 
-[node name="vis" type="VisibleOnScreenEnabler3D" parent="."]
+[node name="vis" type="VisibleOnScreenNotifier3D" parent="."]
 transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 7, 0, 1.6957408, 0)
 aabb = AABB(-0.2, -0.2, -0.2, 0.4, 0.4, 0.4)
 

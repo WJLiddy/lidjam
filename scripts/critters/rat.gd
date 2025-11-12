@@ -13,7 +13,6 @@ func pick_action():
 		action = "Resting"
 		$model/AnimationPlayer.play(action)
 		return
-	print(action)
 		
 	if(action == "Roll EndingIDLE"):
 		action = "Eating"

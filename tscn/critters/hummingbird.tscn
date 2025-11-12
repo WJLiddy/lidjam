@@ -16,7 +16,7 @@ species = "Cresbird"
 [node name="model" parent="." instance=ExtResource("2_uqmib")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
-[node name="vis" type="VisibleOnScreenEnabler3D" parent="."]
+[node name="vis" type="VisibleOnScreenNotifier3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35, 0)
 aabb = AABB(-0.2, -0.2, -0.2, 0.4, 0.4, 0.4)
 

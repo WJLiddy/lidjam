@@ -173,6 +173,9 @@ func _physics_process(delta: float) -> void:
 func getcritterprevtext():
 	if(ads_zoom_delay > 0):
 		return ""
+	var maincritter = null
+	var bestpct = 0
+	
 	for c in get_node("../Critters").get_children():
 		# if it's in front of the camera...
 		if c.get_node("vis").is_on_screen():
@@ -182,8 +185,13 @@ func getcritterprevtext():
 			var query = PhysicsRayQueryParameters3D.create($%Camera3D.global_position, c.get_node("vis").global_position,coll_mask)
 			var result = space_state.intersect_ray(query)
 			if result.is_empty():
-				return c.species
-	return ""
+				var pct = get_screen_coverage_percent(%Camera3D,c.get_node("vis"))
+				if(pct > bestpct):
+					maincritter = c.species
+					bestpct = pct
+	if(maincritter == null):
+		return ""
+	return maincritter
 	
 
 func take_picture():
@@ -236,7 +244,7 @@ func play_random_footstep_sound() -> void:
 		$FootstepSound.stream = footstep_sound.pick_random()
 		$FootstepSound.play()
 
-func get_screen_coverage_percent(camera: Camera3D, visible_node: VisibleOnScreenEnabler3D) -> float:
+func get_screen_coverage_percent(camera: Camera3D, visible_node: VisibleOnScreenNotifier3D) -> float:
 	var aabb: AABB = visible_node.get_aabb()
 	
 	# Build 8 corners of the local AABB

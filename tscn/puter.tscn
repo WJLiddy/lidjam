@@ -24,6 +24,7 @@ data = PackedVector3Array(0, 0, 0.125, 0, 0.0284, 0.114099994, 0.067099996, 0.02
 size = Vector3(1, 0.42944336, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pu2hp"]
+size = Vector3(0.225, 0.22, 1)
 
 [node name="pc-monitor" instance=ExtResource("1_kic1t")]
 
@@ -708,5 +709,5 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="pc-monitor/Mouse/CharacterBody3D" index="0"]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+transform = Transform3D(0.20000002, 0, 0, 0, 0.20000002, 0, 0, 0, 0.20000002, -0.06550001, 0.08899927, 0)
 shape = SubResource("BoxShape3D_pu2hp")
