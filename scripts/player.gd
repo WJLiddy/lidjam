@@ -146,14 +146,16 @@ func _physics_process(delta: float) -> void:
 		else:
 			get_node("../../../ViewModel").ads_disable()
 	
-	if Input.is_action_just_pressed("bait") and Global.bait > 0 and not ads_enabled:
+	if Input.is_action_just_pressed("bait") and Global.bait > 0 and not ads_enabled and speed != sprint_speed:
 		Global.bait -= 1
 		var b = bait.instantiate()
 		b.apply_impulse(velocity + (-$%Camera3D.global_basis.z.normalized() * 10))
-		get_node("../Baits").add_child(b)
-		b.global_position = $%Camera3D.global_position
 		
-	if Input.is_action_pressed("whistle") and not ads_enabled:
+		get_node("../Baits").add_child(b)
+		b.global_position = $%Camera3D/ThrowPos.global_position
+		b.angular_velocity = Vector3(randi_range(-3, 3), randi_range(-3, 3), randi_range(-3, 3))
+		
+	if Input.is_action_pressed("whistle") and not ads_enabled and speed != sprint_speed:
 		whistling = true
 		$WhistleSound.volume_db = lerp($WhistleSound.volume_db,0.0,10*delta)
 		get_node("../../../UIRender").whistling = true

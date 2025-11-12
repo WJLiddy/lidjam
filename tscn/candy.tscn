@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://dpeb1rtve37f"]
+
+[ext_resource type="PackedScene" uid="uid://drbomb8bljf3s" path="res://blender inbox/candy viewmodel/candy viewmodel.blend" id="1_7y57b"]
+
+[node name="candy viewmodel2" instance=ExtResource("1_7y57b")]

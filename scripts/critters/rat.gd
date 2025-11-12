@@ -16,7 +16,7 @@ func pick_action():
 		
 	if(action == "Roll Ending"):
 		action = "Eating"
-		make_emoticon()
+		#make_emoticon()
 		action_time = get_anim_length(action)
 	elif(action == "Eating"):
 		# bug prone

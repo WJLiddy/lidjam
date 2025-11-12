@@ -31,7 +31,7 @@ func pick_action():
 			if(get_nearest_bait() != null and global_position.distance_to(get_nearest_bait().global_position) < 1):
 				action = "Curious"
 			else:
-				var rand = randi_range(1,5)
+				var rand = randi_range(1,6)
 				# go to shore eventually
 				if(rand == 1):
 					to_shore = true
