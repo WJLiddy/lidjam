@@ -329,367 +329,367 @@ font = ExtResource("12_3rc7y")
 [node name="PrevPics" type="Node3D" parent="pc-monitor/Review" index="1"]
 
 [node name="Review" type="Node3D" parent="pc-monitor/Review/PrevPics" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.049999997, -0.049999952, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.024999999, -0.049999952, 0)
 
 [node name="S1" type="Sprite3D" parent="pc-monitor/Review/PrevPics/Review" index="0"]
-transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, -1.1500003, 0.60000014, 0)
+transform = Transform3D(0.52, 0, 0, 0, 0.63, 0, 0, 0, 0.7, -1.0608749, 0.56210923, 0)
 sorting_offset = 1.0
 texture = ExtResource("8_sbthb")
 
 [node name="Name" type="Label3D" parent="pc-monitor/Review/PrevPics/Review" index="1"]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.70000035, 0.7000003, 0)
-sorting_offset = 2.0
+transform = Transform3D(0.5, 0, 0, 0, 0.7, 0, 0, 0, 0.5, -1.0600003, 0.72500014, 0)
+sorting_offset = 3.0
 modulate = Color(0, 0, 0, 1)
 text = "FRANKENDEER"
 font = ExtResource("12_3rc7y")
 font_size = 18
 
 [node name="Prev" type="Label3D" parent="pc-monitor/Review/PrevPics/Review" index="2"]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.7000001, 0.5750005, 0)
-sorting_offset = 2.0
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.9750004, 0.40000057, 0)
+sorting_offset = 3.0
 modulate = Color(0, 0, 0, 1)
 text = "99/99"
 font = ExtResource("12_3rc7y")
-font_size = 48
+font_size = 28
 
-[node name="Review2" type="Node3D" parent="pc-monitor/Review/PrevPics" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.049999997, -0.29999983, 0)
-
-[node name="S1" type="Sprite3D" parent="pc-monitor/Review/PrevPics/Review2" index="0"]
-transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, -1.1500003, 0.60000014, 0)
-sorting_offset = 1.0
-texture = ExtResource("8_sbthb")
-
-[node name="Name" type="Label3D" parent="pc-monitor/Review/PrevPics/Review2" index="1"]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.70000035, 0.7000003, 0)
-sorting_offset = 2.0
-modulate = Color(0, 0, 0, 1)
-text = "FRANKENDEER"
-font = ExtResource("12_3rc7y")
-font_size = 18
-
-[node name="Prev" type="Label3D" parent="pc-monitor/Review/PrevPics/Review2" index="2"]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.7000001, 0.5750005, 0)
-sorting_offset = 2.0
-modulate = Color(0, 0, 0, 1)
-text = "99/99"
-font = ExtResource("12_3rc7y")
-font_size = 48
-
-[node name="Review3" type="Node3D" parent="pc-monitor/Review/PrevPics" index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.049999997, -0.5499998, 0)
-
-[node name="S1" type="Sprite3D" parent="pc-monitor/Review/PrevPics/Review3" index="0"]
-transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, -1.1500003, 0.60000014, 0)
-sorting_offset = 1.0
-texture = ExtResource("8_sbthb")
-
-[node name="Name" type="Label3D" parent="pc-monitor/Review/PrevPics/Review3" index="1"]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.70000035, 0.7000003, 0)
-sorting_offset = 2.0
-modulate = Color(0, 0, 0, 1)
-text = "FRANKENDEER"
-font = ExtResource("12_3rc7y")
-font_size = 18
-
-[node name="Prev" type="Label3D" parent="pc-monitor/Review/PrevPics/Review3" index="2"]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.7000001, 0.5750005, 0)
-sorting_offset = 2.0
-modulate = Color(0, 0, 0, 1)
-text = "99/99"
-font = ExtResource("12_3rc7y")
-font_size = 48
-
-[node name="Review4" type="Node3D" parent="pc-monitor/Review/PrevPics" index="3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.049999997, -0.7999997, 0)
+[node name="Review4" type="Node3D" parent="pc-monitor/Review/PrevPics" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49999997, -0.049999952, 0)
 
 [node name="S1" type="Sprite3D" parent="pc-monitor/Review/PrevPics/Review4" index="0"]
-transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, -1.1500003, 0.60000014, 0)
+transform = Transform3D(0.52, 0, 0, 0, 0.63, 0, 0, 0, 0.7, -1.0608749, 0.56210923, 0)
 sorting_offset = 1.0
 texture = ExtResource("8_sbthb")
 
 [node name="Name" type="Label3D" parent="pc-monitor/Review/PrevPics/Review4" index="1"]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.70000035, 0.7000003, 0)
-sorting_offset = 2.0
+transform = Transform3D(0.5, 0, 0, 0, 0.7, 0, 0, 0, 0.5, -1.0600003, 0.72500014, 0)
+sorting_offset = 3.0
 modulate = Color(0, 0, 0, 1)
 text = "FRANKENDEER"
 font = ExtResource("12_3rc7y")
 font_size = 18
 
 [node name="Prev" type="Label3D" parent="pc-monitor/Review/PrevPics/Review4" index="2"]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.7000001, 0.5750005, 0)
-sorting_offset = 2.0
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.9750004, 0.40000057, 0)
+sorting_offset = 3.0
 modulate = Color(0, 0, 0, 1)
 text = "99/99"
 font = ExtResource("12_3rc7y")
-font_size = 48
+font_size = 28
 
-[node name="Review5" type="Node3D" parent="pc-monitor/Review/PrevPics" index="4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.049999997, -1.0499997, 0)
+[node name="Review5" type="Node3D" parent="pc-monitor/Review/PrevPics" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0249999, -0.049999952, 0)
 
 [node name="S1" type="Sprite3D" parent="pc-monitor/Review/PrevPics/Review5" index="0"]
-transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, -1.1500003, 0.60000014, 0)
+transform = Transform3D(0.52, 0, 0, 0, 0.63, 0, 0, 0, 0.7, -1.0608749, 0.56210923, 0)
 sorting_offset = 1.0
 texture = ExtResource("8_sbthb")
 
 [node name="Name" type="Label3D" parent="pc-monitor/Review/PrevPics/Review5" index="1"]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.70000035, 0.7000003, 0)
-sorting_offset = 2.0
+transform = Transform3D(0.5, 0, 0, 0, 0.7, 0, 0, 0, 0.5, -1.0600003, 0.72500014, 0)
+sorting_offset = 3.0
 modulate = Color(0, 0, 0, 1)
 text = "FRANKENDEER"
 font = ExtResource("12_3rc7y")
 font_size = 18
 
 [node name="Prev" type="Label3D" parent="pc-monitor/Review/PrevPics/Review5" index="2"]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.7000001, 0.5750005, 0)
-sorting_offset = 2.0
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.9750004, 0.40000057, 0)
+sorting_offset = 3.0
 modulate = Color(0, 0, 0, 1)
 text = "99/99"
 font = ExtResource("12_3rc7y")
-font_size = 48
+font_size = 28
 
-[node name="Review6" type="Node3D" parent="pc-monitor/Review/PrevPics" index="5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8499999, -0.049999952, 0)
+[node name="Review6" type="Node3D" parent="pc-monitor/Review/PrevPics" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5499998, -0.049999952, 0)
 
 [node name="S1" type="Sprite3D" parent="pc-monitor/Review/PrevPics/Review6" index="0"]
-transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, -1.1500003, 0.60000014, 0)
+transform = Transform3D(0.52, 0, 0, 0, 0.63, 0, 0, 0, 0.7, -1.0608749, 0.56210923, 0)
 sorting_offset = 1.0
 texture = ExtResource("8_sbthb")
 
 [node name="Name" type="Label3D" parent="pc-monitor/Review/PrevPics/Review6" index="1"]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.70000035, 0.7000003, 0)
-sorting_offset = 2.0
+transform = Transform3D(0.5, 0, 0, 0, 0.7, 0, 0, 0, 0.5, -1.0600002, 0.72500014, 0)
+sorting_offset = 3.0
 modulate = Color(0, 0, 0, 1)
 text = "FRANKENDEER"
 font = ExtResource("12_3rc7y")
 font_size = 18
 
 [node name="Prev" type="Label3D" parent="pc-monitor/Review/PrevPics/Review6" index="2"]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.7000001, 0.5750005, 0)
-sorting_offset = 2.0
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.9750003, 0.40000057, 0)
+sorting_offset = 3.0
 modulate = Color(0, 0, 0, 1)
 text = "99/99"
 font = ExtResource("12_3rc7y")
-font_size = 48
+font_size = 28
 
-[node name="Review7" type="Node3D" parent="pc-monitor/Review/PrevPics" index="6"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8499999, -0.29999983, 0)
+[node name="Review7" type="Node3D" parent="pc-monitor/Review/PrevPics" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0749998, -0.049999952, 0)
 
 [node name="S1" type="Sprite3D" parent="pc-monitor/Review/PrevPics/Review7" index="0"]
-transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, -1.1500003, 0.60000014, 0)
+transform = Transform3D(0.52, 0, 0, 0, 0.63, 0, 0, 0, 0.7, -1.0608749, 0.56210923, 0)
 sorting_offset = 1.0
 texture = ExtResource("8_sbthb")
 
 [node name="Name" type="Label3D" parent="pc-monitor/Review/PrevPics/Review7" index="1"]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.70000035, 0.7000003, 0)
-sorting_offset = 2.0
+transform = Transform3D(0.5, 0, 0, 0, 0.7, 0, 0, 0, 0.5, -1.0600003, 0.72500014, 0)
+sorting_offset = 3.0
 modulate = Color(0, 0, 0, 1)
 text = "FRANKENDEER"
 font = ExtResource("12_3rc7y")
 font_size = 18
 
 [node name="Prev" type="Label3D" parent="pc-monitor/Review/PrevPics/Review7" index="2"]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.7000001, 0.5750005, 0)
-sorting_offset = 2.0
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.9750004, 0.40000057, 0)
+sorting_offset = 3.0
 modulate = Color(0, 0, 0, 1)
 text = "99/99"
 font = ExtResource("12_3rc7y")
-font_size = 48
+font_size = 28
 
-[node name="Review8" type="Node3D" parent="pc-monitor/Review/PrevPics" index="7"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8499999, -0.5499997, 0)
+[node name="Review2" type="Node3D" parent="pc-monitor/Review/PrevPics" index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.024999999, -0.49999988, 0)
+
+[node name="S1" type="Sprite3D" parent="pc-monitor/Review/PrevPics/Review2" index="0"]
+transform = Transform3D(0.52, 0, 0, 0, 0.63, 0, 0, 0, 0.7, -1.0608749, 0.56210923, 0)
+sorting_offset = 1.0
+texture = ExtResource("8_sbthb")
+
+[node name="Name" type="Label3D" parent="pc-monitor/Review/PrevPics/Review2" index="1"]
+transform = Transform3D(0.5, 0, 0, 0, 0.7, 0, 0, 0, 0.5, -1.0600003, 0.72499996, 0)
+sorting_offset = 3.0
+modulate = Color(0, 0, 0, 1)
+text = "FRANKENDEER"
+font = ExtResource("12_3rc7y")
+font_size = 18
+
+[node name="Prev" type="Label3D" parent="pc-monitor/Review/PrevPics/Review2" index="2"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.9750004, 0.40000063, 0)
+sorting_offset = 3.0
+modulate = Color(0, 0, 0, 1)
+text = "99/99"
+font = ExtResource("12_3rc7y")
+font_size = 28
+
+[node name="Review8" type="Node3D" parent="pc-monitor/Review/PrevPics" index="6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49999997, -0.49999988, 0)
 
 [node name="S1" type="Sprite3D" parent="pc-monitor/Review/PrevPics/Review8" index="0"]
-transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, -1.1500003, 0.60000014, 0)
+transform = Transform3D(0.52, 0, 0, 0, 0.63, 0, 0, 0, 0.7, -1.0608749, 0.56210923, 0)
 sorting_offset = 1.0
 texture = ExtResource("8_sbthb")
 
 [node name="Name" type="Label3D" parent="pc-monitor/Review/PrevPics/Review8" index="1"]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.70000035, 0.7000003, 0)
-sorting_offset = 2.0
+transform = Transform3D(0.5, 0, 0, 0, 0.7, 0, 0, 0, 0.5, -1.0600003, 0.72499996, 0)
+sorting_offset = 3.0
 modulate = Color(0, 0, 0, 1)
 text = "FRANKENDEER"
 font = ExtResource("12_3rc7y")
 font_size = 18
 
 [node name="Prev" type="Label3D" parent="pc-monitor/Review/PrevPics/Review8" index="2"]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.7000001, 0.5750005, 0)
-sorting_offset = 2.0
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.9750004, 0.40000063, 0)
+sorting_offset = 3.0
 modulate = Color(0, 0, 0, 1)
 text = "99/99"
 font = ExtResource("12_3rc7y")
-font_size = 48
+font_size = 28
 
-[node name="Review9" type="Node3D" parent="pc-monitor/Review/PrevPics" index="8"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8499999, -0.7999997, 0)
+[node name="Review9" type="Node3D" parent="pc-monitor/Review/PrevPics" index="7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0249999, -0.49999988, 0)
 
 [node name="S1" type="Sprite3D" parent="pc-monitor/Review/PrevPics/Review9" index="0"]
-transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, -1.1500003, 0.60000014, 0)
+transform = Transform3D(0.52, 0, 0, 0, 0.63, 0, 0, 0, 0.7, -1.0608749, 0.56210923, 0)
 sorting_offset = 1.0
 texture = ExtResource("8_sbthb")
 
 [node name="Name" type="Label3D" parent="pc-monitor/Review/PrevPics/Review9" index="1"]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.70000035, 0.7000003, 0)
-sorting_offset = 2.0
+transform = Transform3D(0.5, 0, 0, 0, 0.7, 0, 0, 0, 0.5, -1.0600003, 0.72499996, 0)
+sorting_offset = 3.0
 modulate = Color(0, 0, 0, 1)
 text = "FRANKENDEER"
 font = ExtResource("12_3rc7y")
 font_size = 18
 
 [node name="Prev" type="Label3D" parent="pc-monitor/Review/PrevPics/Review9" index="2"]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.7000001, 0.5750005, 0)
-sorting_offset = 2.0
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.9750004, 0.40000063, 0)
+sorting_offset = 3.0
 modulate = Color(0, 0, 0, 1)
 text = "99/99"
 font = ExtResource("12_3rc7y")
-font_size = 48
+font_size = 28
 
-[node name="Review10" type="Node3D" parent="pc-monitor/Review/PrevPics" index="9"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.8499999, -1.0499997, 0)
+[node name="Review10" type="Node3D" parent="pc-monitor/Review/PrevPics" index="8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5499998, -0.49999988, 0)
 
 [node name="S1" type="Sprite3D" parent="pc-monitor/Review/PrevPics/Review10" index="0"]
-transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, -1.1500003, 0.60000014, 0)
+transform = Transform3D(0.52, 0, 0, 0, 0.63, 0, 0, 0, 0.7, -1.0608749, 0.56210923, 0)
 sorting_offset = 1.0
 texture = ExtResource("8_sbthb")
 
 [node name="Name" type="Label3D" parent="pc-monitor/Review/PrevPics/Review10" index="1"]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.70000035, 0.7000003, 0)
-sorting_offset = 2.0
+transform = Transform3D(0.5, 0, 0, 0, 0.7, 0, 0, 0, 0.5, -1.0600002, 0.72499996, 0)
+sorting_offset = 3.0
 modulate = Color(0, 0, 0, 1)
 text = "FRANKENDEER"
 font = ExtResource("12_3rc7y")
 font_size = 18
 
 [node name="Prev" type="Label3D" parent="pc-monitor/Review/PrevPics/Review10" index="2"]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.7000001, 0.5750005, 0)
-sorting_offset = 2.0
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.9750003, 0.40000063, 0)
+sorting_offset = 3.0
 modulate = Color(0, 0, 0, 1)
 text = "99/99"
 font = ExtResource("12_3rc7y")
-font_size = 48
+font_size = 28
 
-[node name="Review11" type="Node3D" parent="pc-monitor/Review/PrevPics" index="10"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7499998, -0.049999952, 0)
+[node name="Review11" type="Node3D" parent="pc-monitor/Review/PrevPics" index="9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0749998, -0.49999988, 0)
 
 [node name="S1" type="Sprite3D" parent="pc-monitor/Review/PrevPics/Review11" index="0"]
-transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, -1.1500003, 0.60000014, 0)
+transform = Transform3D(0.52, 0, 0, 0, 0.63, 0, 0, 0, 0.7, -1.0608749, 0.56210923, 0)
 sorting_offset = 1.0
 texture = ExtResource("8_sbthb")
 
 [node name="Name" type="Label3D" parent="pc-monitor/Review/PrevPics/Review11" index="1"]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.70000035, 0.7000003, 0)
-sorting_offset = 2.0
+transform = Transform3D(0.5, 0, 0, 0, 0.7, 0, 0, 0, 0.5, -1.0600003, 0.72499996, 0)
+sorting_offset = 3.0
 modulate = Color(0, 0, 0, 1)
 text = "FRANKENDEER"
 font = ExtResource("12_3rc7y")
 font_size = 18
 
 [node name="Prev" type="Label3D" parent="pc-monitor/Review/PrevPics/Review11" index="2"]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.7000001, 0.5750005, 0)
-sorting_offset = 2.0
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.9750004, 0.40000063, 0)
+sorting_offset = 3.0
 modulate = Color(0, 0, 0, 1)
 text = "99/99"
 font = ExtResource("12_3rc7y")
-font_size = 48
+font_size = 28
+
+[node name="Review3" type="Node3D" parent="pc-monitor/Review/PrevPics" index="10"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.024999999, -0.9499998, 0)
+
+[node name="S1" type="Sprite3D" parent="pc-monitor/Review/PrevPics/Review3" index="0"]
+transform = Transform3D(0.52, 0, 0, 0, 0.63, 0, 0, 0, 0.7, -1.0608749, 0.56210923, 0)
+sorting_offset = 1.0
+texture = ExtResource("8_sbthb")
+
+[node name="Name" type="Label3D" parent="pc-monitor/Review/PrevPics/Review3" index="1"]
+transform = Transform3D(0.5, 0, 0, 0, 0.7, 0, 0, 0, 0.5, -1.0600003, 0.72500014, 0)
+sorting_offset = 3.0
+modulate = Color(0, 0, 0, 1)
+text = "FRANKENDEER"
+font = ExtResource("12_3rc7y")
+font_size = 18
+
+[node name="Prev" type="Label3D" parent="pc-monitor/Review/PrevPics/Review3" index="2"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.9750004, 0.40000063, 0)
+sorting_offset = 3.0
+modulate = Color(0, 0, 0, 1)
+text = "99/99"
+font = ExtResource("12_3rc7y")
+font_size = 28
 
 [node name="Review12" type="Node3D" parent="pc-monitor/Review/PrevPics" index="11"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7499998, -0.29999983, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.49999997, -0.9499998, 0)
 
 [node name="S1" type="Sprite3D" parent="pc-monitor/Review/PrevPics/Review12" index="0"]
-transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, -1.1500003, 0.60000014, 0)
+transform = Transform3D(0.52, 0, 0, 0, 0.63, 0, 0, 0, 0.7, -1.0608749, 0.56210923, 0)
 sorting_offset = 1.0
 texture = ExtResource("8_sbthb")
 
 [node name="Name" type="Label3D" parent="pc-monitor/Review/PrevPics/Review12" index="1"]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.70000035, 0.7000003, 0)
-sorting_offset = 2.0
+transform = Transform3D(0.5, 0, 0, 0, 0.7, 0, 0, 0, 0.5, -1.0600003, 0.72500014, 0)
+sorting_offset = 3.0
 modulate = Color(0, 0, 0, 1)
 text = "FRANKENDEER"
 font = ExtResource("12_3rc7y")
 font_size = 18
 
 [node name="Prev" type="Label3D" parent="pc-monitor/Review/PrevPics/Review12" index="2"]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.7000001, 0.5750005, 0)
-sorting_offset = 2.0
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.9750004, 0.40000063, 0)
+sorting_offset = 3.0
 modulate = Color(0, 0, 0, 1)
 text = "99/99"
 font = ExtResource("12_3rc7y")
-font_size = 48
+font_size = 28
 
 [node name="Review13" type="Node3D" parent="pc-monitor/Review/PrevPics" index="12"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7499998, -0.5499998, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0249999, -0.9499998, 0)
 
 [node name="S1" type="Sprite3D" parent="pc-monitor/Review/PrevPics/Review13" index="0"]
-transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, -1.1500003, 0.60000014, 0)
+transform = Transform3D(0.52, 0, 0, 0, 0.63, 0, 0, 0, 0.7, -1.0608749, 0.56210923, 0)
 sorting_offset = 1.0
 texture = ExtResource("8_sbthb")
 
 [node name="Name" type="Label3D" parent="pc-monitor/Review/PrevPics/Review13" index="1"]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.70000035, 0.7000003, 0)
-sorting_offset = 2.0
+transform = Transform3D(0.5, 0, 0, 0, 0.7, 0, 0, 0, 0.5, -1.0600003, 0.72500014, 0)
+sorting_offset = 3.0
 modulate = Color(0, 0, 0, 1)
 text = "FRANKENDEER"
 font = ExtResource("12_3rc7y")
 font_size = 18
 
 [node name="Prev" type="Label3D" parent="pc-monitor/Review/PrevPics/Review13" index="2"]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.7000001, 0.5750005, 0)
-sorting_offset = 2.0
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.9750004, 0.40000063, 0)
+sorting_offset = 3.0
 modulate = Color(0, 0, 0, 1)
 text = "99/99"
 font = ExtResource("12_3rc7y")
-font_size = 48
+font_size = 28
 
 [node name="Review14" type="Node3D" parent="pc-monitor/Review/PrevPics" index="13"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7499998, -0.7999997, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5499998, -0.9499998, 0)
 
 [node name="S1" type="Sprite3D" parent="pc-monitor/Review/PrevPics/Review14" index="0"]
-transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, -1.1500003, 0.60000014, 0)
+transform = Transform3D(0.52, 0, 0, 0, 0.63, 0, 0, 0, 0.7, -1.0608749, 0.56210923, 0)
 sorting_offset = 1.0
 texture = ExtResource("8_sbthb")
 
 [node name="Name" type="Label3D" parent="pc-monitor/Review/PrevPics/Review14" index="1"]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.70000035, 0.7000003, 0)
-sorting_offset = 2.0
+transform = Transform3D(0.5, 0, 0, 0, 0.7, 0, 0, 0, 0.5, -1.0600002, 0.72500014, 0)
+sorting_offset = 3.0
 modulate = Color(0, 0, 0, 1)
 text = "FRANKENDEER"
 font = ExtResource("12_3rc7y")
 font_size = 18
 
 [node name="Prev" type="Label3D" parent="pc-monitor/Review/PrevPics/Review14" index="2"]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.7000001, 0.5750005, 0)
-sorting_offset = 2.0
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.9750003, 0.40000063, 0)
+sorting_offset = 3.0
 modulate = Color(0, 0, 0, 1)
 text = "99/99"
 font = ExtResource("12_3rc7y")
-font_size = 48
+font_size = 28
 
 [node name="Review15" type="Node3D" parent="pc-monitor/Review/PrevPics" index="14"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7499998, -1.0499997, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0749998, -0.9499998, 0)
 
 [node name="S1" type="Sprite3D" parent="pc-monitor/Review/PrevPics/Review15" index="0"]
-transform = Transform3D(0.35, 0, 0, 0, 0.35, 0, 0, 0, 0.35, -1.1500003, 0.60000014, 0)
+transform = Transform3D(0.52, 0, 0, 0, 0.63, 0, 0, 0, 0.7, -1.0608749, 0.56210923, 0)
 sorting_offset = 1.0
 texture = ExtResource("8_sbthb")
 
 [node name="Name" type="Label3D" parent="pc-monitor/Review/PrevPics/Review15" index="1"]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.70000035, 0.7000003, 0)
-sorting_offset = 2.0
+transform = Transform3D(0.5, 0, 0, 0, 0.7, 0, 0, 0, 0.5, -1.0600003, 0.72500014, 0)
+sorting_offset = 3.0
 modulate = Color(0, 0, 0, 1)
 text = "FRANKENDEER"
 font = ExtResource("12_3rc7y")
 font_size = 18
 
 [node name="Prev" type="Label3D" parent="pc-monitor/Review/PrevPics/Review15" index="2"]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.7000001, 0.5750005, 0)
-sorting_offset = 2.0
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.9750004, 0.40000063, 0)
+sorting_offset = 3.0
 modulate = Color(0, 0, 0, 1)
 text = "99/99"
 font = ExtResource("12_3rc7y")
-font_size = 48
+font_size = 28
 
 [node name="Next" type="Sprite3D" parent="pc-monitor/Review" index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.09955853, -0.69025767, 0.00023365021)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00044146553, -0.7402577, 0.00023365021)
 sorting_offset = 1.0
 texture = ExtResource("7_wyg07")
 

@@ -262,17 +262,23 @@ func ui_review():
 		p.get_node("S1").texture = nopic
 		p.get_node("Name").text = "?????"
 		p.get_node("Prev").text = "??/??"
+		p.get_node("Name").modulate = Color(1,1,1,1)
+		p.get_node("Prev").modulate = Color(1,1,1,1)
 		
 	
 	for i in range(Global.bests.keys().size()):
 		var b = Global.bests[Global.bests.keys()[i]]
 		var cr = ImageTexture.create_from_image(b["pic"])
-		cr.set_size_override(Vector2(80,60))
+		cr.set_size_override(Vector2(90,75))
 		get_node("Review/PrevPics").get_children()[i].get_node("S1").texture = cr
 		get_node("Review/PrevPics").get_children()[i].get_node("Name").text = b["critter"]
+		get_node("Review/PrevPics").get_children()[i].get_node("Name").modulate = Color(0,0,0,1)
 		if(b["critter"] == "Gold Burglerat"):
 			get_node("Review/PrevPics").get_children()[i].get_node("Name").text = "G. Burglerat"
 		get_node("Review/PrevPics").get_children()[i].get_node("Prev").text = str(b["score"]) + "/" + str(get_best_possible_score(b["critter"]))
+		get_node("Review/PrevPics").get_children()[i].get_node("Prev").modulate = Color(0,0,0,1)
+		if(b["score"] == get_best_possible_score(b["critter"])):
+			get_node("Review/PrevPics").get_children()[i].get_node("Prev").modulate = Color(0,0.4,0,1)	
 	
 
 func process_picture(pic : Dictionary) -> Array:
@@ -282,13 +288,13 @@ func process_picture(pic : Dictionary) -> Array:
 		
 		var dist_rating = 0
 		var dist_total = (c0["dist"])
-		if (dist_total > 25):
+		if (dist_total > 20):
 			dist_rating = 5
-		elif (dist_total > 15):
+		elif (dist_total > 10):
 			dist_rating = 4
-		elif (dist_total > 7):
+		elif (dist_total > 5):
 			dist_rating = 3
-		elif (dist_total > 2):
+		elif (dist_total > 2.5):
 			dist_rating = 2
 		elif (dist_total > 0.5):
 			dist_rating = 1
