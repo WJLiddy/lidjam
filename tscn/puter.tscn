@@ -260,38 +260,16 @@ transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -0.45, 0.27, 0)
 sorting_offset = 1.0
 texture = ExtResource("8_sbthb")
 
-[node name="LabelJustLeft" type="Label3D" parent="pc-monitor/Grading" index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.586, 0.85, 0)
-sorting_offset = 1.0
-modulate = Color(0, 0, 0, 1)
-text = "Charmander [font_size=30]23
-★★★★☆
-DISTANCE
-20 m
-OTHER MONSTERS
-3 same
-2 different
-POSE
-Walking
-OBJECTIVE BONUS
-Yes
-
-"
-font = ExtResource("12_3rc7y")
-font_size = 12
-horizontal_alignment = 0
-vertical_alignment = 0
-
-[node name="Old" type="Sprite3D" parent="pc-monitor/Grading" index="3"]
+[node name="Old" type="Sprite3D" parent="pc-monitor/Grading" index="2"]
 transform = Transform3D(1.3700001, 0, 0, 0, 1.3700001, 0, 0, 0, 1.3700001, 0.185, -0.67999995, 0)
 sorting_offset = 1.0
 
-[node name="Oak" type="Sprite3D" parent="pc-monitor/Grading" index="4"]
+[node name="Oak" type="Sprite3D" parent="pc-monitor/Grading" index="3"]
 transform = Transform3D(1.3700001, 0, 0, 0, 1.3700001, 0, 0, 0, 1.3700001, -1.1399999, -0.6799998, 0)
 sorting_offset = 1.0
 texture = ExtResource("13_a53r6")
 
-[node name="OldText" type="Label3D" parent="pc-monitor/Grading" index="5"]
+[node name="OldText" type="Label3D" parent="pc-monitor/Grading" index="4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.47426042, -0.7854339, 0)
 sorting_offset = 2.0
 modulate = Color(0, 0, 0, 1)
@@ -301,7 +279,7 @@ font_size = 12
 horizontal_alignment = 2
 vertical_alignment = 0
 
-[node name="ProfText" type="Label3D" parent="pc-monitor/Grading" index="6"]
+[node name="ProfText" type="Label3D" parent="pc-monitor/Grading" index="5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9250001, -0.4749999, 0)
 sorting_offset = 1.0
 modulate = Color(0, 0, 0, 1)
@@ -311,6 +289,130 @@ aaa
 aaa"
 font = ExtResource("12_3rc7y")
 font_size = 12
+horizontal_alignment = 0
+vertical_alignment = 0
+
+[node name="ScoringBase" type="Node3D" parent="pc-monitor/Grading" index="6"]
+
+[node name="Name" type="Label3D" parent="pc-monitor/Grading/ScoringBase" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.586, 0.85000014, 0)
+sorting_offset = 1.0
+modulate = Color(0, 0, 0, 1)
+text = "CHARMANDER"
+font = ExtResource("12_3rc7y")
+font_size = 12
+horizontal_alignment = 0
+vertical_alignment = 0
+
+[node name="NameScore" type="Label3D" parent="pc-monitor/Grading/ScoringBase" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.586, 0.80000067, 0)
+sorting_offset = 1.0
+modulate = Color(0, 0, 0, 1)
+text = "★★☆"
+font = ExtResource("12_3rc7y")
+font_size = 24
+horizontal_alignment = 0
+vertical_alignment = 0
+
+[node name="Size" type="Label3D" parent="pc-monitor/Grading/ScoringBase" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.586, 0.6500001, 0)
+sorting_offset = 1.0
+modulate = Color(0, 0, 0, 1)
+text = "SIZE"
+font = ExtResource("12_3rc7y")
+font_size = 12
+horizontal_alignment = 0
+vertical_alignment = 0
+
+[node name="SizeScore" type="Label3D" parent="pc-monitor/Grading/ScoringBase" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.586, 0.60000014, 0)
+sorting_offset = 1.0
+modulate = Color(0, 0, 0, 1)
+text = "★★☆"
+font = ExtResource("12_3rc7y")
+font_size = 24
+horizontal_alignment = 0
+vertical_alignment = 0
+
+[node name="Pose" type="Label3D" parent="pc-monitor/Grading/ScoringBase" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.586, 0.4500003, 0)
+sorting_offset = 1.0
+modulate = Color(0, 0, 0, 1)
+text = "POSE
+"
+font = ExtResource("12_3rc7y")
+font_size = 12
+horizontal_alignment = 0
+vertical_alignment = 0
+
+[node name="Orient" type="Label3D" parent="pc-monitor/Grading/ScoringBase" index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.586, 0.35000038, 0)
+sorting_offset = 1.0
+modulate = Color(0, 0, 0, 1)
+text = "ORIENT
+"
+font = ExtResource("12_3rc7y")
+font_size = 12
+horizontal_alignment = 0
+vertical_alignment = 0
+
+[node name="PoseOrientScore" type="Label3D" parent="pc-monitor/Grading/ScoringBase" index="6"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.586, 0.30000067, 0)
+sorting_offset = 1.0
+modulate = Color(0, 0, 0, 1)
+text = "★★☆"
+font = ExtResource("12_3rc7y")
+font_size = 24
+horizontal_alignment = 0
+vertical_alignment = 0
+
+[node name="Others" type="Label3D" parent="pc-monitor/Grading/ScoringBase" index="7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.586, 0.15000081, 0)
+sorting_offset = 1.0
+modulate = Color(0, 0, 0, 1)
+text = "OTHER SPECIES"
+font = ExtResource("12_3rc7y")
+font_size = 12
+horizontal_alignment = 0
+vertical_alignment = 0
+
+[node name="OthersScore" type="Label3D" parent="pc-monitor/Grading/ScoringBase" index="8"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.586, 0.10000086, 0)
+sorting_offset = 1.0
+modulate = Color(0, 0, 0, 1)
+text = "★★☆"
+font = ExtResource("12_3rc7y")
+font_size = 24
+horizontal_alignment = 0
+vertical_alignment = 0
+
+[node name="Same" type="Label3D" parent="pc-monitor/Grading/ScoringBase" index="9"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.586, -0.049999118, 0)
+sorting_offset = 1.0
+modulate = Color(0, 0, 0, 1)
+text = "OF A KIND"
+font = ExtResource("12_3rc7y")
+font_size = 12
+horizontal_alignment = 0
+vertical_alignment = 0
+
+[node name="SameScore" type="Label3D" parent="pc-monitor/Grading/ScoringBase" index="10"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.586, -0.09999895, 0)
+sorting_offset = 1.0
+modulate = Color(0, 0, 0, 1)
+text = "★★☆"
+font = ExtResource("12_3rc7y")
+font_size = 24
+horizontal_alignment = 0
+vertical_alignment = 0
+
+[node name="Total" type="Label3D" parent="pc-monitor/Grading/ScoringBase" index="11"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.586, -0.32499886, 0)
+sorting_offset = 1.0
+modulate = Color(0, 0, 0, 1)
+text = "TOTAL 99/99"
+font = ExtResource("12_3rc7y")
+font_size = 15
 horizontal_alignment = 0
 vertical_alignment = 0
 

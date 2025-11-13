@@ -240,8 +240,8 @@ func ui_grade():
 	var cr = ImageTexture.create_from_image(p["pic"])
 	cr.set_size_override(Vector2(200,150))
 	$Grading/Preview.texture = cr
-	$Grading/LabelJustLeft.text = p["ltext"]
 	var critter = pictures_to_grade[grading_index]["critter"]
+	
 	if(Global.bests.has(critter)):
 		var cr2 = ImageTexture.create_from_image(Global.bests[critter]["pic"])
 		cr2.set_size_override(Vector2(40,30))
@@ -267,7 +267,42 @@ func ui_grade():
 			elif (p["pdata"]["pose"] != pose_score[species_best_pose[critter]]):
 				$Grading/ProfText.text =  wrap_text("Hmm.. could you get" + critter + " " + species_best_pose[critter] + "???")
 		else:
-			$Grading/ProfText.text = wrap_text("This pic of " + critter + " is better than your last!")
+			if(p["score"] == get_best_possible_score(critter)):
+				$Grading/ProfText.text = wrap_text("Incredible!!! A perfect pic of " + critter + ".")
+			else:
+				$Grading/ProfText.text = wrap_text("This pic of " + critter + " is better than your last!")
+	
+	# finally actually display the fkin grading
+	if (critter == "Gold Buglerat"):
+		$Grading/ScoringBase/Name.text = "G. Buglerat" 
+	else:
+		$Grading/ScoringBase/Name.text = critter
+		
+	$Grading/ScoringBase/NameScore.text = get_star_string(base_score[critter],base_score[critter]) 
+		
+	$Grading/ScoringBase/SizeScore.text = get_star_string(p["pdata"]["dist"],5)
+	
+	var best_possible_pose = pose_score[species_best_pose[critter]] + 1
+	$Grading/ScoringBase/Pose.text = p["pdata"]["posename"] + ","
+	if(p["pdata"]["orient"]):
+		$Grading/ScoringBase/Orient.text = "FACING CAM"
+	else:
+		$Grading/ScoringBase/Orient.text = "FACING AWAY"
+		
+	$Grading/ScoringBase/PoseOrientScore.text = get_star_string(p["pdata"]["pose"],best_possible_pose)
+	$Grading/ScoringBase/OthersScore.text = get_star_string(p["pdata"]["diff"],2)
+	
+	if(species_same_max[critter] > 0):
+		$Grading/ScoringBase/Same.text = str(species_same_max[critter]) + " OF A KIND" 
+		$Grading/ScoringBase/SameScore.text = get_star_string(p["pdata"]["same"],species_same_max[critter])
+		$Grading/ScoringBase/Same.visible = true
+		$Grading/ScoringBase/SameScore.visible = true
+	else:
+		$Grading/ScoringBase/Same.visible = false
+		$Grading/ScoringBase/SameScore.visible = false
+		
+	$Grading/ScoringBase/Total.text = "TOTAL " + str(p["score"]) + " / " + str(get_best_possible_score(critter))
+		
 			
 func get_keys_sorted_by_score(dict: Dictionary) -> Array:
 	var keys = dict.keys()
@@ -309,7 +344,7 @@ func process_picture(pic : Dictionary) -> Array:
 		
 		var dist_rating = 0
 		var dist_total = (c0["dist"])
-		if (dist_total > 20):
+		if (dist_total > 15):
 			dist_rating = 5
 		elif (dist_total > 10):
 			dist_rating = 4
@@ -336,40 +371,19 @@ func process_picture(pic : Dictionary) -> Array:
 		var orient_good = c0["orient"] > 2
 		if orient_good:
 			pose_val += 1
-		var best_possible_pose = pose_score[species_best_pose[c0["name"]]] + 1
 			
 		var total_score = (base_val + dist_rating + same_val + dif_val + pose_val)
-		
-		var left_text = ""
-		
-		if(c0["name"] == "Gold Buglerat"):
-			left_text += "G. Buglerat" + "\n" + get_star_string(base_val,base_val) + "\n"
-		else:
-			left_text += c0["name"] + "\n" + get_star_string(base_val,base_val) + "\n"
-			
-		left_text += "SIZE\n" + get_star_string(dist_rating,5)+"\n"
-		left_text += c0["pose"]
-		if(orient_good):
-			left_text += ",\nFACING CAM"
-			
-		left_text += "\n" + get_star_string(pose_val,best_possible_pose) + "\n"
-		
-		if(species_same_max[c0["name"]] > 0):
-			left_text += str(species_same_max[c0["name"]]) + " OF THE SAME? \n" + get_star_string(same_val,species_same_max[c0["name"]]) + "\n"
-			
-		left_text += "OTHER SPECIES\n" + get_star_string(dif_val,2) + "\n"
-
-		left_text += "TOTAL " + str(total_score) + " / " + str(get_best_possible_score(c0["name"]))
 		
 		var pdata = {
 			"dist" : dist_rating,
 			"pose" : pose_val,
+			"posename" : c0["pose"],
 			"orient" : orient_good,
 			"same" : same_val,
 			"diff" : dif_val
 		}
 		
-		out.push_back({"score":total_score,"ltext":left_text,"pic":pic["image"],"critter":c0["name"],"pdata" : pdata})
+		out.push_back({"score":total_score,"pic":pic["image"],"critter":c0["name"],"pdata" : pdata})
 	return out
 
 

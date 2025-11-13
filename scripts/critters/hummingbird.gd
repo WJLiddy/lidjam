@@ -41,7 +41,6 @@ func _physics_process(delta: float) -> void:
 			# made it
 			if((perch.global_position - global_position).length() < 0.1):
 				action = "Perched"
-				print("perched")
 				action_time =  get_anim_length(action)
 				velocity = Vector3.ZERO
 		$model/AnimationPlayer.play(action)

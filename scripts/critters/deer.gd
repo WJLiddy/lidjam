@@ -2,8 +2,8 @@ extends Critter
 
 func speed():
 	if fleeing:
-		return 12
-	return 6
+		return 15
+	return 12
 
 var fleeing = false
 
@@ -16,14 +16,16 @@ func pick_action():
 	if(dist_to_player() * stealth_mult() < 35 and dist_to_player() * stealth_mult() > 30):
 		make_emoticon("Alert")
 		
-	
-	if(not fleeing and (action == "Walking" or action == "Grazing" or action == "RestingIDLE") and player_is_whistling() and dist_to_player() < 50):
+	# used the whistle.
+	if(not fleeing and player_is_whistling() and dist_to_player() < 50):
 		action = "Petrified"
 		make_emoticon("Anger")
 		fleeing = true
-	elif(dist_to_player() * stealth_mult() < 30 or fleeing):
-		if(action != "Walking"):
-			make_emoticon("Scared")
+	# got too close.
+	elif(dist_to_player() * stealth_mult() < 30):
+		make_emoticon("Scared")
+		fleeing = true
+	elif(fleeing):
 		action = "Walking"
 		set_nav_flee_from_player()
 	else:

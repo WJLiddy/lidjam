@@ -80,7 +80,6 @@ func set_nav_flee_from_player():
 		var v = escape_hints.reduce(func(best, next):
 			return next if player.global_position.distance_to(next.global_position) > player.global_position.distance_to(best.global_position) else best
 		)
-		print("escaping to " + v.name)
 		$nav.set_target_position(v.global_position)
 
 func set_nav_meander():
@@ -95,7 +94,6 @@ func make_emoticon(t):
 	
 # not great but crunch time
 # multiply by player_distance. a high stealth mult makes player seem farther away than actually is.
-
 func stealth_mult():
 	var player = get_node("../../Player")
 	var to_player = (player.global_position - global_position).normalized()
@@ -109,9 +107,9 @@ func stealth_mult():
 		facing_mult = 1.5
 		
 	if(player.speed == player.sprint_speed):
-		return 2 * facing_mult
+		return 1 / (1.5 * facing_mult)
 	if(player.speed == player.crouch_speed):
-		return 0.3 * facing_mult
+		return 1 / (0.5 * facing_mult)
 	
 	return 1 / facing_mult
 
@@ -184,7 +182,7 @@ func _physics_process(delta: float) -> void:
 			
 		elif(action in look_at_player_actions):
 			look_at_grad(delta, get_node("../../Player").global_position)
-		
+			
 		elif(action == "Swimming"):
 			#  placeholder
 			if(action_time > 10):

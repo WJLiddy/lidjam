@@ -11,21 +11,21 @@ transform = Transform3D(1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0)
 script = ExtResource("1_ser34")
 
 [node name="Anger" type="Sprite3D" parent="."]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
+transform = Transform3D(-4, 0, -3.496911e-07, 0, 4, 0, 3.496911e-07, 0, -4, 0, 0, 0)
 texture = ExtResource("2_gn0eo")
 metadata/_edit_lock_ = true
 
 [node name="Scared" type="Sprite3D" parent="."]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
+transform = Transform3D(-4, 0, -3.496911e-07, 0, 4, 0, 3.496911e-07, 0, -4, 0, 0, 0)
 texture = ExtResource("3_tiva7")
 metadata/_edit_lock_ = true
 
 [node name="Alert" type="Sprite3D" parent="."]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
+transform = Transform3D(-4, 0, -3.496911e-07, 0, 4, 0, 3.496911e-07, 0, -4, 0, 0, 0)
 texture = ExtResource("4_pq5pn")
 metadata/_edit_lock_ = true
 
 [node name="Love" type="Sprite3D" parent="."]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
+transform = Transform3D(-4, 0, -3.496911e-07, 0, 4, 0, 3.496911e-07, 0, -4, 0, 0, 0)
 texture = ExtResource("5_vng3w")
 metadata/_edit_lock_ = true
