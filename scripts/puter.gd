@@ -231,7 +231,7 @@ func _input(event: InputEvent) -> void:
 		# clamp to -.25 to 25
 		# 0.15 to 0.45
 	get_node("Mouse").position.x = clamp(get_node("Mouse").position.x,-0.25,0.25)
-	get_node("Mouse").position.y = clamp(get_node("Mouse").position.y,0.15,0.45)
+	get_node("Mouse").position.y = clamp(get_node("Mouse").position.y,0.13,0.46)
 
 func ui_grade():
 	var p = pictures_to_grade[grading_index]
@@ -249,14 +249,21 @@ func ui_grade():
 		$Grading/Old.texture = null
 	
 	if(not Global.bests.has(critter)):
-		$Grading/ProfText.text = "First time taking\n a picture of\n this critter. Weow"
+		$Grading/ProfText.text = wrap_text("Wow! This is your first picture of " + critter + ".")
 	else:
 		if(Global.bests[critter]["score"] > p["score"]):
+			# Make Suggestions
 			$Grading/ProfText.text = "This is your best pic\n of " + critter + ". However\n, your old pic was better."
 		else:
-			$Grading/ProfText.text = "This pic of " + critter + "\n is better than\n your previous best!"
+			$Grading/ProfText.text = wrap_text("Nice. This picture of " + critter + " is better than your previous.")
 			
-
+func get_keys_sorted_by_score(dict: Dictionary) -> Array:
+	var keys = dict.keys()
+	keys.sort_custom(func(a, b):
+		return dict[a]["score"] > dict[b]["score"]
+	)
+	return keys
+	
 func ui_review():
 	for p in get_node("Review/PrevPics").get_children():
 		p.get_node("S1").texture = nopic
@@ -265,9 +272,10 @@ func ui_review():
 		p.get_node("Name").modulate = Color(1,1,1,1)
 		p.get_node("Prev").modulate = Color(1,1,1,1)
 		
-	
-	for i in range(Global.bests.keys().size()):
-		var b = Global.bests[Global.bests.keys()[i]]
+	var k = get_keys_sorted_by_score(Global.bests)
+	var i = 0
+	for key in k:
+		var b = Global.bests[key]
 		var cr = ImageTexture.create_from_image(b["pic"])
 		cr.set_size_override(Vector2(90,75))
 		get_node("Review/PrevPics").get_children()[i].get_node("S1").texture = cr
@@ -278,7 +286,8 @@ func ui_review():
 		get_node("Review/PrevPics").get_children()[i].get_node("Prev").text = str(b["score"]) + "/" + str(get_best_possible_score(b["critter"]))
 		get_node("Review/PrevPics").get_children()[i].get_node("Prev").modulate = Color(0,0,0,1)
 		if(b["score"] == get_best_possible_score(b["critter"])):
-			get_node("Review/PrevPics").get_children()[i].get_node("Prev").modulate = Color(0,0.4,0,1)	
+			get_node("Review/PrevPics").get_children()[i].get_node("Prev").modulate = Color(0,0.4,0,1)
+		i += 1
 	
 
 func process_picture(pic : Dictionary) -> Array:
@@ -335,3 +344,24 @@ func process_picture(pic : Dictionary) -> Array:
 		left_text += "TOTAL " + str(total_score)
 		out.push_back({"score":total_score,"ltext":left_text,"pic":pic["image"],"critter":c0["name"]})
 	return out
+
+
+
+func wrap_text(text: String, max_chars: int = 15) -> String:
+	var words = text.split(" ")
+	var lines: Array[String] = []
+	var current_line = ""
+
+	for word in words:
+		if current_line == "":
+			current_line = word
+		elif current_line.length() + 1 + word.length() <= max_chars:
+			current_line += " " + word
+		else:
+			lines.append(current_line)
+			current_line = word
+
+	if current_line != "":
+		lines.append(current_line)
+
+	return "\n".join(lines)
