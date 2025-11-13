@@ -40,7 +40,7 @@ func pick_action():
 		action_time = get_anim_length(action)
 		
 	# check if i should go towards or eat bait
-	elif(get_nearest_bait() != null):
+	elif(get_nearest_bait() != null and global_position.distance_to(get_nearest_bait().global_position) < 50):
 		# look for any baits.
 		var bait = get_nearest_bait()
 		if(global_position.distance_to(bait.global_position) < 1 and bait.global_position.distance_to(get_node("../../Player").global_position) > 10):

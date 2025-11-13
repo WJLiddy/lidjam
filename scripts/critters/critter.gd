@@ -32,7 +32,9 @@ func get_nearest_bait():
 	for v in get_node("../../Baits").get_children():
 		if best == null or global_position.distance_to(v.global_position) < global_position.distance_to(best.global_position):
 			best = v
-	return best
+	if is_instance_valid(best):
+		return best
+	return null
 
 func pick_perch_retry(all,cnt):
 	for i in range(cnt):
