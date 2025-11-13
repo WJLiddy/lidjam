@@ -429,6 +429,7 @@ text = "YOUR  BEST  PICTURES"
 font = ExtResource("12_3rc7y")
 
 [node name="PrevPics" type="Node3D" parent="pc-monitor/Review" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.024999857, 0)
 
 [node name="Review" type="Node3D" parent="pc-monitor/Review/PrevPics" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.024999999, -0.049999952, 0)
@@ -791,7 +792,7 @@ font = ExtResource("12_3rc7y")
 font_size = 28
 
 [node name="Next" type="Sprite3D" parent="pc-monitor/Review" index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00044146553, -0.7402577, 0.00023365021)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00044146553, -0.76525766, 0.00023365021)
 sorting_offset = 1.0
 texture = ExtResource("7_wyg07")
 

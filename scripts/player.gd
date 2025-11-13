@@ -47,8 +47,6 @@ func write_tutorial(targ,strn):
 		tutprog += 1
 
 func _physics_process(delta: float) -> void:
-	print(tutprog)
-	print(othertuts)
 	if Global.is_on_title:
 		return
 	
