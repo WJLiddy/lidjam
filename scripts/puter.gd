@@ -29,16 +29,16 @@ var base_score = {
 
 var species_same_max = {
 	"Olturtle" : 0,
-	"Burglerat" : 2,
+	"Burglerat" : 5,
 	"Veerabbit" : 3,
 	"Cowbug" : 3,
 	"Pargopher" : 3,
 	"Cresbird" : 3,
-	"Frankendeer" : 2,
+	"Frankendeer" : 3,
 	"Vamphibian" : 0,
-	"Cowbird" : 5,
-	"Leghost" : 2,
-	"Bugleton" : 2,
+	"Cowbird" : 3,
+	"Leghost" : 3,
+	"Bugleton" : 3,
 	"Gold Burglerat" : 0,
 	
 	"Castcrab" : 0,
@@ -60,7 +60,7 @@ var species_best_pose = {
 	"Vamphibian" : "Using Magic",
 	"Frankendeer" : "Petrified",
 	"Gold Burglerat" : "Resting",
-	"Castcrab" : "Resting",
+	"Castcrab" : "Using Magic",
 	"Corpofish" : "Swimming",
 	"Billterfly" : "Flying"
 }
@@ -249,6 +249,7 @@ func ui_grade():
 		$Grading/OldText.text = "Prev:" + str(Global.bests[critter].score)
 	else:
 		$Grading/Old.texture = null
+		$Grading/OldText.text = ""
 	
 	if(not Global.bests.has(critter)):
 		$Grading/ProfText.text = wrap_text("Wow! This is your first picture of " + critter + ".")
@@ -263,7 +264,7 @@ func ui_grade():
 				$Grading/ProfText.text =  wrap_text("Imagine a pic with " + critter + " and another species!")
 			elif (p["pdata"]["same"] < species_same_max[critter]):
 				$Grading/ProfText.text =  wrap_text("I want to see " + str(species_same_max[critter]) + critter + "s in the same pic!")
-			elif (p["pdata"]["pose"] != species_best_pose[critter]):
+			elif (p["pdata"]["pose"] != pose_score[species_best_pose[critter]]):
 				$Grading/ProfText.text =  wrap_text("Hmm.. could you get" + critter + " " + species_best_pose[critter] + "???")
 		else:
 			$Grading/ProfText.text = wrap_text("This pic of " + critter + " is better than your last!")
@@ -325,7 +326,7 @@ func process_picture(pic : Dictionary) -> Array:
 		
 		var base_val = base_score[c0["name"]]
 		
-		var same_val = clamp(pic["critters"].reduce(func(count, next): return count + 1 if c0["name"] == next["name"] else count, -1),0,species_same_max[c0["name"]])
+		var same_val = clamp(pic["critters"].reduce(func(count, next): return count + 1 if c0["name"] == next["name"] else count, 0),0,species_same_max[c0["name"]])
 		var dif_val = 0
 		if(pic["critters"].reduce(func(count, next): return count + 1 if c0["name"] != next["name"] else count, 0) > 0):
 			# they got different mon bonus
