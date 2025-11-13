@@ -101,7 +101,7 @@ var pose_score = {
 }
 
 func get_best_possible_score(creature):
-	return base_score[creature] + 5 + 3 + species_same_max[creature] + 1 + pose_score[species_best_pose[creature]]
+	return base_score[creature] + 5 + 2 + species_same_max[creature] + 1 + pose_score[species_best_pose[creature]]
 
 
 # Called when the node enters the scene tree for the first time.
@@ -204,25 +204,25 @@ func _input(event: InputEvent) -> void:
 						$Review.visible = false
 						$Background.visible = true
 				elif(state == "shop"):
-					if $Shop/Buy1/Buy1.get_overlapping_bodies().size() == 1 and Global.money >= 50 and not Global.zoom_unlocked:
+					if $Shop/Buy1/Buy1.get_overlapping_bodies().size() == 1 and Global.money >= 40 and not Global.zoom_unlocked:
 						Global.zoom_unlocked = true
-						Global.money -= 50
-					if $Shop/Buy2/Buy2.get_overlapping_bodies().size() == 1 and Global.money >= 40 and not Global.quickscope_unlocked:
+						Global.money -= 40
+					if $Shop/Buy2/Buy2.get_overlapping_bodies().size() == 1 and Global.money >= 25 and not Global.quickscope_unlocked:
 						Global.quickscope_unlocked = true
-						Global.money -= 40
-					if $Shop/Buy3/Buy3.get_overlapping_bodies().size() == 1 and Global.money >= 40 and not Global.bonus_film_unlocked:
+						Global.money -= 25
+					if $Shop/Buy3/Buy3.get_overlapping_bodies().size() == 1 and Global.money >= 30 and not Global.bonus_film_unlocked:
 						Global.bonus_film_unlocked = true
-						Global.money -= 40
-						Global.picsmax = 40
-					if $Shop/Buy4/Buy4.get_overlapping_bodies().size() == 1 and Global.money >= 30 and not Global.bait_unlocked:
-						Global.bait_unlocked = true
 						Global.money -= 30
-					if $Shop/Buy5/Buy5.get_overlapping_bodies().size() == 1 and Global.money >= 70 and not Global.whistle_unlocked:
-						Global.whistle_unlocked = true
-						Global.money -= 70
-					if $Shop/Buy6/Buy6.get_overlapping_bodies().size() == 1 and Global.money >= 20 and not Global.shoes_unlocked:
-						Global.shoes_unlocked = true
+						Global.picsmax = 40
+					if $Shop/Buy4/Buy4.get_overlapping_bodies().size() == 1 and Global.money >= 20 and not Global.bait_unlocked:
+						Global.bait_unlocked = true
 						Global.money -= 20
+					if $Shop/Buy5/Buy5.get_overlapping_bodies().size() == 1 and Global.money >= 60 and not Global.whistle_unlocked:
+						Global.whistle_unlocked = true
+						Global.money -= 60
+					if $Shop/Buy6/Buy6.get_overlapping_bodies().size() == 1 and Global.money >= 15 and not Global.shoes_unlocked:
+						Global.shoes_unlocked = true
+						Global.money -= 15
 					if $Shop/Next/Next.get_overlapping_bodies().size() == 1:
 						state = "desktop"
 						$Shop.visible = false
@@ -253,9 +253,18 @@ func ui_grade():
 	else:
 		if(Global.bests[critter]["score"] > p["score"]):
 			# Make Suggestions
-			$Grading/ProfText.text = "This is your best pic\n of " + critter + ". However\n, your old pic was better."
+			if (p["pdata"]["dist"] <= 3):
+				$Grading/ProfText.text =  wrap_text("Get a close-up of " + critter + " for a better pic!")
+			elif (p["pdata"]["orient"] == false):
+				$Grading/ProfText.text =  wrap_text("I want to see the front of " + critter + "!")
+			elif (p["pdata"]["diff"] < 2):
+				$Grading/ProfText.text =  wrap_text("Imagine a pic with " + critter + " and another species!")
+			elif (p["pdata"]["same"] < species_same_max[critter]):
+				$Grading/ProfText.text =  wrap_text("I want to see " + str(species_same_max[critter]) + critter + "s in the same pic!")
+			elif (p["pdata"]["pose"] != species_best_pose[critter]):
+				$Grading/ProfText.text =  wrap_text("Hmm.. could you get" + critter + " " + species_best_pose[critter] + "???")
 		else:
-			$Grading/ProfText.text = wrap_text("Nice. This picture of " + critter + " is better than your previous.")
+			$Grading/ProfText.text = wrap_text("This pic of " + critter + " is better than your last!")
 			
 func get_keys_sorted_by_score(dict: Dictionary) -> Array:
 	var keys = dict.keys()
@@ -315,7 +324,11 @@ func process_picture(pic : Dictionary) -> Array:
 		var base_val = base_score[c0["name"]]
 		
 		var same_val = clamp(pic["critters"].reduce(func(count, next): return count + 1 if c0["name"] == next["name"] else count, -1),0,species_same_max[c0["name"]])
-		var dif_val = clamp(pic["critters"].reduce(func(count, next): return count + 1 if c0["name"] != next["name"] else count, 0),0,3)
+		var dif_val = 0
+		if(pic["critters"].reduce(func(count, next): return count + 1 if c0["name"] != next["name"] else count, 0) > 0):
+			# they got different mon bonus
+			dif_val = 2
+			
 		var pose_val = pose_score[c0["pose"]]
 		var orient_good = c0["orient"] > 2
 		if orient_good:
@@ -338,11 +351,22 @@ func process_picture(pic : Dictionary) -> Array:
 			
 		left_text += "\n" + get_star_string(pose_val,best_possible_pose) + "\n"
 		
-		left_text += "SAME MON \n" + get_star_string(same_val,species_same_max[c0["name"]]) + "\n"
-		left_text += "DIFF MON \n" + get_star_string(dif_val,3) + "\n"
+		if(species_same_max[c0["name"]] > 0):
+			left_text += str(species_same_max[c0["name"]]) + " OF THE SAME? \n" + get_star_string(same_val,species_same_max[c0["name"]]) + "\n"
+			
+		left_text += "OTHER SPECIES\n" + get_star_string(dif_val,2) + "\n"
 
-		left_text += "TOTAL " + str(total_score)
-		out.push_back({"score":total_score,"ltext":left_text,"pic":pic["image"],"critter":c0["name"]})
+		left_text += "TOTAL " + str(total_score) + " / " + get_best_possible_score(c0["name"])
+		
+		var pdata = {
+			"dist" : dist_rating,
+			"pose" : pose_val,
+			"orient" : orient_good,
+			"same" : same_val,
+			"diff" : dif_val
+		}
+		
+		out.push_back({"score":total_score,"ltext":left_text,"pic":pic["image"],"critter":c0["name"],"pdata" : pdata})
 	return out
 
 
