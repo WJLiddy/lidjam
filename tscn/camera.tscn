@@ -1,8 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://ne08efha0yj8"]
+[gd_scene load_steps=4 format=3 uid="uid://ne08efha0yj8"]
 
 [ext_resource type="PackedScene" uid="uid://cymerm6yrr4by" path="res://blender inbox/camera viewmodel/camera viewmodel.blend" id="1_prdtf"]
+[ext_resource type="Texture2D" uid="uid://b7nbd6hbnct0u" path="res://blender inbox/camera viewmodel/camera viewmodel.png" id="2_bmcfv"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_prdtf"]
+albedo_texture = ExtResource("2_bmcfv")
 
 [node name="camera viewmodel2" instance=ExtResource("1_prdtf")]
 
 [node name="camera viewmodel" parent="." index="0"]
 layers = 524288
+surface_material_override/0 = SubResource("StandardMaterial3D_prdtf")

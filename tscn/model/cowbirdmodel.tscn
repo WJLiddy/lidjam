@@ -1,5 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://ylxmudobv7fp"]
+[gd_scene load_steps=4 format=3 uid="uid://ylxmudobv7fp"]
 
 [ext_resource type="PackedScene" uid="uid://boeq6dt7l0jvt" path="res://blender inbox/cowbird/cowbird.blend" id="1_01c8m"]
+[ext_resource type="Texture2D" uid="uid://de4mrj4uu1pdl" path="res://blender inbox/cowbird/cowbird.png" id="2_clsm7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6qeri"]
+albedo_texture = ExtResource("2_clsm7")
 
 [node name="cowbird2" instance=ExtResource("1_01c8m")]
+
+[node name="cowbird" parent="cowbird armature/Skeleton3D" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_6qeri")

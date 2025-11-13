@@ -1,5 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://hj2sbkikhlkp"]
+[gd_scene load_steps=4 format=3 uid="uid://hj2sbkikhlkp"]
 
 [ext_resource type="PackedScene" uid="uid://c0olkmx74genn" path="res://blender inbox/billterfly/billterfly.blend" id="1_6mtvc"]
+[ext_resource type="Texture2D" uid="uid://ct508ngrbs2q5" path="res://blender inbox/billterfly/billterfly.png" id="2_rp3jd"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sd5cx"]
+albedo_texture = ExtResource("2_rp3jd")
 
 [node name="billterfly" instance=ExtResource("1_6mtvc")]
+
+[node name="bilterfly" parent="bilterfly armature/Skeleton3D" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_sd5cx")

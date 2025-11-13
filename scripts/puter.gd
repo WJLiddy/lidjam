@@ -356,7 +356,7 @@ func process_picture(pic : Dictionary) -> Array:
 			
 		left_text += "OTHER SPECIES\n" + get_star_string(dif_val,2) + "\n"
 
-		left_text += "TOTAL " + str(total_score) + " / " + get_best_possible_score(c0["name"])
+		left_text += "TOTAL " + str(total_score) + " / " + str(get_best_possible_score(c0["name"]))
 		
 		var pdata = {
 			"dist" : dist_rating,

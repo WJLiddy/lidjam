@@ -1,5 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://bs6c6ptv78kd2"]
+[gd_scene load_steps=3 format=3 uid="uid://bs6c6ptv78kd2"]
 
 [ext_resource type="PackedScene" uid="uid://uhivutsopwl6" path="res://blender inbox/wizard crab/wizard crab.blend" id="1_n56uu"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n56uu"]
+
 [node name="wizard crab2" instance=ExtResource("1_n56uu")]
+
+[node name="wizard crab" parent="wizard crab armature/Skeleton3D" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_n56uu")
