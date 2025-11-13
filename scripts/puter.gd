@@ -81,6 +81,8 @@ var pose_score = {
 	"Grazing" : 2,
 	"Excited" : 2,
 	"Waddling" : 2,
+	"Roll Starting" : 2,
+	"Roll Ending" : 2,
 	
 	"Eating" : 3,
 	"Curious" : 3,
