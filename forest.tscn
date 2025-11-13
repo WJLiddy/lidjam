@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=3 uid="uid://bdkh5n42abtlg"]
+[gd_scene load_steps=74 format=3 uid="uid://bdkh5n42abtlg"]
 
 [ext_resource type="PackedScene" uid="uid://bf504syknspt3" path="res://tscn/puter.tscn" id="1_5rndp"]
 [ext_resource type="PackedScene" uid="uid://jyncanbkjjnq" path="res://tscn/player.tscn" id="1_lifw2"]
@@ -40,6 +40,8 @@
 [ext_resource type="PackedScene" uid="uid://k1voxl3bbvmu" path="res://tscn/bridge.tscn" id="24_sdsnp"]
 [ext_resource type="Texture2D" uid="uid://uu36jxa0e0yn" path="res://programmerart/peppermint.png" id="27_5xr7u"]
 [ext_resource type="Texture2D" uid="uid://dfag3m40iqt2v" path="res://programmerart/whistle.png" id="28_8pife"]
+[ext_resource type="PackedScene" uid="uid://471t8t5kejlk" path="res://tscn/cabin.tscn" id="28_cbth3"]
+[ext_resource type="PackedScene" uid="uid://cejn7xt48rroo" path="res://tscn/computer_table.tscn" id="29_cj7we"]
 [ext_resource type="PackedScene" uid="uid://ne08efha0yj8" path="res://tscn/camera.tscn" id="29_rjcrk"]
 [ext_resource type="Script" uid="uid://coxvv8wsxljv6" path="res://scripts/viewmodel.gd" id="29_x8p8v"]
 [ext_resource type="LabelSettings" uid="uid://c1ih44p7kryui" path="res://uidefault.tres" id="32_3w53r"]
@@ -305,7 +307,7 @@ max_distance = 4096.0
 [node name="Baits" type="Node3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World"]
 
 [node name="Puter" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World" instance=ExtResource("1_5rndp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -135.34338, 37.10935, 103.16983)
+transform = Transform3D(-0.99999994, 0, -8.742277e-08, 0, 1, 0, 8.742277e-08, 0, -0.99999994, -137.49171, 37.154415, 103.25094)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World"]
 transform = Transform3D(1, 0, 0, 0, 0.1569862, 0.9876008, 0, -0.9876008, 0.1569862, 3.8745143, 11.156533, 2.1968136)
@@ -1207,6 +1209,12 @@ metadata/_edit_lock_ = true
 
 [node name="bridge2" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav" instance=ExtResource("24_sdsnp")]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
+
+[node name="cabin2" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav" instance=ExtResource("28_cbth3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -135.49625, 35.410797, 108.57433)
+
+[node name="computer table2" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav" instance=ExtResource("29_cj7we")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, -137.72762, 36.107964, 103.55847)
 
 [node name="IntroCam" type="Camera3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World"]
 transform = Transform3D(1, 0, 0, 0, 0.8341651, 0.55151486, 0, -0.55151486, 0.8341651, 13.359125, 34.391346, 58.773476)
