@@ -20,13 +20,18 @@ var double_zoom = false
 var whistling = false
 
 var ads_zoom_delay = 0
+var putawaytime = 0
 
 var fov_base = 70.0
 var fov_zoom = 70.0 / 3
 var fov_double_zoom = 70.0 / 6
 
+var tutprog = 0
+var tut_timer = 0
 
 const bait = preload("res://tscn/bait.tscn")
+
+var othertuts = [false,false,false]
 
 
 func _input(event: InputEvent) -> void:
@@ -36,13 +41,25 @@ func _input(event: InputEvent) -> void:
 		%Camera3D.rotation_degrees.x = clamp( %Camera3D.rotation_degrees.x, -90, 90 )
 		
 
+func write_tutorial(targ,strn):
+	if(targ == tutprog):
+		get_node("../../../UIRender/Tutorial").text = strn
+		tutprog += 1
+
 func _physics_process(delta: float) -> void:
+	print(tutprog)
+	print(othertuts)
 	if Global.is_on_title:
 		return
 	
 	action_cooldown -= delta
+	putawaytime -= delta
 	ads_zoom_delay -= delta
-	
+	tut_timer -= delta
+	# 8 is the "finished" state
+	if(tut_timer < 0):
+		write_tutorial(7,"")
+		
 	
 	var speedup = 1
 	if(Global.quickscope_unlocked):
@@ -57,6 +74,7 @@ func _physics_process(delta: float) -> void:
 		%Camera3D.fov = lerp(%Camera3D.fov,fov_base,3*speedup*delta)
 	
 	if Global.is_using_puter:
+		write_tutorial(4,"")
 		%Camera3D.global_position = %Camera3D.global_position.lerp(get_node("../Puter").global_position - Vector3(0,-0.27,0.4), delta*10)
 		var target_rot = Vector3(0, deg_to_rad(180), 0)
 		%Camera3D.global_rotation = Vector3(
@@ -66,6 +84,23 @@ func _physics_process(delta: float) -> void:
 		)
 		return
 	else:
+		if(Global.bests.keys().size() > 0):
+			write_tutorial(5,"Press CTRL to Sneak")
+			
+		# handle other tuts
+		if((not othertuts[0]) and tutprog == 8 and Global.shoes_unlocked):
+			write_tutorial(8,"Press Shift to sprint")
+			othertuts[0] = true
+		if((not othertuts[1]) and tutprog == 8 and Global.bait_unlocked):
+			write_tutorial(8,"Press Z to throw bait")
+			tutprog = 19
+			othertuts[1] = true
+		if((not othertuts[2]) and tutprog == 8 and Global.whistle_unlocked):
+			write_tutorial(8,"Press X to use whistle")
+			tutprog = 29
+			othertuts[2] = true
+			
+			
 		%Camera3D.position = %Camera3D.position.lerp(Vector3(0,0,0), delta*10)
 		%Camera3D.rotation.y = lerp(%Camera3D.rotation.y, 0.0, delta*10)
 		%Camera3D.rotation.z = lerp(%Camera3D.rotation.z, 0.0, delta*10)
@@ -92,9 +127,14 @@ func _physics_process(delta: float) -> void:
 
 		speed = run_speed
 		if Input.is_action_pressed("crouch") or ads_enabled:
+			write_tutorial(6,"Go take some uplifting pictures!")
+			tut_timer = 3
 			speed = crouch_speed
 		else:
 			if Input.is_action_pressed("sprint") and Global.shoes_unlocked:
+				if(tutprog == 9):
+					write_tutorial(9,"")
+					tutprog = 8
 				speed = sprint_speed
 				get_node("../../../ViewModel").cam_hide()
 			else:
@@ -110,6 +150,8 @@ func _physics_process(delta: float) -> void:
 
 	var input_dir := Input.get_vector("left", "right", "forward", "backward")
 	var direction := (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	if(direction.length() > 0):
+		write_tutorial(0,"Take a Pic with Left Mouse Button")
 	if direction:
 		velocity.x = direction.x * speed
 		velocity.z = direction.z * speed
@@ -129,7 +171,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("action") and action_cooldown < 0 and speed != sprint_speed:
 		# if we raycast into the computer, use it
 		%CamRayCast.force_raycast_update()
-		if %CamRayCast.is_colliding() and %CamRayCast.get_collider().name == "COMPUTER":
+		if %CamRayCast.is_colliding() and %CamRayCast.get_collider().name == "COMPUTER" and (not ads_enabled):
 			Global.is_using_puter = true
 			# hide the camera
 			get_node("../../../ViewModel").cam_hide()
@@ -144,17 +186,25 @@ func _physics_process(delta: float) -> void:
 			double_zoom = true
 			return
 		else:
+			# you may NOT ads if the camera is being putaway
+			if((not ads_enabled) and putawaytime > 0):
+				return
 			ads_enabled = !ads_enabled
 			double_zoom = false
 		if(ads_enabled):
 			get_node("../../../ViewModel").ads_enable()
+			write_tutorial(2,"Take a picture of the turtle")
 			ads_zoom_delay = 0.4
 			if(Global.quickscope_unlocked):
 				ads_zoom_delay = 0.3
 		else:
+			putawaytime = 0.3
 			get_node("../../../ViewModel").ads_disable()
 	
 	if Input.is_action_just_pressed("bait") and Global.bait_unlocked and Global.bait > 0 and not ads_enabled and speed != sprint_speed:
+		if(tutprog == 19):
+			write_tutorial(19,"")
+			tutprog = 8
 		Global.bait -= 1
 		var b = bait.instantiate()
 		b.apply_impulse(velocity + (-$%Camera3D.global_basis.z.normalized() * 10))
@@ -164,6 +214,9 @@ func _physics_process(delta: float) -> void:
 		b.angular_velocity = Vector3(randi_range(-3, 3), randi_range(-3, 3), randi_range(-3, 3))
 		
 	if Input.is_action_pressed("whistle") and Global.whistle_unlocked and not ads_enabled and speed != sprint_speed:
+		if(tutprog == 29):
+			write_tutorial(29,"")
+			tutprog = 8
 		whistling = true
 		$WhistleSound.volume_db = lerp($WhistleSound.volume_db,0.0,10*delta)
 		get_node("../../../UIRender").whistling = true
@@ -203,6 +256,7 @@ func getcritterprevtext():
 	
 
 func take_picture():
+	write_tutorial(1,"Zoom with Right Mouse Button")
 	if(Global.pics.size() == Global.picsmax):
 		return
 	
@@ -227,6 +281,8 @@ func take_picture():
 				# get data
 				var critter = {}
 				critter["name"] = c.species
+				if(c.species == "Olturtle"):
+					write_tutorial(3,"Upload your pic to the computer")
 				critter["dist"] = get_screen_coverage_percent(%Camera3D,c.get_node("vis"))
 				critter["orient"] = abs(global_rotation.y - c.global_rotation.y)
 				critter["pose"] = c.action.replace("IDLE","")

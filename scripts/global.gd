@@ -18,7 +18,8 @@ var is_using_puter = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	if(true):
+	money = 999
+	if(false):
 		zoom_unlocked = true
 		quickscope_unlocked = true
 		bonus_film_unlocked = true

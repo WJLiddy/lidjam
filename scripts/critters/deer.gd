@@ -17,17 +17,16 @@ func pick_action():
 		make_emoticon("Alert")
 		
 	# used the whistle.
-	if(not fleeing and player_is_whistling() and dist_to_player() < 50):
+	if((not fleeing) and player_is_whistling() and dist_to_player() < 50):
 		action = "Petrified"
 		make_emoticon("Anger")
-		fleeing = true
-	# got too close.
-	elif(dist_to_player() * stealth_mult() < 30):
-		make_emoticon("Scared")
-		fleeing = true
+		fleeing = true 
 	elif(fleeing):
 		action = "Walking"
 		set_nav_flee_from_player()
+	elif(dist_to_player() * stealth_mult() < 30):
+		make_emoticon("Scared")
+		fleeing = true
 	else:
 		var rand = randi_range(0,4)
 		if(rand == 1):

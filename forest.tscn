@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=3 uid="uid://bdkh5n42abtlg"]
+[gd_scene load_steps=75 format=3 uid="uid://bdkh5n42abtlg"]
 
 [ext_resource type="PackedScene" uid="uid://bf504syknspt3" path="res://tscn/puter.tscn" id="1_5rndp"]
 [ext_resource type="PackedScene" uid="uid://jyncanbkjjnq" path="res://tscn/player.tscn" id="1_lifw2"]
@@ -231,12 +231,20 @@ font_size = 12
 outline_size = 4
 outline_color = Color(0, 0, 0, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_sdsnp"]
+[sub_resource type="LabelSettings" id="LabelSettings_cj7we"]
 line_spacing = 0.0
 font = ExtResource("15_6iyis")
 font_size = 12
 outline_size = 4
 outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_l3umd"]
+line_spacing = 0.0
+font = ExtResource("15_6iyis")
+font_size = 12
+font_color = Color(1, 1, 1, 0.5019608)
+outline_size = 4
+outline_color = Color(0, 0, 0, 0.5019608)
 
 [sub_resource type="LabelSettings" id="LabelSettings_1ykyx"]
 font = ExtResource("15_6iyis")
@@ -296,7 +304,7 @@ render_target_update_mode = 4
 environment = SubResource("Environment_1ykyx")
 
 [node name="Player" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World" instance=ExtResource("1_lifw2")]
-transform = Transform3D(0.9959144, 0, 0.090302326, 0, 1, 0, -0.090302326, 0, 0.9959144, -150.67491, 39.17266, 94.43302)
+transform = Transform3D(-0.3920321, 0, -0.9199517, 0, 1, 0, 0.9199517, 0, -0.3920321, -161.3013, 38.077374, 101.713715)
 collision_layer = 4
 
 [node name="Shutter" type="AudioStreamPlayer3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Player"]
@@ -1486,9 +1494,19 @@ layout_mode = 0
 offset_right = 400.0
 offset_bottom = 300.0
 text = "TEST"
-label_settings = SubResource("LabelSettings_sdsnp")
+label_settings = SubResource("LabelSettings_cj7we")
 horizontal_alignment = 1
 vertical_alignment = 2
+
+[node name="Tutorial" type="Label" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/UIRender"]
+layout_mode = 0
+offset_top = 181.5
+offset_right = 400.0
+offset_bottom = 221.5
+text = "MOVE WITH WASD or ARROW KEYS"
+label_settings = SubResource("LabelSettings_l3umd")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Title" type="Control" parent="HBlur/SubViewport/SubViewportContainer/SubViewport"]
 layout_mode = 3
