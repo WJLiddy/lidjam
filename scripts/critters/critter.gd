@@ -33,7 +33,33 @@ func get_nearest_bait():
 		if best == null or global_position.distance_to(v.global_position) < global_position.distance_to(best.global_position):
 			best = v
 	return best
-	
+
+func pick_perch_retry(all,cnt):
+	for i in range(cnt):
+		var v = pick_perch(all)
+		if(v != null):
+			return v
+	return null
+
+func pick_perch(all_perches):
+	var possible = get_node("../../Nav/Foliage").find_children("Perch").pick_random()
+	if(not all_perches):
+		possible = get_node("../../Nav/Foliage").find_children("SpawnPerch").pick_random()
+	# first of all, check if this perch is claimed by any other bird.
+	for v in get_parent().get_children():
+		if((v.species == "Cresbird" or v.species == "Cowbird") and possible == v.perch):
+			return null
+			# tried to claim a perch but it's someone elses.
+			
+	# unclaimed perch if we can reach it.
+	var space_state = get_world_3d().direct_space_state
+	var coll_mask = 1
+	var query = PhysicsRayQueryParameters3D.create(global_position + Vector3(0,1,0), possible.global_position,coll_mask)
+	var result = space_state.intersect_ray(query)
+	if result.is_empty():
+		return possible
+	return null
+			
 func set_nav_flee_from_player():
 	$nav.set_target_position(global_position + ((global_position - get_node("../../Player").global_position).normalized() * 5))
 	if(not $nav.is_target_reachable()):

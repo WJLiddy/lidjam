@@ -296,7 +296,7 @@ render_target_update_mode = 4
 environment = SubResource("Environment_1ykyx")
 
 [node name="Player" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World" instance=ExtResource("1_lifw2")]
-transform = Transform3D(0.9959144, 0, 0.090302326, 0, 1, 0, -0.090302326, 0, 0.9959144, -136.67545, 35.60501, 71.82668)
+transform = Transform3D(0.9959144, 0, 0.090302326, 0, 1, 0, -0.090302326, 0, 0.9959144, -150.67491, 39.17266, 94.43302)
 collision_layer = 4
 
 [node name="Shutter" type="AudioStreamPlayer3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Player"]
@@ -475,20 +475,23 @@ transform = Transform3D(0.19334397, 0, 0.9811311, 0, 1, 0, -0.9811311, 0, 0.1933
 species = "Bugleton"
 
 [node name="Hummingbird" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" instance=ExtResource("8_77xr6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -144.0268, 37.701015, 99.61103)
-is_spawnbird = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -160.47414, 38.889294, 93.811745)
 
 [node name="Hummingbird2" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" instance=ExtResource("8_77xr6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 69.78215, -2.1499925, -67.88454)
+general_only = true
 
 [node name="Hummingbird3" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" instance=ExtResource("8_77xr6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58.28183, 4.251223, -67.88454)
+general_only = true
 
 [node name="Hummingbird4" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" instance=ExtResource("8_77xr6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58.28183, 2.0582082, -86.03594)
+general_only = true
 
 [node name="Hummingbird5" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" instance=ExtResource("8_77xr6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.034687, 4.1055126, -86.03594)
+general_only = true
 
 [node name="Deer" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" instance=ExtResource("10_wsut6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 104.47116, -3.3469613, -85.63556)
@@ -661,6 +664,15 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -125.97661, 20.410776, 
 
 [node name="tree24" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Foliage" instance=ExtResource("8_uu8yv")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -126.93114, 20.126795, -122.41906)
+
+[node name="tree32" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Foliage" instance=ExtResource("8_uu8yv")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -147.36871, 36.006283, 58.58762)
+
+[node name="tree33" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Foliage" instance=ExtResource("8_uu8yv")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -154.89482, 35.879356, 50.71087)
+
+[node name="tree34" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Foliage" instance=ExtResource("8_uu8yv")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -154.89482, 35.879356, 59.785923)
 
 [node name="tree15" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Foliage" instance=ExtResource("7_8dl3p")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -118.97185, 12.488143, -94.60427)

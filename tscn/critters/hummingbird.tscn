@@ -4,8 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://b6hdgfpxm3vof" path="res://tscn/model/hummingbirdmodel.tscn" id="2_uqmib"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_uqmib"]
-radius = 0.2
-height = 0.6
+radius = 0.1
+height = 0.4
 
 [node name="Hummingbird" type="CharacterBody3D"]
 collision_layer = 2

@@ -22,4 +22,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_c64fw")
 shape = SubResource("ConcavePolygonShape3D_huopd")
 
 [node name="SpawnPerch" type="Node3D" parent="." index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6565037, 13.576079, -0.8254221)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6565037, 13.664142, -0.8254221)
+
+[node name="SpawnPerch" type="Node3D" parent="SpawnPerch" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.250814, 0.15065002, 0)
