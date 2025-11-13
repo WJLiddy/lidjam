@@ -9,19 +9,24 @@ func speed():
 		return 3
 
 func pick_action():
+	
 	if(dist_to_player() > 50):
 		fleeing = false
 	
 	if(action == "Eating" and get_nearest_bait() != null):
 		get_nearest_bait().queue_free()
+		make_emoticon("Love")
 		action = "RestingIDLE"
-	elif((dist_to_player() < 50 and player_is_whistling()) or fleeing ):
+	elif((dist_to_player() < 50 and player_is_whistling()) or fleeing):
+		if(action != "Scared"):
+			make_emoticon("Anger")
 		action = "Scared"
 		fleeing = true
 		set_nav_flee_from_player()
 	elif(get_nearest_bait() != null and global_position.distance_to(get_nearest_bait().global_position) < 20):
 		if (global_position.distance_to(get_nearest_bait().global_position) < 1):
 			action = "Eating"
+			make_emoticon("Love")
 		else:
 			action = "Walking"
 			$nav.set_target_position(get_nearest_bait().global_position)

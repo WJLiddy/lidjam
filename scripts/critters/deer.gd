@@ -12,11 +12,18 @@ func pick_action():
 	# check if we can stop fleeing
 	if(dist_to_player() > 50):
 		fleeing = false
+		
+	if(dist_to_player() * stealth_mult() < 35 and dist_to_player() * stealth_mult() > 30):
+		make_emoticon("Alert")
+		
 	
 	if(not fleeing and (action == "Walking" or action == "Grazing" or action == "RestingIDLE") and player_is_whistling() and dist_to_player() < 50):
 		action = "Petrified"
+		make_emoticon("Anger")
 		fleeing = true
-	elif(dist_to_player() < 30 or fleeing):
+	elif(dist_to_player() * stealth_mult() < 30 or fleeing):
+		if(action != "Walking"):
+			make_emoticon("Scared")
 		action = "Walking"
 		set_nav_flee_from_player()
 	else:

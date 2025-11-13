@@ -62,6 +62,7 @@ func _physics_process(delta: float) -> void:
 				if(get_nearest_bait() != null and get_nearest_bait().global_position.distance_to(global_position) < 0.2):
 					action = "Eating"
 					action_time = get_anim_length(action)
+					make_emoticon("Love")
 					velocity = Vector3.ZERO
 				else:
 					action = "Perched"

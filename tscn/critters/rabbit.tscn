@@ -3,9 +3,7 @@
 [ext_resource type="Script" uid="uid://dh2cxm8vrykf3" path="res://scripts/critters/rabbit.gd" id="1_8hv6w"]
 [ext_resource type="PackedScene" uid="uid://433y8317cpjt" path="res://tscn/model/rabbitmodel.tscn" id="2_8hv6w"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_pjl8l"]
-radius = 1.5
-height = 4.0
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kymqk"]
 
 [node name="Rabbit" type="CharacterBody3D"]
 collision_layer = 2
@@ -20,7 +18,7 @@ transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 7, 0, 0.89945686, 0)
 aabb = AABB(-0.061605547, -0.10319156, -0.055980533, 0.12321109, 0.20638312, 0.11196107)
 
 [node name="col" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
-shape = SubResource("CapsuleShape3D_pjl8l")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_kymqk")
 
 [node name="nav" type="NavigationAgent3D" parent="."]

@@ -9,7 +9,7 @@ var fleeing = false
 # Eating, Rolling, Roll Starting, Roll Ending
 
 func pick_action():
-	
+
 	# check if we should stop fleeing
 	if(dist_to_player() > 20):
 		fleeing = false
@@ -23,9 +23,10 @@ func pick_action():
 	# state stuff, always play this
 	if(action == "Roll EndingIDLE"):
 		action = "Eating"
-		#make_emoticon()
+		make_emoticon("Love")
 		action_time = get_anim_length(action)
 	elif(action == "Eating"):
+		
 		# bug prone
 		if(get_nearest_bait() != null):
 			get_nearest_bait().queue_free()
@@ -33,7 +34,9 @@ func pick_action():
 		action_time = get_anim_length(action)
 	
 	# check if should run from player.
-	elif(dist_to_player() < 10 or fleeing):
+	elif(dist_to_player() * stealth_mult() < 10 or fleeing):
+		if(!fleeing):
+			make_emoticon("Scared")
 		fleeing = true
 		set_nav_flee_from_player()
 		action = "Rolling"

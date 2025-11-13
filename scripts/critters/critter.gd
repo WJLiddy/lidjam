@@ -63,18 +63,58 @@ func pick_perch(all_perches):
 	return null
 			
 func set_nav_flee_from_player():
-	$nav.set_target_position(global_position + ((global_position - get_node("../../Player").global_position).normalized() * 5))
-	if(not $nav.is_target_reachable()):
-		set_nav_meander()
+	var naive_escape = global_position + ((global_position - get_node("../../Player").global_position).normalized() * 10)
+	
+	var nav_map = $nav.get_navigation_map()
+	var query_point = naive_escape
+	var closest = NavigationServer3D.map_get_closest_point(nav_map, query_point)
+
+	# clsoe enough.
+	if query_point.distance_to(closest) < 0.5:
+		$nav.set_target_position(closest)
+	else:
+		# pick the escape hint that's farthest from the player.
+		var player = get_node("../../Player")
+		var escape_hints = get_node("../../EscapeHints").get_children()
+
+		var v = escape_hints.reduce(func(best, next):
+			return next if player.global_position.distance_to(next.global_position) > player.global_position.distance_to(best.global_position) else best
+		)
+		print("escaping to " + v.name)
+		$nav.set_target_position(v.global_position)
 
 func set_nav_meander():
 	$nav.set_target_position(global_position + Vector3(randf_range(-5,5),0,randf_range(-5,5)))
 
-func make_emoticon():
+func make_emoticon(t):
 	var e = emoticon.instantiate()
+	e.set_type(t)
 	get_node("../../Emoticons").add_child(e)
 	e.global_position = global_position
+	e.follow = $vis
 	
+# not great but crunch time
+# multiply by player_distance. a high stealth mult makes player seem farther away than actually is.
+
+func stealth_mult():
+	var player = get_node("../../Player")
+	var to_player = (player.global_position - global_position).normalized()
+
+	var forward = -global_transform.basis.z.normalized()
+
+	var dot = forward.dot(to_player)
+
+	var facing_mult = 1
+	if dot > 0.7:
+		facing_mult = 1.5
+		
+	if(player.speed == player.sprint_speed):
+		return 2 * facing_mult
+	if(player.speed == player.crouch_speed):
+		return 0.3 * facing_mult
+	
+	return 1 / facing_mult
+
 
 # to be overridden:
 func pick_action():
@@ -118,10 +158,23 @@ func _physics_process(delta: float) -> void:
 				pick_action()
 				return
 			
-			# set the speed and move the player + lookdir
+
+			# Calculate movement direction and look
 			var dir = local_dest.normalized()
-			velocity = dir * speed()
-			look_at_grad(delta,global_position + velocity)
+			velocity.x = dir.x * speed()
+			velocity.z = dir.z * speed()
+
+			look_at_grad(delta, global_position + velocity)
+
+			# Apply gravity if needed
+			if not is_on_floor():
+				velocity.y -= ProjectSettings.get_setting("physics/3d/default_gravity") * delta
+			else:
+				velocity.y = 0.0  # reset Y when grounded
+
+			# Slide with floor snapping for smooth contact
+				# --- Stick to floor ---
+			floor_snap_length = 0.3  # makes the character hug slopes & steps
 			move_and_slide()
 		
 		elif(action == "Eating" or action == "Curious"):
@@ -144,7 +197,10 @@ func _physics_process(delta: float) -> void:
 			
 		# any of the idle actions
 		elif(action.contains("IDLE")):
-			pass
+			if not is_on_floor():
+				velocity.y = -1
+			else:
+				velocity = Vector3(0,0,0)
 			
 		else:
 			print("unknown action " + action + " from " + species)

@@ -6,17 +6,22 @@ func _ready():
 	orig_rot = global_rotation
 # Turning, Dancing, Diving, Eating, Judging
 func pick_action():
+	
+	if(dist_to_player() * stealth_mult() < 20 and dist_to_player() * stealth_mult() > 15):
+		make_emoticon("Alert")
+	
 	if(action == "RestingIDLE"):
 		action = "PartyingIDLE"
 		action_time = get_anim_length(action)
 		
 	elif(action == "PartyingIDLE"):
-		if(dist_to_player() < 15):
+		if(dist_to_player() * stealth_mult() < 15):
 			action = "Turning"
 		action_time = get_anim_length(action)
 	
 	elif(action == "Turning"):
 		action = "Judging"
+		make_emoticon("Anger")
 		action_time = get_anim_length(action)
 	# burying
 	elif(action == "Judging"):

@@ -3,8 +3,8 @@ extends CharacterBody3D
 
 @export var footstep_sound: Array[AudioStream]
 
-var run_speed = 6.5
-var sprint_speed = 10.5
+var run_speed = 7
+var sprint_speed = 11
 var speed = run_speed
 var crouch_speed = 2
 
@@ -91,14 +91,16 @@ func _physics_process(delta: float) -> void:
 			landing_velocity = 0
 
 		speed = run_speed
-		if Input.is_action_pressed("sprint") and Global.shoes_unlocked:
-			speed = sprint_speed
-			get_node("../../../ViewModel").cam_hide()
-		else:
-			get_node("../../../ViewModel").cam_show()
-			
 		if Input.is_action_pressed("crouch") or ads_enabled:
 			speed = crouch_speed
+		else:
+			if Input.is_action_pressed("sprint") and Global.shoes_unlocked:
+				speed = sprint_speed
+				get_node("../../../ViewModel").cam_hide()
+			else:
+				get_node("../../../ViewModel").cam_show()
+			
+
 
 	if Input.is_action_pressed("crouch"):
 		$CollisionShape3D.shape.height = lerp($CollisionShape3D.shape.height, 1.38, 0.1)
@@ -132,6 +134,7 @@ func _physics_process(delta: float) -> void:
 			# hide the camera
 			get_node("../../../ViewModel").cam_hide()
 		else:
+			get_node("../Emoticons").visible = false
 			await RenderingServer.frame_post_draw
 			take_picture()
 			action_cooldown = 0.4
@@ -231,6 +234,7 @@ func take_picture():
 	
 	get_node("../../../UIRender").push_image(image)
 	Global.add_pic(picdata)
+	get_node("../Emoticons").visible = true
 	
 
 func landing_animation():

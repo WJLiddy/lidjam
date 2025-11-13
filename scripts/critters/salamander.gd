@@ -24,6 +24,7 @@ func pick_action():
 		if(to_shore):
 			if(entry_position.distance_to(global_position) < 4):
 				action = "Swimming"
+				make_emoticon("Love")
 				is_bait_curious = true
 				global_position = entry_position
 				to_shore = false
@@ -33,6 +34,7 @@ func pick_action():
 			# check for confusion w/bait
 			if(get_nearest_bait() != null and global_position.distance_to(get_nearest_bait().global_position) < 3 and is_bait_curious):
 				action = "Curious"
+				make_emoticon("Alert")
 				is_bait_curious = false
 			else:
 				var rand = randi_range(1,8)

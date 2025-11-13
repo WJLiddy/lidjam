@@ -1,13 +1,31 @@
-[gd_scene load_steps=3 format=3 uid="uid://dr4tkgkry3mnl"]
+[gd_scene load_steps=6 format=3 uid="uid://dr4tkgkry3mnl"]
 
 [ext_resource type="Script" uid="uid://uqricf1h5c2b" path="res://scripts/emote.gd" id="1_ser34"]
 [ext_resource type="Texture2D" uid="uid://2axp7axltjr8" path="res://emotes/emote_anger.png" id="2_gn0eo"]
+[ext_resource type="Texture2D" uid="uid://orsyvr1imcnh" path="res://emotes/emote_exclamation.png" id="3_tiva7"]
+[ext_resource type="Texture2D" uid="uid://k7x5m5s3hl8r" path="res://emotes/emote_question.png" id="4_pq5pn"]
+[ext_resource type="Texture2D" uid="uid://c77267sefuc7w" path="res://emotes/emote_heart.png" id="5_vng3w"]
 
 [node name="emoticon" type="Node3D"]
 transform = Transform3D(1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0)
 script = ExtResource("1_ser34")
 
-[node name="Sprite" type="Sprite3D" parent="."]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+[node name="Anger" type="Sprite3D" parent="."]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
 texture = ExtResource("2_gn0eo")
+metadata/_edit_lock_ = true
+
+[node name="Scared" type="Sprite3D" parent="."]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
+texture = ExtResource("3_tiva7")
+metadata/_edit_lock_ = true
+
+[node name="Alert" type="Sprite3D" parent="."]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
+texture = ExtResource("4_pq5pn")
+metadata/_edit_lock_ = true
+
+[node name="Love" type="Sprite3D" parent="."]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
+texture = ExtResource("5_vng3w")
 metadata/_edit_lock_ = true

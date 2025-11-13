@@ -1,6 +1,6 @@
 extends Node3D
 
-
+var follow
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var tween = get_tree().create_tween()
@@ -14,11 +14,21 @@ func _ready() -> void:
 	tween.tween_property(self, "scale", Vector3(1.0, 1.0, 1.0), 0.2).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	
 	# Step 3: Fade out and disappear
-	tween.tween_property($Sprite, "modulate:a", 0.0, 0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	tween.tween_property($Anger, "modulate:a", 0.0, 0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	tween.tween_property($Scared, "modulate:a", 0.0, 0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	tween.tween_property($Alert, "modulate:a", 0.0, 0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	tween.tween_property($Love, "modulate:a", 0.0, 0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
 	tween.tween_callback(Callable(self, "queue_free"))
 
-
+func set_type(st):
+	$Anger.visible = st == "Anger"
+	$Love.visible = st == "Love"
+	$Alert.visible = st == "Alert"
+	$Scared.visible = st == "Scared"
+	
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	look_at(get_node("../../Player").global_position)
-	pass
+	# LATER! BESPOKE EMOTICON SPOT
+	global_position = follow.global_position + Vector3(0,1+follow.get_aabb().size.y,0)

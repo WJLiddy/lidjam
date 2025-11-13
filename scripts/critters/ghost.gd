@@ -13,14 +13,18 @@ func pick_action():
 	elif(spooked):
 		spooked = false
 		action = "SpookedIDLE"
+		make_emoticon("Anger")
 	elif(player_is_whistling()):
 		action = "Scared"
+		make_emoticon("Scared")
 		set_nav_flee_from_player()
 	elif (baited):
 		baited = false
 		action = "ConfusedIDLE"
+		make_emoticon("Alert")
 	elif(get_node("vis").is_on_screen() and player_is_ads()):
 		action = "Excited"
+		make_emoticon("Love")
 	else:
 		action = "RestingIDLE"
 	action_time = get_anim_length(action)

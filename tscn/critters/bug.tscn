@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dedkhk83v4rlr" path="res://tscn/model/bugmodel.tscn" id="2_x5nwu"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_pjl8l"]
-height = 1.0
+height = 1.5
 
 [node name="Cowbug" type="CharacterBody3D"]
 collision_layer = 2
@@ -12,14 +12,14 @@ collision_mask = 15
 script = ExtResource("1_eh6mv")
 
 [node name="model" parent="." instance=ExtResource("2_x5nwu")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0.8, 0.058)
 
 [node name="vis" type="VisibleOnScreenNotifier3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.667, 0, 0.2, -0.18525846)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1.667, 0, 1.0636065, -0.10702892)
 aabb = AABB(-0.2, -0.2, -0.2776212, 0.4, 0.4, 0.5552424)
 
 [node name="col" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
 shape = SubResource("CapsuleShape3D_pjl8l")
 
 [node name="nav" type="NavigationAgent3D" parent="."]

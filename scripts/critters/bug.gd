@@ -5,6 +5,8 @@ func rotspeed():
 	
 func pick_action():
 	if(player_is_whistling()):
+		if(action != "Listening"):
+			make_emoticon("Love")
 		action = "Listening"
 	else:
 		if(randf_range(0,10) > 1):

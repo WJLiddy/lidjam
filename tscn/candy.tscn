@@ -9,5 +9,4 @@ albedo_texture = ExtResource("2_kte25")
 [node name="candy viewmodel2" instance=ExtResource("1_7y57b")]
 
 [node name="candy viewmodel" parent="." index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.4031372, -0.9642334, -1.2589111)
 surface_material_override/0 = SubResource("StandardMaterial3D_knkum")
