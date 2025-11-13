@@ -1,6 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://4ickr787q0pa"]
+[gd_scene load_steps=4 format=3 uid="uid://4ickr787q0pa"]
 
 [ext_resource type="PackedScene" uid="uid://jvkmrfbkl3bb" path="res://blender inbox/frankendeer/frankendeer.blend" id="1_kls4i"]
+[ext_resource type="Texture2D" uid="uid://umm20xvyjqui" path="res://blender inbox/frankendeer/frankendeer.png" id="2_mgvqe"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_753vv"]
+albedo_texture = ExtResource("2_mgvqe")
 
 [node name="frankendeer2" instance=ExtResource("1_kls4i")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+
+[node name="frankendeer" parent="frankendeer armature/Skeleton3D" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_753vv")

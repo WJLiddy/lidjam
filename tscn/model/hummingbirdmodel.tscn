@@ -1,5 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://b6hdgfpxm3vof"]
+[gd_scene load_steps=3 format=3 uid="uid://b6hdgfpxm3vof"]
 
 [ext_resource type="PackedScene" uid="uid://cp8ti2mk0dgsn" path="res://blender inbox/moonbird/moon bird.blend" id="1_vxjwa"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vxjwa"]
+
 [node name="moonbird" instance=ExtResource("1_vxjwa")]
+
+[node name="moon bird" parent="Armature/Skeleton3D" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_vxjwa")

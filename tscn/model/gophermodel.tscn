@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://ew4wc5afnh0f"]
+[gd_scene load_steps=4 format=3 uid="uid://ew4wc5afnh0f"]
 
 [ext_resource type="PackedScene" uid="uid://bbwp06xhqatgo" path="res://blender inbox/gopher/gopher.blend" id="1_8yehd"]
+[ext_resource type="Texture2D" uid="uid://c6qluqij0j6t0" path="res://blender inbox/gopher/gopher.png" id="2_oli5w"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i1crp"]
+albedo_texture = ExtResource("2_oli5w")
 
 [node name="gopher2" instance=ExtResource("1_8yehd")]
 
@@ -21,3 +25,6 @@ bones/11/rotation = Quaternion(0.08338335, 0.11310746, 0.917775, 0.37140694)
 bones/12/rotation = Quaternion(0.079592586, 0.012040416, 0.22131705, 0.9718739)
 bones/13/position = Vector3(-0.29639727, -0.10483223, -1.4103983e-07)
 bones/13/rotation = Quaternion(-0.07328523, 0.7032988, 0.7032989, 0.07328532)
+
+[node name="gopher" parent="gopher armature/Skeleton3D" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_i1crp")
