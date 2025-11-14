@@ -176,13 +176,17 @@ func _physics_process(delta: float) -> void:
 			# hide the camera
 			get_node("../../../ViewModel").cam_hide()
 		elif %CamRayCast.is_colliding() and %CamRayCast.get_collider().name == "GRAVE" and (not ads_enabled):
-			%CamRayCast.get_collider().get_node("ANIM").play("PRESSG")
+			%CamRayCast.get_collider().get_node("GANIM").play("GANIM")
 			for v in get_node("../Critters").get_children():
 				if (v.species == "Bugleton"):
 					v.bugle = true
 		elif %CamRayCast.is_colliding() and %CamRayCast.get_collider().name == "JACKPOT" and (not ads_enabled):
-			%CamRayCast.get_collider().get_node("ANIM").play("PRESS")
+			%CamRayCast.get_collider().get_node("JANIM").play("JANIM")
 			%CamRayCast.get_collider().get_node("Jackpot").play()
+			%CamRayCast.get_collider().get_node("Money").visible = true
+			for v in %CamRayCast.get_collider().get_node("Money").get_children():
+				v.freeze = false
+			
 			if(not got_money):
 				Global.money += 50
 				got_money = true

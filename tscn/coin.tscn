@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8sa5lwq5cd1r"]
+
+[ext_resource type="PackedScene" uid="uid://bp0u76jrm80vy" path="res://tscn/coinmodel.tscn" id="1_cbksl"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tpk1y"]
+size = Vector3(0.193, 0.169, 0.029)
+
+[node name="Coin" type="RigidBody3D"]
+freeze = true
+continuous_cd = true
+
+[node name="coin2" parent="." instance=ExtResource("1_cbksl")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0051347762, 0.004949406, 0.007904053)
+shape = SubResource("BoxShape3D_tpk1y")

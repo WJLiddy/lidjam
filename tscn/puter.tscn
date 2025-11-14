@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bf504syknspt3"]
+[gd_scene load_steps=23 format=3 uid="uid://bf504syknspt3"]
 
 [ext_resource type="PackedScene" uid="uid://dndwj10egr80j" path="res://programmerart/pc-monitor.fbx" id="1_kic1t"]
 [ext_resource type="Texture2D" uid="uid://c5t4kq1pm500p" path="res://programmerart/win.png" id="2_0hlij"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://dpkeht6ti002n" path="res://programmerart/best.png" id="9_1ewvw"]
 [ext_resource type="FontFile" uid="uid://b66pf6t0mwf83" path="res://Daydream DEMO.otf" id="12_3rc7y"]
 [ext_resource type="Texture2D" uid="uid://bl4rmsd0xslwm" path="res://programmerart/Oeak.png" id="13_a53r6"]
+[ext_resource type="FontFile" uid="uid://bfly31gt1r7kq" path="res://NotoSansSymbols2-Regular.ttf" id="16_4bxm1"]
 [ext_resource type="PackedScene" uid="uid://bpiirronavyog" path="res://tscn/computermodel.tscn" id="17_3xwxw"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_0hlij"]
@@ -57,7 +58,7 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 shape = SubResource("BoxShape3D_r1ldu")
 
 [node name="Shop" type="Sprite3D" parent="pc-monitor/Background" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.42900002, -0.5289999, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.019000007, -0.5289998, 0)
 sorting_offset = 1.0
 texture = ExtResource("5_4ap5h")
 
@@ -70,7 +71,7 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 shape = SubResource("BoxShape3D_r1ldu")
 
 [node name="Gallery" type="Sprite3D" parent="pc-monitor/Background" index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.95400006, -0.5289999, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.544, -0.5289998, 0)
 sorting_offset = 1.0
 texture = ExtResource("6_8agco")
 
@@ -83,7 +84,7 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 shape = SubResource("BoxShape3D_r1ldu")
 
 [node name="Upload" type="Sprite3D" parent="pc-monitor/Background" index="3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.11215892, -0.52858406, 0.00023365021)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5221589, -0.52858406, 0.00023365021)
 sorting_offset = 1.0
 texture = ExtResource("6_om0pq")
 
@@ -307,6 +308,7 @@ horizontal_alignment = 0
 vertical_alignment = 0
 
 [node name="ScoringBase" type="Node3D" parent="pc-monitor/Grading" index="6"]
+visible = false
 
 [node name="Name" type="Label3D" parent="pc-monitor/Grading/ScoringBase" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.586, 0.85000014, 0)
@@ -319,11 +321,11 @@ horizontal_alignment = 0
 vertical_alignment = 0
 
 [node name="NameScore" type="Label3D" parent="pc-monitor/Grading/ScoringBase" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.586, 0.80000067, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.586, 0.7800007, 0)
 sorting_offset = 1.0
 modulate = Color(0, 0, 0, 1)
 text = "★★☆"
-font = ExtResource("12_3rc7y")
+font = ExtResource("16_4bxm1")
 font_size = 24
 horizontal_alignment = 0
 vertical_alignment = 0
@@ -339,11 +341,11 @@ horizontal_alignment = 0
 vertical_alignment = 0
 
 [node name="SizeScore" type="Label3D" parent="pc-monitor/Grading/ScoringBase" index="3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.586, 0.60000014, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.586, 0.5800004, 0)
 sorting_offset = 1.0
 modulate = Color(0, 0, 0, 1)
 text = "★★☆"
-font = ExtResource("12_3rc7y")
+font = ExtResource("16_4bxm1")
 font_size = 24
 horizontal_alignment = 0
 vertical_alignment = 0
@@ -371,11 +373,11 @@ horizontal_alignment = 0
 vertical_alignment = 0
 
 [node name="PoseOrientScore" type="Label3D" parent="pc-monitor/Grading/ScoringBase" index="6"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.586, 0.30000067, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.586, 0.2800007, 0)
 sorting_offset = 1.0
 modulate = Color(0, 0, 0, 1)
 text = "★★☆"
-font = ExtResource("12_3rc7y")
+font = ExtResource("16_4bxm1")
 font_size = 24
 horizontal_alignment = 0
 vertical_alignment = 0
@@ -391,11 +393,11 @@ horizontal_alignment = 0
 vertical_alignment = 0
 
 [node name="OthersScore" type="Label3D" parent="pc-monitor/Grading/ScoringBase" index="8"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.586, 0.10000086, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.586, 0.08000088, 0)
 sorting_offset = 1.0
 modulate = Color(0, 0, 0, 1)
 text = "★★☆"
-font = ExtResource("12_3rc7y")
+font = ExtResource("16_4bxm1")
 font_size = 24
 horizontal_alignment = 0
 vertical_alignment = 0
@@ -411,11 +413,11 @@ horizontal_alignment = 0
 vertical_alignment = 0
 
 [node name="SameScore" type="Label3D" parent="pc-monitor/Grading/ScoringBase" index="10"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.586, -0.09999895, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.586, -0.11999893, 0)
 sorting_offset = 1.0
 modulate = Color(0, 0, 0, 1)
 text = "★★☆"
-font = ExtResource("12_3rc7y")
+font = ExtResource("16_4bxm1")
 font_size = 24
 horizontal_alignment = 0
 vertical_alignment = 0
