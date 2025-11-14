@@ -17,7 +17,7 @@ func pick_action():
 	elif(player_is_whistling()):
 		action = "Scared"
 		make_emoticon("Anger")
-		set_nav_flee_from_player()
+		$nav.set_target_position(global_position + 5 * (global_position - get_node("../../Player").global_position).normalized())
 	elif (baited):
 		baited = false
 		action = "ConfusedIDLE"
