@@ -11,13 +11,12 @@ func speed():
 func _ready() -> void:
 	pass # Replace with function body.
 
-var last_perch = null
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 # Birds do not use any of the same state junk from critter.
 func _physics_process(delta: float) -> void:
 	action_time -= delta
-	
+	#if(name == "Cowbird"):
+	#	print(action)
 	# check if our perchtarg is stale.
 	if((not ascending) and not is_instance_valid(perch)):
 		# someone ate our bait..

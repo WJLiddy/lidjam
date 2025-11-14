@@ -39,6 +39,4 @@ shape = SubResource("BoxShape3D_gkt25")
 [node name="emote" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.84, 0)
 
-[node name="Trumpet" type="AudioStreamPlayer3D" parent="."]
-
 [connection signal="body_entered" from="SpookZone" to="." method="_on_spook_zone_body_entered"]

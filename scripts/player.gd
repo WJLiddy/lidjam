@@ -49,6 +49,7 @@ func write_tutorial(targ,strn):
 		tutprog += 1
 
 func _physics_process(delta: float) -> void:
+
 	if Global.is_on_title:
 		return
 	
@@ -184,8 +185,7 @@ func _physics_process(delta: float) -> void:
 			%CamRayCast.get_collider().get_node("JANIM").play("JANIM")
 			%CamRayCast.get_collider().get_node("Jackpot").play()
 			%CamRayCast.get_collider().get_node("Money").visible = true
-			for v in %CamRayCast.get_collider().get_node("Money").get_children():
-				v.freeze = false
+
 			
 			if(not got_money):
 				Global.money += 20

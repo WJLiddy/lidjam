@@ -796,10 +796,10 @@ transform = Transform3D(0.84958905, 0, 0.52744526, 0, 1, 0, -0.52744526, 0, 0.84
 transform = Transform3D(0.87070787, 0, 0.4918006, 0, 1, 0, -0.4918006, 0, 0.87070787, 165.67822, -8.520715, -33.713245)
 
 [node name="gravestone14" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav" instance=ExtResource("24_v8uw3")]
-transform = Transform3D(0.55184966, 0, 0.8339436, 0, 1, 0, -0.8339436, 0, 0.55184966, 180.54941, -7.9773674, -107.75634)
+transform = Transform3D(0.6512644, 0, 0.7588509, 0, 1, 0, -0.7588509, 0, 0.6512644, 180.54941, -9.397905, -107.75634)
 
 [node name="buttonbase2" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/gravestone14" instance=ExtResource("26_tp77g")]
-transform = Transform3D(0.2, 0, 0, 0, -8.742278e-09, -0.2, 0, 0.2, -8.742278e-09, -0.0932312, 1.4378123, 0.14300537)
+transform = Transform3D(0.2, 0, 0, 0, -8.742278e-09, -0.2, 0, 0.2, -8.742278e-09, -0.005183466, 2.24013, 0.1430054)
 
 [node name="buttonface2" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/gravestone14/buttonbase2" instance=ExtResource("27_pjufk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
@@ -1454,51 +1454,74 @@ stream = ExtResource("41_pjufk")
 volume_db = -10.0
 
 [node name="Money" type="Node3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming2/floating island 7/buttonbase2/JACKPOT"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3841858e-07, 5.9604645e-08, -13.8357525)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.3841858e-07, -5.9604645e-08, -2.7187128)
 visible = false
 
 [node name="Coin" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming2/floating island 7/buttonbase2/JACKPOT/Money" instance=ExtResource("54_tpk1y")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.106802, -2.9802322e-08)
+transform = Transform3D(1.9999999, -1.1920929e-07, 0, 1.1920929e-07, 2, -1.4901161e-08, -2.9802322e-08, -2.9802322e-08, 1.9999999, -0.93829346, 5.3101807, 6.3405457)
 
 [node name="Coin2" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming2/floating island 7/buttonbase2/JACKPOT/Money" instance=ExtResource("54_tpk1y")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.46765134, 4.106802, -2.2351742e-08)
-collision_layer = 0
+transform = Transform3D(1.9999999, -1.1920929e-07, 0, 1.1920929e-07, 2, -1.4901161e-08, -2.9802322e-08, -2.9802322e-08, 1.9999999, -0.5105591, 3.0750427, 6.610321)
 
 [node name="Coin3" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming2/floating island 7/buttonbase2/JACKPOT/Money" instance=ExtResource("54_tpk1y")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.4901161e-08, 4.8121915, -2.9802322e-08)
-collision_layer = 0
+transform = Transform3D(1.9999999, -1.1920929e-07, 0, 1.1920929e-07, 2, -1.4901161e-08, -2.9802322e-08, -2.9802322e-08, 1.9999999, 1.7612915, 3.802765, 6.815338)
 
 [node name="Coin4" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming2/floating island 7/buttonbase2/JACKPOT/Money" instance=ExtResource("54_tpk1y")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.93806046, 4.106802, -4.4703484e-08)
-collision_layer = 0
+transform = Transform3D(1.9999999, -1.1920929e-07, 0, 1.1920929e-07, 2, -1.4901161e-08, -2.9802322e-08, -2.9802322e-08, 1.9999999, -0.028686523, 4.2096405, 6.533386)
 
 [node name="Coin5" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming2/floating island 7/buttonbase2/JACKPOT/Money" instance=ExtResource("54_tpk1y")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.263419, -4.4703484e-08)
-collision_layer = 0
+transform = Transform3D(1.9999999, -1.1920929e-07, 0, 1.1920929e-07, 2, -1.4901161e-08, -2.9802322e-08, -2.9802322e-08, 1.9999999, -0.9555054, 4.0285034, 6.4565735)
 
 [node name="Coin6" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming2/floating island 7/buttonbase2/JACKPOT/Money" instance=ExtResource("54_tpk1y")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6861309, 4.106802, -3.7252903e-08)
-collision_layer = 0
+transform = Transform3D(1.9999999, -1.1920929e-07, 0, 1.1920929e-07, 2, -1.4901161e-08, -2.9802322e-08, -2.9802322e-08, 1.9999999, 3.4852295, 5.426529, 6.9539795)
 
 [node name="Coin7" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming2/floating island 7/buttonbase2/JACKPOT/Money" instance=ExtResource("54_tpk1y")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5859554, 4.106802, -2.2351742e-08)
-collision_layer = 0
+transform = Transform3D(1.9999999, -1.1920929e-07, 0, 1.1920929e-07, 2, -1.4901161e-08, -2.9802322e-08, -2.9802322e-08, 1.9999999, 0.6275635, 5.3358765, 6.4761047)
 
 [node name="Coin8" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming2/floating island 7/buttonbase2/JACKPOT/Money" instance=ExtResource("54_tpk1y")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.34280735, 5.842054, -4.4703484e-08)
-collision_layer = 0
+transform = Transform3D(1.9999999, -1.1920929e-07, 0, 1.1920929e-07, 2, -1.4901161e-08, -2.9802322e-08, -2.9802322e-08, 1.9999999, -0.58843994, 7.0364532, 6.293213)
 
 [node name="Coin9" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming2/floating island 7/buttonbase2/JACKPOT/Money" instance=ExtResource("54_tpk1y")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4713616, 4.106802, -6.7055225e-08)
-collision_layer = 0
+transform = Transform3D(1.9999999, -1.1920929e-07, 0, 1.1920929e-07, 2, -1.4901161e-08, -2.9802322e-08, -2.9802322e-08, 1.9999999, 1.4918823, 5.362961, 6.6187744)
 
 [node name="Coin10" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming2/floating island 7/buttonbase2/JACKPOT/Money" instance=ExtResource("54_tpk1y")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3428074, 4.106802, 0.5261659)
-collision_layer = 0
+transform = Transform3D(1.9999999, -1.1920929e-07, 0, 1.1920929e-07, 2, -1.4901161e-08, -2.9802322e-08, -2.9802322e-08, 1.9999999, -0.5235596, 5.217926, 6.3809204)
 
 [node name="Coin11" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming2/floating island 7/buttonbase2/JACKPOT/Money" instance=ExtResource("54_tpk1y")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2734718, 5.413449, -2.9802322e-08)
-collision_layer = 0
+transform = Transform3D(1.9999999, -1.1920929e-07, 0, 1.1920929e-07, 2, -1.4901161e-08, -2.9802322e-08, -2.9802322e-08, 1.9999999, 1.3059082, 6.654358, 6.5384827)
+
+[node name="Coin12" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming2/floating island 7/buttonbase2/JACKPOT/Money" instance=ExtResource("54_tpk1y")]
+transform = Transform3D(1.9999999, -1.1920929e-07, 0, 1.1920929e-07, 2, -1.4901161e-08, -2.9802322e-08, -2.9802322e-08, 1.9999999, 2.6696777, 7.587082, 6.719269)
+
+[node name="Coin13" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming2/floating island 7/buttonbase2/JACKPOT/Money" instance=ExtResource("54_tpk1y")]
+transform = Transform3D(1.9999999, -1.1920929e-07, 0, 1.1920929e-07, 2, -1.4901161e-08, -2.9802322e-08, -2.9802322e-08, 1.9999999, 3.1107788, 5.3348083, 6.898712)
+
+[node name="Coin14" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming2/floating island 7/buttonbase2/JACKPOT/Money" instance=ExtResource("54_tpk1y")]
+transform = Transform3D(1.9999999, -1.1920929e-07, 0, 1.1920929e-07, 2, -1.4901161e-08, -2.9802322e-08, -2.9802322e-08, 1.9999999, 5.361023, 6.0903015, 7.250061)
+
+[node name="Coin15" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming2/floating island 7/buttonbase2/JACKPOT/Money" instance=ExtResource("54_tpk1y")]
+transform = Transform3D(1.9999999, -1.1920929e-07, 0, 1.1920929e-07, 2, -1.4901161e-08, -2.9802322e-08, -2.9802322e-08, 1.9999999, 3.5823975, 6.482605, 6.891266)
+
+[node name="Coin16" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming2/floating island 7/buttonbase2/JACKPOT/Money" instance=ExtResource("54_tpk1y")]
+transform = Transform3D(1.9999999, -1.1920929e-07, 0, 1.1920929e-07, 2, -1.4901161e-08, -2.9802322e-08, -2.9802322e-08, 1.9999999, 2.6640625, 6.290497, 6.7566833)
+
+[node name="Coin17" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming2/floating island 7/buttonbase2/JACKPOT/Money" instance=ExtResource("54_tpk1y")]
+transform = Transform3D(1.9999999, -1.1920929e-07, 0, 1.1920929e-07, 2, -1.4901161e-08, -2.9802322e-08, -2.9802322e-08, 1.9999999, 7.102722, 7.6911774, 7.2680664)
+
+[node name="Coin18" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming2/floating island 7/buttonbase2/JACKPOT/Money" instance=ExtResource("54_tpk1y")]
+transform = Transform3D(1.9999999, -1.1920929e-07, 0, 1.1920929e-07, 2, -1.4901161e-08, -2.9802322e-08, -2.9802322e-08, 1.9999999, 4.22876, 7.621582, 6.9009705)
+
+[node name="Coin19" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming2/floating island 7/buttonbase2/JACKPOT/Money" instance=ExtResource("54_tpk1y")]
+transform = Transform3D(1.9999999, -1.1920929e-07, 0, 1.1920929e-07, 2, -1.4901161e-08, -2.9802322e-08, -2.9802322e-08, 1.9999999, 3.0341187, 9.294708, 6.5737)
+
+[node name="Coin20" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming2/floating island 7/buttonbase2/JACKPOT/Money" instance=ExtResource("54_tpk1y")]
+transform = Transform3D(1.9999999, -1.1920929e-07, 0, 1.1920929e-07, 2, -1.4901161e-08, -2.9802322e-08, -2.9802322e-08, 1.9999999, 5.100525, 7.63916, 6.9938965)
+
+[node name="Coin21" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming2/floating island 7/buttonbase2/JACKPOT/Money" instance=ExtResource("54_tpk1y")]
+transform = Transform3D(1.9999999, -1.1920929e-07, 0, 1.1920929e-07, 2, -1.4901161e-08, -2.9802322e-08, -2.9802322e-08, 1.9999999, 3.0808105, 7.499588, 6.7846375)
+
+[node name="Coin22" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming2/floating island 7/buttonbase2/JACKPOT/Money" instance=ExtResource("54_tpk1y")]
+transform = Transform3D(1.9999999, -1.1920929e-07, 0, 1.1920929e-07, 2, -1.4901161e-08, -2.9802322e-08, -2.9802322e-08, 1.9999999, 4.9282837, 8.912872, 6.8203125)
 
 [node name="bridge2" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav" instance=ExtResource("24_sdsnp")]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
@@ -1919,6 +1942,7 @@ stream = ExtResource("23_x23mu")
 volume_db = -10.0
 
 [node name="FPS" type="Label" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/UIRender"]
+visible = false
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
