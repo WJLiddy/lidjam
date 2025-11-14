@@ -1,8 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://b6hdgfpxm3vof"]
+[gd_scene load_steps=4 format=3 uid="uid://b6hdgfpxm3vof"]
 
 [ext_resource type="PackedScene" uid="uid://cp8ti2mk0dgsn" path="res://blender inbox/moonbird/moon bird.blend" id="1_vxjwa"]
+[ext_resource type="Texture2D" uid="uid://bccvi2ow4qmjg" path="res://blender inbox/moonbird/moonbird.png" id="2_ico8c"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vxjwa"]
+albedo_texture = ExtResource("2_ico8c")
 
 [node name="moonbird" instance=ExtResource("1_vxjwa")]
 

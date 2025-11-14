@@ -39,6 +39,7 @@
 [ext_resource type="AudioStream" uid="uid://y7cgnxqgw0an" path="res://sound/upload.mp3" id="23_x23mu"]
 [ext_resource type="PackedScene" uid="uid://k1voxl3bbvmu" path="res://tscn/bridge.tscn" id="24_sdsnp"]
 [ext_resource type="Texture2D" uid="uid://uu36jxa0e0yn" path="res://programmerart/peppermint.png" id="27_5xr7u"]
+[ext_resource type="PackedScene" uid="uid://d14t82idu26ya" path="res://tscn/crate.tscn" id="27_l3umd"]
 [ext_resource type="Texture2D" uid="uid://dfag3m40iqt2v" path="res://programmerart/whistle.png" id="28_8pife"]
 [ext_resource type="PackedScene" uid="uid://471t8t5kejlk" path="res://tscn/cabin.tscn" id="28_cbth3"]
 [ext_resource type="PackedScene" uid="uid://cejn7xt48rroo" path="res://tscn/computer_table.tscn" id="29_cj7we"]
@@ -89,8 +90,6 @@ polygons = [PackedInt32Array(2, 1, 0), PackedInt32Array(4, 3, 5), PackedInt32Arr
 geometry_parsed_geometry_type = 1
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8pife"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_wsut6"]
 
 [sub_resource type="Animation" id="Animation_8pife"]
 length = 0.001
@@ -769,9 +768,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("BoxShape3D_8pife")
 metadata/_edit_lock_ = true
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1/Crate/CollisionShape3D"]
-mesh = SubResource("BoxMesh_wsut6")
-metadata/_edit_lock_ = true
+[node name="crate2" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1/Crate/CollisionShape3D" instance=ExtResource("27_l3umd")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="Crate24" type="StaticBody3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -213.11433, 19.621855, -116.99793)
@@ -781,9 +779,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("BoxShape3D_8pife")
 metadata/_edit_lock_ = true
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1/Crate24/CollisionShape3D"]
-mesh = SubResource("BoxMesh_wsut6")
-metadata/_edit_lock_ = true
+[node name="crate2" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1/Crate24/CollisionShape3D" instance=ExtResource("27_l3umd")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="Crate26" type="StaticBody3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -203.15172, 20.862709, -132.95822)
@@ -793,9 +790,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("BoxShape3D_8pife")
 metadata/_edit_lock_ = true
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1/Crate26/CollisionShape3D"]
-mesh = SubResource("BoxMesh_wsut6")
-metadata/_edit_lock_ = true
+[node name="crate2" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1/Crate26/CollisionShape3D" instance=ExtResource("27_l3umd")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="Crate27" type="StaticBody3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -198.85532, 20.611609, -139.26596)
@@ -805,9 +801,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("BoxShape3D_8pife")
 metadata/_edit_lock_ = true
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1/Crate27/CollisionShape3D"]
-mesh = SubResource("BoxMesh_wsut6")
-metadata/_edit_lock_ = true
+[node name="crate2" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1/Crate27/CollisionShape3D" instance=ExtResource("27_l3umd")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="Crate38" type="StaticBody3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -204.46312, 19.874325, -126.916954)
@@ -817,9 +812,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("BoxShape3D_8pife")
 metadata/_edit_lock_ = true
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1/Crate38/CollisionShape3D"]
-mesh = SubResource("BoxMesh_wsut6")
-metadata/_edit_lock_ = true
+[node name="crate2" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1/Crate38/CollisionShape3D" instance=ExtResource("27_l3umd")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="Crate2" type="StaticBody3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -202.15286, 18.163446, -118.35555)
@@ -829,9 +823,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("BoxShape3D_8pife")
 metadata/_edit_lock_ = true
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1/Crate2/CollisionShape3D"]
-mesh = SubResource("BoxMesh_wsut6")
-metadata/_edit_lock_ = true
+[node name="crate2" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1/Crate2/CollisionShape3D" instance=ExtResource("27_l3umd")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="Crate3" type="StaticBody3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1"]
 transform = Transform3D(0.20423973, 0, -0.9789209, 0, 1, 0, 0.9789209, 0, 0.20423973, -202.15286, 17.951914, -115.74772)
@@ -841,9 +834,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("BoxShape3D_8pife")
 metadata/_edit_lock_ = true
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1/Crate3/CollisionShape3D"]
-mesh = SubResource("BoxMesh_wsut6")
-metadata/_edit_lock_ = true
+[node name="crate2" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1/Crate3/CollisionShape3D" instance=ExtResource("27_l3umd")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="Crate4" type="StaticBody3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1"]
 transform = Transform3D(0.43546677, 0, -0.90020484, 0, 1, 0, 0.90020484, 0, 0.43546677, -202.15286, 18.951914, -115.74772)
@@ -853,9 +845,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("BoxShape3D_8pife")
 metadata/_edit_lock_ = true
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1/Crate4/CollisionShape3D"]
-mesh = SubResource("BoxMesh_wsut6")
-metadata/_edit_lock_ = true
+[node name="crate2" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1/Crate4/CollisionShape3D" instance=ExtResource("27_l3umd")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="Crate5" type="StaticBody3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1"]
 transform = Transform3D(0.20423973, 0, -0.9789209, 0, 1, 0, 0.9789209, 0, 0.20423973, -203.2667, 17.858686, -113.389046)
@@ -865,9 +856,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("BoxShape3D_8pife")
 metadata/_edit_lock_ = true
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1/Crate5/CollisionShape3D"]
-mesh = SubResource("BoxMesh_wsut6")
-metadata/_edit_lock_ = true
+[node name="crate2" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1/Crate5/CollisionShape3D" instance=ExtResource("27_l3umd")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="Crate7" type="StaticBody3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1"]
 transform = Transform3D(0.20423973, 0, -0.9789209, 0, 1, 0, 0.9789209, 0, 0.20423973, -203.2667, 18.858686, -113.389046)
@@ -877,9 +867,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("BoxShape3D_8pife")
 metadata/_edit_lock_ = true
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1/Crate7/CollisionShape3D"]
-mesh = SubResource("BoxMesh_wsut6")
-metadata/_edit_lock_ = true
+[node name="crate2" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1/Crate7/CollisionShape3D" instance=ExtResource("27_l3umd")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="Crate6" type="StaticBody3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1"]
 transform = Transform3D(0.43546677, 0, -0.90020484, 0, 1, 0, 0.90020484, 0, 0.43546677, -203.2667, 19.858686, -113.389046)
@@ -889,9 +878,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("BoxShape3D_8pife")
 metadata/_edit_lock_ = true
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1/Crate6/CollisionShape3D"]
-mesh = SubResource("BoxMesh_wsut6")
-metadata/_edit_lock_ = true
+[node name="crate2" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1/Crate6/CollisionShape3D" instance=ExtResource("27_l3umd")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="Crate8" type="StaticBody3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1"]
 transform = Transform3D(0.20423973, 0, -0.9789209, 0, 1, 0, 0.9789209, 0, 0.20423973, -205.47784, 19.952843, -110.82764)
@@ -901,9 +889,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("BoxShape3D_8pife")
 metadata/_edit_lock_ = true
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1/Crate8/CollisionShape3D"]
-mesh = SubResource("BoxMesh_wsut6")
-metadata/_edit_lock_ = true
+[node name="crate2" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1/Crate8/CollisionShape3D" instance=ExtResource("27_l3umd")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="Crate9" type="StaticBody3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1"]
 transform = Transform3D(0.20423973, 0, -0.9789209, 0, 1, 0, 0.9789209, 0, 0.20423973, -205.51808, 17.952843, -111.224724)
@@ -913,9 +900,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("BoxShape3D_8pife")
 metadata/_edit_lock_ = true
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1/Crate9/CollisionShape3D"]
-mesh = SubResource("BoxMesh_wsut6")
-metadata/_edit_lock_ = true
+[node name="crate2" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1/Crate9/CollisionShape3D" instance=ExtResource("27_l3umd")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="Crate10" type="StaticBody3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1"]
 transform = Transform3D(0.43546677, 0, -0.90020484, 0, 1, 0, 0.90020484, 0, 0.43546677, -205.51808, 18.952843, -111.224724)
@@ -925,9 +911,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("BoxShape3D_8pife")
 metadata/_edit_lock_ = true
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1/Crate10/CollisionShape3D"]
-mesh = SubResource("BoxMesh_wsut6")
-metadata/_edit_lock_ = true
+[node name="crate2" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1/Crate10/CollisionShape3D" instance=ExtResource("27_l3umd")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="Crate11" type="StaticBody3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1"]
 transform = Transform3D(0.20423973, 0, -0.9789209, 0, 1, 0, 0.9789209, 0, 0.20423973, -206.33614, 18.089005, -110.459526)
@@ -937,9 +922,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("BoxShape3D_8pife")
 metadata/_edit_lock_ = true
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1/Crate11/CollisionShape3D"]
-mesh = SubResource("BoxMesh_wsut6")
-metadata/_edit_lock_ = true
+[node name="crate2" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1/Crate11/CollisionShape3D" instance=ExtResource("27_l3umd")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="Crate12" type="StaticBody3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1"]
 transform = Transform3D(0.43546677, 0, -0.90020484, 0, 1, 0, 0.90020484, 0, 0.43546677, -205.85625, 20.952843, -110.71554)
@@ -949,9 +933,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("BoxShape3D_8pife")
 metadata/_edit_lock_ = true
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1/Crate12/CollisionShape3D"]
-mesh = SubResource("BoxMesh_wsut6")
-metadata/_edit_lock_ = true
+[node name="crate2" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1/Crate12/CollisionShape3D" instance=ExtResource("27_l3umd")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="Crate13" type="StaticBody3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1"]
 transform = Transform3D(0.20423973, 0, -0.9789209, 0, 1, 0, 0.9789209, 0, 0.20423973, -206.50023, 19.952843, -107.45775)
@@ -961,9 +944,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("BoxShape3D_8pife")
 metadata/_edit_lock_ = true
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1/Crate13/CollisionShape3D"]
-mesh = SubResource("BoxMesh_wsut6")
-metadata/_edit_lock_ = true
+[node name="crate2" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1/Crate13/CollisionShape3D" instance=ExtResource("27_l3umd")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="Crate14" type="StaticBody3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1"]
 transform = Transform3D(0.20423973, 0, -0.9789209, 0, 1, 0, 0.9789209, 0, 0.20423973, -206.54047, 17.952843, -107.854836)
@@ -973,9 +955,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("BoxShape3D_8pife")
 metadata/_edit_lock_ = true
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1/Crate14/CollisionShape3D"]
-mesh = SubResource("BoxMesh_wsut6")
-metadata/_edit_lock_ = true
+[node name="crate2" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1/Crate14/CollisionShape3D" instance=ExtResource("27_l3umd")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="Crate15" type="StaticBody3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1"]
 transform = Transform3D(0.43546677, 0, -0.90020484, 0, 1, 0, 0.90020484, 0, 0.43546677, -206.54047, 18.952843, -107.854836)
@@ -985,9 +966,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("BoxShape3D_8pife")
 metadata/_edit_lock_ = true
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1/Crate15/CollisionShape3D"]
-mesh = SubResource("BoxMesh_wsut6")
-metadata/_edit_lock_ = true
+[node name="crate2" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1/Crate15/CollisionShape3D" instance=ExtResource("27_l3umd")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="Crate16" type="StaticBody3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1"]
 transform = Transform3D(0.20423973, 0, -0.9789209, 0, 1, 0, 0.9789209, 0, 0.20423973, -207.35852, 18.089005, -107.08964)
@@ -997,9 +977,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("BoxShape3D_8pife")
 metadata/_edit_lock_ = true
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1/Crate16/CollisionShape3D"]
-mesh = SubResource("BoxMesh_wsut6")
-metadata/_edit_lock_ = true
+[node name="crate2" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1/Crate16/CollisionShape3D" instance=ExtResource("27_l3umd")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="Crate20" type="StaticBody3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1"]
 transform = Transform3D(0.20423973, 0, -0.9789209, 0, 1, 0, 0.9789209, 0, 0.20423973, -206.03088, 18.089005, -106.54792)
@@ -1009,9 +988,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("BoxShape3D_8pife")
 metadata/_edit_lock_ = true
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1/Crate20/CollisionShape3D"]
-mesh = SubResource("BoxMesh_wsut6")
-metadata/_edit_lock_ = true
+[node name="crate2" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1/Crate20/CollisionShape3D" instance=ExtResource("27_l3umd")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="Crate18" type="StaticBody3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1"]
 transform = Transform3D(-0.45282385, 0, -0.89159995, 0, 1, 0, 0.89159995, 0, -0.45282385, -207.35852, 19.094429, -107.08964)
@@ -1021,9 +999,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("BoxShape3D_8pife")
 metadata/_edit_lock_ = true
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1/Crate18/CollisionShape3D"]
-mesh = SubResource("BoxMesh_wsut6")
-metadata/_edit_lock_ = true
+[node name="crate2" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1/Crate18/CollisionShape3D" instance=ExtResource("27_l3umd")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="Crate17" type="StaticBody3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1"]
 transform = Transform3D(0.43546677, 0, -0.90020484, 0, 1, 0, 0.90020484, 0, 0.43546677, -206.87863, 20.952843, -107.34565)
@@ -1033,9 +1010,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("BoxShape3D_8pife")
 metadata/_edit_lock_ = true
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1/Crate17/CollisionShape3D"]
-mesh = SubResource("BoxMesh_wsut6")
-metadata/_edit_lock_ = true
+[node name="crate2" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1/Crate17/CollisionShape3D" instance=ExtResource("27_l3umd")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="Crate19" type="StaticBody3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1"]
 transform = Transform3D(0.03362614, 0, -0.9994344, 0, 1, 0, 0.9994344, 0, 0.03362614, -206.87863, 21.952843, -107.34565)
@@ -1045,9 +1021,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("BoxShape3D_8pife")
 metadata/_edit_lock_ = true
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1/Crate19/CollisionShape3D"]
-mesh = SubResource("BoxMesh_wsut6")
-metadata/_edit_lock_ = true
+[node name="crate2" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1/Crate19/CollisionShape3D" instance=ExtResource("27_l3umd")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="Crate21" type="StaticBody3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1"]
 transform = Transform3D(0.20423973, 0, -0.9789209, 0, 1, 0, 0.9789209, 0, 0.20423973, -210.18532, 21.756563, -104.36726)
@@ -1057,9 +1032,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("BoxShape3D_8pife")
 metadata/_edit_lock_ = true
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1/Crate21/CollisionShape3D"]
-mesh = SubResource("BoxMesh_wsut6")
-metadata/_edit_lock_ = true
+[node name="crate2" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1/Crate21/CollisionShape3D" instance=ExtResource("27_l3umd")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="Crate22" type="StaticBody3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1"]
 transform = Transform3D(0.20423973, 0, -0.9789209, 0, 1, 0, 0.9789209, 0, 0.20423973, -210.17848, 19.756563, -104.3354)
@@ -1069,9 +1043,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("BoxShape3D_8pife")
 metadata/_edit_lock_ = true
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1/Crate22/CollisionShape3D"]
-mesh = SubResource("BoxMesh_wsut6")
-metadata/_edit_lock_ = true
+[node name="crate2" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1/Crate22/CollisionShape3D" instance=ExtResource("27_l3umd")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="Crate23" type="StaticBody3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1"]
 transform = Transform3D(0.21788768, 0, -0.9759738, 0, 1, 0, 0.9759738, 0, 0.21788768, -210.17848, 20.756563, -104.3354)
@@ -1081,9 +1054,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("BoxShape3D_8pife")
 metadata/_edit_lock_ = true
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1/Crate23/CollisionShape3D"]
-mesh = SubResource("BoxMesh_wsut6")
-metadata/_edit_lock_ = true
+[node name="crate2" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1/Crate23/CollisionShape3D" instance=ExtResource("27_l3umd")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="Crate25" type="StaticBody3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1"]
 transform = Transform3D(0.20423973, 0, -0.9789209, 0, 1, 0, 0.9789209, 0, 0.20423973, -211.74225, 26.693584, -100.76495)
@@ -1093,9 +1065,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("BoxShape3D_8pife")
 metadata/_edit_lock_ = true
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1/Crate25/CollisionShape3D"]
-mesh = SubResource("BoxMesh_wsut6")
-metadata/_edit_lock_ = true
+[node name="crate2" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1/Crate25/CollisionShape3D" instance=ExtResource("27_l3umd")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="Crate28" type="StaticBody3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1"]
 transform = Transform3D(0.03362614, 0, -0.9994344, 0, 1, 0, 0.9994344, 0, 0.03362614, -210.51665, 22.756563, -103.82622)
@@ -1105,9 +1076,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("BoxShape3D_8pife")
 metadata/_edit_lock_ = true
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1/Crate28/CollisionShape3D"]
-mesh = SubResource("BoxMesh_wsut6")
-metadata/_edit_lock_ = true
+[node name="crate2" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1/Crate28/CollisionShape3D" instance=ExtResource("27_l3umd")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="Crate29" type="StaticBody3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1"]
 transform = Transform3D(0.03362614, 0, -0.9994344, 0, 1, 0, 0.9994344, 0, 0.03362614, -210.51665, 20.84697, -102.54846)
@@ -1117,9 +1087,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("BoxShape3D_8pife")
 metadata/_edit_lock_ = true
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1/Crate29/CollisionShape3D"]
-mesh = SubResource("BoxMesh_wsut6")
-metadata/_edit_lock_ = true
+[node name="crate2" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1/Crate29/CollisionShape3D" instance=ExtResource("27_l3umd")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="Crate30" type="StaticBody3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1"]
 transform = Transform3D(0.03362614, 0, -0.9994344, 0, 1, 0, 0.9994344, 0, 0.03362614, -210.51665, 21.84697, -102.54846)
@@ -1129,9 +1098,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("BoxShape3D_8pife")
 metadata/_edit_lock_ = true
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1/Crate30/CollisionShape3D"]
-mesh = SubResource("BoxMesh_wsut6")
-metadata/_edit_lock_ = true
+[node name="crate2" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1/Crate30/CollisionShape3D" instance=ExtResource("27_l3umd")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="Crate31" type="StaticBody3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1"]
 transform = Transform3D(0.03362614, 0, -0.9994344, 0, 1, 0, 0.9994344, 0, 0.03362614, -210.51665, 22.84697, -102.54846)
@@ -1141,9 +1109,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("BoxShape3D_8pife")
 metadata/_edit_lock_ = true
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1/Crate31/CollisionShape3D"]
-mesh = SubResource("BoxMesh_wsut6")
-metadata/_edit_lock_ = true
+[node name="crate2" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1/Crate31/CollisionShape3D" instance=ExtResource("27_l3umd")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="Crate32" type="StaticBody3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1"]
 transform = Transform3D(-0.54233897, 0, -0.84015983, 0, 1, 0, 0.84015983, 0, -0.54233897, -210.51665, 23.84697, -102.54846)
@@ -1153,9 +1120,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("BoxShape3D_8pife")
 metadata/_edit_lock_ = true
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1/Crate32/CollisionShape3D"]
-mesh = SubResource("BoxMesh_wsut6")
-metadata/_edit_lock_ = true
+[node name="crate2" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1/Crate32/CollisionShape3D" instance=ExtResource("27_l3umd")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="Crate33" type="StaticBody3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1"]
 transform = Transform3D(-0.54233897, 0, -0.84015983, 0, 1, 0, 0.84015983, 0, -0.54233897, -210.89021, 21.683214, -101.27192)
@@ -1165,9 +1131,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("BoxShape3D_8pife")
 metadata/_edit_lock_ = true
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1/Crate33/CollisionShape3D"]
-mesh = SubResource("BoxMesh_wsut6")
-metadata/_edit_lock_ = true
+[node name="crate2" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1/Crate33/CollisionShape3D" instance=ExtResource("27_l3umd")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="Crate34" type="StaticBody3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1"]
 transform = Transform3D(-0.54233897, 0, -0.84015983, 0, 1, 0, 0.84015983, 0, -0.54233897, -210.89021, 22.683214, -101.27192)
@@ -1177,9 +1142,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("BoxShape3D_8pife")
 metadata/_edit_lock_ = true
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1/Crate34/CollisionShape3D"]
-mesh = SubResource("BoxMesh_wsut6")
-metadata/_edit_lock_ = true
+[node name="crate2" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1/Crate34/CollisionShape3D" instance=ExtResource("27_l3umd")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="Crate35" type="StaticBody3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1"]
 transform = Transform3D(-0.54233897, 0, -0.84015983, 0, 1, 0, 0.84015983, 0, -0.54233897, -210.89021, 23.683214, -101.27192)
@@ -1189,9 +1153,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("BoxShape3D_8pife")
 metadata/_edit_lock_ = true
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1/Crate35/CollisionShape3D"]
-mesh = SubResource("BoxMesh_wsut6")
-metadata/_edit_lock_ = true
+[node name="crate2" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1/Crate35/CollisionShape3D" instance=ExtResource("27_l3umd")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="Crate36" type="StaticBody3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1"]
 transform = Transform3D(-0.54233897, 0, -0.84015983, 0, 1, 0, 0.84015983, 0, -0.54233897, -211.37515, 25.683214, -101.17163)
@@ -1201,9 +1164,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("BoxShape3D_8pife")
 metadata/_edit_lock_ = true
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1/Crate36/CollisionShape3D"]
-mesh = SubResource("BoxMesh_wsut6")
-metadata/_edit_lock_ = true
+[node name="crate2" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1/Crate36/CollisionShape3D" instance=ExtResource("27_l3umd")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="Crate39" type="StaticBody3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1"]
 transform = Transform3D(-0.54233897, 0, -0.84015983, 0, 1, 0, 0.84015983, 0, -0.54233897, -221.56635, 34.783573, -80.78055)
@@ -1213,9 +1175,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("BoxShape3D_8pife")
 metadata/_edit_lock_ = true
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1/Crate39/CollisionShape3D"]
-mesh = SubResource("BoxMesh_wsut6")
-metadata/_edit_lock_ = true
+[node name="crate2" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1/Crate39/CollisionShape3D" instance=ExtResource("27_l3umd")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="Crate40" type="StaticBody3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1"]
 transform = Transform3D(-0.54233897, 0, -0.84015983, 0, 1, 0, 0.84015983, 0, -0.54233897, -221.56635, 34.783573, -79.39297)
@@ -1225,9 +1186,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("BoxShape3D_8pife")
 metadata/_edit_lock_ = true
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1/Crate40/CollisionShape3D"]
-mesh = SubResource("BoxMesh_wsut6")
-metadata/_edit_lock_ = true
+[node name="crate2" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1/Crate40/CollisionShape3D" instance=ExtResource("27_l3umd")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="Crate41" type="StaticBody3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1"]
 transform = Transform3D(-0.54233897, 0, -0.84015983, 0, 1, 0, 0.84015983, 0, -0.54233897, -221.56635, 35.79196, -80.05656)
@@ -1237,9 +1197,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("BoxShape3D_8pife")
 metadata/_edit_lock_ = true
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1/Crate41/CollisionShape3D"]
-mesh = SubResource("BoxMesh_wsut6")
-metadata/_edit_lock_ = true
+[node name="crate2" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1/Crate41/CollisionShape3D" instance=ExtResource("27_l3umd")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="Crate37" type="StaticBody3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1"]
 transform = Transform3D(-0.54233897, 0, -0.84015983, 0, 1, 0, 0.84015983, 0, -0.54233897, -210.89021, 24.683214, -101.27192)
@@ -1249,9 +1208,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("BoxShape3D_8pife")
 metadata/_edit_lock_ = true
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1/Crate37/CollisionShape3D"]
-mesh = SubResource("BoxMesh_wsut6")
-metadata/_edit_lock_ = true
+[node name="crate2" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1/Crate37/CollisionShape3D" instance=ExtResource("27_l3umd")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 
 [node name="bridge2" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav" instance=ExtResource("24_sdsnp")]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)

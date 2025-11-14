@@ -7,6 +7,10 @@ func speed():
 
 var fleeing = false
 # Eating, Rolling, Roll Starting, Roll Ending
+func _ready() -> void:
+	if(species == "Gold Burglerat"):
+		get_node("model/rat armature/Skeleton3D/rat").visible = false
+		get_node("model/rat armature/Skeleton3D/goldrat").visible = true
 
 func pick_action():
 

@@ -15,7 +15,6 @@ func pick_action():
 	
 	if(action == "Eating" and get_nearest_bait() != null):
 		get_nearest_bait().queue_free()
-		make_emoticon("Love")
 		action = "RestingIDLE"
 	elif((dist_to_player() < 50 and player_is_whistling()) or fleeing):
 		if(action != "Scared"):
