@@ -308,7 +308,6 @@ horizontal_alignment = 0
 vertical_alignment = 0
 
 [node name="ScoringBase" type="Node3D" parent="pc-monitor/Grading" index="6"]
-visible = false
 
 [node name="Name" type="Label3D" parent="pc-monitor/Grading/ScoringBase" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.586, 0.85000014, 0)
