@@ -37,4 +37,7 @@ shape = SubResource("CapsuleShape3D_pjl8l")
 
 [node name="nav" type="NavigationAgent3D" parent="."]
 
+[node name="emote" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.6299999, 0)
+
 [connection signal="body_entered" from="BaitDetect" to="." method="_on_bait_detect_body_entered"]

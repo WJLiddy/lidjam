@@ -1,11 +1,10 @@
 extends SubViewportContainer
 
 var hidecam = false
-var hidewhis
+var hidewhis = true
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
-	#$Viewmodel.world_3d = get_viewport().world_3d
+	$Viewmodel/Camera3D/WhistleViewModel.play("hide")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

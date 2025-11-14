@@ -61,27 +61,58 @@ func pick_perch(all_perches):
 	if result.is_empty():
 		return possible
 	return null
-			
+
+
+@onready var center: Node3D = get_node("../../EscapeHints")
+
+# Project a 3D vector onto the XZ plane and normalize
+func flat_dir_to(pos: Vector3) -> Vector3:
+	var v = pos - center.global_position
+	v.y = 0.0
+	var len2 = v.length_squared()
+	return Vector3.ZERO if len2 == 0.0 else v.normalized()
+
+# 3D cross product sign for 2D (XZ plane) using the Y component only
+func cross_sign(a: Vector3, b: Vector3) -> float:
+	return (a.cross(b)).y
+
+# Same-side check relative to player's direction
+func is_same_side(player_dir: Vector3, monster_dir: Vector3, hint_dir: Vector3) -> bool:
+	var s_mon = cross_sign(player_dir, monster_dir)
+	var s_hint = cross_sign(player_dir, hint_dir)
+	return s_mon * s_hint >= 0.0
+
+# --- main function ---
+
 func set_nav_flee_from_player():
-	var naive_escape = global_position + ((global_position - get_node("../../Player").global_position).normalized() * 10)
-	
-	var nav_map = $nav.get_navigation_map()
-	var query_point = naive_escape
-	var closest = NavigationServer3D.map_get_closest_point(nav_map, query_point)
+	# collect only Node3D hints
+	var hints = center.get_children()
+	var player_dir = flat_dir_to(get_node("../../Player").global_position)
+	var monster_dir = flat_dir_to(global_position)
 
-	# clsoe enough.
-	if query_point.distance_to(closest) < 0.5:
-		$nav.set_target_position(closest)
+	var best: Node3D = null
+	var best_dist := 1e20
+
+	for hint in hints:
+		var hint_dir = flat_dir_to(hint.global_position)
+
+		# forbidden if hint is on opposite side of player direction
+		if not is_same_side(player_dir, monster_dir, hint_dir):
+			continue
+			
+
+		var d = global_position.distance_to(hint.global_position)
+		if d < best_dist and d > 10:
+			best_dist = d
+			best = hint
+
+	if(best != null):
+		print("Wants " + str(best))
 	else:
-		# pick the escape hint that's farthest from the player.
-		var player = get_node("../../Player")
-		var escape_hints = get_node("../../EscapeHints").get_children()
-
-		var v = escape_hints.reduce(func(best, next):
-			return next if player.global_position.distance_to(next.global_position) > player.global_position.distance_to(best.global_position) else best
-		)
-		$nav.set_target_position(v.global_position)
-
+		print("WARNING! USED FALLBACK!")
+		best = center.get_children()[0]
+	$nav.set_target_position(best.global_position)
+	
 func set_nav_meander():
 	$nav.set_target_position(global_position + Vector3(randf_range(-5,5),0,randf_range(-5,5)))
 
@@ -90,7 +121,7 @@ func make_emoticon(t):
 	e.set_type(t)
 	get_node("../../Emoticons").add_child(e)
 	e.global_position = global_position
-	e.follow = $vis
+	e.follow = $emote
 	
 # not great but crunch time
 # multiply by player_distance. a high stealth mult makes player seem farther away than actually is.
@@ -143,6 +174,10 @@ func _physics_process(delta: float) -> void:
 		
 	if(action_time > 0):
 		
+		# DEBUG!!!
+		if(not(action.replace("IDLE","") in get_node("../../Puter/pc-monitor").pose_score)):
+			print("CRITICAL ERROR! CANT SCORE " +  action)
+			
 		var walk_actions = ["Walking","Rolling","Flying","Scared","Waddling"]
 		var look_at_player_actions = ["Turning","Listening","Excited","Judging","Petrified"]
 		# !! Action Lookup Map

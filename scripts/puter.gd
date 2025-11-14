@@ -170,6 +170,10 @@ func _input(event: InputEvent) -> void:
 						state = "shop"
 						$Background.visible = false
 						$Shop.visible = true
+					if $Background/Gallery/Gallery.get_overlapping_bodies().size() == 1:
+						state = "review"
+						$Background.visible = false
+						$Review.visible = true
 					if $Background/Upload/Upload.get_overlapping_bodies().size() == 1 and Global.pics.size() > 0:
 						process_all_pictures()
 						get_node("../../../../UIRender").rewind()

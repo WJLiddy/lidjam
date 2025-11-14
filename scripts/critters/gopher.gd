@@ -1,5 +1,6 @@
 extends Critter
 var digging = false
+var was_alerted = false
 var orig_rot
 
 func _ready():
@@ -7,8 +8,9 @@ func _ready():
 # Turning, Dancing, Diving, Eating, Judging
 func pick_action():
 	
-	if(dist_to_player() * stealth_mult() < 20 and dist_to_player() * stealth_mult() > 15):
+	if((not was_alerted) and dist_to_player() * stealth_mult() < 20 and dist_to_player() * stealth_mult() > 15):
 		make_emoticon("Alert")
+		was_alerted = true
 	
 	if(action == "RestingIDLE"):
 		action = "PartyingIDLE"
@@ -37,6 +39,7 @@ func pick_action():
 		# later, only if player can't see us.
 		if(dist_to_player() > 30 and not get_node("vis").is_on_screen()):
 			action = "PartyingIDLE"
+			was_alerted = false
 			$vis.position = Vector3(0,0.8,0)
 			global_rotation = orig_rot
 			action_time = get_anim_length(action)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=3 uid="uid://bdkh5n42abtlg"]
+[gd_scene load_steps=76 format=3 uid="uid://bdkh5n42abtlg"]
 
 [ext_resource type="PackedScene" uid="uid://bf504syknspt3" path="res://tscn/puter.tscn" id="1_5rndp"]
 [ext_resource type="PackedScene" uid="uid://jyncanbkjjnq" path="res://tscn/player.tscn" id="1_lifw2"]
@@ -224,6 +224,13 @@ _data = {
 &"hide": SubResource("Animation_cj7we"),
 &"show": SubResource("Animation_5u7ok")
 }
+
+[sub_resource type="LabelSettings" id="LabelSettings_84j8i"]
+line_spacing = 0.0
+font = ExtResource("15_6iyis")
+font_size = 12
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_5xr7u"]
 font = ExtResource("15_6iyis")
@@ -1320,7 +1327,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.127472, 2.9557586, 89.8202
 [node name="EscapeHints" type="Node3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World"]
 
 [node name="Spawn" type="Node3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/EscapeHints"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -156.26974, 37.018124, 66.87182)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -65.12625, 16.65691, 55.933678)
 
 [node name="Forest" type="Node3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/EscapeHints"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -152.30672, 9.729327, -84.9578)
@@ -1383,9 +1390,20 @@ offset_top = 4.0
 offset_right = 397.0
 offset_bottom = 48.0
 theme_override_font_sizes/font_size = 30
-text = "19/20
-$ 39"
+text = "19/20"
 label_settings = ExtResource("32_3w53r")
+horizontal_alignment = 2
+
+[node name="Money" type="Label" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/UIRender"]
+layout_mode = 0
+offset_left = 164.0
+offset_top = 22.5
+offset_right = 397.0
+offset_bottom = 66.5
+pivot_offset = Vector2(233, 0)
+theme_override_font_sizes/font_size = 30
+text = "$999"
+label_settings = SubResource("LabelSettings_84j8i")
 horizontal_alignment = 2
 
 [node name="PicSpot" type="TextureRect" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/UIRender"]

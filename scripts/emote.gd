@@ -30,5 +30,4 @@ func set_type(st):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	look_at(get_node("../../Player").global_position)
-	# LATER! BESPOKE EMOTICON SPOT
-	global_position = follow.global_position + Vector3(0,1+follow.get_aabb().size.y,0)
+	global_position = follow.global_position + Vector3(0,1,0)

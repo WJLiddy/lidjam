@@ -16,7 +16,7 @@ func pick_action():
 		make_emoticon("Anger")
 	elif(player_is_whistling()):
 		action = "Scared"
-		make_emoticon("Scared")
+		make_emoticon("Anger")
 		set_nav_flee_from_player()
 	elif (baited):
 		baited = false

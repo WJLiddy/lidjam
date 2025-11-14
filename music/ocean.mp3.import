@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/ocean.mp3-d00bf18490bcd4c17fed5e35a326757b.mp
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
 bpm=0
 beat_count=0

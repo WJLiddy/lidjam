@@ -9,6 +9,8 @@ var photomode = false
 
 var critterprevtext = ""
 
+var moneyprev = 0
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -17,7 +19,19 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.wwdea
 func _process(delta: float) -> void:
 	$Flash.color = Color(1,1,1,$Flash.color.a -  5 * delta)
+	$Status.text = str(Global.pics.size()) + " / " + str(Global.picsmax)
 	$FPS.text = "FPS " + str(Engine.get_frames_per_second())
+	$Money.text = "$ " +  str(int(moneyprev))
+	
+	if(moneyprev < Global.money):
+		moneyprev += delta*5
+		$Money.scale = Vector2(2,2)
+	if(moneyprev > Global.money):
+		moneyprev = Global.money
+
+	$Money.scale = lerp($Money.scale,Vector2(1,1),10*delta)
+	
+	
 	$CandyCount/Label.text = str(Global.bait)
 	if(whistling):
 		$Whistle.modulate.a = move_toward($Whistle.modulate.a,1,delta)
@@ -26,6 +40,7 @@ func _process(delta: float) -> void:
 
 	$CandyCount.visible = not photomode and Global.bait_unlocked
 	$Whistle.visible = not photomode and Global.whistle_unlocked
+	$Money.visible = not photomode
 	$PicSpot.visible = not photomode
 	$PicSpot2.visible = not photomode
 	$PicSpot3.visible = not photomode
@@ -34,11 +49,9 @@ func _process(delta: float) -> void:
 	$CritterPrev.modulate = Color(1,1,1,.4)
 	if(photomode):
 		$Status.modulate = Color(1,1,1,.4)
-		$Status.text = str(Global.pics.size()) + " / " + str(Global.picsmax)
 		
 	else:
 		$Status.modulate = Color(1,1,1,1)
-		$Status.text = str(Global.pics.size()) + " / " + str(Global.picsmax) + "\n$ " + str(Global.money)
 		
 
 

@@ -36,4 +36,7 @@ collision_mask = 18
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.84999996, 0.90999997)
 shape = SubResource("BoxShape3D_gkt25")
 
+[node name="emote" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.84, 0)
+
 [connection signal="body_entered" from="SpookZone" to="." method="_on_spook_zone_body_entered"]

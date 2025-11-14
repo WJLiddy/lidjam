@@ -25,3 +25,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.40424806, 0)
 shape = SubResource("CapsuleShape3D_g7fwy")
 
 [node name="nav" type="NavigationAgent3D" parent="."]
+
+[node name="emote" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8782615, 0)

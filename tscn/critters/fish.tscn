@@ -17,3 +17,6 @@ transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
 aabb = AABB(-0.06932444, -0.08083489, -0.24559988, 0.13864888, 0.16166978, 0.49119976)
 
 [node name="nav" type="NavigationAgent3D" parent="."]
+
+[node name="emote" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.49785382, 0)

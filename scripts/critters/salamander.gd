@@ -37,7 +37,7 @@ func pick_action():
 				make_emoticon("Alert")
 				is_bait_curious = false
 			else:
-				var rand = randi_range(1,8)
+				var rand = randi_range(1,5)
 				# go to shore eventually
 				if(rand == 1):
 					to_shore = true

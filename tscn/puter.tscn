@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bf504syknspt3"]
+[gd_scene load_steps=22 format=3 uid="uid://bf504syknspt3"]
 
 [ext_resource type="PackedScene" uid="uid://dndwj10egr80j" path="res://programmerart/pc-monitor.fbx" id="1_kic1t"]
 [ext_resource type="Texture2D" uid="uid://c5t4kq1pm500p" path="res://programmerart/win.png" id="2_0hlij"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://caprvn8uxfoxe" path="res://programmerart/log off.png" id="4_lawu1"]
 [ext_resource type="Texture2D" uid="uid://dlnogg7nkhtjq" path="res://programmerart/shop.png" id="5_4ap5h"]
 [ext_resource type="Texture2D" uid="uid://bb5bijjij58bf" path="res://programmerart/grading.png" id="6_2ndsu"]
+[ext_resource type="Texture2D" uid="uid://bbnfw0mtsrxmc" path="res://programmerart/gallery.png" id="6_8agco"]
 [ext_resource type="Texture2D" uid="uid://cpgsb1s2l8q7l" path="res://programmerart/upload.png" id="6_om0pq"]
 [ext_resource type="Texture2D" uid="uid://bohai8cmuaxck" path="res://programmerart/amazon.png" id="7_sjatc"]
 [ext_resource type="Texture2D" uid="uid://crrby1wwugg82" path="res://programmerart/uploading.png" id="7_vt4ab"]
@@ -56,7 +57,7 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 shape = SubResource("BoxShape3D_r1ldu")
 
 [node name="Shop" type="Sprite3D" parent="pc-monitor/Background" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.404, -0.529, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.42900002, -0.5289999, 0)
 sorting_offset = 1.0
 texture = ExtResource("5_4ap5h")
 
@@ -68,8 +69,21 @@ collision_mask = 2
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 shape = SubResource("BoxShape3D_r1ldu")
 
-[node name="Upload" type="Sprite3D" parent="pc-monitor/Background" index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.46215892, -0.52858406, 0.00023365021)
+[node name="Gallery" type="Sprite3D" parent="pc-monitor/Background" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.95400006, -0.5289999, 0)
+sorting_offset = 1.0
+texture = ExtResource("6_8agco")
+
+[node name="Gallery" type="Area3D" parent="pc-monitor/Background/Gallery" index="0"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="pc-monitor/Background/Gallery/Gallery" index="0"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+shape = SubResource("BoxShape3D_r1ldu")
+
+[node name="Upload" type="Sprite3D" parent="pc-monitor/Background" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.11215892, -0.52858406, 0.00023365021)
 sorting_offset = 1.0
 texture = ExtResource("6_om0pq")
 
