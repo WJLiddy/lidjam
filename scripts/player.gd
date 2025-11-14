@@ -188,7 +188,7 @@ func _physics_process(delta: float) -> void:
 				v.freeze = false
 			
 			if(not got_money):
-				Global.money += 50
+				Global.money += 20
 				got_money = true
 			
 		else:
