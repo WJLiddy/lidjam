@@ -33,6 +33,8 @@ const bait = preload("res://tscn/bait.tscn")
 
 var othertuts = [false,false,false]
 
+var got_money = false
+
 
 func _input(event: InputEvent) -> void:
 	if !Global.is_using_puter and event is InputEventMouseMotion:
@@ -173,6 +175,18 @@ func _physics_process(delta: float) -> void:
 			Global.is_using_puter = true
 			# hide the camera
 			get_node("../../../ViewModel").cam_hide()
+		elif %CamRayCast.is_colliding() and %CamRayCast.get_collider().name == "GRAVE" and (not ads_enabled):
+			%CamRayCast.get_collider().get_node("ANIM").play("PRESSG")
+			for v in get_node("../Critters").get_children():
+				if (v.species == "Bugleton"):
+					v.bugle = true
+		elif %CamRayCast.is_colliding() and %CamRayCast.get_collider().name == "JACKPOT" and (not ads_enabled):
+			%CamRayCast.get_collider().get_node("ANIM").play("PRESS")
+			%CamRayCast.get_collider().get_node("Jackpot").play()
+			if(not got_money):
+				Global.money += 50
+				got_money = true
+			
 		else:
 			get_node("../Emoticons").visible = false
 			await RenderingServer.frame_post_draw

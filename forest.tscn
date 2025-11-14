@@ -1,4 +1,4 @@
-[gd_scene load_steps=86 format=3 uid="uid://bdkh5n42abtlg"]
+[gd_scene load_steps=98 format=3 uid="uid://bdkh5n42abtlg"]
 
 [ext_resource type="PackedScene" uid="uid://bf504syknspt3" path="res://tscn/puter.tscn" id="1_5rndp"]
 [ext_resource type="PackedScene" uid="uid://jyncanbkjjnq" path="res://tscn/player.tscn" id="1_lifw2"]
@@ -38,9 +38,13 @@
 [ext_resource type="Script" uid="uid://d0d3d8e1ouxld" path="res://scripts/title.gd" id="22_x23mu"]
 [ext_resource type="AudioStream" uid="uid://y7cgnxqgw0an" path="res://sound/upload.mp3" id="23_x23mu"]
 [ext_resource type="PackedScene" uid="uid://k1voxl3bbvmu" path="res://tscn/bridge.tscn" id="24_sdsnp"]
+[ext_resource type="PackedScene" uid="uid://2npmcmqnmnjt" path="res://tscn/gravestone1.tscn" id="24_v8uw3"]
+[ext_resource type="PackedScene" uid="uid://bg7ur5moww3v3" path="res://tscn/gravestone2.tscn" id="25_0yrp1"]
+[ext_resource type="PackedScene" uid="uid://bs11813dxyj2r" path="res://tscn/buttonbase.tscn" id="26_tp77g"]
 [ext_resource type="Texture2D" uid="uid://uu36jxa0e0yn" path="res://programmerart/peppermint.png" id="27_5xr7u"]
 [ext_resource type="PackedScene" uid="uid://dr8jhv4t0pf1x" path="res://tscn/tree3col.tscn" id="27_84j8i"]
 [ext_resource type="PackedScene" uid="uid://d14t82idu26ya" path="res://tscn/crate.tscn" id="27_l3umd"]
+[ext_resource type="PackedScene" uid="uid://uynoht6qsyml" path="res://tscn/buttonface.tscn" id="27_pjufk"]
 [ext_resource type="Texture2D" uid="uid://dfag3m40iqt2v" path="res://programmerart/whistle.png" id="28_8pife"]
 [ext_resource type="PackedScene" uid="uid://471t8t5kejlk" path="res://tscn/cabin.tscn" id="28_cbth3"]
 [ext_resource type="PackedScene" uid="uid://baxkfgx1u077m" path="res://tscn/tree5col.tscn" id="28_w5ce0"]
@@ -55,6 +59,7 @@
 [ext_resource type="PackedScene" uid="uid://dtg7y08w35kge" path="res://tscn/floating1.tscn" id="34_p0tph"]
 [ext_resource type="PackedScene" uid="uid://d4af7sfync57e" path="res://tscn/floating3.tscn" id="35_iwrk2"]
 [ext_resource type="PackedScene" uid="uid://dkdo07r5ssrid" path="res://tscn/floating5.tscn" id="36_lum22"]
+[ext_resource type="AudioStream" uid="uid://dwlfbqqwqin2w" path="res://sound/Jackpot.mp3" id="41_pjufk"]
 [ext_resource type="PackedScene" uid="uid://t2nhnan44ftn" path="res://tscn/patch1.tscn" id="42_yw7oe"]
 [ext_resource type="PackedScene" uid="uid://p3ihg8fpipn3" path="res://tscn/tree7col.tscn" id="53_p0tph"]
 
@@ -103,7 +108,62 @@ agent_radius = 4.0
 agent_max_climb = 0.5
 agent_max_slope = 60.0
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_tp77g"]
+size = Vector3(4, 4, 4)
+
+[sub_resource type="Animation" id="Animation_tp77g"]
+resource_name = "GANIM"
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../buttonface2")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, -0.5, 0, 0.23333333, 1, 0, -1, 0, 0.96666664, 1, 0, -0.5, 0)
+
+[sub_resource type="Animation" id="Animation_pjufk"]
+length = 0.001
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../buttonface2")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, -0.5, 0)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tpk1y"]
+_data = {
+&"GANIM": SubResource("Animation_tp77g"),
+&"RESET": SubResource("Animation_pjufk")
+}
+
 [sub_resource type="BoxShape3D" id="BoxShape3D_8pife"]
+
+[sub_resource type="Animation" id="Animation_tpk1y"]
+resource_name = "JANIM"
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../buttonface2")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, -0.5, 0, 0.16666667, 1, 0, -0.5, 0, 1.0333333, 1, 0, -1, 0)
+
+[sub_resource type="Animation" id="Animation_na54y"]
+length = 0.001
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../buttonface2")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 1.4901161e-08, -0.45272374, -2.379885e-06)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5g0u2"]
+_data = {
+&"JANIM": SubResource("Animation_tpk1y"),
+&"RESET": SubResource("Animation_na54y")
+}
 
 [sub_resource type="Animation" id="Animation_8pife"]
 length = 0.001
@@ -487,15 +547,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 143.24872, -0.45432645, -117.
 species = "Leghost"
 
 [node name="Ghost2" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" instance=ExtResource("9_mq2pq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 162.88202, -6.842164, -117.85363)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 171.91936, -5.045784, -131.29626)
 species = "Leghost"
 
 [node name="Ghost3" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" instance=ExtResource("9_mq2pq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 134.86005, -2.7969232, -84.28878)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 176.50923, -6.71828, -118.55136)
 species = "Leghost"
 
 [node name="Ghost4" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" instance=ExtResource("9_mq2pq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 160.7647, -9.008018, -53.392563)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 160.7647, -8.073448, -39.913383)
 species = "Leghost"
 
 [node name="Skeleton" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" instance=ExtResource("10_b6w6p")]
@@ -507,11 +567,11 @@ transform = Transform3D(-0.5245061, 0, 0.8514067, 0, 1, 0, -0.8514067, 0, -0.524
 species = "Bugleton"
 
 [node name="Skeleton3" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" instance=ExtResource("10_b6w6p")]
-transform = Transform3D(-0.99128693, 0, -0.13172013, 0, 1, 0, 0.13172013, 0, -0.99128693, 165.80411, -6.832125, -165.08968)
+transform = Transform3D(0.1537619, 0, 0.9881079, 0, 1, 0, -0.9881079, 0, 0.1537619, 181.36569, -5.5171523, -127.78359)
 species = "Bugleton"
 
 [node name="Skeleton4" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" instance=ExtResource("10_b6w6p")]
-transform = Transform3D(0.19334397, 0, 0.9811311, 0, 1, 0, -0.9811311, 0, 0.19334397, 178.17822, -6.6874814, -118.97054)
+transform = Transform3D(0.19334397, 0, 0.9811311, 0, 1, 0, -0.9811311, 0, 0.19334397, 179.7126, -7.138918, -115.430046)
 species = "Bugleton"
 
 [node name="Hummingbird" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" instance=ExtResource("8_77xr6")]
@@ -552,7 +612,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.342712, 3.061855, 89.06199
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -148.43956, 36.96168, 82.990685)
 
 [node name="Turtle2" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" instance=ExtResource("4_x23mu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58.805176, 2.5651302, -98.38132)
+transform = Transform3D(-0.90303564, 0, 0.42956573, 0, 1, 0, -0.42956573, 0, -0.90303564, 73.86336, 3.434634, -147.95624)
 
 [node name="Rat" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" instance=ExtResource("9_77xr6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -157.52878, 37.01649, 66.330185)
@@ -700,6 +760,49 @@ navigation_mesh = SubResource("NavigationMesh_3yfs4")
 [node name="terrain" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav" instance=ExtResource("15_w7ivt")]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
 metadata/_edit_lock_ = true
+
+[node name="gravestone12" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav" instance=ExtResource("24_v8uw3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 171.76836, -9.334774, -69.60568)
+
+[node name="gravestone22" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav" instance=ExtResource("25_0yrp1")]
+transform = Transform3D(0.59136593, 0, -0.80640334, 0, 1, 0, 0.80640334, 0, 0.59136593, 175.10017, -9.466412, -69.60568)
+
+[node name="gravestone13" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav" instance=ExtResource("24_v8uw3")]
+transform = Transform3D(0.84958905, 0, 0.52744526, 0, 1, 0, -0.52744526, 0, 0.84958905, 175.10017, -9.209731, -57.19519)
+
+[node name="gravestone23" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav" instance=ExtResource("25_0yrp1")]
+transform = Transform3D(0.87070787, 0, 0.4918006, 0, 1, 0, -0.4918006, 0, 0.87070787, 171.96394, -9.078351, -58.27941)
+
+[node name="gravestone15" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav" instance=ExtResource("24_v8uw3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 165.48264, -8.100361, -45.039516)
+
+[node name="gravestone24" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav" instance=ExtResource("25_0yrp1")]
+transform = Transform3D(0.59136593, 0, -0.80640334, 0, 1, 0, 0.80640334, 0, 0.59136593, 168.81445, -7.9215307, -45.039516)
+
+[node name="gravestone16" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav" instance=ExtResource("24_v8uw3")]
+transform = Transform3D(0.84958905, 0, 0.52744526, 0, 1, 0, -0.52744526, 0, 0.84958905, 168.81445, -8.693602, -32.629025)
+
+[node name="gravestone25" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav" instance=ExtResource("25_0yrp1")]
+transform = Transform3D(0.87070787, 0, 0.4918006, 0, 1, 0, -0.4918006, 0, 0.87070787, 165.67822, -8.520715, -33.713245)
+
+[node name="gravestone14" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav" instance=ExtResource("24_v8uw3")]
+transform = Transform3D(0.55184966, 0, 0.8339436, 0, 1, 0, -0.8339436, 0, 0.55184966, 180.54941, -7.9773674, -107.75634)
+
+[node name="buttonbase2" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/gravestone14" instance=ExtResource("26_tp77g")]
+transform = Transform3D(0.2, 0, 0, 0, -8.742278e-09, -0.2, 0, 0.2, -8.742278e-09, -0.0932312, 1.4378123, 0.14300537)
+
+[node name="buttonface2" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/gravestone14/buttonbase2" instance=ExtResource("27_pjufk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+
+[node name="GRAVE" type="StaticBody3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/gravestone14/buttonbase2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/gravestone14/buttonbase2/GRAVE"]
+shape = SubResource("BoxShape3D_tp77g")
+
+[node name="GANIM" type="AnimationPlayer" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/gravestone14/buttonbase2/GRAVE"]
+libraries = {
+&"": SubResource("AnimationLibrary_tpk1y")
+}
 
 [node name="Foliage" type="Node3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav"]
 
@@ -1319,6 +1422,26 @@ transform = Transform3D(-0.32754767, 0.12492773, -0.93653923, 0, 0.9912201, 0.13
 
 [node name="floating island 7" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming2" instance=ExtResource("36_lum22")]
 transform = Transform3D(-0.81202245, -0.07716811, 0.5785021, 0, 0.9912201, 0.13222177, -0.5836262, 0.107367046, -0.8048929, -16.559158, 13.03348, 192.57626)
+
+[node name="buttonbase2" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming2/floating island 7" instance=ExtResource("26_tp77g")]
+transform = Transform3D(0.046324193, -0.18977883, 0.042872548, 0.003081107, -0.043349914, -0.19522113, 0.19453682, 0.045877784, -0.0071171066, 0.74759245, 4.568421, 0.28885987)
+
+[node name="buttonface2" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming2/floating island 7/buttonbase2" instance=ExtResource("27_pjufk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4901161e-08, -0.45272374, -2.379885e-06)
+
+[node name="JACKPOT" type="StaticBody3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming2/floating island 7/buttonbase2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming2/floating island 7/buttonbase2/JACKPOT"]
+shape = SubResource("BoxShape3D_tp77g")
+
+[node name="JANIM" type="AnimationPlayer" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming2/floating island 7/buttonbase2/JACKPOT"]
+libraries = {
+&"": SubResource("AnimationLibrary_5g0u2")
+}
+
+[node name="Jackpot" type="AudioStreamPlayer" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming2/floating island 7/buttonbase2/JACKPOT"]
+stream = ExtResource("41_pjufk")
+volume_db = -10.0
 
 [node name="bridge2" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav" instance=ExtResource("24_sdsnp")]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)

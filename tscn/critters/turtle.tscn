@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://df62bathlqpv3"]
 
 [ext_resource type="Script" uid="uid://b8tw03j3k7mri" path="res://scripts/critters/turtle.gd" id="1_lm3d2"]
-[ext_resource type="PackedScene" uid="uid://bc8mg21exfwx3" path="res://blender inbox/tortle/tortle.blend" id="2_lm3d2"]
+[ext_resource type="PackedScene" uid="uid://dhdwpgahbk3yd" path="res://tscn/model/turtlemodel.tscn" id="2_pjl8l"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_pjl8l"]
 radius = 1.5
@@ -13,8 +13,8 @@ collision_mask = 47
 script = ExtResource("1_lm3d2")
 species = "Olturtle"
 
-[node name="model" parent="." instance=ExtResource("2_lm3d2")]
-transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, 0, 0, 0)
+[node name="model" parent="." instance=ExtResource("2_pjl8l")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
 [node name="vis" type="VisibleOnScreenNotifier3D" parent="."]
 transform = Transform3D(3, 0, 0, 0, 7, 0, 0, 0, 7, 0, 1.6376566, 0)

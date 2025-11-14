@@ -28,3 +28,23 @@ shape = SubResource("CapsuleShape3D_r7vnh")
 
 [node name="emote" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.9387798, -0.30071568)
+
+[node name="Magic" type="Node3D" parent="."]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Magic"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.7989221, 1.6266209, -2.3485403)
+light_color = Color(0, 0, 1, 1)
+light_energy = 20.0
+omni_range = 9.642264
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Magic"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8148131, 1.6266209, -2.3485403)
+light_color = Color(0, 1, 0, 1)
+light_energy = 20.0
+omni_range = 9.642264
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="Magic"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.38566136, 1.6266209, 2.682274)
+light_color = Color(1, 0, 1, 1)
+light_energy = 20.0
+omni_range = 9.642264

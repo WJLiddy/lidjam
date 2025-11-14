@@ -11,6 +11,7 @@ func speed():
 var is_bait_curious = true
 # Resting
 func pick_action():
+	$Magic.visible = false
 	var entry_position = get_node("../../SalamanderEntryPoint").global_position
 	var exit_position = get_node("../../SalamanderExitPoint").global_position
 	
@@ -44,6 +45,7 @@ func pick_action():
 					action = "Waddling"
 				if(rand == 2):
 					action = "Using MagicIDLE"
+					$Magic.visible = true
 				if(rand == 3 or rand == 4):
 					action = "RestingIDLE"
 				if(rand > 4):

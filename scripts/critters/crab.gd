@@ -2,6 +2,7 @@ extends Critter
 # Eating, RestingIDLE, Using Magic, Walking
 func pick_action():
 	
+	$Magic.visible = false
 	if(action == "Eating" and get_nearest_bait() != null):
 		get_nearest_bait().queue_free()
 		action = "RestingIDLE"
@@ -17,6 +18,7 @@ func pick_action():
 		if(action == "Walking"):
 			set_nav_meander()
 		if(action == "Using MagicIDLE"):
+			$Magic.visible = true
 			make_emoticon("Anger")
 	action_time = get_anim_length(action)
 	$model/AnimationPlayer.play(action)

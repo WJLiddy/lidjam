@@ -7,6 +7,7 @@ func pick_action():
 	if(bugle):
 		action = "BuglingIDLE"
 		make_emoticon("Love")
+		$Trumpet.play()
 		bugle = false
 	elif(dist_to_player() * stealth_mult() < 35):
 		action = "HidingIDLE"
