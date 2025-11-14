@@ -18,8 +18,9 @@ var last_perch = null
 func _physics_process(delta: float) -> void:
 	action_time -= delta
 	
-	# if the perchtarg EVER gets stale, check that first.
-	if(not is_instance_valid(perch)):
+	# check if our perchtarg is stale.
+	if((not ascending) and not is_instance_valid(perch)):
+		print("freed perch")
 		# someone ate our bait..
 		action = "Perched"
 		action_time = 0
@@ -28,14 +29,21 @@ func _physics_process(delta: float) -> void:
 		if(action == "Eating"):
 			get_nearest_bait().queue_free()
 
-		# change the perchtarg
-		if(ascending and get_nearest_bait() != null and global_position.distance_to(get_nearest_bait().global_position) < 100):
-			perch = get_nearest_bait()
-
 		if action == "Perched" or action == "RestingIDLE" or action == "Eating":
 			# time 2 go
 			ascending = true
 			perch = null
+
+		# change the perchtarg
+		if(ascending and get_nearest_bait() != null and global_position.distance_to(get_nearest_bait().global_position) < 100):
+			# Get the bait?
+			var space_state = get_world_3d().direct_space_state
+			var coll_mask = 1
+			var query = PhysicsRayQueryParameters3D.create(global_position + Vector3(0,1,0), get_nearest_bait().global_position,coll_mask)
+			var result = space_state.intersect_ray(query)
+			if(result.is_empty()):
+				perch = get_nearest_bait()
+				ascending = false
 
 		# if we're ascending, keep flying up
 		if ascending:
@@ -43,6 +51,8 @@ func _physics_process(delta: float) -> void:
 			if(perch != null):
 				ascending = false
 			else:
+				if(name == "Cowbird"):
+					print("fly")
 				# did not find perch. sad.
 				velocity = Vector3(randf_range(-0.4,0.4),0.2,randf_range(-0.4,0.4)).normalized() * speed()
 				action = "Flying"
@@ -66,7 +76,7 @@ func _physics_process(delta: float) -> void:
 					velocity = Vector3.ZERO
 				else:
 					action = "Perched"
-					action_time = 20
+					action_time = 10
 					velocity = Vector3.ZERO
 				$model/AnimationPlayer.play(action)
 	
