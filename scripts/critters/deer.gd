@@ -2,7 +2,7 @@ extends Critter
 
 func speed():
 	if fleeing:
-		return 15
+		return 12
 	return 5
 
 var fleeing = false
