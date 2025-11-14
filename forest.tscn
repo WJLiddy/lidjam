@@ -419,7 +419,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5527077, 5.758844, 5.459696
 species = "Billterfly"
 
 [node name="Fly2" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" instance=ExtResource("9_gn76q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.6119995, 5.126777, -16.217196)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.6119995, 5.126777, -11.392308)
 species = "Billterfly"
 
 [node name="Fly3" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" instance=ExtResource("9_gn76q")]
@@ -427,7 +427,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.657412, 7.1830487, -6.96488
 species = "Billterfly"
 
 [node name="Fly4" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" instance=ExtResource("9_gn76q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.200724, 3.9634843, -34.034306)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.200724, 4.3905845, -30.978626)
+species = "Billterfly"
+
+[node name="Fly5" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" instance=ExtResource("9_gn76q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.660759, 3.3356524, -30.978626)
+species = "Billterfly"
+
+[node name="Fly6" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" instance=ExtResource("9_gn76q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.660759, 3.9634843, -28.938663)
+species = "Billterfly"
+
+[node name="Fly7" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" instance=ExtResource("9_gn76q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.16737, 4.6710734, -28.938663)
 species = "Billterfly"
 
 [node name="Crab" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" instance=ExtResource("10_ms0gx")]
@@ -446,16 +458,16 @@ transform = Transform3D(-0.25271106, 0, 0.9675418, 0, 1, 0, -0.9675418, 0, -0.25
 transform = Transform3D(-0.83526075, 0, -0.54985404, 0, 1, 0, 0.54985404, 0, -0.83526075, -16.3429, 8.654563, -0.8662796)
 
 [node name="Gopher8" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" instance=ExtResource("7_6iyis")]
-transform = Transform3D(-0.92331755, 0, 0.38403752, 0, 1, 0, -0.38403752, 0, -0.92331755, -12.36972, 8.654563, -0.8662796)
+transform = Transform3D(-0.92331755, 0, 0.38403752, 0, 1, 0, -0.38403752, 0, -0.92331755, -12.36972, 8.047605, -0.8662796)
 
 [node name="Gopher5" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" instance=ExtResource("7_6iyis")]
-transform = Transform3D(0.5647654, 0, -0.8252515, 0, 1, 0, 0.8252515, 0, 0.5647654, -16.3429, 8.857485, 3.5860214)
+transform = Transform3D(0.5647654, 0, -0.8252515, 0, 1, 0, 0.8252515, 0, 0.5647654, -16.3429, 8.857486, 3.5860214)
 
 [node name="Gopher6" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" instance=ExtResource("7_6iyis")]
-transform = Transform3D(-0.25271106, 0, 0.9675418, 0, 1, 0, -0.9675418, 0, -0.25271106, -11.031473, 7.8399043, 1.3803444)
+transform = Transform3D(-0.25271106, 0, 0.9675418, 0, 1, 0, -0.9675418, 0, -0.25271106, -11.031473, 7.6011553, 1.3803444)
 
 [node name="Gopher7" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" instance=ExtResource("7_6iyis")]
-transform = Transform3D(0.6379081, 0, 0.7701125, 0, 1, 0, -0.7701125, 0, 0.6379081, -12.593174, 7.8399043, 3.691916)
+transform = Transform3D(0.6379081, 0, 0.7701125, 0, 1, 0, -0.7701125, 0, 0.6379081, -12.593174, 7.596465, 3.691916)
 
 [node name="Ghost" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" instance=ExtResource("9_mq2pq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 143.24872, -0.45432645, -117.85363)
@@ -509,7 +521,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 41.034687, 4.1055126, -86.035
 general_only = true
 
 [node name="Deer" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" instance=ExtResource("10_wsut6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 104.47116, -3.3469613, -85.63556)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -147.53055, 36.104122, 62.529)
 
 [node name="Deer2" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" instance=ExtResource("10_wsut6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -164.75836, 16.292814, -135.01958)
@@ -530,7 +542,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -148.43956, 36.96168, 82.9906
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58.805176, 2.5651302, -98.38132)
 
 [node name="Rat" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" instance=ExtResource("9_77xr6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -147.81824, 41.070747, 66.330185)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -157.52878, 37.01649, 66.330185)
 
 [node name="Rat2" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" instance=ExtResource("9_77xr6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -75.88016, 17.495428, 51.280533)
