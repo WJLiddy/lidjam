@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://t2nhnan44ftn"]
+
+[ext_resource type="PackedScene" uid="uid://dki1e5b6dqyqs" path="res://blender inbox/grasses/patch1/patch1.blend" id="1_aud06"]
+[ext_resource type="Texture2D" uid="uid://dm8xk3amnjmay" path="res://blender inbox/grasses/grasses.png" id="2_6u8ks"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6i522"]
+cull_mode = 2
+albedo_texture = ExtResource("2_6u8ks")
+
+[node name="patch12" instance=ExtResource("1_aud06")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="patch1" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_6i522")

@@ -3,20 +3,19 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c77267sefuc7w"
-path.s3tc="res://.godot/imported/emote_heart.png-7f16c477be26dfc907f148f37ae5abe2.s3tc.ctex"
+path="res://.godot/imported/emote_heart.png-7f16c477be26dfc907f148f37ae5abe2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
 source_file="res://emotes/emote_heart.png"
-dest_files=["res://.godot/imported/emote_heart.png-7f16c477be26dfc907f148f37ae5abe2.s3tc.ctex"]
+dest_files=["res://.godot/imported/emote_heart.png-7f16c477be26dfc907f148f37ae5abe2.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

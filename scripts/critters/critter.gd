@@ -106,9 +106,7 @@ func set_nav_flee_from_player():
 			best_dist = d
 			best = hint
 
-	if(best != null):
-		print("Wants " + str(best))
-	else:
+	if(best == null):
 		print("WARNING! USED FALLBACK!")
 		best = center.get_children()[0]
 	$nav.set_target_position(best.global_position)

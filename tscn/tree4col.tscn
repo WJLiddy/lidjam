@@ -12,9 +12,13 @@ data = PackedVector3Array(-1.183, 2.0049, -1.6229, -0.3539, 14.725599, -1.742399
 [node name="tree42" instance=ExtResource("1_f1qwh")]
 
 [node name="tree4" parent="." index="0"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 surface_material_override/0 = SubResource("StandardMaterial3D_5c6nj")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="tree4" index="0"]
+[node name="Perch" type="Node3D" parent="tree4" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.29, 23.304998, 5.7949996)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="tree4" index="1"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="tree4/StaticBody3D" index="0"]
 shape = SubResource("ConcavePolygonShape3D_hqmq5")

@@ -30,12 +30,12 @@ func _process(delta: float) -> void:
 		var trackold = tracks[currplaying]
 		var t := get_tree().create_tween()
 		t.tween_property(trackold, "volume_db", -80, 3.0)
-		t.tween_callback(Callable(trackold, "stop"))
+		#t.tween_callback(Callable(trackold, "stop"))
 		
 		currplaying = nexttrack
 		var tracknew = tracks[currplaying]
 		var t2 := get_tree().create_tween()
-		tracknew.play()
+		#tracknew.play()
 		t2.tween_property(tracknew, "volume_db", -20, 2.0)
 
 

@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://qpkf2gayuwxo"]
+
+[ext_resource type="PackedScene" uid="uid://b6ae83nupn31w" path="res://blender inbox/grasses/clump1/clump1.blend" id="1_hdtbp"]
+[ext_resource type="Texture2D" uid="uid://dm8xk3amnjmay" path="res://blender inbox/grasses/grasses.png" id="2_4j8cu"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_47y7j"]
+cull_mode = 2
+albedo_texture = ExtResource("2_4j8cu")
+
+[node name="clump12" instance=ExtResource("1_hdtbp")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="clump1" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_47y7j")

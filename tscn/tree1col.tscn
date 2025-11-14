@@ -19,3 +19,6 @@ surface_material_override/0 = SubResource("StandardMaterial3D_8na2h")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="tree1/StaticBody3D" index="0"]
 shape = SubResource("ConcavePolygonShape3D_bjob5")
+
+[node name="Perch" type="Node3D" parent="tree1" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2143922, 11.71741, 0.1790666)

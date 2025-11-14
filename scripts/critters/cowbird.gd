@@ -20,7 +20,6 @@ func _physics_process(delta: float) -> void:
 	
 	# check if our perchtarg is stale.
 	if((not ascending) and not is_instance_valid(perch)):
-		print("freed perch")
 		# someone ate our bait..
 		action = "Perched"
 		action_time = 0
@@ -51,8 +50,6 @@ func _physics_process(delta: float) -> void:
 			if(perch != null):
 				ascending = false
 			else:
-				if(name == "Cowbird"):
-					print("fly")
 				# did not find perch. sad.
 				velocity = Vector3(randf_range(-0.4,0.4),0.2,randf_range(-0.4,0.4)).normalized() * speed()
 				action = "Flying"

@@ -83,9 +83,9 @@ func _physics_process(delta: float) -> void:
 		return
 	else:
 		if(Global.bests.keys().size() > 0):
-			write_tutorial(5,"Press CTRL to Sneak")
+			write_tutorial(5,"Press C to Sneak")
 			
-		# handle other tuts
+		# handle other tutsw
 		if((not othertuts[0]) and tutprog == 8 and Global.shoes_unlocked):
 			write_tutorial(8,"Press Shift to sprint")
 			othertuts[0] = true

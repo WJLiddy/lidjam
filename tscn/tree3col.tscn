@@ -12,6 +12,7 @@ data = PackedVector3Array(-0.0001, 0.7387, -1.0001, 0.4139, 14.439099, -0.4141, 
 [node name="tree32" instance=ExtResource("1_or3p1")]
 
 [node name="tree3" parent="." index="0"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 surface_material_override/0 = SubResource("StandardMaterial3D_u2ivl")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="tree3" index="0"]
