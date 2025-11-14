@@ -1,5 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://c7okg40kptwsc"]
+[gd_scene load_steps=4 format=3 uid="uid://c7okg40kptwsc"]
 
 [ext_resource type="PackedScene" uid="uid://ml7vkvas4cyg" path="res://blender inbox/skelol/skelol.blend" id="1_6ovk0"]
+[ext_resource type="Texture2D" uid="uid://cb40p0u06om8d" path="res://blender inbox/skelol/skelol.png" id="2_lm61g"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3sawm"]
+albedo_texture = ExtResource("2_lm61g")
 
 [node name="skelol2" instance=ExtResource("1_6ovk0")]
+
+[node name="skelol" parent="skelol armature/Skeleton3D" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_3sawm")

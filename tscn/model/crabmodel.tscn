@@ -1,8 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://bs6c6ptv78kd2"]
+[gd_scene load_steps=4 format=3 uid="uid://bs6c6ptv78kd2"]
 
 [ext_resource type="PackedScene" uid="uid://uhivutsopwl6" path="res://blender inbox/wizard crab/wizard crab.blend" id="1_n56uu"]
+[ext_resource type="Texture2D" uid="uid://c0lecvr428bi0" path="res://blender inbox/wizard crab/wizard crab.png" id="2_ewcnw"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n56uu"]
+albedo_texture = ExtResource("2_ewcnw")
 
 [node name="wizard crab2" instance=ExtResource("1_n56uu")]
 

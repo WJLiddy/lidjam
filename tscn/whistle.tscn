@@ -1,8 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://c8gh5txso1qv3"]
+[gd_scene load_steps=4 format=3 uid="uid://c8gh5txso1qv3"]
 
 [ext_resource type="PackedScene" uid="uid://bn6ap3sfyjrkg" path="res://blender inbox/whistle/whistle.blend" id="1_ww6co"]
+[ext_resource type="Texture2D" uid="uid://cp27w33xma2h0" path="res://blender inbox/whistle/whistle.png" id="2_4wrrf"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wgaub"]
+albedo_texture = ExtResource("2_4wrrf")
 
 [node name="whistle2" instance=ExtResource("1_ww6co")]
 
 [node name="whistle" parent="." index="0"]
 layers = 524288
+surface_material_override/0 = SubResource("StandardMaterial3D_wgaub")

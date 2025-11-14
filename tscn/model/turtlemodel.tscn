@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://dhdwpgahbk3yd"]
+[gd_scene load_steps=4 format=3 uid="uid://dhdwpgahbk3yd"]
 
 [ext_resource type="PackedScene" uid="uid://bc8mg21exfwx3" path="res://blender inbox/tortle/tortle.blend" id="1_w86ko"]
+[ext_resource type="Texture2D" uid="uid://vhy8qksfqb4a" path="res://blender inbox/tortle/tortle.png" id="2_pwk03"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jwq4l"]
+albedo_texture = ExtResource("2_pwk03")
 
 [node name="tortle2" instance=ExtResource("1_w86ko")]
 
@@ -24,3 +28,6 @@ bones/15/position = Vector3(-0.40228155, 0.32655758, -0.88871443)
 bones/15/rotation = Quaternion(-0.5734302, 0.21003167, 0.28077304, 0.74042624)
 bones/16/rotation = Quaternion(-0.4216666, 0.44707194, -0.15442763, 0.7736123)
 bones/17/rotation = Quaternion(-0.23053877, 0.08340122, -0.3280707, 0.91228604)
+
+[node name="tortle" parent="tortle armature/Skeleton3D" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_jwq4l")
