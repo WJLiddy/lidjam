@@ -114,6 +114,7 @@ func _process(delta: float) -> void:
 	upload_timer -= delta
 	if(state == "upload" and upload_timer < 0):
 		$Upload.visible = false
+		ui_grade()
 		state = "grading"
 		$Grading.visible = true
 	$Shop/Buy1.visible = !Global.zoom_unlocked
@@ -181,7 +182,6 @@ func _input(event: InputEvent) -> void:
 						if not pictures_to_grade.is_empty():
 							upload_timer = 0.2 * (2+Global.pics.size())
 							grading_index = 0
-							ui_grade()
 							$Background.visible = false
 							state = "upload"
 							$Upload.visible = true
@@ -197,9 +197,7 @@ func _input(event: InputEvent) -> void:
 							for p in pictures_to_grade:
 								if not Global.bests.has(p["critter"]):
 									Global.bests[p["critter"]] = p
-									Global.money += p["score"]
 								elif Global.bests[p["critter"]]["score"] < p["score"]:
-									Global.money += (p["score"] - Global.bests[p["critter"]]["score"])
 									Global.bests[p["critter"]] = p
 							ui_review()
 						else:
@@ -257,6 +255,7 @@ func ui_grade():
 	
 	if(not Global.bests.has(critter)):
 		$Grading/ProfText.text = wrap_text("Wow! This is your first picture of " + critter + ".")
+		Global.money += p["score"]
 	else:
 		if(Global.bests[critter]["score"] > p["score"]):
 			# Make Suggestions
@@ -271,6 +270,7 @@ func ui_grade():
 			elif (p["pdata"]["pose"] != pose_score[species_best_pose[critter]]):
 				$Grading/ProfText.text =  wrap_text("Hmm.. could you get" + critter + " " + species_best_pose[critter] + "???")
 		else:
+			Global.money += (p["score"] - Global.bests[p["critter"]]["score"])
 			if(p["score"] == get_best_possible_score(critter)):
 				$Grading/ProfText.text = wrap_text("Incredible!!! A perfect pic of " + critter + ".")
 			else:
