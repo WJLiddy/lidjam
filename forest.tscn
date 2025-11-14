@@ -1,4 +1,4 @@
-[gd_scene load_steps=83 format=3 uid="uid://bdkh5n42abtlg"]
+[gd_scene load_steps=86 format=3 uid="uid://bdkh5n42abtlg"]
 
 [ext_resource type="PackedScene" uid="uid://bf504syknspt3" path="res://tscn/puter.tscn" id="1_5rndp"]
 [ext_resource type="PackedScene" uid="uid://jyncanbkjjnq" path="res://tscn/player.tscn" id="1_lifw2"]
@@ -52,6 +52,9 @@
 [ext_resource type="PackedScene" uid="uid://dmxupekei370p" path="res://tscn/tree10col.tscn" id="31_yw7oe"]
 [ext_resource type="LabelSettings" uid="uid://c1ih44p7kryui" path="res://uidefault.tres" id="32_3w53r"]
 [ext_resource type="PackedScene" uid="uid://c8gh5txso1qv3" path="res://tscn/whistle.tscn" id="34_5u7ok"]
+[ext_resource type="PackedScene" uid="uid://dtg7y08w35kge" path="res://tscn/floating1.tscn" id="34_p0tph"]
+[ext_resource type="PackedScene" uid="uid://d4af7sfync57e" path="res://tscn/floating3.tscn" id="35_iwrk2"]
+[ext_resource type="PackedScene" uid="uid://dkdo07r5ssrid" path="res://tscn/floating5.tscn" id="36_lum22"]
 [ext_resource type="PackedScene" uid="uid://t2nhnan44ftn" path="res://tscn/patch1.tscn" id="42_yw7oe"]
 [ext_resource type="PackedScene" uid="uid://p3ihg8fpipn3" path="res://tscn/tree7col.tscn" id="53_p0tph"]
 
@@ -1293,6 +1296,29 @@ metadata/_edit_lock_ = true
 
 [node name="crate2" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming1/Crate37/CollisionShape3D" instance=ExtResource("27_l3umd")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="Platforming2" type="Node3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav"]
+
+[node name="floating island 1" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming2" instance=ExtResource("34_p0tph")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.342693, 6.8441505, 128.981)
+
+[node name="floating island 3" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming2" instance=ExtResource("35_iwrk2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.15526, 8.846495, 142.88678)
+
+[node name="floating island 4" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming2" instance=ExtResource("35_iwrk2")]
+transform = Transform3D(0.2635869, 0, -0.96463567, 0, 1, 0, 0.96463567, 0, 0.2635869, -11.87267, 8.72228, 152.19402)
+
+[node name="floating island 2" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming2" instance=ExtResource("34_p0tph")]
+transform = Transform3D(0.9410993, 0, -0.3381303, 0, 1, 0, 0.3381303, 0, 0.9410993, -15.080014, 7.985325, 135.6094)
+
+[node name="floating island 5" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming2" instance=ExtResource("36_lum22")]
+transform = Transform3D(1, 0, 0, 0, 0.9170879, 0.39868504, 0, -0.39868504, 0.9170879, -10.658007, 11.650888, 165.97871)
+
+[node name="floating island 6" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming2" instance=ExtResource("36_lum22")]
+transform = Transform3D(-0.32754767, 0.12492773, -0.93653923, 0, 0.9912201, 0.13222177, 0.9448346, 0.043308936, -0.3246718, -13.662956, 12.973867, 179.54544)
+
+[node name="floating island 7" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav/Platforming2" instance=ExtResource("36_lum22")]
+transform = Transform3D(-0.81202245, -0.07716811, 0.5785021, 0, 0.9912201, 0.13222177, -0.5836262, 0.107367046, -0.8048929, -16.559158, 13.03348, 192.57626)
 
 [node name="bridge2" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Nav" instance=ExtResource("24_sdsnp")]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 0)
