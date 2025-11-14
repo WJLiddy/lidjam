@@ -14,7 +14,7 @@ func pick_action():
 			action = "Walking"
 			$nav.set_target_position(get_nearest_bait().global_position)
 	else:
-		action = ["Walking","RestingIDLE","Using MagicIDLE","Walking","RestingIDLE","Walking"].pick_random()
+		action = ["Walking","RestingIDLE","Using MagicIDLE","Walking","RestingIDLE","Walking","RestingIDLE","Walking","RestingIDLE","Walking"].pick_random()
 		if(action == "Walking"):
 			set_nav_meander()
 		if(action == "Using MagicIDLE"):

@@ -23,7 +23,7 @@ func pick_action():
 			
 	if(action == "Waddling" or action == "RestingIDLE" or action == "Using MagicIDLE"):
 		if(to_shore):
-			if(entry_position.distance_to(global_position) < 4):
+			if(entry_position.distance_to(global_position) < 7.3):
 				action = "Swimming"
 				make_emoticon("Love")
 				is_bait_curious = true

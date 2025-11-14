@@ -53,6 +53,10 @@ func _physics_process(delta: float) -> void:
 	if Global.is_on_title:
 		return
 	
+	for v in get_node("../Baits").get_children():
+		if(v.global_position.y < -20):
+			v.queue_free()
+	
 	action_cooldown -= delta
 	putawaytime -= delta
 	ads_zoom_delay -= delta
@@ -185,8 +189,6 @@ func _physics_process(delta: float) -> void:
 			%CamRayCast.get_collider().get_node("JANIM").play("JANIM")
 			%CamRayCast.get_collider().get_node("Jackpot").play()
 			%CamRayCast.get_collider().get_node("Money").visible = true
-
-			
 			if(not got_money):
 				Global.money += 20
 				got_money = true

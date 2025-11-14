@@ -71,7 +71,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0, 0)
 target_position = Vector3(0, 2.1, 0)
 
 [node name="FootstepSound" type="AudioStreamPlayer" parent="."]
-volume_db = -20.0
+volume_db = -30.0
 max_polyphony = 10
 
 [node name="WhistleSound" type="AudioStreamPlayer" parent="."]

@@ -64,8 +64,8 @@ func _physics_process(delta: float) -> void:
 		if not ascending and action == "Flying":
 			velocity = (perch.global_position - global_position).normalized() * speed()
 			# abort early if goal reached.
-			if((perch.global_position - global_position).length() < 0.2):
-				if(get_nearest_bait() != null and get_nearest_bait().global_position.distance_to(global_position) < 0.2):
+			if((perch.global_position - global_position).length() < 0.5):
+				if(get_nearest_bait() != null and get_nearest_bait().global_position.distance_to(global_position) < 0.5):
 					action = "Eating"
 					action_time = get_anim_length(action)
 					make_emoticon("Love")
@@ -78,4 +78,9 @@ func _physics_process(delta: float) -> void:
 	
 	if(velocity != Vector3(0,0,0)):
 		look_at_grad(delta,global_position + velocity)
+	if(action == "Perched"):
+		if(!is_on_floor()):
+			velocity += Vector3(0,-delta,0)
+		else:
+			velocity = Vector3.ZERO
 	move_and_slide()

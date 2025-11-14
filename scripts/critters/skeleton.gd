@@ -14,6 +14,7 @@ func pick_action():
 		if(action != "PeekingIDLE"):
 			make_emoticon("Alert")
 		action = "PeekingIDLE"
+
 	action_time = get_anim_length(action)
 	$model/AnimationPlayer.play(action)
 	

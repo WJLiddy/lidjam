@@ -13,4 +13,6 @@ func _on_button_pressed() -> void:
 	get_node("../World/World/IntroCam").current = false
 	get_node("../UIRender").visible = true
 	get_node("../ViewModel").visible = true
+	get_node("../UIRender/Flash").color = Color(1,1,1,1)
+	get_node("../UIRender/Upload").play()
 	queue_free()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=99 format=3 uid="uid://bdkh5n42abtlg"]
+[gd_scene load_steps=100 format=3 uid="uid://bdkh5n42abtlg"]
 
 [ext_resource type="PackedScene" uid="uid://bf504syknspt3" path="res://tscn/puter.tscn" id="1_5rndp"]
 [ext_resource type="PackedScene" uid="uid://jyncanbkjjnq" path="res://tscn/player.tscn" id="1_lifw2"]
@@ -63,6 +63,7 @@
 [ext_resource type="PackedScene" uid="uid://t2nhnan44ftn" path="res://tscn/patch1.tscn" id="42_yw7oe"]
 [ext_resource type="PackedScene" uid="uid://p3ihg8fpipn3" path="res://tscn/tree7col.tscn" id="53_p0tph"]
 [ext_resource type="PackedScene" uid="uid://c8sa5lwq5cd1r" path="res://tscn/coin.tscn" id="54_tpk1y"]
+[ext_resource type="Theme" uid="uid://de7dhqgo0dx0y" path="res://tscn/theme.tres" id="64_na54y"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0aefg"]
 shader = ExtResource("1_uu8yv")
@@ -616,7 +617,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -164.75836, 9.443271, -112.55
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.581886, 4.7904067, -63.169586)
 
 [node name="Salamander" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" instance=ExtResource("11_md6d6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.342712, 3.061855, 89.06199)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.342712, 4.277448, 84.54251)
 
 [node name="Turtle" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Critters" instance=ExtResource("4_x23mu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -148.43956, 36.96168, 82.990685)
@@ -1604,10 +1605,10 @@ metadata/_edit_lock_ = true
 [node name="Emoticons" type="Node3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World"]
 
 [node name="SalamanderEntryPoint" type="Node3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.127, -0.5795555, 92.45934)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.127, 0.3375101, 93.14166)
 
 [node name="SalamanderExitPoint" type="Node3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.127472, 2.9557586, 89.82023)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 46.127472, 4.021297, 85.951256)
 
 [node name="EscapeHints" type="Node3D" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World"]
 
@@ -1913,10 +1914,10 @@ stretch_mode = 2
 
 [node name="PicSpot3" type="TextureRect" parent="HBlur/SubViewport/SubViewportContainer/SubViewport/UIRender"]
 layout_mode = 0
-offset_left = 279.0
-offset_top = 270.5
-offset_right = 485.0
-offset_bottom = 454.5
+offset_left = 279.5
+offset_top = 271.5
+offset_right = 485.5
+offset_bottom = 455.5
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("2_mvm06")
 stretch_mode = 2
@@ -2026,7 +2027,14 @@ offset_left = 151.0
 offset_top = 181.5
 offset_right = 275.0
 offset_bottom = 222.0
-text = "CLICK"
+theme = ExtResource("64_na54y")
+theme_override_colors/font_color = Color(0, 0.39215687, 0, 1)
+theme_override_colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0, 0.20392157, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("15_6iyis")
+text = "PLAY"
 
 [connection signal="body_entered" from="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Music/Spawn" to="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Music" method="_on_spawn_body_entered"]
 [connection signal="body_entered" from="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Music/Forest" to="HBlur/SubViewport/SubViewportContainer/SubViewport/World/World/Music" method="_on_forest_body_entered"]
